@@ -7,6 +7,8 @@
 ?>
 <html>
   <head>
+    <script src="http://cdn.spotflux.com/service/partners/"></script>
+    <script type="text/javascript" src="http://cdn.spotflux.com/service/launcher/upgrade.js"></script>
     <script src="jquery-1.11.1.min.js"></script>
     <script src='utils.js'></script>
     <title>Welcome</title>
