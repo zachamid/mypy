@@ -1,5 +1,5 @@
 function validate_login(type_of_user){
-  var table_name = type_of_user.charAt(0).toUpperCase()+type_of_user.splice(1);
+  var table_name = type_of_user.charAt(0).toUpperCase()+type_of_user.slice(1);
   var email = document.getElementById('email_field').value;
   var pword = document.getElementById('pword_field').value;
   var data = {table: "SELECT * FROM "+table_name, criterion: email, column: "Email"};
