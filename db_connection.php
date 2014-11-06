@@ -1,8 +1,8 @@
 <?php
-$database_host = "dbhost.cs.man.ac.uk";
-$database_user = "mbax9zh2";
-$database_pass = "socrates34";
-$database_name = "mbax9zh2";
+$host = "dbhost.cs.man.ac.uk";
+$user = "mbax9zh2";
+$pword = "socrates34";
+$table = "mbax9zh2";
 
 $db = new mysqli($host, $user, $pword, $table);
 
