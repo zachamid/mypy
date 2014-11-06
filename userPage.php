@@ -14,7 +14,7 @@
     <link href="gen.css" rel="stylesheet">
     <script type="text/javascript">
       $(document).ready(function(){
-        var data = {table: "SELECT * FROM Student", condition:<?php echo $_SESSION['id'];?>, column: "StudentID"};
+        var data = {table: "SELECT * FROM Student", criterion:<?php echo $_SESSION['id'];?>, column: "StudentID"};
         $.ajax({
           data : data,
           url : 'run_query.php',
@@ -24,7 +24,7 @@
               document.getElementById('first_name').value= result[i]['FirstName'];
               document.getElementById('last_name').value= result[i]['SecondName'];
               document.getElementById('email').value= result[i]['Email'];
-              var data = {table: "SELECT * FROM Class", condition:result[i]['ClassID'], column: "ClassID"};
+              var data = {table: "SELECT * FROM Class", criterion:result[i]['ClassID'], column: "ClassID"};
               $.ajax({
                 data : data,
                 url : 'run_query.php',
