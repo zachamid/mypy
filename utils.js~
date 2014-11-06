@@ -4,7 +4,7 @@ function validate_login(type_of_user){
         var data = {table: "SELECT * FROM "+type_of_user, criterion: email, column: "Email"};
         $.ajax({
           data : data,
-          url : '../run_query.php',
+          url : 'https://web.cs.manchester.ac.uk/mbax9zh2/thirdyearproject/run_query.php',
           type : "GET",
           dataType : "json"}).done(function(result){
             if(result.length == 0){
