@@ -1,7 +1,7 @@
 function validate_login(){
         var email = document.getElementById('email_field').value;
         var pword = document.getElementById('pword_field').value;
-        var data = {table: "SELECT * FROM Student", criterion: email, column: "Email"};
+        var data = {table: "SELECT * FROM Student", condition: email, column: "Email"};
         $.ajax({
           data : data,
           url : 'run_query.php',
