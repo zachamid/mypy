@@ -13,7 +13,7 @@ function validate_login(type_of_user){
             else{
               for(x = 0; x < result.length; x++){
                 if(result[x]['Password'] == pword){
-                  var login_details = {id: result[x][type_of_user.charAt(0).toUpperCase()+type_of_user.splice(1)+'ID'], type:"student"};
+                  var login_details = {id: result[x][type_of_user.charAt(0).toUpperCase()+type_of_user.splice(1)+'ID'], type:type_of_user};
                   $.ajax({
                     data:login_details,
                     url: 'set_sessions.php',
