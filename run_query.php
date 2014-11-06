@@ -1,7 +1,7 @@
 <?php
   include 'db_connection.php';
   $sql_query = $_GET['table'];
-  if(isset($_GET['column']) && isset($_GET['criterion'];)){
+  if(isset($_GET['column']) && isset($_GET['criterion'])){
     $sql_query .= " WHERE ".$_GET['column']."='".$_GET['criterion']."'";
   }
   if(!$result = $db->query($sql_query)){

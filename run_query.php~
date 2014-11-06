@@ -1,11 +1,8 @@
 <?php
   include 'db_connection.php';
-  $column = $_GET['column'];
-  $condition = $_GET['criterion'];
-  $table = $_GET['table'];
-  $sql_query = $table;
-  if(isset($condition) && isset($column)){
-    $sql_query .= " WHERE ".$column."='".$condition."'";
+  $sql_query = $_GET['table'];
+  if(isset($_GET['column']) && isset($_GET['criterion'];)){
+    $sql_query .= " WHERE ".$_GET['column']."='".$_GET['criterion']."'";
   }
   if(!$result = $db->query($sql_query)){
     die('There was an error running the query [' . $db->error . ']');
