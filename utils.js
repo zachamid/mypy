@@ -32,3 +32,44 @@ function validate_login(type_of_user){
     }
   });
 }
+
+function sign_up(type_of_user){
+  var table_name = type_of_user.charAt(0).toUpperCase()+type_of_user.slice(1);
+  var fields = ['first_name', 'last_name', 'email','pword','confirm_pword'];
+  var flag = 0;
+  for(counter =0; counter < fields.length; counter++){
+    var out = validate_detail(fields[counter]);
+    if(out == 1){
+      flag = 1;
+    }
+  }
+  if(flag == 1){
+    alert('Please fix your form and Retry');
+  }
+  else{
+    var data = {table: "SELECT * FROM Student", column:"Email", criterion: document.getElementById('email').value};
+    $.ajax({
+      data : data,
+      url : 'run_query.php',
+      type : "GET",
+      dataType : "json"}).done(function(result){
+      if(result.length != 0){
+	alert('Email is already registered');
+      }
+      else{
+      var input = '';
+      for(counter =0; counter < fields.length-1; counter++){
+	input += "'"+document.getElementById(fields[counter]).value+"',";
+      }
+      input += document.getElementById('classes').options[document.getElementById('classes').selectedIndex].value;
+      var data = {table:'Student', values:input, columns: 'FirstName, SecondName, Email,Password,ClassID'};
+      $.ajax({
+	data : data,
+	url : 'insert.php',
+	type : "GET"}).done(function(){
+	  location.reload();
+	});
+      }
+    });
+  }
+}

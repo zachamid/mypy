@@ -6,17 +6,17 @@
 ?>
 <html>
   <head>
-  <script src="jquery-1.11.1.min.js"></script>
-  <script src='utils.js'></script>
+  <script src="../jquery-1.11.1.min.js"></script>
+  <script src='../utils.js'></script>
   <title>Sign Up to MyPy</title>
-  <link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="gen.css" rel="stylesheet">
+  <link href="../bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../gen.css" rel="stylesheet">
   <script>
    $(document).ready(function(){
      var data = {table: "SELECT DISTINCT School FROM Class"};
        $.ajax({
          data : data,
-         url : 'run_query.php',
+         url : 'thirdyearproject/run_query.php',
          type : "GET",
          dataType : "json"}).done(function(result){
            var school_select = document.getElementById('schools');

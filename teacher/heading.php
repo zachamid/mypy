@@ -5,12 +5,13 @@
   echo ' <div class="col-md-9">';
   echo ' <h1> MyPy</h1></br>';
   echo ' <h2> The Online Python Education Tool </h2></br>';
+  echo ' <h3> Teacher\'s Portal </h3></br>';
   echo ' </div>';
   echo ' <div class="col-md-3">';
   if(empty($_SESSION['id'])){
     echo ' <input type="email" name="email" class="form-control" id="email_field" placeholder="Email"></br>';
     echo ' <input type="password" name="pword" class="form-control" id="pword_field" placeholder="Password"></br>';
-    echo ' <input type="button" value="Log In" class="btn btn-default" onclick="validate_login()">&nbsp&nbsp';
+    echo ' <input type="button" value="Log In" class="btn btn-default" onclick="validate_login(\'teacher\')">&nbsp&nbsp';
     echo ' <input type="submit" class="btn btn-default"  value="Sign Up" onclick="location.href=\'signup.php\'"></br><div id="error_space"></div> ';
   }
   else{
