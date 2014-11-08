@@ -10,5 +10,15 @@
   </head>
   <body>
     <?php include 'heading.php'; ?>
+    <div class="col-sm-6">
+    	<div class="panel panel-default" style="background-color:lavenderblush;">
+    	Enter the Teacher Portal
+    	</div>
+    </div>
+    <div class="col-sm-6">
+    	<div class="panel panel-default" style="background-color:lavender;">
+    	Enter the Teacher Portal
+    	</div>
+    </div>
   </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-  include (__DIR__.'/../db_connection.php');
+  include (getcwd().'/../db_connection.php');
   echo '<div class="jumbotron" style="background-color:#FF9999">';
   echo '<div class="row">';
   echo ' <div class="col-md-9">';
