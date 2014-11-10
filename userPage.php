@@ -14,7 +14,7 @@
     <link href="gen.css" rel="stylesheet">
     <script type="text/javascript">
       $(document).ready(function(){
-        var data = {table: "SELECT * FROM Student", criterion:<?php echo $_SESSION['id'];?>, column: "StudentID"};
+        var data = {query: "SELECT * FROM Student WHERE StudentID="+<?php echo $_SESSION['id'];?>};
         $.ajax({
           data : data,
           url : 'run_query.php',

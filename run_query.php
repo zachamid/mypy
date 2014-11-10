@@ -1,9 +1,6 @@
 <?php
   include 'db_connection.php';
-  $sql_query = $_GET['table'];
-  if(isset($_GET['column']) && isset($_GET['criterion'])){
-    $sql_query .= " WHERE ".$_GET['column']."='".$_GET['criterion']."'";
-  }
+  $sql_query = stripslashes($_GET['query']);
   if(!$result = $db->query($sql_query)){
     die('There was an error running the query [' . $db->error . ']');
   }

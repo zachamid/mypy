@@ -1,23 +1,26 @@
 <?php
-  session_start();
-  if(empty($_SESSION['id'])){
-    header('Location: index.php');
-  }
-  include 'db_connection.php';
+	session_start();
+	if(empty($_SESSION['id'])){
+		header('Location: index.php');
+  	}
+  	if($_SESSION['Type'] != 'Teacher'){
+  		header('Location:'.getcwd().'/../index.php');
+	}
+  	include getcwd().'/../db_connection.php';
 ?>
 <html>
   <head>
-    <script src="jquery-1.11.1.min.js"></script>
-    <script src='utils.js'></script>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script src='../utils.js'></script>
     <title>Welcome</title>
-    <link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="gen.css" rel="stylesheet">
+    <link href="../bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../gen.css" rel="stylesheet">
     <script type="text/javascript">
       $(document).ready(function(){
-        var data = {table: "SELECT * FROM Student", condition:<?php echo $_SESSION['id'];?>, column: "StudentID"};
+        var data = {query: "SELECT * FROM Teacher WHERE TeacherID="<?php echo $_SESSION['id'];?>};
         $.ajax({
           data : data,
-          url : 'run_query.php',
+          url : '/run_query.php',
           type : "GET",
           dataType : "json"}).done(function(result){
             for(i=0; i<result.length; i++){

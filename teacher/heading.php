@@ -11,18 +11,26 @@
   if(empty($_SESSION['id'])){
     echo ' <input type="email" name="email" class="form-control" id="email_field" placeholder="Email"></br>';
     echo ' <input type="password" name="pword" class="form-control" id="pword_field" placeholder="Password"></br>';
-    echo ' <input type="button" value="Log In" class="btn btn-default" onclick="validate_login(\'teacher\')">&nbsp&nbsp';
-    echo ' <input type="submit" class="btn btn-default"  value="Sign Up" onclick="location.href=\'signup.php\'"></br><div id="error_space"></div> ';
+    echo '<button type="button" class="btn btn-default btn-sm" onclick="validate_login(\'student\')">';
+  	echo '<span class="glyphicon glyphicon-log-in"></span> Login';
+	echo '</button>&nbsp&nbsp';
+	echo '<button type="button" class="btn btn-default btn-sm" onclick="location.href=\'signup.php\'">';
+  	echo '<span class="glyphicon glyphicon-user"></span> Sign Up';
+	echo '</button>';
+    echo '</br><div id="error_space"></div> ';
   }
   else{
-    $sql_query = "SELECT * FROM Student WHERE StudentID=".$_SESSION['id'];
+    $sql_query = "SELECT * FROM Teacher WHERE TeacherID=".$_SESSION['id'];
     if(!$result = $db->query($sql_query)){
       die('There was an error running the query [' . $db->error . ']');
     }
     while($row = $result->fetch_assoc()){
       echo "Welcome</br>".$row['FirstName']." ".$row['SecondName'].'<br></br>';
     }
-   echo '<form action="logout.php"><input type="Submit" value="Log Out" class="btn btn-default"></form>';
+   	echo '<form action="logout.php">';
+   	echo '<button type="submit" class="btn btn-default btn-sm">';
+  	echo '<span class="glyphicon glyphicon-log-out"></span> Sign Out';
+	echo '</button></form>';
   }
   echo ' </div>';
   echo ' </div>';

@@ -8,12 +8,13 @@
   <head>
   <script src="jquery-1.11.1.min.js"></script>
   <script src='utils.js'></script>
+  <script src='user_functions.js'></script>
   <title>Sign Up to MyPy</title>
   <link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="gen.css" rel="stylesheet">
   <script>
    $(document).ready(function(){
-     var data = {table: "SELECT DISTINCT School FROM Class"};
+     var data = {query: "SELECT DISTINCT School FROM Class"};
        $.ajax({
          data : data,
          url : 'run_query.php',
@@ -27,54 +28,11 @@
            getClasses(school_select.options[school_select.selectedIndex].text);
          });
    })
-  
-  function validate_detail(detail){
-    var input = document.getElementById(detail).value;
-    var end_text='';
-    var flag = 0;
-    switch(detail){
-      case 'first_name':
-      case 'last_name':
-        if(input == ''){
-          end_text = 'Name field(s) cannot be blank';
-          flag = 1;
-        }
-        break;
-      case 'email':
-        var at_position = input.indexOf('@');
-        var dot_position = input.lastIndexOf('.');
-        if(input == ''){
-          end_text = 'Email Field cannot be empty';
-          flag = 1;
-        }
-        else if(at_position < 1 || dot_position < at_position + 2 || dot_position + 2 > input.length){
-          end_text = 'Not a valid email address';
-          flag = 1;
-        }
-        break;
-      case 'pword':
-        if (input == ''){
-          end_text = 'Password Field cannot be empty';
-        }
-        if (input.length < 6 || input.length > 16){
-          end_text = 'Password must be between 6 and 16 characters';
-          flag = 1;
-        }
-        break;
-      case 'confirm_pword':
-        if(input != document.getElementById('pword').value){
-          end_text = 'Passwords do not match';
-          flag = 1;
-        }
-    }
-   document.getElementById(detail+'_alert').innerHTML = end_text;
-   return flag;
-  }
 
   function getClasses(){
     var school_select = document.getElementById('schools');
     var school = school_select.options[school_select.selectedIndex].text;
-    var data = {table: "SELECT * FROM Class", column:"School",criterion: school};
+    var data = {query: "SELECT * FROM Class WHERE School=\""+school+"\""};
     $.ajax({
       data : data,
       url : 'run_query.php',
@@ -88,45 +46,27 @@
     });
   }
 
-  function sign_up(){
-    var fields = ['first_name', 'last_name', 'email','pword','confirm_pword'];
-    var flag = 0;
-    for(counter =0; counter < fields.length; counter++){
-      var out = validate_detail(fields[counter]);
-      if(out == 1){
-        flag = 1;
-      }
-    }
-    if(flag == 1){
-      alert('Please fix your form and Retry');
-    }
-    else{
-      var data = {table: "SELECT * FROM Student", column:"Email", criterion: document.getElementById('email').value};
-      $.ajax({
-         data : data,
-         url : 'run_query.php',
-         type : "GET",
-         dataType : "json"}).done(function(result){
-           if(result.length != 0){
-             alert('Email is already registered');
-           }
-           else{
-             var input = '';
-             for(counter =0; counter < fields.length-1; counter++){
-               input += "'"+document.getElementById(fields[counter]).value+"',";
-             }
-             input += document.getElementById('classes').options[document.getElementById('classes').selectedIndex].value;
-             var data = {table:'Student', values:input, columns: 'FirstName, SecondName, Email,Password,ClassID'};
-             $.ajax({
-               data : data,
-               url : 'insert.php',
-               type : "GET"}).done(function(){
-                 location.reload();
-               });
-           }
-       });
-    }
-  }
+	function sign_up(){
+  		var fields = ['FirstName', 'LastName', 'Email','Password','confirm_Password'];
+    	var flag = 0;
+    	for(counter =0; counter < fields.length; counter++){
+    		var out = validate_detail(fields[counter]);
+      		if(out == 1){
+        		flag = 1;
+      		}
+    	}
+    	if(flag == 1){
+      		alert('Please fix your form and Retry');
+    	}
+    	else{
+    		var student = {};
+    		for(counter=0; counter<fields.length-1;counter++){
+    			student[fields[counter]]=document.getElementById(fields[counter]).value;
+    		}
+    		student['ClassID'] = document.getElementById('classes').options[document.getElementById('classes').selectedIndex].value;
+			insert_user('Student',student);
+    	}
+  	}
   </script>
   </head>
   <body>
@@ -137,42 +77,42 @@
       <table width="100%" style="border-spacing:10px">
         <tr>
           <td style="width:50%">
-             <input class="form-control" type="text" id="first_name" placeholder="First Name" onblur='validate_detail(this.id)'>
+             <input class="form-control" type="text" id="FirstName" placeholder="First Name" onblur='validate_detail(this.id)'>
           </td>
           <td>
-             <div id="first_name_alert"></div>
+             <div id="FirstName_alert"></div>
           </td>
         </tr>
         <tr>
           <td style="width:50%">
-            <input class="form-control" type="text" id="last_name" placeholder="Last Name" onblur='validate_detail(this.id)'>
+            <input class="form-control" type="text" id="LastName" placeholder="Last Name" onblur='validate_detail(this.id)'>
           </td>
           <td>
-             <div id="last_name_alert"></div>
+             <div id="LastName_alert"></div>
           </td>
         </tr>
         <tr>
           <td style="width:50%">
-            <input class="form-control" type="text" id="email" placeholder="Email Address" onblur='validate_detail(this.id)'>
+            <input class="form-control" type="text" id="Email" placeholder="Email Address" onblur='validate_detail(this.id)'>
           </td>
           <td>
-             <div id="email_alert"></div>
+             <div id="Email_alert"></div>
           </td>
         </tr>
         <tr>
           <td style="width:50%">
-            <input class="form-control" type="password" id="pword" placeholder="Password" onblur='validate_detail(this.id)'>
+            <input class="form-control" type="password" id="Password" placeholder="Password" onblur='validate_detail(this.id)'>
           </td>
           <td>
-             <div id="pword_alert"></div>
+             <div id="Password_alert"></div>
           </td>
         </tr>
         <tr>
           <td style="width:50%">
-            <input class="form-control" type="password" id="confirm_pword" placeholder="Confirm Password" onblur='validate_detail(this.id)'>
+            <input class="form-control" type="password" id="confirm_Password" placeholder="Confirm Password" onblur='validate_detail(this.id)'>
           </td>
           <td>
-             <div id="confirm_pword_alert"></div>
+             <div id="confirm_Password_alert"></div>
           </td>
         </tr>
       </table>
