@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if($_SESSION['Type'] != 'Teacher'){
-  		header('Location:'.getcwd().'/../index.php');
+  		header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
 ?>
 <html>
