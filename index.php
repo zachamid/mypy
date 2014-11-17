@@ -22,7 +22,7 @@
     </div>
     <div class="col-xs-12 col-md-6 col-sm-12">
     	<div class="panel panel-default" style="background-color:lavender;"><div class="panel-body">
-    		<h3><a href="https://web.cs.manchester.ac.uk/mbax9zh2/thirdyearproject/">TEACHERS: Sign Up for MyPy</a></h3>
+    		<h3><a href="https://web.cs.manchester.ac.uk/mbax9zh2/thirdyearproject/teacher/index.php">TEACHERS: Sign Up for MyPy</a></h3>
     		<h4>Keep a track of how well your students are doing by signing in or signing up as a teacher</h4>
     	</div></div>
     </div>
