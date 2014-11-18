@@ -4,9 +4,9 @@
 		header('Location: index.php');
   	}
   	if($_SESSION['Type'] != 'Teacher'){
-  		header('Location:'.getcwd().'/../index.php');
+  		header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
-  	include getcwd().'/../db_connection.php';
+  	include '/../db_connection.php';
 ?>
 <html>
   <head>

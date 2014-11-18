@@ -1,8 +1,11 @@
 <?php
-  session_start();
-  if(!empty($_SESSION['id'])){
-    header('Location: userPage.php');
-  }
+	session_start();
+	if(!empty($_SESSION['id']) && $_SESSION['type']==['Teacher']){
+		header('Location: userPage.php');
+	}
+  	else if(!empty($_SESSION['id']) || $_SESSION['type']==['Student']){
+  		header('Location: ' . $_SERVER['HTTP_REFERER']);
+  	}
 ?>
 <html>
   <head>
