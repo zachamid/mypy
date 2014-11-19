@@ -124,7 +124,11 @@
       			<div class="panel panel-default">
         			<table id="task_list" width="100%" style="border-spacing:10px">
           				<tr>
-           					<th>ID</th><th>Task</th><th>Date Started</th><th>Last Opened</th><th>Date Completed</th>
+           					<th>ID</th>
+           					<th>Task</th>
+           					<th>Date Started</th>
+           					<th>Last Opened</th>
+           					<th>Date Completed</th>
           				</tr>
         			</table>
       			</div>
