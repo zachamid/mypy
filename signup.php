@@ -11,7 +11,7 @@
   <script src='user_functions.js'></script>
   <title>Sign Up to MyPy</title>
   <link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="gen.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="general_style.css">
   <script>
    $(document).ready(function(){
      var data = {query: "SELECT DISTINCT School FROM Class"};
@@ -72,7 +72,7 @@
   <body>
     <?php include 'heading.php'; ?>
     
-    <div class="container"><h3>Student Sign Up</h3><div class="panel panel-default">
+    <div class="container"><div class="panel panel-default translucent"><h3>Student Sign Up</h3></div><div class="panel panel-default translucent">
       <h4>Student Details</h4>
       <table width="100%" style="border-spacing:10px">
         <tr>
@@ -117,7 +117,7 @@
         </tr>
       </table>
     </div></div>
-    <div class="container"><div class="panel panel-default">
+    <div class="container"><div class="panel panel-default translucent">
       <h4>Class Details</h4></br>
       <table width="100%" style="border-spacing:10px">
         <tr><td style="width:50%">

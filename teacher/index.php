@@ -7,6 +7,7 @@
 <html>
   <head>
     <script src="../jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="teacher_style.css">
     <title>Welcome</title>
     <link href="../bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     <script src='../user_functions.js'></script>

@@ -1,6 +1,6 @@
 <?php
   include 'db_connection.php';
-  echo '<div class="jumbotron" style="background:LightBlue ">';
+  echo '<div class="jumbotron translucent">';
   echo '<div class="row">';
   echo ' <div class="col-md-9">';
   echo ' <h1> MyPy</h1></br>';
