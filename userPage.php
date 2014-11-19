@@ -8,10 +8,9 @@
 <html>
   	<head>
     	<script src="jquery-1.11.1.min.js"></script>
-    	<script src='utils.js'></script>
     	<title>Welcome</title>
     	<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
-    	<link href="gen.css" rel="stylesheet">
+    	<link href="general_style.css" rel="stylesheet">
     	<script type="text/javascript">
       		$(document).ready(function(){
         	var data = {query: "SELECT * FROM Student WHERE StudentID="+<?php echo $_SESSION['id'];?>};
@@ -22,7 +21,7 @@
           	dataType : "json"}).done(function(result){
             	for(i=0; i<result.length; i++){
               	document.getElementById('first_name').value= result[i]['FirstName'];
-              	document.getElementById('last_name').value= result[i]['SecondName'];
+              	document.getElementById('last_name').value= result[i]['LastName'];
               	document.getElementById('email').value= result[i]['Email'];
               	var data = {table: "SELECT * FROM Class", criterion:result[i]['ClassID'], column: "ClassID"};
               	$.ajax({
@@ -66,8 +65,10 @@
     	?>
     	<div class="container col-sm-6 col-md-9">
     		<div class="container" style="width:100%">
-      			<h3>Personal Details</h3>
-      			<div class="panel panel-default">
+    			
+      			<div class="panel panel-default translucent">
+      			<h3>Personal Details</h3></div>
+      			<div class="panel panel-default translucent">
         			<table width="100%" style="border-spacing:10px">
           				<tr>
             				<td style="width:50%">
@@ -120,8 +121,8 @@
       			</div>
     		</div>
     		<div class="container" style="width:100%">
-      			<h3>Tasks</h3>
-      			<div class="panel panel-default">
+      			<div class="panel panel-default translucent"><h3>Tasks</h3></div>
+      			<div class="panel panel-default translucent">
         			<table id="task_list" width="100%" style="border-spacing:10px">
           				<tr>
            					<th>ID</th>

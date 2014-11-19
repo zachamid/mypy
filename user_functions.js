@@ -89,7 +89,7 @@ function insert_user(table, person){
     			+"\" UNION SELECT Email FROM Teacher WHERE Email =\""+person['Email']+"\""};
     $.ajax({
     	data : data,
-        url : 'run_query.php',
+        url : '/run_query.php',
         type : "GET",
         dataType : "json"}).done(function(result){
         	if(result.length != 0){
@@ -97,15 +97,14 @@ function insert_user(table, person){
            	}
            	else{
              	var user_detail = {table:table, values:values, columns: fields};
-             	alert (table+','+values+','+ fields);
              	$.ajax({
                		data : user_detail,
-               		url : 'insert.php',
+               		url : '/insert.php',
                		type : "GET"}).done(function(id){
                			var login_credentials={id:id,type:table};
                			$.ajax({
                				data: login_credentials,
-               				url: 'set_sessions.php',
+               				url: '/set_sessions.php',
                				type: 'GET'}).done(function(){
                					window.reload();
                			});

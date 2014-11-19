@@ -6,7 +6,7 @@
   	if($_SESSION['Type'] != 'Teacher'){
   		header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
-  	include '/../db_connection.php';
+  	include getcwd().'/../db_connection.php';
 ?>
 <html>
   <head>
@@ -14,10 +14,11 @@
     <script src='../utils.js'></script>
     <title>Welcome</title>
     <link href="../bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../gen.css" rel="stylesheet">
+    <link href="../general_style.css" rel="stylesheet">
+    <link href="teacher_style.css" rel="stylesheet">
     <script type="text/javascript">
       $(document).ready(function(){
-        var data = {query: "SELECT * FROM Teacher WHERE TeacherID="<?php echo $_SESSION['id'];?>};
+        var data = {query: "SELECT * FROM Teacher WHERE TeacherID="+<?php echo $_SESSION['id'];?>};
         $.ajax({
           data : data,
           url : '/run_query.php',
@@ -25,39 +26,8 @@
           dataType : "json"}).done(function(result){
             for(i=0; i<result.length; i++){
               document.getElementById('first_name').value= result[i]['FirstName'];
-              document.getElementById('last_name').value= result[i]['SecondName'];
+              document.getElementById('last_name').value= result[i]['LastName'];
               document.getElementById('email').value= result[i]['Email'];
-              var data = {table: "SELECT * FROM Class", condition:result[i]['ClassID'], column: "ClassID"};
-              $.ajax({
-                data : data,
-                url : 'run_query.php',
-                type : "GET",
-                dataType : "json"}).done(function(result2){
-                  for(j=0; j<result2.length; j++){
-                    document.getElementById('class_place').innerHTML= "Class: " + result2[j]['ClassName'];
-                  }
-              });
-              data ={table: "SELECT * FROM Task INNER JOIN Progress ON Progress.TaskID=Task.TaskID", column: "Progress.StudentID", criterion: <?php echo $_SESSION['id'];?>}
-              $.ajax({
-                data : data,
-                url : 'run_query.php',
-                type : "GET",
-                dataType : "json"}).done(function(result2){
-                  var tasktable = document.getElementById('task_list');
-                  for(j=0; j<result2.length; j++){
-                    var row = tasktable.insertRow(j+1);
-                    var taskID = row.insertCell(0);
-                    var taskName = row.insertCell(1);
-                    var started = row.insertCell(2);
-                    var modified = row.insertCell(3);
-                    var completed = row.insertCell(4);
-                    taskID.innerHTML = result2[j]['TaskID'];
-                    taskName.innerHTML = result2[j]['Title'];
-                    started.innerHTML = result2[j]['DateStarted'];
-                    modified.innerHTML = result2[j]['DateModified'];
-                    completed.innerHTML = result2[j]['DateCompleted'];
-                  }
-              });
             }
           });
         });

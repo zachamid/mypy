@@ -3,7 +3,7 @@ body {
     -webkit-background-size: cover !important;
 	-moz-background-size: cover !important;
 	-o-background-size: cover !important;
-	background-size: cover;
+	background-size: cover !important;
 	color:#0000 !important;
   	background-color:#333 !important;
   	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
@@ -11,5 +11,5 @@ body {
 
 .translucent {
 	background-color:#0000 !important;
-	background-color:rgba(255,255,255,.5);
+	background-color:rgba(255,255,255,.5) !important;
 }
