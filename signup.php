@@ -70,6 +70,7 @@
   </script>
   </head>
   <body>
+  	<div class='container'>
     <?php include 'heading.php'; ?>
     
     <div class="container"><div class="panel panel-default translucent"><h3>Student Sign Up</h3></div><div class="panel panel-default translucent">
@@ -134,5 +135,6 @@
       <input type="button" value="Submit" class="btn btn-default" onclick="sign_up()">
     </div>
     &nbsp
+    </div>
   </body>
 </html>		

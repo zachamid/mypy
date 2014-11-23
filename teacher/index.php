@@ -1,13 +1,17 @@
 <?php
 	session_start();
-	if($_SESSION['Type'] == 'Student'){
+	if($_SESSION['type'] == 'Student'){
   		header('Location: ' . $_SERVER['HTTP_REFERER']);
+	}
+	if(!empty($_SESSION['id'])){
+		header('Location: userPage.php');
 	}
 ?>
 <html>
   <head>
     <script src="../jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="teacher_style.css">
+    <link href="../general_style.css" rel="stylesheet">
+    <link href="teacher_style.css" rel="stylesheet">
     <title>Welcome</title>
     <link href="../bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     <script src='../user_functions.js'></script>

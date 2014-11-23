@@ -34,7 +34,7 @@
     </script>
   </head>
   <body>
-    <?php include 'heading.php'; ?>
+    <?php include 'navbar.php'; ?>
     <div class="container">
       <h3>Personal Details</h3>
       <div class="panel panel-default">

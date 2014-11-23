@@ -106,7 +106,7 @@ function insert_user(table, person){
                				data: login_credentials,
                				url: '/set_sessions.php',
                				type: 'GET'}).done(function(){
-               					window.reload();
+               					window.location.reload();
                			});
                	});
         	}

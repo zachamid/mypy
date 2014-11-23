@@ -60,7 +60,8 @@
 	</script>
   	</head>
   	<body>
-    	<?php include 'heading.php';
+    	<?php
+    		$curr_page = 'userPage.php';
     		include 'navbar.php'
     	?>
     	<div class="container col-sm-6 col-md-9">

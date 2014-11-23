@@ -1,8 +1,12 @@
 <?php
   	session_start();
+  	if(!empty($_SESSION['id']) && $_SESSION['type']=='Student'){
+		header('Location: userPage.php');	
+  	}
 ?>
 <html>
   	<head>
+  	<div class="container">
     	<script src="jquery-1.11.1.min.js"></script>
     	<title>Welcome</title>
     	<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +29,7 @@
     		<h3><a href="/teacher/index.php">TEACHERS: Sign Up for MyPy</a></h3>
     		<h4>Keep a track of how well your students are doing by signing in or signing up as a teacher</h4>
     	</div></div>
-    </div> -->
+    </div>
+    </div>
   	</body>
 </html>
