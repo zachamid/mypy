@@ -1,7 +1,7 @@
 function run_code(code,output) {
    	var prog = document.getElementById(code).value;
    	var mypre = document.getElementById(output);
-   	mypre.innerHTML = '';
+   	mypre.value = '';
    	var outf = function(text){
    		var mypre = document.getElementById(output);
    		mypre.value = mypre.value + text;
