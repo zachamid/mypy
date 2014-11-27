@@ -1,12 +1,14 @@
 <?php
   session_start();
   include 'db_connection.php';
-  $table = $_GET['table'];
-  $columns = $_GET['columns'];
-  $values = str_replace('\\', '', $_GET['values']);
+  $table = $_POST['table'];
+  $columns = $_POST['columns'];
+  $values = str_replace('\\', '', $_POST['values']);
   $sql =  "INSERT INTO ".$table."(".$columns.") VALUES (".stripslashes($values).")";
   if(!$result = $db->query($sql)){
-    die('There was an error running the query [' . $db->error . ']');
+    echo -1;
   }
-  echo mysqli_insert_id($db);
+  else{
+  	echo mysqli_insert_id($db);
+  }
 ?>

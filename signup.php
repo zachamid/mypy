@@ -14,11 +14,11 @@
   <link rel="stylesheet" type="text/css" href="general_style.css">
   <script>
    $(document).ready(function(){
-     var data = {query: "SELECT DISTINCT School FROM Class"};
+     var data = {cmd: "Schools"};
        $.ajax({
          data : data,
          url : 'run_query.php',
-         type : "GET",
+         type : "POST",
          dataType : "json"}).done(function(result){
            var school_select = document.getElementById('schools');
            for(counter=0;counter<result.length; counter++){
@@ -32,11 +32,11 @@
   function getClasses(){
     var school_select = document.getElementById('schools');
     var school = school_select.options[school_select.selectedIndex].text;
-    var data = {query: "SELECT * FROM Class WHERE School=\""+school+"\""};
+    var data = {cmd: "Classes", param:school};
     $.ajax({
       data : data,
       url : 'run_query.php',
-      type : "GET",
+      type : "POST",
       dataType : "json"}).done(function(result){
       var class_select = document.getElementById('classes');
       for(counter=0;counter<result.length; counter++){

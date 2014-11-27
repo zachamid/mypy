@@ -36,44 +36,52 @@ function validate_detail(detail){
           end_text = 'Passwords do not match';
           flag = 1;
         }
+        break;
+      case 'new_Password':
+      	if (input == ''){
+          end_text = 'Password Field cannot be empty';
+        }
+        if (input.length < 6 || input.length > 16){
+          end_text = 'Password must be between 6 and 16 characters';
+          flag = 1;
+        }
+        break
+      case 'confirm_New_Password':
+      	if(input != document.getElementById('new_Password').value){
+          end_text = 'Passwords do not match';
+          flag = 1;
+        }
+        break;
     }
 	document.getElementById(detail+'_alert').innerHTML = end_text;
 	return flag;
 }
 
 function validate_login(type_of_user){
-  var table_name = type_of_user.charAt(0).toUpperCase()+type_of_user.slice(1);
-  var email = document.getElementById('email_field').value;
-  var pword = document.getElementById('pword_field').value;
-  var data = {query: "SELECT * FROM "+table_name+" WHERE Email='"+email+"'"};
-  $.ajax({
-    data : data,
-    url : '/run_query.php',
-    type : "GET",
-    dataType : "json"}).done(function(result){
-    if(result.length == 0){
-      document.getElementById('error_space').innerHTML = 'This Email is not a registered MyPy '+ type_of_user +'</br>You can Sign Up Now';
-    }
-    else{
-      for(x = 0; x < result.length; x++){
-	if(result[x]['Password'] == pword){
-	  var login_details = {id: result[x][table_name+'ID'], type:table_name};
-	  $.ajax({
-	    data:login_details,
-	    url: 'set_sessions.php',
-	    type: 'GET',
-	    dataType: "",
-	    success: function(html){
-	      window.location.assign('userPage.php');
-	    }
-	  });
-	}
-	else{
-	  document.getElementById('error_space').innerHTML = 'Password incorrect';
-	}
-      }
-    }
-  });
+	var email = document.getElementById('email_field').value;
+	var pword = document.getElementById('pword_field').value;
+  	var data = {email: email, password:pword, type:type_of_user};
+  	$.ajax({
+    	data : data,
+    	url : '/login_validation.php',
+    	type : "POST",}).done(function(result){
+    	if(result == '-1'){
+    		document.getElementById('error_space').innerHTML = 'Incorrect Email-Password Combination';
+    	}
+    	else{
+    		var login_details = {type:type_of_user, id:result};
+    		$.ajax({
+	    		data:login_details,
+	    		url: 'set_sessions.php',
+	    		type: 'POST',
+	    		success: function(html){
+	     	 		alert(html);
+	     	 		//window.location.assign('userPage.php');
+	    		}
+	  		});
+		}
+	
+ 	});
 }
 
 function insert_user(table, person){
@@ -85,30 +93,75 @@ function insert_user(table, person){
     }
     fields = fields.substring(0,fields.length-1);
     values = values.substring(0,values.length-1);
-    var data = {query: "SELECT Email FROM Student WHERE Email=\""+person['Email']
-    			+"\" UNION SELECT Email FROM Teacher WHERE Email =\""+person['Email']+"\""};
+    var data = {cmd: 'CheckEmail', param:person['Email']};
     $.ajax({
     	data : data,
         url : '/run_query.php',
-        type : "GET",
+        type : "POST",
         dataType : "json"}).done(function(result){
         	if(result.length != 0){
             	alert('Email is already registered');
            	}
            	else{
              	var user_detail = {table:table, values:values, columns: fields};
+             	alert(table+":"+values+':'+ fields);
              	$.ajax({
                		data : user_detail,
                		url : '/insert.php',
-               		type : "GET"}).done(function(id){
-               			var login_credentials={id:id,type:table};
-               			$.ajax({
-               				data: login_credentials,
-               				url: '/set_sessions.php',
-               				type: 'GET'}).done(function(){
-               					window.location.reload();
-               			});
+               		type : "POST"}).done(function(id){
+               			if(id != -1){
+	               			var login_credentials={id:id,type:table};
+    	           			$.ajax({
+        	       				data: login_credentials,
+            	   				url: '/set_sessions.php',
+               					type: 'POST'}).done(function(){
+               						window.location.reload();
+               				});
+               			}
                	});
         	}
 	});
+}
+
+function update_user(type_of_user, id){
+	var fields = ['FirstName', 'LastName','Password','new_Password','confirm_New_Password'];
+    var flag = 0;
+    for(counter =0; counter < fields.length; counter++){
+    	var out = validate_detail(fields[counter]);
+    	if(out == 1){
+    		flag = 1;
+      	}
+    }
+    if(flag == 1){
+    	alert('Please fix your form and Retry');
+    }
+    else{
+    	$.ajax({
+    		data : {email: document.getElementById('Email').value,
+    				password:document.getElementById('Password').value,
+    				type:type_of_user},
+    		url : '/login_validation.php',
+    		type : "POST",}).done(function(login_result){
+    			if(login_result != '-1'){
+    				var user = {FirstName: document.getElementById('FirstName').value,
+								LastName: document.getElementById('LastName').value,
+								Password: document.getElementById('new_Password').value,
+    							type:type_of_user};
+					$.ajax({
+						data:user,
+						url: '/update_user.php',
+						type: 'POST'}).done(function(update_result){
+							if(update_result=='0'){
+								window.location.reload();
+							}
+							else{
+								alert(update_result);
+							}
+					});
+				}
+				else{
+					document.getElementById('Password_alert').innerHTML = 'Password Incorrect';
+				}
+			});
+	}
 }

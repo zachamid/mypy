@@ -1,8 +1,5 @@
 <?php
   	session_start();
-  	if(!empty($_SESSION['id']) && $_SESSION['type']=='Student'){
-		header('Location: userPage.php');	
-  	}
 ?>
 <html>
   	<head>
@@ -13,7 +10,18 @@
     	<script src='user_functions.js'></script>
     	<link rel="stylesheet" type="text/css" href="general_style.css">
   	</head>
-  	<?php include 'heading.php'; ?>
+  	</body>
+  	<?php
+  		if($_SESSION['type']=='Student'){
+  			include 'navbar.php'; 
+	  	}
+	  	else if($_SESSION['type']=='Teacher'){
+	  		include 'teacher/navbar.php'; 
+	  	}
+	  	else{
+	  		include 'heading.php';
+	  	}
+  	?>
     <div class="col-xs-12 col-md-6 col-sm-12 ">
     	<div class="panel panel-default translucent"><div class="panel-body">
     		<h3><a href="signup.php">STUDENTS: Sign Up for MyPy</a></h3>

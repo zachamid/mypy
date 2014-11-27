@@ -32,7 +32,7 @@
 for i in range(8):
  print i
 					</textarea>
-					<button class="form-control" onclick='run_code("code","output")' type="button">
+					<button class="form-control" onclick='run_code("code","output","error")' type="button">
 						Run
 					</button>
 				</div>
@@ -42,8 +42,13 @@ for i in range(8):
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
 				<div class="panel-body">
-					<textarea class="form-control code-holder" rows="10" id="output"></textarea>
+					<textarea class="form-control code-holder" rows="5" id="output"></textarea>
 				</div>
+				<div class="panel-heading">Error Console</div>
+				<div class="panel-body">
+					<textarea class="form-control code-holder" rows="5" id="error"></textarea>
+				</div>
+				
 			</div>
 		</div>
 		</div>
