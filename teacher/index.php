@@ -17,6 +17,13 @@
     <script src='../user_functions.js'></script>
   </head>
   <body>
-    <?php include 'heading.php'; ?>
+    <?php 
+    	if($_SESSION['type']=='Teacher'){
+	  		include 'teacher/navbar.php'; 
+	  	}
+	  	else{
+	  		include 'heading.php';
+	  	} 
+	?>
   </body>
 </html>

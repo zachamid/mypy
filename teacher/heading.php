@@ -1,5 +1,4 @@
 <?php
-  if(empty($_SESSION['id'])){
   	echo '<div class="jumbotron translucent">';
   	echo '<div class="row">';
   	echo ' <div class="col-md-9">';
@@ -19,5 +18,4 @@
   	echo ' </div>';
   	echo ' </div>';
   	echo ' </div>';
-  }
 ?>
