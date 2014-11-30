@@ -18,13 +18,13 @@ def main(argv):
     if opt == '-h':
       print 'database_setup.py -s <server_url> -d <database_name> -username <username> -password <password>'
       sys.exit()
-    elif opt == '-s':
+    if opt == '-s':
       serverName = arg
-	elif opt == '-d':
+	if opt == '-d':
 	  databaseName = arg
-	elif opt == '-u':
+	if opt == '-u':
 	  userName = arg
-	elif opt == '-p':
+	if opt == '-p':
 	  passWord = arg
   db = MySQLdb.connect(serverName,userName,passWord,databaseName);
   cursor = db.cursor()
