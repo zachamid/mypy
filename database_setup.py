@@ -4,7 +4,7 @@ import MySQLdb
 import sys
 import getopt
 
-db = MySQLdb.connect(serverName,userName,passWord,databaseName);
+db = MySQLdb.connect('localhost','root','S0crat3s34!','test');
 cursor = db.cursor()
 sql = """CREATE TABLE `Class` (
   		`ClassID` int(11) NOT NULL AUTO_INCREMENT,
