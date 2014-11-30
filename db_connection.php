@@ -1,8 +1,8 @@
 <?php
-$host = "dbhost.cs.man.ac.uk";
+$host = "localhost";
 $user = "mbax9zh2";
-$pword = "socrates34";
-$table = "mbax9zh2";
+$pword = "S0crat3s34!";
+$table = "test";
 
 $db = new mysqli($host, $user, $pword, $table);
 
