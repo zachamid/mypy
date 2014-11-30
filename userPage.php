@@ -24,7 +24,8 @@
   		}
   		$row = $result->fetch_assoc()
   	?>
-    	<div class="container col-sm-6 col-md-9">
+    	<div class="container">
+    		<div class="container col-sm-6 col-md-9">
     		<div class="container" style="width:100%">
     			
       			<div class="panel panel-default translucent">
@@ -121,6 +122,6 @@
         			</table>
       			</div>
     		</div>
-    	</div>
+    	</div></div>
   	</body>
 </html>
