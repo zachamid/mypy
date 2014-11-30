@@ -16,16 +16,16 @@ def main(argv):
 	passWord = '';
 	for opt, arg in opts:	
 		if opt == '-h':
-        	print 'database_setup.py -s <server_url> -d <database_name> -username <username> -password <password>'
-        	sys.exit()
-        elif opt == '-s':
-        	serverName = arg
-        elif opt == '-d':
-        	databaseName = arg
-        elif opt == '-u':
-        	userName = arg
-        elif opt == '-p':
-        	passWord = arg
+			print 'database_setup.py -s <server_url> -d <database_name> -username <username> -password <password>'
+			sys.exit()
+		elif opt == '-s':
+			serverName = arg
+		elif opt == '-d':
+			databaseName = arg
+		elif opt == '-u':
+			userName = arg
+		elif opt == '-p':
+			passWord = arg
     db = MySQLdb.connect(serverName,userName,passWord,databaseName);
     cursor = db.cursor()
     sql = """CREATE TABLE `Class` (
