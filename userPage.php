@@ -15,6 +15,7 @@
     </head>
   	<body>
   		
+    	<div class="container">
   	<?php
   		$curr_page = 'userPage.php';
   		include 'navbar.php'; 
@@ -24,8 +25,7 @@
   		}
   		$row = $result->fetch_assoc()
   	?>
-    	<div class="container">
-    		<div class="container col-sm-6 col-md-9">
+    	<div class="container col-sm-6 col-md-9">
     		<div class="container" style="width:100%">
     			
       			<div class="panel panel-default translucent">

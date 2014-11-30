@@ -21,7 +21,7 @@
     	</script>
   	</head>
   	<body>
-    	<?php
+  		<?php
     		include 'navbar.php';
     		$sql_query = 'SELECT * FROM Teacher WHERE TeacherID='.$_SESSION['id'];
     		if(!$result = $db->query($sql_query)){
