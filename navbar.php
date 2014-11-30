@@ -35,11 +35,11 @@
 	else{
 		echo '<li><a href="playground.php">Playground</a></li>';
 	}
-	if($curr_page =='classList.php'){
-		echo '<li class="active"><a href="#">Class List</a></li>';
+	if($curr_page =='classTable.php'){
+		echo '<li class="active"><a href="classTable.php">Class List</a></li>';
 	}
 	else{
-		echo '<li><a href="playground.php">Class List</a></li>';
+		echo '<li><a href="classTable.php">Class List</a></li>';
 	}
 	echo '</ul>';
 	echo '<ul class="nav navbar-nav navbar-right">';
