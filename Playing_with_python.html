@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<script>
+			$( document ).ready(function(){
+				$.ajax({
+	    		url: 'hello_world.py',
+	    		success: function(html){
+	     	 		alert(html);
+	    		}
+	  			});
+	  		}
+		</script>
+	</head>
+	<body>
+		<div id='example'></div>
+	</body>
+</html>

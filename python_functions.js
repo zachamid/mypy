@@ -15,3 +15,11 @@ function run_code(code_area,output,err) {
    		error_area.value = e;
    	}
 }
+
+function auto_generate(struct){
+	switch(struct){
+		case 'for':
+		case 'While':
+		
+	}
+}
