@@ -32,7 +32,7 @@ sql = """CREATE TABLE `Student` (
   		`Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   		`Password` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
   		UNIQUE KEY `StudentID` (`StudentID`)
-		)""""
+		)"""
 cursor.execute(sql)
 sql = """CREATE TABLE `Task` (
   		`TaskID` int(11) NOT NULL AUTO_INCREMENT,
