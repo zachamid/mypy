@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$user = "mbax9zh2";
+$user = "root";
 $pword = "S0crat3s34!";
 $table = "test";
 
