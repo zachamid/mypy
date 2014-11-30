@@ -10,10 +10,10 @@ def main(argv):
   except getopt.GetoptError:
     print 'database_setup.py -s <server_url> -d <database_name> -username <username> -password <password>'
     sys.exit(2)
-  serverName = '';
-  databaseName = '';
-  userName = '';
-  passWord = '';
+  serverName = ''
+  databaseName = ''
+  userName = ''
+  passWord = ''
   for opt, arg in opts:	
     if opt == '-h':
       print 'database_setup.py -s <server_url> -d <database_name> -username <username> -password <password>'
