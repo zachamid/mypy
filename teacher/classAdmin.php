@@ -3,7 +3,7 @@
 	if(empty($_SESSION['id'])){
 		header('Location: index.php');
   	}
-  	if($_SESSION['Type'] != 'Teacher'){
+  	if($_SESSION['Type'] != 'teacher'){
   		header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
   	include '../db_connection.php';
