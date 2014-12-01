@@ -18,8 +18,8 @@ function printTree($array, $level=0) {
             printTree($value, $level+1);
     }
 }
-
 $dir = "/var/www/tasks";
+echo $dir;
 $arDirTree = dirTree($dir);
 printTree($arDirTree);
 ?>
