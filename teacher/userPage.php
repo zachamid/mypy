@@ -6,7 +6,7 @@
   	if($_SESSION['Type'] != 'Teacher'){
   		header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
-  	include '/../db_connection.php';
+  	include '../db_connection.php';
 ?>
 <html>
 	<head>
