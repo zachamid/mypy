@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include '../db_connection.php';
+	include 'db_connection.php';
 	$sql_query = 'SELECT * FROM Teacher WHERE TeacherID='.$_SESSION['id'];
   	if(!$result = $db->query($sql_query)){
     	die('There was an error running the query [' . $db->error . ']');
@@ -17,10 +17,25 @@
 	echo '<a class="navbar-brand" href="#">'.$name.'</a>';
 	echo '</div><div id="navbar" class="navbar-collapse collapse">';
 	echo '<ul class="nav navbar-nav">';
-	echo '<li class="active"><a href="#">Details</a></li>';
-	echo '<li><a href="#">Class Administration</a></li>';
-	echo '<li><a href="#">View Marks</a></li>';
-	echo '<li><a href="#">Task Administration</a></li></ul>';
+	if($curr_page =='userPage.php'){
+		echo '<li class="active"><a href="userPage.php">Details</a></li>';
+	}
+	else{
+		echo '<li><a href="userPage.php">Details</a></li>';
+	}
+	if($curr_page =='classAdmin.php'){
+		echo '<li class="active"><a href="#">Task List</a></li>';
+	}
+	else{
+		echo '<li><a href="#">Task List</a></li>';
+	}
+	if($curr_page =='taskAdmin.php'){
+		echo '<li class="active"><a href="playground.php">Playground</a></li>';
+	}
+	else{
+		echo '<li><a href="playground.php">Playground</a></li>';
+	}
+	echo '</ul>';
 	echo '<ul class="nav navbar-nav navbar-right">';
 	echo '<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>&nbspLog out</a></li>';
 	echo '</ul></div></div>';

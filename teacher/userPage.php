@@ -21,7 +21,9 @@
     	</script>
   	</head>
   	<body>
+  		<div class="container">
   		<?php
+  			$curr_page='userPage.php'
     		include 'navbar.php';
     		$sql_query = 'SELECT * FROM Teacher WHERE TeacherID='.$_SESSION['id'];
     		if(!$result = $db->query($sql_query)){
@@ -88,6 +90,7 @@
           			</tr>
         		</table>
       		</div>
+    	</div>
     	</div>
   </body>
 </html>
