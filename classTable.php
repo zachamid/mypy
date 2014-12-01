@@ -22,7 +22,7 @@
  		 		if(!$result = $db->query($sql_query)){
     				die('There was an error running the query [' . $db->error . ']');
   				}
-  				$row = $result->fetch_assoc()
+  				$row = $result->fetch_assoc();
  		 		$classID = $row['ClassID'];
  		 	?>
  		 	<div class="container" style="width:100%">
