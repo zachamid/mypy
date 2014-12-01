@@ -1,7 +1,6 @@
 <html>
 <body>
 <?php
-<?php 
 function dirToArray($dir) { 
    
    $result = array(); 
