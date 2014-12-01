@@ -17,7 +17,7 @@ function printTree($array, $level=0) {
     }
 }
 
-$dir = "/";
+$dir = "/var/www/tasks";
 $arDirTree = dirTree($dir);
 printTree($arDirTree);
 ?>
