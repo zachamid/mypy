@@ -20,7 +20,7 @@
 	<body>
 		<div class="container">
 			<?php
-  				$curr_page='userPage.php'
+  				$curr_page='userPage.php';
     			include 'navbar.php';
     			$sql_query = 'SELECT * FROM Teacher WHERE TeacherID='.$_SESSION['id'];
     			if(!$result = $db->query($sql_query)){
@@ -35,10 +35,28 @@
       				</div>
       				<div class="panel panel-default translucent">
       					<table>
+      						<?php
+      							$sql_query = """SELECT * FROM Class
+      										INNER JOIN TeacherClassRelationship
+      										ON Class.ClassID=TeacherClassRelationship.ClassID
+      										WHERE TeacherID=""".$_SESSION['id'];
+    							if(!$result = $db->query($sql_query)){
+    								die('There was an error running the query ['.$db->error.']');
+  								}
+  								while($row = $result->fetch_assoc()){
+  									echo "<tr>";
+  									echo "<td>".$row['ClassID']."</td>";
+  									echo "<td>".$row['ClassName']."</td>";
+  									echo "<td>".$row['School']."</td>";
+  									echo "<td>Remove</td>";
+  									echo "</tr>";
+  								}
+      						?>
       					</table>
+      					
       				</div>
       				<div class="panel panel-default translucent">
-      					<h3>Students</h3>
+      					<h3>Student Progress</h3>
       				</div>
       				<div class="panel panel-default translucent">
       					<table>
