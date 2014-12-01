@@ -3,7 +3,7 @@
 <?php
 	function dirTree($dir) {
     $d = dir($dir);
-    $arDir=();
+    $arDir=array();
     while (false !== ($entry = $d->read())) {
         if($entry != '.' && $entry != '..' && is_dir($dir.$entry))
             $arDir[$entry] = dirTree($dir.$entry.'/');
