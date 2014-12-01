@@ -27,7 +27,7 @@
 		echo '<li class="active"><a href="classAdmin.php">Class Administration</a></li>';
 	}
 	else{
-		echo '<li><a href="classAdmin.php">Task List</a></li>';
+		echo '<li><a href="classAdmin.php">Class Administration</a></li>';
 	}
 	if($curr_page =='taskAdmin.php'){
 		echo '<li class="active"><a href="playground.php">Playground</a></li>';
