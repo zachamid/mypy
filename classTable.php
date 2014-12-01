@@ -39,7 +39,7 @@
     							die('There was an error running the query [' . $db->error . ']');
   							}
   							while($row=$result->fetch_assoc()){
-  								echo '<tr>'
+  								echo '<tr>';
   								if($row['StudentID'] == $_SESSION['id']){
   									echo '<td><b>'.$row['StudentID'].'</b></td>';
   									echo '<td><b>'.$row['FirstName'].' '.$row['LastName'].'</b></td>';
@@ -50,7 +50,7 @@
   									echo '<td>'.$row['FirstName'].' '.$row['LastName'].'</td>';
   									echo '<td>#</td>';
   								}
-  								echo '</tr>'
+  								echo '</tr>';
   							}
           				?>
           			</table>
