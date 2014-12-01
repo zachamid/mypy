@@ -1,3 +1,5 @@
+<html>
+<body>
 <?php
 	function dirTree($dir) {
     $d = dir($dir);
@@ -21,3 +23,5 @@ $dir = "/var/www/tasks";
 $arDirTree = dirTree($dir);
 printTree($arDirTree);
 ?>
+</body>
+</html>
