@@ -83,11 +83,11 @@
                				<div id="confirm_New_Password_alert"></div>
             			</td>
           			</tr>
-          			<tr>
+          			<tr><td>
          				<button class="form-control" onclick='update_user(<?php echo '"'.$_SESSION['type'].'",'.$_SESSION['id'] ?>)' type="button">
 									Update
 						</button>
-          			</tr>
+          			<td></tr>
         		</table>
       		</div>
     	</div>
