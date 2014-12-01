@@ -6,7 +6,7 @@
   	if($_SESSION['Type'] != 'Teacher'){
   		header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
-  	include '/../db_connection.php';
+  	include '../db_connection.php';
 ?>
 <html>
 	<head>
@@ -36,10 +36,7 @@
       				<div class="panel panel-default translucent">
       					<table>
       						<?php
-      							$sql_query = "SELECT * FROM Class
-      										INNER JOIN TeacherClassRelationship
-      										ON Class.ClassID=TeacherClassRelationship.ClassID
-      										WHERE TeacherID=".$_SESSION['id'];
+      							$sql_query = "SELECT * FROM Class INNER JOIN TeacherClassRelationship ON Class.ClassID=TeacherClassRelationship.ClassID WHERE TeacherID=".$_SESSION['id'];
     							if(!$result = $db->query($sql_query)){
     								die('There was an error running the query ['.$db->error.']');
   								}
