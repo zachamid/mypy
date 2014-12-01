@@ -36,10 +36,10 @@
       				<div class="panel panel-default translucent">
       					<table>
       						<?php
-      							$sql_query = """SELECT * FROM Class
+      							$sql_query = "SELECT * FROM Class
       										INNER JOIN TeacherClassRelationship
       										ON Class.ClassID=TeacherClassRelationship.ClassID
-      										WHERE TeacherID=""".$_SESSION['id'];
+      										WHERE TeacherID=".$_SESSION['id'];
     							if(!$result = $db->query($sql_query)){
     								die('There was an error running the query ['.$db->error.']');
   								}
