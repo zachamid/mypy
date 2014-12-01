@@ -6,7 +6,6 @@
   	include 'db_connection.php';
 ?>
 <html>
-	
 	<head>
     	<script src="jquery-1.11.1.min.js"></script>
     	<script src="user_functions.js"></script>
@@ -24,7 +23,6 @@
     				die('There was an error running the query [' . $db->error . ']');
   				}
   				$row = $result->fetch_assoc()
- 		 		$className = $row['ClassName'];
  		 		$classID = $row['ClassID'];
  		 	?>
  		 	<div class="container" style="width:100%">
