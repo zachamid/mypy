@@ -72,11 +72,10 @@ function validate_login(type_of_user){
     		var login_details = {type:type_of_user, id:result};
     		$.ajax({
 	    		data:login_details,
-	    		url: 'set_sessions.php',
+	    		url: '/set_sessions.php',
 	    		type: 'POST',
 	    		success: function(html){
-	     	 		alert(html);
-	     	 		//window.location.assign('userPage.php');
+	     	 		window.location.assign('userPage.php');
 	    		}
 	  		});
 		}
