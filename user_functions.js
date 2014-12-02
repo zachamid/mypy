@@ -75,7 +75,8 @@ function validate_login(type_of_user){
 	    		url: '/set_sessions.php',
 	    		type: 'POST',
 	    		success: function(html){
-	     	 		window.location.assign('userPage.php');
+	    			alert(html);
+	     	 		//window.location.assign('userPage.php');
 	    		}
 	  		});
 		}
