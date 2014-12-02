@@ -22,7 +22,7 @@
 	  		}
   		}
 	}
-	if($type == 'teacher'){
+	if($type == 'Teacher'){
 		$sql_query =  "SELECT * FROM Teacher WHERE Email=\"".$email."\"";
 		if(!$result = $db->query($sql_query)){
     		die('There was an error running the query [' . $db->error . ']');
