@@ -1,6 +1,6 @@
 <?php
 	session_start();
-  	include '../db_connection.php';
+  	include '/db_connection.php';
 	$sql_query = 'SELECT * FROM Teacher WHERE TeacherID='.$_SESSION['id'];
   	if(!$result = $db->query($sql_query)){
     	die('There was an error running the query [' . $db->error . ']');
