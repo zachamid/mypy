@@ -30,11 +30,30 @@ if(!$result = $db->query($sql_query)){
 	die('There was an error running the query [' . $db->error . ']');
 }
 
-$dir1 = "../tasks";
-$dir_list = scandir($dir1);
+$dir = "../tasks";
 while($row = $result->fetch_assoc()){
-	if(in_array($row['TaskID'], $dir_list)){
+	$dir_list = scandir($dir1);
+	if(in_array($row['TaskID'], $dir_list) && is_dir($dir.DIRECTORY_SEPARATOR.$row['TaskID'])){
 		echo $row['Title'].': Directory is there</br>';
+		$dir_list = scandir($dir1.DIRECTORY_SEPARATOR.$row['TaskID']);
+		if(in_array('task_skeleton.py',$dir_list)){
+			echo $row['Title'].': task_skeleton.py present</br>';
+		}
+		else{
+			echo $row['Title'].': task_skeleton.py not present</br>';
+		}
+		if(in_array('info.xml',$dir_list)){
+			echo $row['Title'].': info.xml present</br>';
+		}
+		else{
+			echo $row['Title'].': info.xml not present</br>';
+		}
+		if(in_array('task_complete.py',$dir_list)){
+			echo $row['Title'].': task_complete.py present</br>';
+		}
+		else{
+			echo $row['Title'].': task_complete.py not present</br>';
+		}
 	}
 	else{
 		echo $row['Title'].': Directory is not there</br>';
