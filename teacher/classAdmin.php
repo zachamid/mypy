@@ -1,6 +1,11 @@
 <?php
 	session_start();
-	if(empty($_SESSION['id'])){
+	$host  = $_SERVER['HTTP_HOST'];
+	$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+	if($_SESSION['type']=='Student'){
+  		header("Location:http://".$host."/");
+	}
+	else if(empty($_SESSION['id'])){
 		header('Location: index.php');
   	}
   	include '../db_connection.php';
