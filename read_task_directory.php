@@ -1,7 +1,7 @@
 <html>
 <body>
 <?php
-function dirToArray($dir) { 
+/*function dirToArray($dir) { 
    
    $result = array(); 
 
@@ -22,7 +22,7 @@ function dirToArray($dir) {
    } 
    
    return $result; 
-} 
+} */
 
 include 'db_connection.php';
 $sql_query = "SELECT * FROM Task";
