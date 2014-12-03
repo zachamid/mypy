@@ -16,8 +16,8 @@
     	<script>
     		function check_directory(){
     			$.ajax({
-    				url : '/read_task_directory.php'},
-    				dataType: 'json').done(function(tasks){
+    				url : '/read_task_directory.php',
+    				dataType: 'json'}).done(function(tasks){
     					var table = document.getElementById('task_list');
     					var counter = 1;
     					for(task in tasks){
