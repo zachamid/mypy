@@ -1,6 +1,6 @@
 <?php
 	if(strcmp($_SESSION['type'],'Student')==0){
-  		header('Location: ' . $_SERVER['HTTP_REFERER']);
+  		header('Location:'.$_SERVER['HTTP_HOST']);
 	}
 	/*if(!empty($_SESSION['id'])){
 		header('Location: userPage.php');
