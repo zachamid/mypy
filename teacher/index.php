@@ -1,11 +1,11 @@
 <?php
+	session_start();
 	if($_SESSION['type']=='Teacher'){
   		header('Location:'.$_SERVER['HTTP_HOST']);
 	}
 	/*if(!empty($_SESSION['id'])){
 		header('Location: userPage.php');
 	}*/
-	session_start();
 ?>
 <html>
   <head>
@@ -18,11 +18,11 @@
   </head>
   <body>
     <?php 
-    	echo var_dump($_SESSION['type']=='Student');
+    	echo var_dump($_SESSION['type']=='Teacher');
     	if($_SESSION['type']=='Teacher'){
 	  		include 'teacher/navbar.php'; 
 	  	}
-	  	else{
+	  	else if (empty($_SESSION['id']){
 	  		include 'heading.php';
 	  	} 
 	?>
