@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	echo $_SESSION['type']. '   '.$_SESSION['id']);
 	if($_SESSION['type'] == 'Student'){
   		header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
@@ -19,6 +18,7 @@
   </head>
   <body>
     <?php 
+    	echo $_SESSION['type']. '   '.$_SESSION['id']);
     	if($_SESSION['type']=='Teacher'){
 	  		include 'teacher/navbar.php'; 
 	  	}
