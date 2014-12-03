@@ -16,7 +16,7 @@ while($row = $result->fetch_assoc()){
 	{
 		$file_existance_matrix[$row['TaskID']]['directory']=1;
 		$dir_list = scandir($dir1.DIRECTORY_SEPARATOR.$row['TaskID']);
-		e
+		echo $dir_list;
 		if(in_array('task_skeleton.py',$dir_list)){
 			$file_existance_matrix[$row['TaskID']]['task_skeleton.py']=1;
 		}
