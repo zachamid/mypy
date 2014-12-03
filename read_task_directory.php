@@ -11,7 +11,7 @@ $dir = "../tasks";
 while($row = $result->fetch_assoc()){
 	$file_existance_matrix[$row['TaskID']] = array();
 	$dir_list = scandir($dir);
-	$echo $dir_list;
+	echo $dir_list;
 	if(in_array($row['TaskID'], $dir_list))
 	{
 		$file_existance_matrix[$row['TaskID']]['directory']=1;
