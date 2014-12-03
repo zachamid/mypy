@@ -32,7 +32,7 @@ if(!$result = $db->query($sql_query)){
 
 $dir = "../tasks";
 while($row = $result->fetch_assoc()){
-	$dir_list = scandir($dir1);
+	$dir_list = scandir($dir);
 	if(in_array($row['TaskID'], $dir_list))
 	{
 		echo $row['Title'].': Directory is there</br>';
