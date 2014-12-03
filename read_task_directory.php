@@ -71,7 +71,7 @@ while($row = $result->fetch_assoc()){
 	}
 }
 
-echo json_encode(file_existance_matrix);
+echo json_encode($file_existance_matrix);
 ?>
 </body>
 </html>
