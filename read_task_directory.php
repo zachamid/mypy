@@ -34,7 +34,7 @@ $dir1 = "../tasks";
 $dir_list = scandir($dir1);
 while($row = $result->fetch_assoc()){
 	if(in_array($row['TaskID'], $dir_list)){
-		echo $row['TaskName'].': Directory is there</br>';
+		echo $row['Title'].': Directory is there</br>';
 	}
 	else{
 		echo $row['Title'].': Directory is not there</br>';
