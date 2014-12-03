@@ -14,6 +14,10 @@
     	<link href="../general_style.css" rel="stylesheet">
     	<link href="teacher_style.css" rel="stylesheet">
     	<script>
+    		$( document ).ready(function() {
+    			check_directory();
+			});
+			
     		function check_directory(){
     			$.ajax({
     				url : '/read_task_directory.php',
