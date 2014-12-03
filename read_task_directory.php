@@ -34,7 +34,7 @@ while($row = $result->fetch_assoc()){
 		}
 	}
 	else{
-		$file_existance_matrix[$row['TaskID']]['directory']=1;
+		$file_existance_matrix[$row['TaskID']]['directory']=0;
 	}
 }
 
