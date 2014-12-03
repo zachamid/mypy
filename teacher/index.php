@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if($_SESSION['type']=='Student'){
-  		header('Location:'.$_SERVER['HTTP_HOST']);
+  		header('Location:'. dirname());
 	}
 	/*if(!empty($_SESSION['id'])){
 		header('Location: userPage.php');
