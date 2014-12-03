@@ -1,5 +1,5 @@
 <?php
-	if(strcmp($_SESSION['type'],'Student')==0){
+	if($_SESSION['type']=='Teacher'){
   		header('Location:'.$_SERVER['HTTP_HOST']);
 	}
 	/*if(!empty($_SESSION['id'])){
