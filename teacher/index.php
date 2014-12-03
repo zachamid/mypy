@@ -18,7 +18,6 @@
   </head>
   <body>
     <?php 
-    	echo var_dump($_SESSION['type']=='Teacher');
     	if($_SESSION['type']=='Teacher'){
 	  		include 'teacher/navbar.php'; 
 	  	}
