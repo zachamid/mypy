@@ -24,7 +24,7 @@
     				dataType: 'json'}).done(function(tasks){
     					var table = document.getElementById('task_list');
     					var counter = 1;
-    					for(task in tasks){
+    					for(var task in tasks){
     						console.log(task);
     						var row = table.insertRow(counter);
     						var id = row.insertCell(0).innerHTML = task;
