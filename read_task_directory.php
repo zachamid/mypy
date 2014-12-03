@@ -25,7 +25,7 @@ function dirToArray($dir) {
 } 
 
 include 'db_connection.php';
-$sqL_query = "SELECT * FROM Task";
+$sql_query = "SELECT * FROM Task";
 if(!$result = $db->query($sql_query)){
 	die('There was an error running the query [' . $db->error . ']');
 }
