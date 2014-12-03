@@ -1,11 +1,12 @@
 <?php
 	session_start();
+	echo $_SESSION['type'];
 	if($_SESSION['type'] == 'Student'){
   		header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
-	if(!empty($_SESSION['id'])){
+	/*if(!empty($_SESSION['id'])){
 		header('Location: userPage.php');
-	}
+	}*/
 ?>
 <html>
   <head>

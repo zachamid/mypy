@@ -104,7 +104,6 @@ function insert_user(table, person){
            	}
            	else{
              	var user_detail = {table:table, values:values, columns: fields};
-             	alert(table+":"+values+':'+ fields);
              	$.ajax({
                		data : user_detail,
                		url : '/insert.php',
