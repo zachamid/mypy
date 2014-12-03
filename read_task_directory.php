@@ -1,7 +1,7 @@
 <html>
 <body>
 <?php
-/*function dirToArray($dir) { 
+function dirToArray($dir) { 
    
    $result = array(); 
 
@@ -22,7 +22,7 @@
    } 
    
    return $result; 
-} */
+} 
 
 include 'db_connection.php';
 $sql_query = "SELECT * FROM Task";
@@ -41,7 +41,7 @@ while($row = $result->fetch_assoc()){
 	}
 }
 
-//print_r($dir_list);
+print_r($dir_list);
 ?>
 </body>
 </html>
