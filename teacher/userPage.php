@@ -1,10 +1,11 @@
 <?php
 	session_start();
+	$host  = $_SERVER['HTTP_HOST'];
 	if(empty($_SESSION['id'])){
-		header('Location: index.php');
+		header('Location: signup.php');
   	}
-  	if($_SESSION['type'] != 'Teacher'){
-  		header('Location: ' . $_SERVER['HTTP_REFERER']);
+  	if($_SESSION['type']=='Student'){
+		header('Location: http://'.$host.'/');
 	}
   	include '../db_connection.php';
 ?>

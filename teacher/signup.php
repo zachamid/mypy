@@ -1,14 +1,10 @@
 <?php
 	session_start();
 	$host  = $_SERVER['HTTP_HOST'];
-	$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 	if(!empty($_SESSION['id']) && $_SESSION['type']=='Teacher'){
 		header('Location: userPage.php');
 	}
-	if($_SESSION['type']=='Student'){
-  		header("Location:http://".$host."/");
-	}
-  	else if(!empty($_SESSION['id']) || $_SESSION['type']=='Student'){
+	else if(!empty($_SESSION['id']) || $_SESSION['type']=='Student'){
   		header('Location:http://'.$host."/");
   	}
 ?>

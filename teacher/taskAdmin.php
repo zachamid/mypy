@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	if(empty($_SESSION['id'])){
-		header('Location: index.php');
+	if(empty($_SESSION['id']) || $_SESSION['type']=='Student'){
+		header("Location:http://".$host."/");
   	}
   	include '../db_connection.php';
 ?>
