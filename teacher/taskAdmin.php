@@ -28,25 +28,25 @@
     						console.log(task);
     						var row = table.insertRow(counter);
     						var id = row.insertCell(0).innerHTML = task;
-    						if(tasks['directory'] == 1){
+    						if(tasks[task]['directory'] == 1){
     							var id = row.insertCell(1).innerHTML = 'Yes';
     						}
     						else{
     							var id = row.insertCell(1).innerHTML = 'No';
     						}
-    						if(tasks['task_skeleton.py'] == 1){
+    						if(tasks[task]['task_skeleton.py'] == 1){
     							var id = row.insertCell(2).innerHTML = 'Yes';
     						}
     						else{
     							var id = row.insertCell(2).innerHTML = 'No';
     						}
-    						if(tasks['task_complete.py'] == 1){
+    						if(tasks[task]['task_complete.py'] == 1){
     							var id = row.insertCell(3).innerHTML = 'Yes';
     						}
     						else{
     							var id = row.insertCell(3).innerHTML = 'No';
     						}
-    						if(tasks['info.xml'] == 1){
+    						if(tasks[task]['info.xml'] == 1){
     							var id = row.insertCell(4).innerHTML = 'Yes';
     						}
     						else{
