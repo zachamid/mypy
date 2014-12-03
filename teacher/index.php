@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if($_SESSION['type']=='Teacher'){
+	if($_SESSION['type']=='Student'){
   		header('Location:'.$_SERVER['HTTP_HOST']);
 	}
 	/*if(!empty($_SESSION['id'])){
