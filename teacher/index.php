@@ -1,7 +1,9 @@
 <?php
 	session_start();
+	$host  = $_SERVER['HTTP_HOST'];
+	$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 	if($_SESSION['type']=='Student'){
-  		header('Location:'.$_SERVER['SERVER_NAME']);
+  		header("Location: http://$host$uri/");
 	}
 	/*if(!empty($_SESSION['id'])){
 		header('Location: userPage.php');
