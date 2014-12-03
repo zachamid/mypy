@@ -5,9 +5,9 @@
 	if($_SESSION['type']=='Student'){
   		header("Location:http://".$host."/");
 	}
-	/*if(!empty($_SESSION['id'])){
+	else if(!empty($_SESSION['id'])){
 		header('Location: userPage.php');
-	}*/
+	}
 ?>
 <html>
   <head>
