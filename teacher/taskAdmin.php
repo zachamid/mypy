@@ -25,7 +25,7 @@
 	<body>
 		<div class="container">
 			<?php
-  				$curr_page='classAdmin.php';
+  				$curr_page='taskAdmin.php';
     			include 'navbar.php';
     			$sql_query = 'SELECT * FROM Teacher WHERE TeacherID='.$_SESSION['id'];
     			if(!$result = $db->query($sql_query)){

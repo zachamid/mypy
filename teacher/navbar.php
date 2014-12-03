@@ -30,10 +30,10 @@
 		echo '<li><a href="/teacher/classAdmin.php">Class Administration</a></li>';
 	}
 	if($curr_page =='taskAdmin.php'){
-		echo '<li class="active"><a href="playground.php">Playground</a></li>';
+		echo '<li class="active"><a href="taskAdmin.php">Task Administration</a></li>';
 	}
 	else{
-		echo '<li><a href="playground.php">Playground</a></li>';
+		echo '<li><a href="taskAdmin.php">Task Administration</a></li>';
 	}
 	echo '</ul>';
 	echo '<ul class="nav navbar-nav navbar-right">';
