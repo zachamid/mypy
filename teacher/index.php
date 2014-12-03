@@ -1,11 +1,11 @@
 <?php
-	session_start();
 	if(strcmp($_SESSION['type'],'Student')==0){
   		header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
 	/*if(!empty($_SESSION['id'])){
 		header('Location: userPage.php');
 	}*/
+	session_start();
 ?>
 <html>
   <head>
