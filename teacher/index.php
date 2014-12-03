@@ -2,12 +2,12 @@
 	session_start();
 	$host  = $_SERVER['HTTP_HOST'];
 	$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-	/*if($_SESSION['type']=='Student'){
-  		header("Location:http://".$host.$uri."/");
-	}*/
-	/*if(!empty($_SESSION['id'])){
+	if($_SESSION['type']=='Student'){
+  		header("Location:http://".$host"/");
+	}
+	if(!empty($_SESSION['id'])){
 		header('Location: userPage.php');
-	}*/
+	}
 ?>
 <html>
   <head>
@@ -20,7 +20,6 @@
   </head>
   <body>
     <?php 
-    	echo $host.$uri;
     	if($_SESSION['type']=='Teacher'){
 	  		include 'teacher/navbar.php'; 
 	  	}
