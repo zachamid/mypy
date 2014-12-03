@@ -25,6 +25,7 @@
     					var table = document.getElementById('task_list');
     					var counter = 1;
     					for(task in tasks){
+    						console.log(task);
     						var row = table.insertRow(counter);
     						var id = row.insertCell(0).innerHTML = task;
     						if(tasks['directory'] == 1){
