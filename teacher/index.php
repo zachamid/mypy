@@ -22,7 +22,7 @@
     	if($_SESSION['type']=='Teacher'){
 	  		include 'teacher/navbar.php'; 
 	  	}
-	  	else if (empty($_SESSION['id']){
+	  	else if (empty($_SESSION['id'])){
 	  		include 'heading.php';
 	  	} 
 	?>
