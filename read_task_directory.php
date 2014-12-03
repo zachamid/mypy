@@ -69,10 +69,10 @@ while($row = $result->fetch_assoc()){
 		echo $row['Title'].': Directory is not there</br>';
 		$file_existance_matrix_single['directory']=1;
 	}
-	$file_existance_matrix[$row['TaskID']] = file_existance_matrix_single;
+	$file_existance_matrix[$row['TaskID']] = $file_existance_matrix_single;
 }
 
-echo json_encode file_existance_matrix;
+echo json_encode(file_existance_matrix);
 ?>
 </body>
 </html>
