@@ -139,7 +139,7 @@ function update_user(type_of_user, id){
     	if(flag[1]==0){
     		user['LastName']=document.getElementById('LastName');
     	}
-    	if(flag[2]==0 && flag[3] == 0 && flag[4] ==0)
+    	if(flag[2]==0 && flag[3] == 0 && flag[4] ==0){
     		user['Password'] = document.getElementById('new_Password');
     	}
     	user['type_of_user'] = type_of_user;
