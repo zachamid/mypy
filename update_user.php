@@ -14,7 +14,7 @@
 	}
 	$sql_query = "UPDATE ".$table." SET ".substr($new_values, 0, strlen($new_values)-1)." WHERE ".$table."ID=".$_SESSION['id'];
 	if(!$result = $db->query($sql_query)){
-    	echo $db->error;
+    	echo $db->error."</br>".$sql_query;
   	}
   	else{
   		echo '0';
