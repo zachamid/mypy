@@ -149,7 +149,7 @@ function update_user(type_of_user, id){
     			if(flag[3] == 0 && flag[4] ==0){
     				user['Password'] = document.getElementById('new_Password').value;
     			}
-    			user['type_of_user'] = type_of_user;
+    			user['type'] = type_of_user;
     			if(login_result != '-1'){
     				$.ajax({
 						data:user,
