@@ -141,13 +141,13 @@ function update_user(type_of_user, id){
     		type : "POST",}).done(function(login_result){
     			var user = {};
     			if(flag[0]==0){
-    				user['FirstName']=document.getElementById('FirstName');
+    				user['FirstName']=document.getElementById('FirstName').value;
     			}
     			if(flag[1]==0){
-    				user['LastName']=document.getElementById('LastName');
+    				user['LastName']=document.getElementById('LastName').value;
     			}
-    			if(flag[2]==0 && flag[3] == 0 && flag[4] ==0){
-    				user['Password'] = document.getElementById('new_Password');
+    			if(flag[3] == 0 && flag[4] ==0){
+    				user['Password'] = document.getElementById('new_Password').value;
     			}
     			user['type_of_user'] = type_of_user;
     			if(login_result != '-1'){
