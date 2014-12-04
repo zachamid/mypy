@@ -14,6 +14,7 @@
     		<link href="general_style.css" rel="stylesheet">
 	</head>
 	<body>
-			
+		<div class="container">
+		</div>	
 	</body>
 </html>
