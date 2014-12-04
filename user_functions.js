@@ -134,7 +134,7 @@ function update_user(type_of_user, id){
     else{
     	var user = {};
     	for (counter =0; counter < fields.length; counter++){
-    		if(flags[counter] != 1){
+    		if(flag[counter] != 1){
     			user[fields[counter]] = document.getElementById(fields[counter]);
     		}
     	}
