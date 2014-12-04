@@ -123,17 +123,24 @@ function insert_user(table, person){
 
 function update_user(type_of_user, id){
 	var fields = ['FirstName', 'LastName','Password','new_Password','confirm_New_Password'];
-    var flag = 0;
+    var flag = [];
     for(counter =0; counter < fields.length; counter++){
     	var out = validate_detail(fields[counter]);
     	if(out == 1){
-    		flag = 1;
+    		flag[counter] = 1;
       	}
     }
-    if(flag == 1){
+    if(flag.indexOf(0) == -1){
     	alert('Please fix your form and Retry');
     }
     else{
+    	var user = {};
+    	for (counter =0; counter < fields.length; counter++){
+    		if(flags[counter] != 1){
+    			user[fields[counter]] = document.getElementById(fields[counter]);
+    		}
+    	}
+    	user['type_of_user'] = type_of_user;
     	$.ajax({
     		data : {email: document.getElementById('Email').value,
     				password:document.getElementById('Password').value,
