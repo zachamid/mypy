@@ -59,6 +59,7 @@
       				</div>
       				<div class="panel panel-default translucent">
       					<table>
+      						Still in Progress
       					</table>
       				</div>
       			</div>
