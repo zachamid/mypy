@@ -12,7 +12,7 @@
 	if(isset($_POST['Password'])){
 		$new_values.="Password='".$_POST['FirstName']."',";
 	}
-	$sql_query = "UPDATE ".$table." SET ".substr($new_values, 0, strlen($new_values)-1)."' WHERE ".$table."ID=".$_SESSION['id'];
+	$sql_query = "UPDATE ".$table." SET ".substr($new_values, 0, strlen($new_values)-1)." WHERE ".$table."ID=".$_SESSION['id'];
 	if(!$result = $db->query($sql_query)){
     	echo $db->error;
   	}
