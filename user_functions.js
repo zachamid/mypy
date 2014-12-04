@@ -133,10 +133,14 @@ function update_user(type_of_user, id){
     }
     else{
     	var user = {};
-    	for (counter =0; counter < fields.length; counter++){
-    		if(flag[counter] != 1){
-    			user[fields[counter]] = document.getElementById(fields[counter]);
-    		}
+    	if(flag[0]==0){
+    		user['FirstName']=document.getElementById('FirstName');
+    	}
+    	if(flag[1]==0){
+    		user['LastName']=document.getElementById('LastName');
+    	}
+    	if(flag[2]==0 && flag[3] == 0 && flag[4] ==0)
+    		user['Password'] = document.getElementById('new_Password');
     	}
     	user['type_of_user'] = type_of_user;
     	$.ajax({
@@ -146,11 +150,7 @@ function update_user(type_of_user, id){
     		url : '/login_validation.php',
     		type : "POST",}).done(function(login_result){
     			if(login_result != '-1'){
-    				var user = {FirstName: document.getElementById('FirstName').value,
-								LastName: document.getElementById('LastName').value,
-								Password: document.getElementById('new_Password').value,
-    							type:type_of_user};
-					$.ajax({
+    				$.ajax({
 						data:user,
 						url: '/update_user.php',
 						type: 'POST'}).done(function(update_result){
