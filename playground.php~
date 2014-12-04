@@ -15,10 +15,10 @@
 		<?php
 			$curr_page = 'playground.php';
 			if($_SESSION['type']=='Student'){
-				include('nav_bar.php');
+				include('navbar.php');
 			}
 			else if($_SESSION['type']=='Teacher'){
-				include('teacher/nav_bar.php');
+				include('teacher/navbar.php');
 			}
 			else{
 				include('heading.php');

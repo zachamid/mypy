@@ -11,7 +11,7 @@
     echo '<button type="button" class="btn btn-default btn-sm" onclick="validate_login(\'Student\')">';
   	echo '<span class="glyphicon glyphicon-log-in"></span> Login';
 	echo '</button>&nbsp&nbsp';
-	echo '<button type="button" class="btn btn-default btn-sm" onclick="location.href=\'sign_up.php\'">';
+	echo '<button type="button" class="btn btn-default btn-sm" onclick="location.href=\'signup.php\'">';
   	echo '<span class="glyphicon glyphicon-user"></span> Sign Up';
 	echo '</button>';
     echo '</br><div id="error_space"></div> ';
