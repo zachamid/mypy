@@ -125,10 +125,7 @@ function update_user(type_of_user, id){
 	var fields = ['FirstName', 'LastName','Password','new_Password','confirm_New_Password'];
     var flag = [];
     for(counter =0; counter < fields.length; counter++){
-    	var out = validate_detail(fields[counter]);
-    	if(out == 1){
-    		flag[counter] = 1;
-      	}
+    	flag[counter] = validate_detail(fields[counter]);
     	console.log(flag[counter]);
     }
     if(flag.indexOf(0) == -1){
