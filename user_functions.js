@@ -132,23 +132,24 @@ function update_user(type_of_user, id){
     	alert('Please fix your form and Retry');
     }
     else{
-    	var user = {};
-    	if(flag[0]==0){
-    		user['FirstName']=document.getElementById('FirstName');
-    	}
-    	if(flag[1]==0){
-    		user['LastName']=document.getElementById('LastName');
-    	}
-    	if(flag[2]==0 && flag[3] == 0 && flag[4] ==0){
-    		user['Password'] = document.getElementById('new_Password');
-    	}
-    	user['type_of_user'] = type_of_user;
+    	
     	$.ajax({
     		data : {email: document.getElementById('Email').value,
     				password:document.getElementById('Password').value,
     				type:type_of_user},
     		url : '/login_validation.php',
     		type : "POST",}).done(function(login_result){
+    			var user = {};
+    			if(flag[0]==0){
+    				user['FirstName']=document.getElementById('FirstName');
+    			}
+    			if(flag[1]==0){
+    				user['LastName']=document.getElementById('LastName');
+    			}
+    			if(flag[2]==0 && flag[3] == 0 && flag[4] ==0){
+    				user['Password'] = document.getElementById('new_Password');
+    			}
+    			user['type_of_user'] = type_of_user;
     			if(login_result != '-1'){
     				$.ajax({
 						data:user,
