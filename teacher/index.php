@@ -19,13 +19,15 @@
     <script src='../user_functions.js'></script>
   </head>
   <body>
-    <?php 
-    	if($_SESSION['type']=='Teacher'){
-	  		include 'teacher/navbar.php'; 
-	  	}
-	  	else if (empty($_SESSION['id'])){
-	  		include 'heading.php';
-	  	} 
-	?>
+  	<div class="container">
+    	<?php 
+    		if($_SESSION['type']=='Teacher'){
+	  			include 'teacher/navbar.php'; 
+	  		}
+	  		else if (empty($_SESSION['id'])){
+	  			include 'heading.php';
+	  		}	 
+		?>
+	<div class="container">
   </body>
 </html>
