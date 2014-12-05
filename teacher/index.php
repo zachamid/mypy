@@ -6,7 +6,7 @@
   		header("Location:http://".$host."/");
 	}
 	else if(!empty($_SESSION['id'])){
-		header('Location: userPage.php');
+		header('Location: user_page.php');
 	}
 ?>
 <html>
