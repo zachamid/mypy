@@ -24,7 +24,7 @@
     				url : '/task_directory_functions.php',
     				data: {cmd:"File_Info"},
     				type: 'POST',
-    				dataType: 'text'}).done(function(tasks){
+    				dataType: 'json'}).done(function(tasks){
     					var table = document.getElementById('task_list');
     					var counter = 1;
     					for(var task in tasks){
@@ -64,7 +64,7 @@
     				url : '/task_directory_functions.php',
     				data: {cmd:"Task_Info",params:taskID},
     				type: 'POST',
-    				dataType: 'json'}).done(function(tasks){
+    				dataType: 'text'}).done(function(tasks){
     					document.getElementById('task_info').innerHTML=tasks;
     			});
     		}
