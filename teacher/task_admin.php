@@ -88,8 +88,8 @@
     				<div class="panel panel-default translucent">
       					<h3>Task List</h3>
       				</div>
-      				<div class="panel panel-default translucent">
-      					<table id="task_list" width="100%" style="border-spacing:10px;position:fixed">
+      				<div class="panel panel-default translucent" style="postion:fixed">
+      					<table id="task_list" width="100%" style="border-spacing:10px">
       						<tr>
       							<th>TaskID</th>
       							<th>Directory</th>
