@@ -30,7 +30,7 @@
     					for(var task in tasks){
     						console.log(task);
     						var row = table.insertRow(counter);
-    						var id = row.insertCell(0).innerHTML = task;
+    						var id = row.insertCell(counter).innerHTML = task;
     						if(tasks[task]['directory'] == 1){
     							var id = row.insertCell(1).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
     						}
@@ -55,6 +55,7 @@
     						else{
     							var id = row.insertCell(4).innerHTML = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
     						}
+    						counter++;
     					}
     			});
     		}
