@@ -11,7 +11,7 @@ switch($cmd){
 
 function retrieve_file_info(){
 	include 'db_connection.php';
-	$sql_query = "SELECT * FROM Task";
+	$sql_query = "SELECT * FROM Task ORDER BY TaskID ASC";
 	if(!$result = $db->query($sql_query)){
 		die('There was an error running the query [' . $db->error . ']');
 	}
