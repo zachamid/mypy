@@ -16,6 +16,7 @@
     	<script>
     		$( document ).ready(function() {
     			check_directory();
+    			get_task_info("1");
 			});
 			
     		function check_directory(){
@@ -57,6 +58,16 @@
     					}
     			});
     		}
+    		
+    		function get_task_info(taskID){
+    			$.ajax({
+    				url : '/task_directory_functions.php',
+    				data: {cmd:"Task_Info",params:taskID},
+    				type: 'POST',
+    				dataType: 'json'}).done(function(tasks){
+    					document.getElementById('task_info').innerHTML=tasks;
+    			});
+    		}
     	</script>
 	</head>
 	<body>
@@ -86,6 +97,8 @@
       							<th>info.xml</th>
       						</tr>
       					</table>
+      				</div>
+      				<div class="panel panel-default translucent" id="task_info">
       				</div>
       			</div>
       		</div>
