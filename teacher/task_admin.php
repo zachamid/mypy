@@ -21,6 +21,8 @@
     		function check_directory(){
     			$.ajax({
     				url : '/read_task_directory.php',
+    				data: {cmd:"File_Info"},
+    				type: 'POST',
     				dataType: 'json'}).done(function(tasks){
     					var table = document.getElementById('task_list');
     					var counter = 1;

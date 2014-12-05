@@ -58,7 +58,7 @@
       					<h3>Student Progress</h3>
       				</div>
       				<div class="panel panel-default translucent">
-      					<table>
+      					<table id="classList">
       						Still in Progress
       					</table>
       				</div>
