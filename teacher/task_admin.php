@@ -55,6 +55,7 @@
     						else{
     							var id = row.insertCell(4).innerHTML = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
     						}
+    						counter++;
     					}
     			});
     		}
