@@ -20,7 +20,7 @@
 			
     		function check_directory(){
     			$.ajax({
-    				url : '/read_task_directory.php',
+    				url : '/task_directory_functions.php',
     				data: {cmd:"File_Info"},
     				type: 'POST',
     				dataType: 'json'}).done(function(tasks){
