@@ -88,8 +88,17 @@
     				<div class="panel panel-default translucent">
       					<h3>Task List</h3>
       				</div>
-      				<div class="panel panel-default translucent" style="height:70px;overflow:scroll">
-      					<table id="task_list" width="100%" style="border-spacing:10px;display:block">
+      				<div class="panel panel-default translucent">
+      				<table  width="100%" style="border-spacing:10px">
+      					<tr>
+      						<th>TaskID</th>
+      						<th>Directory</th>
+      						<th>task_skeleton.py</th>
+      						<th>task_complete.py</th>
+      						<th>info.xml</th>
+      					</tr>
+      				</table>
+      				<div style="max-height:60px;overflow:auto"><table id="task_list" width="100%" style="border-spacing:10px">
       						<tr>
       							<th>TaskID</th>
       							<th>Directory</th>
