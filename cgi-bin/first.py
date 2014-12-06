@@ -31,7 +31,7 @@ db.close()
 print """content-type: text/html
 
 <html><body>"""
-print 'COMMAND'+posted_data['cmd']+"</br>"
+print 'COMMAND'+str(posted_data['cmd'])+"</br>"
 print json.dumps(ver)
 
 print "</body></html>"
