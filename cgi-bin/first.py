@@ -31,7 +31,6 @@ db.close()
 print """content-type: text/html
 
 <html><body>"""
-for line in ver:
-    print json.dumps(line)
+print json.dumps(ver)
 
 print "</body></html>"
