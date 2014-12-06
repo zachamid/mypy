@@ -8,11 +8,11 @@ import MySQLdb.cursors
 cgitb.enable()
 
 posted_data = cgi.FieldStorage()
-cmd = posted_data['cmd'].name
+cmd = posted_data['cmd'].value
 db = MySQLdb.connect('localhost','root','S0crat3s34!','test', cursorclass=MySQLdb.cursors.DictCursor);
 cursor = db.cursor()
 sql_query=''
-if cmd == "Schools":
+if cmd != "Schools":
 	sql_query = "SELECT DISTINCT School FROM Class"
 elif(cmd == 'Classes'):
 	param = posted_data['param']
@@ -22,8 +22,9 @@ elif(cmd == 'Progress'):
 	sql_query = "SELECT * FROM Progress WHERE StudentID='"+str(param)+"'"
 else:
 	param = posted_data['param']
-	sql_query = "SELECT Email FROM Student WHERE Email='"+param+"' UNION "
-	sql_query = sql_query+"SELECT Email FROM Teacher WHERE Email='"+param+"'"
+	#sql_query = "SELECT Email FROM Student WHERE Email='"+param+"' UNION "
+	#sql_query = sql_query+"SELECT Email FROM Teacher WHERE Email='"+param+"'"
+	sql_query = "SELECT Email FROM Student"
 
 cursor.execute(sql_query)
 ver = cursor.fetchall()    
@@ -31,7 +32,7 @@ db.close()
 print """content-type: text/html
 
 <html><body>"""
-print 'COMMAND'+str(posted_data['cmd'])+"</br>"
+print 'COMMAND'+str(posted_data['cmd'].value)+"</br>"
 print json.dumps(ver)
 
 print "</body></html>"
