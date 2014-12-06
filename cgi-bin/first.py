@@ -20,7 +20,7 @@ elif(cmd == 'Classes'):
 elif(cmd == 'Progress'):
 	param = posted_data['param']
 	sql_query = "SELECT * FROM Progress WHERE StudentID='"+str(param)+"'"
-elif(cmd == 'CheckEmail'):
+else:
 	param = posted_data['param']
 	sql_query = "SELECT Email FROM Student WHERE Email='"+param+"' UNION "
 	sql_query = sql_query+"SELECT Email FROM Teacher WHERE Email='"+param+"'"
