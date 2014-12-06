@@ -12,7 +12,7 @@ cmd = posted_data['cmd']
 db = MySQLdb.connect('localhost','root','S0crat3s34!','test', cursorclass=MySQLdb.cursors.DictCursor);
 cursor = db.cursor()
 sql_query=''
-if(cmd == 'Schools'):
+if(cmd == "Schools"):
 	sql_query = "SELECT DISTINCT School FROM Class"
 elif(cmd == 'Classes'):
 	param = posted_data['param']
