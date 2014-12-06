@@ -31,7 +31,7 @@ db.close()
 print """content-type: text/html
 
 <html><body>"""
-print "Command"+cmd;
+print "Command"+posted_data;
 for line in ver:
     print json.dumps(line)
 
