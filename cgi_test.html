@@ -10,11 +10,9 @@
 				$.ajax({
     				data : {cmd:cmd, param:param},
     				url : '/cgi-bin/first.py',
-    				type : "POST",}).done(function(result){
+    				type : "POST",dataType:'text'}).done(function(result){
     					var example = document.getElementById('example');
-    					for(var row in result){
-    						example.innerHTML += row.toString() + "</br>"
-    					}
+    					example.innerHTML += result + "</br>"
     			});
 			}
 		</script>
