@@ -21,11 +21,12 @@ elif(cmd == 'Classes'):
 elif(cmd == 'Progress'):
 	param = posted_data['param'].value
 	sql_query = "SELECT * FROM Progress WHERE StudentID='"+str(param)+"'"
-else(cmd == ''):
-	#param = posted_data['param']
-	#sql_query = "SELECT Email FROM Student WHERE Email='"+param+"' UNION "
-	#sql_query = sql_query+"SELECT Email FROM Teacher WHERE Email='"+param+"'"
-	sql_query = "SELECT Email FROM Student"
+elif(cmd == 'CheckEmail'):
+	param = posted_data['param']
+	sql_query = "SELECT Email FROM Student WHERE Email='"+param+"' UNION "
+	sql_query = sql_query+"SELECT Email FROM Teacher WHERE Email='"+param+"'"
+elif(cmd == 'GetUserInfo'):
+	param = 
 
 cursor.execute(sql_query)
 ver = cursor.fetchall()    
