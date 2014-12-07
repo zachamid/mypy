@@ -9,7 +9,7 @@
 			function run_query_test(cmd, param){
 				$.ajax({
     				data : {cmd:cmd, param:param},
-    				url : '/cgi-bin/first.py',
+    				url : '/cgi-bin/run_query.py',
     				type : "POST",dataType:'text'}).done(function(result){
     					var example = document.getElementById('example');
     					example.innerHTML += result + "</br>"
