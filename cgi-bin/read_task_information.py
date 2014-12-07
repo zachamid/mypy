@@ -11,7 +11,7 @@ cgitb.enable()
 #db = db_connection.get_connection()
 #posted_data = cgi.FieldStorage()
 
-path = '../tasks/'
+path = '/../tasks/'
 files = os.listdir(path)
 
 print """content-type:text/html
