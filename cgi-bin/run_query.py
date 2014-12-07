@@ -5,11 +5,12 @@ import cgitb
 import json
 import MySQLdb
 import MySQLdb.cursors
+import db_connection
 cgitb.enable()
 
 posted_data = cgi.FieldStorage()
 cmd = posted_data['cmd'].value
-db = MySQLdb.connect('localhost','root','S0crat3s34!','test', cursorclass=MySQLdb.cursors.DictCursor);
+db = db_connection.get_connection()
 cursor = db.cursor()
 sql_query=''
 if cmd == "Schools":
