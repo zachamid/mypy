@@ -17,7 +17,7 @@ if cmd == "Schools":
 	sql_query = "SELECT DISTINCT School FROM Class"
 elif(cmd == 'Classes'):
 	param = posted_data['param'].value
-	sql_query = "SELECT * FROM Classes WHERE School='"+param+"'"
+	sql_query = "SELECT * FROM Class WHERE School='"+param+"'"
 elif(cmd == 'Progress'):
 	param = posted_data['param'].value
 	sql_query = "SELECT * FROM Progress WHERE StudentID='"+str(param)+"'"
