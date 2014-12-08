@@ -52,7 +52,7 @@
 			}
 			
     		$( document ).ready(function() {
-    			//check_directory(populate_table);
+    			check_directory(populate_table);
     			get_task_info("1");
 			});
     	</script>
