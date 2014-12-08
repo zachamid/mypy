@@ -3,7 +3,7 @@ function check_directory(data_manipulation){
 		url : '/task_directory_functions.php',
     	data: {cmd:"File_Info"},
     	type: 'POST',
-    	dataType: 'json'}).done(data_manipulation(result));
+    	dataType: 'json'}).done(data_manipulation());
 }
     		
 function get_task_info(taskID){
