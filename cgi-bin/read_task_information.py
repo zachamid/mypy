@@ -28,7 +28,7 @@ def retrieve_file_info():
 	for task in tasks:
 		file_info[task['TaskID']] = dict()
 		print files
-		if task['TaskID'] in files:
+		if any(task['TaskID']==file for file in files):
 			file_info[task['TaskID']]['directory'] = 1
 			new_path=path+task['TaskID']+"/"
 			task_files=os.listdir(new_path)
