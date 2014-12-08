@@ -15,7 +15,8 @@ body {
 }
 
 table, th, td {
-   border: 1px solid black;
+   border: 1px solid black;          //  <-- Select the height of the body
+  width: 100%;
 }
 
 tr {
