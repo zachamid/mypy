@@ -28,8 +28,12 @@ table{
  height:300px;            //  <-- Select the height of the body
   width: 100%;            // <-- Select the height of the table
 }
+thead{
+	width:100%;
+}
 tbody{
   overflow-y: scroll;      
-  height: 200px;  
+  height: 200px;
+  width:100%;  
   position: absolute;
 }
