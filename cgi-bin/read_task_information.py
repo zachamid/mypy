@@ -9,7 +9,8 @@ import MySQLdb.cursors
 import db_connection
 cgitb.enable()
 
-global path = '../../tasks/'
+
+path = '../../tasks/'
 
 def get_task_list():
 	db = db_connection.get_connection()
