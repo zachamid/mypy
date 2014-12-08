@@ -17,3 +17,18 @@ body {
 table, th, td {
    border: 1px solid black;
 }
+
+tr {
+width: 100%;
+display: inline-table;
+}
+
+table{
+ height:300px;              // <-- Select the height of the table
+}
+tbody{
+  overflow-y: scroll;      
+  height: 200px;            //  <-- Select the height of the body
+  width: 100%;
+  position: absolute;
+}

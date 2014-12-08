@@ -84,10 +84,6 @@
       						<th>info.xml</th>
       					</tr>
       				</table>
-      				<div style="max-height:60px;overflow:auto">
-      					<table id="task_list" width="100%" style="border-spacing:10px">
-      					</table>
-      				</div>
       				</div>
       				<div class="panel panel-default translucent" id="task_info">
       				</div>
