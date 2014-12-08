@@ -30,6 +30,7 @@ def retrieve_file_info():
 		flag = 0
 		for file in files:
 			if file == task['TaskID']:
+				print task['TaskID'] + " " + file+"</br>"
 				flag = 1
 		if flag:
 			file_info[task['TaskID']]['directory'] = 1
