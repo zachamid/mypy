@@ -29,8 +29,8 @@ def retrieve_file_info():
 		file_info[task['TaskID']] = dict()
 		flag = 0
 		for file in files:
+			print task['TaskID'] + " " + file+"</br>"
 			if file == task['TaskID']:
-				print task['TaskID'] + " " + file+"</br>"
 				flag = 1
 		if flag:
 			file_info[task['TaskID']]['directory'] = 1
