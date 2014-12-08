@@ -9,66 +9,50 @@
 	<head>
 		<script src="../jquery-1.11.1.min.js"></script>
     	<script src='../user_functions.js'></script>
+    	<script src='../task_admin_junctions.js'></script>
     	<title>Welcome</title>
     	<link href="../bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     	<link href="../general_style.css" rel="stylesheet">
     	<link href="teacher_style.css" rel="stylesheet">
     	<script>
     		$( document ).ready(function() {
-    			check_directory();
+    			check_directory(populate_database);
     			get_task_info("1");
 			});
 			
-    		function check_directory(){
-    			$.ajax({
-    				url : '/task_directory_functions.php',
-    				data: {cmd:"File_Info"},
-    				type: 'POST',
-    				dataType: 'json'}).done(function(tasks){
-    					var table = document.getElementById('task_list');
-    					var counter = 0;
-    					for(var task in tasks){
-    						console.log(task);
-    						var row = table.insertRow(counter);
-    						var id = row.insertCell(0).innerHTML = task;
-    						if(tasks[task]['directory'] == 1){
-    							var id = row.insertCell(1).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
-    						}
-    						else{
-    							var id = row.insertCell(1).innerHTML = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
-    						}
-    						if(tasks[task]['task_skeleton.py'] == 1){
-    							var id = row.insertCell(2).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
-    						}
-    						else{
-    							var id = row.insertCell(2).innerHTML = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
-    						}
-    						if(tasks[task]['task_complete.py'] == 1){
-    							var id = row.insertCell(3).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
-    						}
-    						else{
-    							var id = row.insertCell(3).innerHTML = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
-    						}
-    						if(tasks[task]['info.xml'] == 1){
-    							var id = row.insertCell(4).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
-    						}
-    						else{
-    							var id = row.insertCell(4).innerHTML = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
-    						}
-    						counter++;
-    					}
-    			});
-    		}
-    		
-    		function get_task_info(taskID){
-    			$.ajax({
-    				url : '/task_directory_functions.php',
-    				data: {cmd:"Task_Info",params:taskID},
-    				type: 'POST',
-    				dataType: 'text'}).done(function(tasks){
-    					document.getElementById('task_info').innerHTML=tasks;
-    			});
-    		}
+			function populate_table(tasks){
+    			var table = document.getElementById('task_list');
+    			var counter = 0;
+    			for(var task in tasks){
+    				var row = table.insertRow(counter);
+    				var id = row.insertCell(0).innerHTML = task;
+    				if(tasks[task]['directory'] == 1){
+    					var id = row.insertCell(1).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+    				}
+    				else{
+    					var id = row.insertCell(1).innerHTML = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+    				}
+    				if(tasks[task]['task_skeleton.py'] == 1){
+    					var id = row.insertCell(2).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+    				}
+    				else{
+    					var id = row.insertCell(2).innerHTML = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+    				}
+    				if(tasks[task]['task_complete.py'] == 1){
+    					var id = row.insertCell(3).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+    				}
+    				else{
+    					var id = row.insertCell(3).innerHTML = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+    				}
+    				if(tasks[task]['info.xml'] == 1){
+						var id = row.insertCell(4).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+    				}
+    				else{
+						var id = row.insertCell(4).innerHTML = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+					}
+    				counter++;
+    			}
+			}
     	</script>
 	</head>
 	<body>

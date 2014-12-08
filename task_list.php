@@ -16,6 +16,20 @@
 	</head>
 	<body>
 		<div class="container">
-		</div>	
+			<?php
+				include 'nav_bar.php'
+			?>
+			<div class="panel panel-default translucent">
+      			<h3>List of Tasks</h3>
+      		</div>
+      		<div class="panel panel-default translucent">
+      			<table  width="100%" style="border-spacing:10px">
+      				<tr>
+      					<th>TaskID</th>
+      					<th>TaskName</th>
+      				</tr>
+      			</table>
+      		</div>
+		</div>
 	</body>
 </html>
