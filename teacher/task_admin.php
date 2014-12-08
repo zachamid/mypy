@@ -23,6 +23,8 @@
     				console.log("Entered the function");
     				var row = table.insertRow(counter);
     				var id = row.insertCell(0).innerHTML = task;
+    				var content = document.createTextNode(task);
+    				id.appendChild(task);
     				if(tasks[task]['directory'] == 1){
     					var directory = row.insertCell(1);
     					var content = document.createTextNode('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>');
