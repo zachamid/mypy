@@ -80,10 +80,10 @@
     				<div class="panel panel-default translucent">
       					<h3>Task List</h3>
       				</div>
-      				<div class="panel panel-default translucent" style="max-height:60px;overflow:auto;width:1000px">
-      				<table id="task_list" style="border-spacing:10px;">
+      				<div class="panel panel-default translucent" style="max-height:60px;overflow:auto;>
+      					<table id="task_list" style="border-spacing:10px;">
       					
-      				</table>
+      					</table>
       				</div>
       				<div class="panel panel-default translucent" id="task_info">
       				</div>
