@@ -75,7 +75,7 @@
       					<h3>Task List</h3>
       				</div>
       				<div class="panel panel-default translucent">
-      				<table  width="100%" style="border-spacing:10px">
+      				<table  width="100%" style="border-spacing:10px;border:1px solid black">
       					<tr>
       						<th>TaskID</th>
       						<th>Directory</th>
@@ -85,7 +85,7 @@
       					</tr>
       				</table>
       				<div style="max-height:60px;overflow:auto">
-      					<table id="task_list" width="100%" style="border-spacing:10px">
+      					<table id="task_list" width="100%" style="border-spacing:10px;border:1px solid black">
       					</table>
       				</div>
       				</div>
