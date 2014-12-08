@@ -15,12 +15,7 @@
     	<link href="../general_style.css" rel="stylesheet">
     	<link href="teacher_style.css" rel="stylesheet">
     	<script>
-    		$( document ).ready(function() {
-    			check_directory(populate_table);
-    			get_task_info("1");
-			});
-			
-			function populate_table(tasks){
+    		function populate_table(tasks){
     			var table = document.getElementById('task_list');
     			var counter = 0;
     			for(var task in tasks){
@@ -53,6 +48,11 @@
     				counter++;
     			}
 			}
+			
+    		$( document ).ready(function() {
+    			check_directory(populate_table);
+    			get_task_info("1");
+			});
     	</script>
 	</head>
 	<body>
