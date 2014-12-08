@@ -16,7 +16,7 @@
     	<link href="teacher_style.css" rel="stylesheet">
     	<script>
     		$( document ).ready(function() {
-    			check_directory(populate_database);
+    			check_directory(populate_table);
     			get_task_info("1");
 			});
 			
