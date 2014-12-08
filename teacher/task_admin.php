@@ -20,6 +20,7 @@
     			console.log("Entered the function");
     			var counter = 0;
     			for(var task in tasks){
+    				console.log("Entered the function");
     				var row = table.insertRow(counter);
     				var id = row.insertCell(0).innerHTML = task;
     				if(tasks[task]['directory'] == 1){
