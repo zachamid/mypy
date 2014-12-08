@@ -21,10 +21,10 @@
     			var header = table.createTHead();
     			var header_row = header.insertRow(0);
     			header_row.insertCell(0).innerHTML = '<b>ID</b>';
-    			header_row.insertCell(0).innerHTML = '<b>Directory</b>';
-    			header_row.insertCell(0).innerHTML = '<b>task_skeleton.py</b>';
-    			header_row.insertCell(0).innerHTML = '<b>task_complete.py</b>';
-    			header_row.insertCell(0).innerHTML = '<b>info.xml</b>';
+    			header_row.insertCell(1).innerHTML = '<b>Directory</b>';
+    			header_row.insertCell(2).innerHTML = '<b>task_skeleton.py</b>';
+    			header_row.insertCell(3).innerHTML = '<b>task_complete.py</b>';
+    			header_row.insertCell(4).innerHTML = '<b>info.xml</b>';
     			var counter = 1;
     			for(var task in tasks){
     				console.log("Entered the function");
