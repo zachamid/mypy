@@ -24,10 +24,14 @@
     				var row = table.insertRow(counter);
     				var id = row.insertCell(0).innerHTML = task;
     				if(tasks[task]['directory'] == 1){
-    					var id = row.insertCell(1).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+    					var directory = row.insertCell(1);
+    					var content = document.createTextNode('<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>');
+						directory.appendChild(content);
     				}
     				else{
-    					var id = row.insertCell(1).innerHTML = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+    					var directory = row.insertCell(1)
+    					var content = document.createTextNode('<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>');
+    					directory.appendChild(content);
     				}
     				if(tasks[task]['task_skeleton.py'] == 1){
     					var id = row.insertCell(2).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
@@ -76,13 +80,14 @@
       				</div>
       				<div class="panel panel-default translucent" style="max-height:60px;overflow:auto;width:1000px">
       				<table id="task_list" style="border-spacing:10px;">
-      					<tr>
+      					<thead><tr>
       						<th>TaskID</th>
       						<th>Directory</th>
       						<th>task_skeleton.py</th>
       						<th>task_complete.py</th>
       						<th>info.xml</th>
-      					</tr>
+      					</tr></thead>
+      					<tbody></tbody>
       				</table>
       				</div>
       				<div class="panel panel-default translucent" id="task_info">
