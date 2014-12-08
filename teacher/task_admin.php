@@ -75,8 +75,8 @@
       					<h3>Task List</h3>
       				</div>
       				<div class="panel panel-default translucent" style="max-height:60px;overflow:auto">
-      				<table id="task_list" style="border-spacing:10px;width:100%">
-      					<tr style="width:100%">
+      				<table id="task_list" style="border-spacing:10px;width:600px">
+      					<tr>
       						<th>TaskID</th>
       						<th>Directory</th>
       						<th>task_skeleton.py</th>
