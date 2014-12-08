@@ -29,7 +29,7 @@ def retrieve_file_info():
 		file_info[task['TaskID']] = dict()
 		if str(task['TaskID']) in files:
 			file_info[task['TaskID']]['directory'] = 1
-			new_path=path+task['TaskID']+"/"
+			new_path=path+str(task['TaskID'])+"/"
 			task_files=os.listdir(new_path)
 			if 'info.xml' in task_files:
 			 	file_info[task['TaskID']]['info.xml'] = 1
