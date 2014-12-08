@@ -24,7 +24,7 @@
     				var row = table.insertRow(counter);
     				row.insertCell(0).innerHTML = task;
     				if(tasks[task]['directory'] == 1){
-    					row.insertCell(1)innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+    					row.insertCell(1).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
     				}
     				else{
     					row.insertCell(1).innerHTML = '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
