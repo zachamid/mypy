@@ -74,7 +74,7 @@
     				<div class="panel panel-default translucent">
       					<h3>Task List</h3>
       				</div>
-      				<div class="panel panel-default translucent" style="max-height:60px;overflow:auto">
+      				<div id="task_list" class="panel panel-default translucent" style="max-height:60px;overflow:auto">
       				<table  width="100%" style="border-spacing:10px">
       					<tr>
       						<th>TaskID</th>
