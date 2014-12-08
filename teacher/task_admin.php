@@ -18,7 +18,7 @@
     		function populate_table(tasks){
     			var table = document.getElementById('task_list');
     			console.log("Entered the function");
-    			var counter = 0;
+    			var counter = 1;
     			for(var task in tasks){
     				console.log("Entered the function");
     				var row = table.insertRow(counter);
