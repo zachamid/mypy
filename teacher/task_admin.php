@@ -18,8 +18,7 @@
     		function populate_table(tasks){
     			var table = document.getElementById('task_list');
     			console.log("Entered the function");
-    			var header = table.createTHead();
-    			var header_row = header.insertRow(0);
+    			var header_row = table.insertRow(0);
     			header_row.insertCell(0).innerHTML = '<b>ID</b>';
     			header_row.insertCell(1).innerHTML = '<b>Directory</b>';
     			header_row.insertCell(2).innerHTML = '<b>task_skeleton.py</b>';
@@ -83,14 +82,7 @@
       				</div>
       				<div class="panel panel-default translucent" style="max-height:60px;overflow:auto;width:1000px">
       				<table id="task_list" style="border-spacing:10px;">
-      					<thead><tr>
-      						<th>TaskID</th>
-      						<th>Directory</th>
-      						<th>task_skeleton.py</th>
-      						<th>task_complete.py</th>
-      						<th>info.xml</th>
-      					</tr></thead>
-      					<tbody></tbody>
+      					
       				</table>
       				</div>
       				<div class="panel panel-default translucent" id="task_info">
