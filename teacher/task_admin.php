@@ -18,7 +18,7 @@
     		function populate_table(tasks){
     			var table = document.getElementById('task_list');
     			console.log("Entered the function");
-    			var counter = 1;
+    			var counter = 0;
     			for(var task in tasks){
     				console.log("Entered the function");
     				var row = table.insertRow(counter);
@@ -74,8 +74,8 @@
     				<div class="panel panel-default translucent">
       					<h3>Task List</h3>
       				</div>
-      				<div class="panel panel-default translucent">
-      				<table id="task_list"  width="100%" style="border-spacing:10px">
+      				<div class="panel panel-default translucent" style="max-height:60px;overflow:auto">
+      				<table  width="100%" style="border-spacing:10px">
       					<tr>
       						<th>TaskID</th>
       						<th>Directory</th>
