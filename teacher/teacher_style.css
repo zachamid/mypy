@@ -24,11 +24,11 @@ display: inline-table;
 }
 
 table{
- height:300px;              // <-- Select the height of the table
+ height:300px;            //  <-- Select the height of the body
+  width: 100%;            // <-- Select the height of the table
 }
 tbody{
   overflow-y: scroll;      
-  height: 200px;            //  <-- Select the height of the body
-  width: 100%;
+  height: 200px;  
   position: absolute;
 }
