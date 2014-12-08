@@ -27,8 +27,11 @@ def retrieve_file_info():
 	file_info = dict()
 	for task in tasks:
 		file_info[task['TaskID']] = dict()
-		print task['TaskID'] in files
-		if task['TaskID'] in files:
+		flag = 0
+		for file in files:
+			if file == task['TaskID']:
+				flag = 1
+		if flag:
 			file_info[task['TaskID']]['directory'] = 1
 			new_path=path+task['TaskID']+"/"
 			task_files=os.listdir(new_path)
