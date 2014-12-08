@@ -52,6 +52,6 @@ print """content-type:text/html
 <html><body>
 """
 
-print json.dumps(retrieve_file_info)
+print json.dumps(retrieve_file_info())
 
 print "</body></html>"
