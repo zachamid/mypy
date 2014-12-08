@@ -18,7 +18,6 @@ def get_task_list():
 	sql = 'SELECT * FROM Task'
 	cursor.execute(sql)
 	out = cursor.fetchall()
-	print out
 	return out
 	
 
@@ -27,17 +26,17 @@ def retrieve_file_info():
 	files = os.listdir(path)
 	file_info = dict()
 	for task in tasks:
-		file_info['TaskID'] = dict()
+		file_info[task['TaskID']] = dict()
 		if task['TaskID'] in files:
-			file_info['TaskID']['directory'] = 1
+			file_info[task['TaskID']]['directory'] = 1
 			new_path=path+task['TaskID']+"/"
 			task_files=os.listdir(new_path)
 			if 'info.xml' in task_files:
-			 	file_info['TaskID']['info.xml'] = 1
+			 	file_info[task['TaskID']]['info.xml'] = 1
 			else:
-			 	file_info['TaskID']['info.xml'] = 0
+			 	file_info[task['TaskID']]['info.xml'] = 0
 		else:
-			file_info['TaskID']['directory'] = 0
+			file_info[task['TaskID']]['directory'] = 0
 	return file_info
 	
 	
