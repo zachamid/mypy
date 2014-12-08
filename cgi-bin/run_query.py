@@ -25,9 +25,8 @@ elif(cmd == 'CheckEmail'):
 	param = posted_data['param']
 	sql_query = "SELECT Email FROM Student WHERE Email='"+param+"' UNION "
 	sql_query = sql_query+"SELECT Email FROM Teacher WHERE Email='"+param+"'"
-elif(cmd == 'GetUserInfo'):
-	param = 
-
+#elif(cmd == 'GetUserInfo'):
+#	param = 
 cursor.execute(sql_query)
 ver = cursor.fetchall()    
 db.close()    
