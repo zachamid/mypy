@@ -18,6 +18,7 @@ def get_task_list():
 	sql = 'SELECT * FROM Task'
 	cursor.execute(sql)
 	out = cursor.fetchall()
+	print out
 	return out
 	
 
