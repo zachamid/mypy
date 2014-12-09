@@ -11,7 +11,7 @@ function check_directory(data_manipulation){
     		
 function get_task_info(taskID){
 	$.ajax({
-		url : '/task_directory_functions.php',
+		url : '/cgi-bin/read_task_information.py',
     	data: {cmd:"Task_Info",params:taskID},
     	type: 'POST',
     	dataType: 'text'}).done(function(tasks){
