@@ -1,12 +1,11 @@
 function check_directory(data_manipulation){
-	console.log("BLACKBOX");
 	$.ajax({
 		url : '/cgi-bin/read_task_information.py',
     	data: {cmd:"File_Info"},
     	type: 'POST',
     	dataType: 'json'}).done(function(result){
-    		
-    		data_manipulation(result)
+    		console.log(result);
+    		data_manipulation(result);
     	});
 }
     		
