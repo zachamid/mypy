@@ -58,7 +58,7 @@
 			
     		$( document ).ready(function() {
     			check_directory(populate_table);
-    			get_task_info("1");
+    			//get_task_info("1");
 			});
     	</script>
 	</head>
