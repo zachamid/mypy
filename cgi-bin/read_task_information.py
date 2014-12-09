@@ -35,6 +35,14 @@ def retrieve_file_info():
 			 	file_info[task['TaskID']]['info.xml'] = 1
 			else:
 			 	file_info[task['TaskID']]['info.xml'] = 0
+			if 'task_skeleton.py' in task_files:
+			 	file_info[task['TaskID']]['task_skeleton.py'] = 1
+			else:
+			 	file_info[task['TaskID']]['task_skeleton.py'] = 0
+			if 'task_complete.py' in task_files:
+			 	file_info[task['TaskID']]['task_complete.py'] = 1
+			else:
+			 	file_info[task['TaskID']]['task_complete.py'] = 0
 		else:
 			file_info[task['TaskID']]['directory'] = 0
 	return file_info

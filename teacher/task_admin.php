@@ -17,7 +17,6 @@
     	<script>
     		function populate_table(tasks){
     			var table = document.getElementById('task_list');
-    			console.log("Entered the function");
     			var header_row = table.insertRow(0);
     			header_row.insertCell(0).innerHTML = '<b>ID</b>';
     			header_row.insertCell(1).innerHTML = '<b>Directory</b>';
