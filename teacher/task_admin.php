@@ -24,7 +24,7 @@
     			header_row.insertCell(3).innerHTML = '<b>task_complete.py</b>';
     			header_row.insertCell(4).innerHTML = '<b>info.xml</b>';
     			var counter = 1;
-    			console.log("BLACKBOX");
+    			
     			for(var task in tasks){
     				console.log("Entered the function");
     				var row = table.insertRow(counter);
@@ -59,7 +59,7 @@
 			
     		$( document ).ready(function() {
     			check_directory(populate_table);
-    			//get_task_info("1");
+    			get_task_info("1");
 			});
     	</script>
 	</head>
