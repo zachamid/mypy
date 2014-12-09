@@ -4,8 +4,7 @@ function check_directory(data_manipulation){
     	data: {cmd:"File_Info"},
     	type: 'POST',
     	dataType: 'text'}).done(function(result){
-    		document.getElementById('task_info').innerHTML = result
-    		//data_manipulation(result)
+    		data_manipulation(result)
     	});
 }
     		
