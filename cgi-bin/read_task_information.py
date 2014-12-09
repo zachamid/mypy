@@ -52,7 +52,7 @@ def retrieve_file_info():
 	
 def retrieve_task_info(id):
 	new_path = path+str(id)+"/info.xml"
-	info_tree = xml.etree.parse(new_path)
+	info_tree = xml.dom.minidom.parse(new_path)
 	return info_tree.toprettyxml()
 	
 #db = db_connection.get_connection()
