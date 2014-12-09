@@ -28,6 +28,7 @@ def retrieve_file_info():
 	for task in tasks:
 		file_info[task['TaskID']] = dict()
 		if str(task['TaskID']) in files:
+			
 			file_info[task['TaskID']]['directory'] = 1
 			new_path=path+str(task['TaskID'])+"/"
 			task_files=os.listdir(new_path)
@@ -35,10 +36,12 @@ def retrieve_file_info():
 			 	file_info[task['TaskID']]['info.xml'] = 1
 			else:
 			 	file_info[task['TaskID']]['info.xml'] = 0
+			 
 			if 'task_skeleton.py' in task_files:
 			 	file_info[task['TaskID']]['task_skeleton.py'] = 1
 			else:
 			 	file_info[task['TaskID']]['task_skeleton.py'] = 0
+			
 			if 'task_complete.py' in task_files:
 			 	file_info[task['TaskID']]['task_complete.py'] = 1
 			else:
