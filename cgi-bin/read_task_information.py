@@ -7,6 +7,7 @@ import json
 import MySQLdb
 import MySQLdb.cursors
 import db_connection
+import xml
 cgitb.enable()
 
 
@@ -49,6 +50,10 @@ def retrieve_file_info():
 			file_info[task['TaskID']]['directory'] = 0
 	return file_info
 	
+def retrieve_task_info(id):
+	new_path = path+str(id)+"/info.xml"
+	info_tree = xml.etree.parse(new_path)
+	return info_tree.toprettyxml()
 	
 #db = db_connection.get_connection()
 posted_data = cgi.FieldStorage()
@@ -60,5 +65,7 @@ print """content-type:text/html
 if str(cmd) == "File_Info":
 	file_info = retrieve_file_info()
 	print json.dumps(file_info)
+else:
+	print retrieve_task_info(1)
 
 print ""
