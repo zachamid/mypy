@@ -7,7 +7,7 @@ import json
 import MySQLdb
 import MySQLdb.cursors
 import db_connection
-import xml
+import xml.dom.minidom
 cgitb.enable()
 
 
