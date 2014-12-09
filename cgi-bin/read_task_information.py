@@ -62,7 +62,7 @@ print """content-type:text/html
 
 <html><body>
 """
-if cmd is 'File_Info':
+if cmd is "File_Info":
 	file_info = retrieve_file_info()
 	print json.dumps(file_info)
 
