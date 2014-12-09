@@ -28,7 +28,6 @@ def retrieve_file_info():
 	for task in tasks:
 		file_info[task['TaskID']] = dict()
 		if str(task['TaskID']) in files:
-			
 			file_info[task['TaskID']]['directory'] = 1
 			new_path=path+str(task['TaskID'])+"/"
 			task_files=os.listdir(new_path)
@@ -55,14 +54,11 @@ def retrieve_file_info():
 posted_data = cgi.FieldStorage()
 cmd = posted_data['cmd'].value
 
-
-
-
 print """content-type:text/html
 
 <html><body>
 """
-if cmd is "File_Info":
+if str(cmd) is "File_Info":
 	file_info = retrieve_file_info()
 	print json.dumps(file_info)
 
