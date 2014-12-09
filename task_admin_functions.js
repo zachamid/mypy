@@ -3,7 +3,7 @@ function check_directory(data_manipulation){
 		url : '/cgi-bin/read_task_information.py',
     	data: {cmd:"File_Info"},
     	type: 'POST',
-    	dataType: 'text'}).done(function(result){
+    	dataType: 'json'}).done(function(result){
     		data_manipulation(result)
     	});
 }
