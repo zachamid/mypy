@@ -52,8 +52,8 @@ def retrieve_file_info():
 	
 	
 #db = db_connection.get_connection()
-#posted_data = cgi.FieldStorage()
-#cmd = posted_data['cmd'].value
+posted_data = cgi.FieldStorage()
+cmd = posted_data['cmd'].value
 
 
 
@@ -62,7 +62,8 @@ print """content-type:text/html
 
 <html><body>
 """
-file_info = retrieve_file_info()
-print json.dumps(file_info)
+if cmd == 'File_info':
+	file_info = retrieve_file_info()
+	print json.dumps(file_info)
 
 print "</body></html>"
