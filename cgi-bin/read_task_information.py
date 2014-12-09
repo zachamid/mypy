@@ -56,10 +56,9 @@ cmd = posted_data['cmd'].value
 
 print """content-type:text/html
 
-<html><body>
 """
 if str(cmd) == "File_Info":
 	file_info = retrieve_file_info()
 	print json.dumps(file_info)
 
-print "</body></html>"
+print ""
