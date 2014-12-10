@@ -38,3 +38,14 @@ function get_task_xml(task_id, data_manipulation){
     			data_manipulation(tasks);
     });
 }
+
+function print_object(obj) {
+	ret_string="";
+	for (var key in obj) {
+    	if (typeof(obj[key]) == 'Object') {
+      		ret_string+=print_object(obj[key]+"\n";
+    	} else {
+    		ret_string+="Key: " + key + " Values: " + obj[key]+"\n";
+    	}
+  	}
+}
