@@ -7,7 +7,7 @@ import json
 import MySQLdb
 import MySQLdb.cursors
 import db_connection
-import xml.dom.minidom
+import xmltodict
 cgitb.enable()
 
 
@@ -52,8 +52,8 @@ def retrieve_file_info():
 	
 def retrieve_task_xml(id):
 	new_path = path+str(id)+"/info.xml"
-	info = xml.dom.minidom.parse(new_path)
-	return info_tree.toprettyxml()
+	info = xmltodict.parse(open(new_path, "r"))
+	return info
 
 
 #db = db_connection.get_connection()
