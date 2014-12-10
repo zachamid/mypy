@@ -59,7 +59,7 @@
 			
     		$( document ).ready(function() {
     			check_directory(populate_table);
-    			get_task_info("1", function(result){
+    			get_task_info(function(result){
     				for (var field in result){
     					document.getElementById('task_info').innerHTML+=result[field]+'</br>';
     				}
