@@ -37,8 +37,9 @@
     				info_area.innerHTML = 'Loading Information...';
     				
     				get_task_xml(taskID, function(xml_info){
-    					for field in xml_info:
+    					for(var field in xml_info){
     						info_area.innerHTML += '<b>'+field+'</b>: '+xml_info[field]+'</br>';
+    					}
     				});
     			}
     			
