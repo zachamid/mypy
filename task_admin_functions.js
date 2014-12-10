@@ -29,10 +29,10 @@ function get_task_info(data_manipulation){
     });
 }
 
-function get_task_xml(data_manipulation){
+function get_task_xml(task_id, data_manipulation){
 	$.ajax({
 		url : '/cgi-bin/read_task_information.py',
-    	data: {cmd:"Task_XML"},
+    	data: {cmd:"Task_XML", params:task_id},
     	type: 'POST',
     	dataType: 'json'}).done(function(tasks){
     			data_manipulation(tasks);

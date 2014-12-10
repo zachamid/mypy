@@ -67,13 +67,13 @@ if str(cmd) == "File_Info":
 	file_info = retrieve_file_info()
 	print json.dumps(file_info)
 elif str(cmd) == "Task_Info":
-	task_id = posted_data['param'].value
+	task_id = posted_data['params'].value
 	print retrieve_task_info(task_id)
 elif str(cmd) == "Task_DB_Info":
 	task_info = get_task_list()
 	print json.dumps(task_info)
 elif str(cmd) == "Task_XML":
-	task_id = posted_data['param'].value
+	task_id = posted_data['params'].value
 	xml_info = retrieve_task_xml(task_id)
 	print json_dumps(xml_info)
 
