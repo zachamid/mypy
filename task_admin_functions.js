@@ -43,7 +43,7 @@ function print_object(obj) {
 	ret_string="";
 	for (var key in obj) {
     	if (typeof(obj[key]) == 'Object') {
-      		ret_string+=print_object(obj[key]+"\n";
+      		ret_string+=print_object(obj[key])+"\n";
     	} else {
     		ret_string+="Key: " + key + " Values: " + obj[key]+"\n";
     	}
