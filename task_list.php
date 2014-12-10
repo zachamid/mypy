@@ -27,7 +27,7 @@
     						tasks[task]['task_skeleton.py'] == 1 &&
     						tasks[task]['task_complete.py'] == 1){
     						var row = table.insertRow(counter);
-    						row.insertCell(0).innerHTML = '<a onclick=\'get_xml_data('+task['TaskID']+')\'>'+task['TaskID']+'</a>';
+    						row.insertCell(0).innerHTML = '<a onclick=\'get_xml_data('+tasks[task]['TaskID']+')\'>'+tasks[task]['TaskID']+'</a>';
     						counter++;
     					}
     				}
