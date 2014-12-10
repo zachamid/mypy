@@ -50,11 +50,12 @@ def retrieve_file_info():
 			file_info[task['TaskID']]['directory'] = 0
 	return file_info
 	
-def retrieve_task_info(id):
+def retrieve_task_xml(id):
 	new_path = path+str(id)+"/info.xml"
-	info_tree = xml.dom.minidom.parse(new_path)
+	info = xml.dom.minidom.parse(new_path)
 	return info_tree.toprettyxml()
-	
+
+
 #db = db_connection.get_connection()
 posted_data = cgi.FieldStorage()
 cmd = posted_data['cmd'].value
@@ -65,7 +66,15 @@ print """content-type:text/html
 if str(cmd) == "File_Info":
 	file_info = retrieve_file_info()
 	print json.dumps(file_info)
-else:
-	print retrieve_task_info(1)
+elif str(cmd) == "Task_Info":
+	task_id = posted_data['param'].value
+	print retrieve_task_info(task_id)
+elif str(cmd) == "Task_DB_Info":
+	task_info = get_task_list()
+	print json.dumps(task_info)
+elif str(cmd) == "Task_XML":
+	task_id = posted_data['param'].value
+	xml_info = retrieve_task_xml(task_id)
+	print json_dumps(xml_info)
 
 print ""
