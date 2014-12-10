@@ -48,4 +48,5 @@ function print_object(obj) {
     		ret_string+="Key: " + key + " Values: " + obj[key]+"\n";
     	}
   	}
+  	return ret_string;
 }
