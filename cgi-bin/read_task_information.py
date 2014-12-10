@@ -75,6 +75,6 @@ elif str(cmd) == "Task_DB_Info":
 elif str(cmd) == "Task_XML":
 	task_id = posted_data['params'].value
 	xml_info = retrieve_task_xml(task_id)
-	print json_dumps(xml_info)
+	print json.dumps(xml_info)
 
 print ""
