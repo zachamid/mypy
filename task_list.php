@@ -22,6 +22,10 @@
     				row.insertCell(1).innerHTML = '<b>Title</b>';
     				var counter = 1;
     				for(var task in tasks){
+    					console.log(task['directory']);
+    					console.log(task['info.xml']);
+    					console.log(task['task_skeleton.py']);
+    					console.log(task['task_complete.py']);
     					if(task['directory'] == 1 &&
     						task['info.xml'] == 1 &&
     						task['task_skeleton.py'] == 1 &&
