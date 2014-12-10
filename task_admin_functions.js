@@ -42,7 +42,7 @@ function get_task_xml(task_id, data_manipulation){
 function print_object(obj) {
 	ret_string="";
 	for (var key in obj) {
-    	if (typeof(obj[key]) == 'Object') {
+    	if (typeof(obj[key]) == 'object') {
       		ret_string+=print_object(obj[key])+"\n";
     	} else {
     		ret_string+="Key: " + key + " Values: " + obj[key]+"\n";
