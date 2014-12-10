@@ -20,7 +20,7 @@
     				var row = table.insertRow(0);
     				row.insertCell(0).innerHTML = '<b>ID</b>';
     				row.insertCell(1).innerHTML = '<b>Title</b>';
-    				counter++;
+    				var counter = 1;
     				for(var task in tasks){
     					if(task['directory'] == 1 &&
     						task['info.xml'] == 1 &&
@@ -28,6 +28,7 @@
     						task['task_complete.py' == 1]){
     						var row = table.insertRow(counter);
     						row.insertCell(0).innerHTML = '<a onclick=\'get_xml_data('+task['TaskID']+')\'>'+task['TaskID']+'</a>';
+    						counter++;
     					}
     				}
     			}
