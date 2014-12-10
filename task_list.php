@@ -22,11 +22,10 @@
     				row.insertCell(1).innerHTML = '<b>Title</b>';
     				var counter = 1;
     				for(var task in tasks){
-    					console.log(task['directory']);
-    					if(task['directory'] == 1 &&
-    						task['info.xml'] == 1 &&
-    						task['task_skeleton.py'] == 1 &&
-    						task['task_complete.py' == 1]){
+    					if(tasks[task]['directory'] == 1 &&
+    						tasks[task]['info.xml'] == 1 &&
+    						tasks[task]['task_skeleton.py'] == 1 &&
+    						tasks[task] ['task_complete.py' == 1]){
     						var row = table.insertRow(counter);
     						row.insertCell(0).innerHTML = '<a onclick=\'get_xml_data('+task['TaskID']+')\'>'+task['TaskID']+'</a>';
     						counter++;
