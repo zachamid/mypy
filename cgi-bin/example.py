@@ -18,6 +18,7 @@ print """content-type: text/html
 if(session.is_set()):
 	session.set_session(curr['id']+1, curr['type'])
 else:
+	print 'Yellow</br>'
 	session.set_session(0,'Student')
 
 session.print_session()
