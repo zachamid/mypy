@@ -16,7 +16,7 @@ else:
 
 id = cookie['id'].value
 type = cookie['type'].value
-session.set_session(type, id+1)
+session.set_session(type, int(id)+1)
 	
 session.print_cookie()
 print 'Content-Type: text/html\n'
