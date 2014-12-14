@@ -30,7 +30,7 @@ def clear_session():
 
 def is_set():
 	c = retrieve_current_session()
-	if(c['id'] and c['type']):
+	if('id' in c and 'type' in c):
 		return 1
 	else:
 		return 0
