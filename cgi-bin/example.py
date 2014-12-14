@@ -19,10 +19,22 @@ type = cookie['type'].value
 session.set_session(type, int(id)+1)
 	
 session.print_cookie()
-print 'Content-Type: text/html\n'
-print '<html><body>'
+print """Content-Type: text/html\n
 
+<html><head>
+<script>
+function clear_cookies(){
+	$.ajax({
+    	data : {cmd: "clear"},
+    	url : '/cgi-bin/session.py',
+    	type : "POST",}).done(function(login_result){
+    		window.location.reload();	
+    }
+}
+</script>
+</head>"""
 if session.in_session:
    print type,'</br>',id
 
-print '</body></html>'
+print """\n
+<button onclick="clear_cookies()"> Clear </button>"""

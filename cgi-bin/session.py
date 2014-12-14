@@ -3,6 +3,7 @@
 import Cookie
 import os
 import string
+import cgi, cgitb
 
 cookie = Cookie.SimpleCookie()
 
@@ -32,3 +33,12 @@ def print_cookie():
 
 def return_cookie():
 	return cookie
+	
+posted_data = cgi.FieldStorage()
+if('cmd' in posted_data):
+	if(posted_data['cmd'].value == 'set'):
+		id = posted_data['id'].value
+		type = posted_data['type'].value
+		set_session(type,id)
+	elif(posted_data['cmd'].value == 'clear'):
+		clear_cookies()
