@@ -29,7 +29,7 @@ function clear_cookies(){
     	url : '/cgi-bin/session.py',
     	type : "POST",}).done(function(login_result){
     		window.location.reload();	
-    }
+    });
 }
 </script>
 </head>"""
