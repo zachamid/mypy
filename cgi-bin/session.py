@@ -3,10 +3,6 @@
 import Cookie
 import os
 
-c = Cookie.SimpleCookie();
-if 'HTTP_COOKIE' in os.environ:
-	c.load(os.environ.get('HTTP_COOKIE')
-	
 def set_session(id, type):
 	c['id']=id
 	c['type']=type 
@@ -31,3 +27,8 @@ def is_set():
 
 def print_session()
 	print c
+
+c = Cookie.SimpleCookie();
+if 'HTTP_COOKIE' in os.environ:
+	c.load(os.environ.get('HTTP_COOKIE')
+	
