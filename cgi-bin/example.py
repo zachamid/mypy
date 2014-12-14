@@ -21,7 +21,8 @@ session.set_session(type, int(id)+1)
 session.print_cookie()
 print """Content-Type: text/html\n
 
-<html><head>
+<html><head><script src="../jquery-1.11.1.min.js"></script>
+<script src='../utils.js'></script>
 <script>
 function clear_cookies(){
 	$.ajax({
