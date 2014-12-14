@@ -31,8 +31,9 @@ function clear_cookies(){
     	var eqPos = cookie.indexOf("=");
     	var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
     	document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    	windows.location.reload();
     }
+    
+    	windows.location.reload();
 }
 </script>
 </head>"""
