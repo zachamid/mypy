@@ -19,7 +19,7 @@ type = cookie['type'].value
 session.set_session(type, int(id)+1)
 	
 session.print_cookie()
-print """Content-Type: text/html\n\n
+print """Content-type: text/html\n\n
 
 <html><head><script src="/jquery-1.11.1.min.js"></script>
 <script>
