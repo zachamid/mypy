@@ -19,6 +19,7 @@ if(session.isset()):
 	curr = session.get_session()
 	print curr['id']
 	session.set_session(curr['id']+1, curr['type'])
+	
 
 
 print "</body></html>"
