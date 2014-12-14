@@ -5,13 +5,13 @@ import session, Cookie, cgi, cgitb, os
 cgitb.enable()
 
 string_cookie = os.environ.get('HTTP_COOKIE')
+cookie = session.return_cookie()
 
 # If new session
 if not session.in_session():
 	session.set_session('Student', 0)
 # If already existent session
 else:
-	cookie = session.return_cookie()
 	cookie.load(string_cookie)
 
 id = cookie['id'].value
