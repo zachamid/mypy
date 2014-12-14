@@ -22,8 +22,7 @@ def print_header():
     </br><div id="error_space"></div>
   	</div>
   	</div>
-  	</div>
-	""""
+  	</div>"""
 
 def print_navbar(id, curr_page):
 	sql_query = 'SELECT * FROM Student WHERE StudentID='+id
