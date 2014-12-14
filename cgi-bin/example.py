@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import session, Cookie, cgi, cgitb
+import session, Cookie, cgi, cgitb, os
 
 cgitb.enable()
 
