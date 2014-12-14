@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import MySQLdb, db_conection
+import MySQLdb, db_connection
 
 def print_header():
 	print """\n
