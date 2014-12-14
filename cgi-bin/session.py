@@ -36,6 +36,9 @@ def print_cookie():
 def return_cookie():
 	return cookie
 	
+print """Content-type: text/html\n\n
+
+<html><body>"""
 posted_data = cgi.FieldStorage()
 if('cmd' in posted_data):
 	if(posted_data['cmd'].value == 'set'):
@@ -44,3 +47,4 @@ if('cmd' in posted_data):
 		set_session(type,id)
 	elif(posted_data['cmd'].value == 'clear'):
 		clear_cookies()
+print "</body></html>"
