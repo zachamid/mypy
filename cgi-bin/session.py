@@ -26,9 +26,8 @@ def set_session(type, id):
 
 def clear_cookies():
 	cookie.load(os.environ.get('HTTP_COOKIE'))
-	if('id' in cookie and 'type' in cookie):
-		cookie['id']['expires']='Thu, 01 Jan 1970 00:00:00 GMT'
-		cookie['type']['expires']='Thu, 01 Jan 1970 00:00:00 GMT'
+	cookie['id']['expires']='Thu, 01 Jan 1970 00:00:00 GMT'
+	cookie['type']['expires']='Thu, 01 Jan 1970 00:00:00 GMT'
 
 def print_cookie():
 	print cookie
