@@ -31,8 +31,10 @@ def clear_session():
 def is_set():
 	c = retrieve_current_session()
 	if('id' in c and 'type' in c):
+		print 'What?</br>'
 		return 1
 	else:
+		print 'Why?</br>'
 		return 0
 
 def print_session():
