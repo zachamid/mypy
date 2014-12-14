@@ -4,7 +4,7 @@ import Cookie
 import os
 
 def retrieve_current_session():
-	c = Cookie.SimpleCookie();
+	c = Cookie.SimpleCookie()
 	if 'HTTP_COOKIE' in os.environ:
 		c.load(os.environ.get('HTTP_COOKIE')
 	return c
