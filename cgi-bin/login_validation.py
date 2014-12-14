@@ -21,10 +21,12 @@ result = cursor.fetchAll()
 print """content-type: text/html
 
 <html><body>"""
- 
- if result[0]['Password'] == password:
- 	echo 1
- else:
- 	echo 0
- 
- print "</body></html>"
+if len(result) != 0:
+	if result[0]['Password'] == password:
+		print result[0][type_of_user+'ID']
+	else:
+		print -1
+else:
+	print -1
+
+print "</body></html>"
