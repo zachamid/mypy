@@ -1,26 +1,36 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+import sha, time, Cookie, os, shelve
 
-import cgi
-import cgitb
-import json
-import MySQLdb
-import MySQLdb.cursors
-import session
-cgitb.enable()
+cookie = Cookie.SimpleCookie()
+string_cookie = os.environ.get('HTTP_COOKIE')
 
-session.print_session()
-print """content-type: text/html
-
-<html><body>
-"""
-
-
-if(session.is_set()):
-	session.set_session(curr['id']+1, curr['type'])
+if not string_cookie:
+   sid = sha.new(repr(time.time())).hexdigest()
+   cookie['sid'] = sid
+   message = 'New session'
 else:
-	print 'Yellow</br>'
-	session.set_session(0,'Student')
+   cookie.load(string_cookie)
+   sid = cookie['sid'].value
+cookie['sid']['expires'] = 12 * 30 * 24 * 60 * 60
 
-session.print_session()
+# The shelve module will persist the session data
+# and expose it as a dictionary
+session_dir = os.environ['DOCUMENT_ROOT'] + '/tmp/.session'
+session = shelve.open(session_dir + '/sess_' + sid, writeback=True)
 
-print "</body></html>"
+# Retrieve last visit time from the session
+lastvisit = session.get('lastvisit')
+if lastvisit:
+   message = 'Welcome back. Your last visit was at ' + \
+      time.asctime(time.gmtime(float(lastvisit)))
+# Save the current time in the session
+session['lastvisit'] = repr(time.time())
+
+print """\
+%s
+Content-Type: text/html\n
+<html><body>
+<p>%s</p>
+<p>SID = %s</p>
+</body></html>
+""" % (cookie, message, sid)

@@ -1,7 +1,8 @@
 #!/usr/bin/python
 
-import Cookie
+import shelve
 import os
+import string
 
 def retrieve_current_session():
 	c = Cookie.SimpleCookie()
@@ -9,10 +10,17 @@ def retrieve_current_session():
 		c.load(os.environ.get('HTTP_COOKIE'))
 	return c
 
-def set_session(id, type):
-	c = retrieve_current_session()
+def generate_key():
+	return ''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(10)])
+
+def create_session(id, type):
+	sessions = shelve.open('shelve.db')
+	c = dict()
 	c['id']=id
-	c['type']=type 
+	c['type']=type
+	key = generate_key()
+	sessions[key] = c
+	return 
 
 def get_session():
 	c = retrieve_current_session()
