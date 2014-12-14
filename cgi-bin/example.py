@@ -33,7 +33,7 @@ function clear_cookies(){
     	document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     }
     
-    	windows.location.reload();
+    	window.location.reload();
 }
 </script>
 </head>"""
