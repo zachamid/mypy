@@ -15,11 +15,12 @@ print """content-type: text/html
 """
 
 
+curr = session.get_session()
 if(session.is_set()):
-	curr = session.get_session()
-	print curr['id']
 	session.set_session(curr['id']+1, curr['type'])
-	
+else:
+	session.set_session(0,'Student')
 
+session.print_session()
 
 print "</body></html>"
