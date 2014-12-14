@@ -10,11 +10,11 @@ def in_session():
 	cookie_string = os.environ.get('HTTP_COOKIE')
 	if not cookie_string:
 		return 0
-	else
+	else:
 		cookie.load(cookie_string)
 		if ('id' in cookie and 'type' in cookie):
 			return 1
-		else
+		else:
 			return 0
 			
 def set_session(type, id):
