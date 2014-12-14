@@ -54,7 +54,7 @@ def print_navbar(id, curr_page):
 		print '<li><a href="user_page.php">Task_List</a></li>'
 	if(curr_page == 'playground'):
 		print '<li class="active">Playground</a></li>'
-	elif:
+	else:
 		print '<li><a href="user_page.php">Playground</a></li>'
 	
 	print """\n
