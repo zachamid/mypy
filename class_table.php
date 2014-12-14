@@ -12,6 +12,7 @@
     	<title>Welcome</title>
     	<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     	<link href="general_style.css" rel="stylesheet">
+    	
     </head>
     <body>
   		<div class="container">

@@ -5,17 +5,20 @@ import cgitb
 import json
 import MySQLdb
 import MySQLdb.cursors
+import session
 cgitb.enable()
 
-db = MySQLdb.connect('localhost','root','S0crat3s34!','test', cursorclass=MySQLdb.cursors.DictCursor);
-cursor = db.cursor()
-cursor.execute("SELECT * FROM Student")
-ver = cursor.fetchall()    
-db.close()    
+session.print_session()
 print """content-type: text/html
 
-<html><body>"""
-for line in ver:
-    print json.dumps(line)
+<html><body>
+"""
+
+
+if(session.isset()):
+	curr = session.get_session()
+	print curr['id']
+	session.set_session(curr['id']+1, curr['type'])
+
 
 print "</body></html>"
