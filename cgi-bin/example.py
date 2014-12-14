@@ -24,12 +24,14 @@ print """Content-type: text/html\n\n
 <html><head><script src="/jquery-1.11.1.min.js"></script>
 <script>
 function clear_cookies(){
-	$.ajax({
-    	data : {cmd: "clear"},
-    	url : '/cgi-bin/session.py',
-    	type : "POST",}).done(function(login_result){
-    		window.location.reload();	
-    });
+	var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+    	var cookie = cookies[i];
+    	var eqPos = cookie.indexOf("=");
+    	var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    	document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
 }
 </script>
 </head>"""
