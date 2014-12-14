@@ -15,7 +15,7 @@ print """content-type: text/html
 """
 
 
-if(session.isset()):
+if(session.is_set()):
 	curr = session.get_session()
 	print curr['id']
 	session.set_session(curr['id']+1, curr['type'])
