@@ -25,7 +25,7 @@ def is_set():
 	else:
 		return 0
 
-def print_session()
+def print_session():
 	print c
 
 c = Cookie.SimpleCookie();
