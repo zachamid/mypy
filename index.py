@@ -4,9 +4,9 @@ import cgi, cgitb, json, MySQLdb, db_connection,session, common_components,sessi
 cgitb.enable()
 
 cookie = session.return_cookie()
+print "Content-type: text/html"
 session.print_cookie()
-print """Content-type: text/html
-
+print """\n\n
 <html>
   	<head>
   	<div class="container">
