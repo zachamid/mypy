@@ -10,10 +10,6 @@ cookie = session.return_cookie()
 # If new session
 if session.in_session():
 	cookie.load(string_cookie)
-
-id = cookie['id'].value
-type = cookie['type'].value
-session.set_session(type, int(id))
 	
 session.print_cookie()
 print """Content-type: text/html\n\n
