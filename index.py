@@ -3,7 +3,13 @@
 import cgi, cgitb, json, MySQLdb, db_connection,session, common_components,session
 cgitb.enable()
 
+string_cookie = os.environ.get('HTTP_COOKIE')
 cookie = session.return_cookie()
+
+# If new session
+if session.in_session():
+	cookie.load(string_cookie)
+
 session.print_cookie()
 print "Content-type: text/html"
 print """\n\n
