@@ -80,7 +80,7 @@ function validate_login(type_of_user){
 	    		}
 	  		});*/
 	  		document.cookie = "type="+type_of_user;
-	  		document.cookie = "id="+result.replace(/<(?:.|\n)*?>/gm, '');
+	  		document.cookie = "id="+jQuery(result).text();
 	  		//window.location.reload();
 		}
 	
