@@ -23,10 +23,10 @@ print """Content-type: text/html\n\n
 if not session.in_session:
 	common_components.print_header()
 else:
-	if type == 'Student':
-		common_components.print_navbar()
+	if cookie['type'].value == 'Student':
+		common_components.print_navbar(cookie['id'].value,'')
 	else:
-		common_components.print_navbar_teacher()
+		common_components.print_navbar_teacher(cookie['id'].value,'')
 
 print """\n
  <div class="col-xs-12 col-md-6 col-sm-12 ">
