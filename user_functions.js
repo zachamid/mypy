@@ -78,7 +78,10 @@ function validate_login(type_of_user){
 	    			//window.location.assign('user_page.py');
 	    			window.location.reload();
 	    		}
-	  		});*/window.location.reload();
+	  		});*/
+	  		document.cookie = "type='"+type_of_user+"'; secure";
+	  		document.cookie = "id='"+id+"'; secure";
+	  		window.location.reload();
 		}
 	
  	});
