@@ -23,12 +23,12 @@ if 'email' in posted_data and 'password' in posted_data:
 	result = cursor.fetchall()
 	if len(result) != 0:
 		if result[0]['Password'] == password:
-			session.set_session(type_of_user,result[0][type_of_user+'ID'])
+			print result[0][type_of_user+'ID']
 		else:
-			print 3
+			print -1
 	else:
-		print 2
+		print -1
 else:
-	print 1
+	print -1
 
 print "</body></html>"
