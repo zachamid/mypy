@@ -43,10 +43,12 @@ if('cmd' in posted_data):
 
 	<html><body>"""
 	if(posted_data['cmd'].value == "set"):
+		print 'SET'
 		id = posted_data['id'].value
 		type = posted_data['type'].value
 		set_session(type,id)
 	elif(posted_data['cmd'].value == 'clear'):
+		print 'CLEAR'
 		clear_cookies()
 	else:
 		print 'LOL WAT HAPPENING'
