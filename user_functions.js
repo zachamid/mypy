@@ -81,7 +81,7 @@ function validate_login(type_of_user){
 	  		});*/
 	  		document.cookie = "type="+type_of_user;
 	  		document.cookie = "id="+result.replace(/<(?:.|\n)*?>/gm, '');
-	  		window.location.reload();
+	  		//window.location.reload();
 		}
 	
  	});
