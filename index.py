@@ -1,8 +1,10 @@
 #!/usr/bin/python
 
-import cgi, cgitb, json, MySQLdb, db_connection,session, common_components
+import cgi, cgitb, json, MySQLdb, db_connection,session, common_components,session
 cgitb.enable()
 
+cookie = session.return_cookie()
+session.print_cookie()
 print """Content-type: text/html
 
 <html>
@@ -16,7 +18,6 @@ print """Content-type: text/html
   	</head>
   	<body><div class="container">"""
 
-cookie = session.return_cookie()
 if not session.in_session():
 	common_components.print_header()
 else:
