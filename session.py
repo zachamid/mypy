@@ -48,5 +48,7 @@ if('cmd' in posted_data):
 		set_session(type,id)
 	elif(posted_data['cmd'].value == 'clear'):
 		clear_cookies()
+	else:
+		print 'LOL WAT HAPPENING'
 	
 	print "</body></html>"
