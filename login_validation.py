@@ -8,22 +8,24 @@ import MySQLdb.cursors
 import db_connection
 cgitb.enable()
 
-posted_data = cgi.FieldStorage()
-email = posted_data['email'].value
-password = posted_data['password'].value
-type_of_user = posted_data['type'].value
-db = db_connection.get_connection()
-sql = "SELECT * FROM "+type_of_user+" WHERE Email='"+email+"'"
-cursor = db.cursor()
-cursor.execute(sql)
-result = cursor.fetchAll()
-
 print """content-type: text/html
 
 <html><body>"""
-if len(result) != 0:
-	if result[0]['Password'] == password:
-		print result[0][type_of_user+'ID']
+posted_data = cgi.FieldStorage()
+if 'email' in posted_data and 'password' in posted_data:
+	email = posted_data['email'].value
+	password = posted_data['password'].value
+	type_of_user = posted_data['type'].value
+	db = db_connection.get_connection()
+	sql = "SELECT * FROM "+type_of_user+" WHERE Email='"+email+"'"
+	cursor = db.cursor()
+	cursor.execute(sql)
+	result = cursor.fetchall()
+	if len(result) != 0:
+		if result[0]['Password'] == password:
+			print result[0][type_of_user+'ID']
+		else:
+			print -1
 	else:
 		print -1
 else:
