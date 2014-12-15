@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb, json, MySQLdb, db_connection
+import cgi, cgitb, json, MySQLdb, db_connection,os
 cgitb.enable()
 
 def retrieve_file_info():
