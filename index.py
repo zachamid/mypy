@@ -10,8 +10,7 @@ cookie = session.return_cookie()
 # If new session
 if session.in_session():
 	cookie.load(string_cookie)
-	
-session.print_cookie()
+	session.print_cookie()
 print """Content-type: text/html\n\n
 
 <html><head>
