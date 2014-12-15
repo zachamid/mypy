@@ -75,7 +75,7 @@ function validate_login(type_of_user){
 	    		url: 'session.py',
 	    		type: 'POST',
 	    		success: function(html){
-	    			window.location.assign('user_page.py');
+	    			//window.location.assign('user_page.py');
 	    		}
 	  		});
 		}
