@@ -79,8 +79,7 @@ function validate_login(type_of_user){
 	    			window.location.reload();
 	    		}
 	  		});*/
-	  		document.cookie = "type='"+type_of_user+"'; secure";
-	  		document.cookie = "id='"+result.replace(/(<([^>]+)>)/ig,"")+"'; secure";
+	  		document.cookie = "type='"+type_of_user+"';"+"id='"+result.replace(/(<([^>]+)>)/ig,"")+"';secure";
 	  		window.location.reload();
 		}
 	
