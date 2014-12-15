@@ -46,7 +46,6 @@ if('cmd' in posted_data):
 	if(posted_data['cmd'].value == "set"):
 		id = posted_data['id'].value
 		type = posted_data['type'].value
-		cookie = return_cookie()
 		set_session(type,id)
 	elif(posted_data['cmd'].value == 'clear'):
 		clear_cookies()
