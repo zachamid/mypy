@@ -29,7 +29,7 @@ if not session.in_session:
 else:
 	if type == 'Student':
 		common_components.print_navbar()
-	else
+	else:
 		common_components.print_navbar_teacher()
 
 print """\n
