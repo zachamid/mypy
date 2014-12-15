@@ -47,6 +47,8 @@ if('cmd' in posted_data):
 		id = posted_data['id'].value
 		type = posted_data['type'].value
 		set_session(type,id)
+		print 'set'
 	elif(posted_data['cmd'].value == 'clear'):
 		clear_cookies()
+	
 	print "</body></html>"
