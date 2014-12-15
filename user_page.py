@@ -5,12 +5,12 @@ cgitb.enable()
 
 print "Content-type: text/html"
 cookie = session.return_cookie()
-if not session.in_session():
-	print """Location:index.py
-
-"""
-else:
-	print """
+#if not session.in_session():
+#	print """Location:index.py
+#
+#"""
+#else:
+print """
 
 """
 print """\n
