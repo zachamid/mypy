@@ -19,7 +19,7 @@ print """Content-type: text/html\n\n
 <script src='user_functions.js'></script>
 <link rel="stylesheet" type="text/css" href="general_style.css">
 </head><body>"""
-if not session.in_session:
+if not session.in_session():
 	common_components.print_header()
 else:
 	if cookie['type'].value == 'Student':
