@@ -65,7 +65,7 @@ function validate_login(type_of_user){
     	data : data,
     	url : 'login_validation.py',
     	type : "POST",}).done(function(result){
-    	if(result == '-1'){
+    	if(result == "-1"){
     		document.getElementById('error_space').innerHTML = 'Incorrect Email-Password Combination';
     	}
     	else{
