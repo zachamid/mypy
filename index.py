@@ -1,6 +1,7 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
-import cgi, cgitb, json, MySQLdb, db_connection,session, common_components,session,os
+import session, Cookie, cgi, cgitb, os, common_components
+
 cgitb.enable()
 
 string_cookie = os.environ.get('HTTP_COOKIE')
@@ -10,29 +11,29 @@ cookie = session.return_cookie()
 if session.in_session():
 	cookie.load(string_cookie)
 
+id = cookie['id'].value
+type = cookie['type'].value
+session.set_session(type, int(id))
+	
 session.print_cookie()
 print """Content-type: text/html\n\n
-<html>
-  	<head>
-  	<div class="container">
-    	<script src="jquery-1.11.1.min.js"></script>
-    	<title>Welcome</title>
-    	<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
-    	<script src='user_functions.js'></script>
-    	<link rel="stylesheet" type="text/css" href="general_style.css">
-  	</head>
-  	<body><div class="container">"""
 
-if not session.in_session():
+<html><head>
+<script src="/jquery-1.11.1.min.js"></script>
+<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+<script src='user_functions.js'></script>
+<link rel="stylesheet" type="text/css" href="general_style.css">
+</head><body>"""
+if not session.in_session:
 	common_components.print_header()
 else:
-	if cookie[type].value == "Student":
-		common_components.print_navbar(cookie[id].value,'')
-	else:
-		common_components.print_navbar_teacher(cookie[id].value,'')
+	if type == 'Student':
+		common_components.print_navbar()
+	else
+		common_components.print_navbar_teacher()
 
 print """\n
-    <div class="col-xs-12 col-md-6 col-sm-12 ">
+ <div class="col-xs-12 col-md-6 col-sm-12 ">
     	<div class="panel panel-default translucent"><div class="panel-body">
     		<h3><a href="sign_up.php">STUDENTS: Sign Up for MyPy</a></h3>
     		<h4><ul>
@@ -49,6 +50,6 @@ print """\n
     	</div></div>
     </div>
     </div>
-    </div>
   	</body>
-</html>"""
+</html>
+"""
