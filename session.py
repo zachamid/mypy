@@ -19,6 +19,7 @@ def in_session():
 			return 0
 			
 def set_session(type, id):
+	cookie = return_cookie()
 	cookie['type'] = type
 	cookie['type']['expires']= 7*24*60*60
 	cookie['id'] = id
