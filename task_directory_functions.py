@@ -10,7 +10,7 @@ def retrieve_file_info():
 	tasks = cursor.fetchall()
 	file_existence_matrix = dict()
 	dir = '../tasks'
-	directories = [x[1] for x in os.walk(dir)]
+	directories = [x[2] for x in os.walk(dir)]
 	#for task in tasks:
 	#	if ''.join(dir,'/',task['TaskID']):
 	#		file_existence_matrix[task['TaskID']]['directory'] = 1
