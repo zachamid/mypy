@@ -12,6 +12,7 @@ print """content-type: text/html
 
 <html><body>"""
 posted_data = cgi.FieldStorage()
+print posted_data
 if 'email' in posted_data and 'password' in posted_data:
 	email = posted_data['email'].value
 	password = posted_data['password'].value
