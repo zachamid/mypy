@@ -25,9 +25,9 @@ if 'email' in posted_data and 'password' in posted_data:
 		if result[0]['Password'] == password:
 			print result[0][type_of_user+'ID']
 		else:
-			print -1
+			print -3
 	else:
-		print -1
+		print -2
 else:
 	print -1
 
