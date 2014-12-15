@@ -16,7 +16,7 @@ db = db_connection.get_connection()
 sql = "SELECT * FROM "+type_of_user+" WHERE Email='"+email+"'"
 cursor = db.cursor()
 cursor.execute(sql)
-result = cursor.fetchAll()
+result = cursor.fetchall()
 
 print """content-type: text/html
 
