@@ -80,9 +80,11 @@ function validate_login(type_of_user){
 	    			window.location.reload();
 	    		}
 	  		});*/
-	  		console.log(result);
+	  		var div = document.createElement("div");
+	  		div.innerHTML = result.replace(/(\r\n|\n|\r)/gm,"");
+	  		var id = div.textContent || div.innerText || "";
 	  		document.cookie = "type="+type_of_user;
-	  		document.cookie = "id="+result;
+	  		document.cookie = "id="+id;
 	  		//window.location.reload();
 		}
 	
