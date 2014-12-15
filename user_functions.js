@@ -63,7 +63,7 @@ function validate_login(type_of_user){
   	var data = {email: email, password:pword, type:type_of_user};
   	$.ajax({
     	data : data,
-    	url : '/cgi-bin/login_validation.py',
+    	url : 'login_validation.py',
     	type : "POST",}).done(function(result){
     	if(result == '-1'){
     		document.getElementById('error_space').innerHTML = 'Incorrect Email-Password Combination';
@@ -72,7 +72,7 @@ function validate_login(type_of_user){
     		var login_details = {cmd:'set',type:type_of_user, id:result};
     		$.ajax({
 	    		data:login_details,
-	    		url: '/cgi-bin/session.py',
+	    		url: 'session.py',
 	    		type: 'POST',
 	    		success: function(html){
 	    			window.location.assign('user_page.py');
