@@ -12,7 +12,7 @@ def retrieve_file_info():
 	dir = '../tasks'
 	directories = [x[0] for x in os.walk(dir)]
 	for task in tasks:
-		new_dir = ''.join((dir,'/',task['TaskID']))
+		new_dir = ''.join((dir,'/',str(task['TaskID'])))
 		if new_dir in directories:
 			file_existence_matrix[task['TaskID']]['directory'] = 1
 			files = [x[2] for x in os.walk(new_dir)]
