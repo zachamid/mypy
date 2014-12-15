@@ -79,7 +79,8 @@ function validate_login(type_of_user){
 	    			window.location.reload();
 	    		}
 	  		});*/
-	  		document.cookie = "type="+type_of_user+";id="+result.replace(/<(?:.|\n)*?>/gm, '');
+	  		document.cookie = "type="+type_of_user+"
+	  		document.cookie = "id="+result.replace(/<(?:.|\n)*?>/gm, '');
 	  		window.location.reload();
 		}
 	
