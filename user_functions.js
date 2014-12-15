@@ -64,18 +64,18 @@ function validate_login(type_of_user){
   	$.ajax({
     	data : data,
     	url : 'login_validation.py',
-    	type : "POST"}).done(function(result){
-    	if(result.indexOf("-1") > -1){
+    	type : "POST",}).done(function(result){
+    	if(result == '-1'){
     		document.getElementById('error_space').innerHTML = 'Incorrect Email-Password Combination';
     	}
     	else{
-    		var login_details = {cmd:'set',type:type_of_user, id:parseInt(result.replace(/(<([^>]+)>)/ig,""))};
+    		var login_details = {cmd:'set',type:type_of_user, id:result};
     		$.ajax({
 	    		data:login_details,
 	    		url: 'session.py',
 	    		type: 'POST',
 	    		success: function(html){
-	    			window.location.reload();
+	    			//window.location.assign('user_page.py');
 	    		}
 	  		});
 		}

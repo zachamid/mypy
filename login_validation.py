@@ -5,30 +5,27 @@ import cgitb
 import json
 import MySQLdb
 import MySQLdb.cursors
-import db_connection,session
+import db_connection
 cgitb.enable()
+
+posted_data = cgi.FieldStorage()
+email = posted_data['email'].value
+password = posted_data['password'].value
+type_of_user = posted_data['type'].value
+db = db_connection.get_connection()
+sql = "SELECT * FROM "+type_of_user+" WHERE Email='"+email+"'"
+cursor = db.cursor()
+cursor.execute(sql)
+result = cursor.fetchAll()
 
 print """content-type: text/html
 
 <html><body>"""
-posted_data = cgi.FieldStorage()
-print posted_data
-if 'email' in posted_data and 'password' in posted_data:
-	email = posted_data['email'].value
-	password = posted_data['password'].value
-	type_of_user = posted_data['type'].value
-	db = db_connection.get_connection()
-	sql = "SELECT * FROM "+type_of_user+" WHERE Email='"+email+"'"
-	cursor = db.cursor()
-	cursor.execute(sql)
-	result = cursor.fetchall()
-	if len(result) != 0:
-		if result[0]['Password'] == password:
-			print result[0][type_of_user+'ID']
-		else:
-			print -3
+if len(result) != 0:
+	if result[0]['Password'] == password:
+		print result[0][type_of_user+'ID']
 	else:
-		print -2
+		print -1
 else:
 	print -1
 
