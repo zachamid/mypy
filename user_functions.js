@@ -76,6 +76,7 @@ function validate_login(type_of_user){
 	    		type: 'POST',
 	    		success: function(html){
 	    			//window.location.assign('user_page.py');
+	    			window.location.reload();
 	    		}
 	  		});
 		}

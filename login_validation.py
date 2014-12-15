@@ -23,7 +23,8 @@ print """content-type: text/html
 <html><body>"""
 if len(result) != 0:
 	if result[0]['Password'] == password:
-		print result[0][type_of_user+'ID']
+		id = result[0][type_of_user+'ID']
+		session.set_session(type_of_user, id)
 	else:
 		print -1
 else:
