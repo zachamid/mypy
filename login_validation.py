@@ -5,7 +5,7 @@ import cgitb
 import json
 import MySQLdb
 import MySQLdb.cursors
-import db_connection
+import db_connection,session
 cgitb.enable()
 
 print """content-type: text/html
@@ -23,7 +23,7 @@ if 'email' in posted_data and 'password' in posted_data:
 	result = cursor.fetchall()
 	if len(result) != 0:
 		if result[0]['Password'] == password:
-			print result[0][type_of_user+'ID']
+			session.set_session(type,result[type_of_user+'ID'])
 		else:
 			print -1
 	else:
