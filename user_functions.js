@@ -69,7 +69,7 @@ function validate_login(type_of_user){
     		document.getElementById('error_space').innerHTML = 'Incorrect Email-Password Combination';
     	}
     	else{
-    		var login_details = {cmd:'set',type:type_of_user, id:result};
+    		/*var login_details = {cmd:'set',type:type_of_user, id:result};
     		$.ajax({
 	    		data:login_details,
 	    		url: 'session.py',
@@ -78,7 +78,7 @@ function validate_login(type_of_user){
 	    			//window.location.assign('user_page.py');
 	    			window.location.reload();
 	    		}
-	  		});
+	  		});*/window.location.reload();
 		}
 	
  	});
