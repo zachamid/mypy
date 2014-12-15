@@ -75,7 +75,7 @@ function validate_login(type_of_user){
 	    		url: '/cgi-bin/session.py',
 	    		type: 'POST',
 	    		success: function(html){
-	    			window.location.assign('user_page.php');
+	    			window.location.assign('user_page.py');
 	    		}
 	  		});
 		}

@@ -1,11 +1,19 @@
-<?php
-	session_start();
-  	if(empty($_SESSION['id']) || $_SESSION['type'] != 'Student'){
-    	header('Location: index.php');
-  	}
-  	include 'db_connection.php';
-?>
+#!/usr/bin/python
 
+import cgi, cgitb, json, MySQLdb, db_connection,session, common_components
+cgitb.enable()
+
+print "Content-type:text/html"
+cookie = session.return_cookie()
+if not session.in_session():
+	print """Location:index.py
+	
+	"""
+else:
+	print """
+	
+	"""
+print """\n
 <html>
 	<head>
     		<script src="jquery-1.11.1.min.js"></script>
@@ -48,10 +56,9 @@
     		</script>
 	</head>
 	<body>
-		<div class="container">
-			<?php
-				include 'nav_bar.php'
-			?>
+		<div class="container">"""
+common_components.print_navbar(cookie['id'].value, 'task_list')
+print """\n
 			<div class="panel panel-default translucent">
       			<h3>List of Tasks</h3>
       		</div>
@@ -64,3 +71,4 @@
 		</div>
 	</body>
 </html>
+"""
