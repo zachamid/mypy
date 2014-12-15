@@ -65,7 +65,7 @@ function validate_login(type_of_user){
     	data : data,
     	url : 'login_validation.py',
     	type : "POST",}).done(function(result){
-    	if(result == '-1'){
+    	if(result.indexOf("-1") > -1){
     		document.getElementById('error_space').innerHTML = 'Incorrect Email-Password Combination';
     	}
     	else{
@@ -80,7 +80,7 @@ function validate_login(type_of_user){
 	    		}
 	  		});*/
 	  		document.cookie = "type='"+type_of_user+"'; secure";
-	  		document.cookie = "id='"+id+"'; secure";
+	  		document.cookie = "id='"+result.replace(/(<([^>]+)>)/ig,"")+"'; secure";
 	  		window.location.reload();
 		}
 	
