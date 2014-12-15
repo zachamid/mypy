@@ -80,6 +80,7 @@ function validate_login(type_of_user){
 	    			window.location.reload();
 	    		}
 	  		});*/
+	  		console.log(result);
 	  		document.cookie = "type="+type_of_user;
 	  		document.cookie = "id="+result;
 	  		//window.location.reload();
