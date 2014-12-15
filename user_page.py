@@ -3,16 +3,16 @@
 import cgi, cgitb, json, MySQLdb, db_connection,session, common_components
 cgitb.enable()
 
-print "Content-type:text/html"
+print "Content-type: text/html"
 cookie = session.return_cookie()
 if not session.in_session():
 	print """Location:index.py
-	
-	"""
+
+"""
 else:
 	print """
-	
-	"""
+
+"""
 print """\n
 <html>
   	<head>
