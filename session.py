@@ -23,7 +23,6 @@ def set_session(type, id):
 	cookie['type']['expires']= 7*24*60*60
 	cookie['id'] = id
 	cookie['id']['expires']= 7*24*60*60
-	print cookie['type'] + ' ' + cookie['id']
 
 def clear_cookies():
 	cookie.load(os.environ.get('HTTP_COOKIE'))
@@ -47,7 +46,6 @@ if('cmd' in posted_data):
 		id = posted_data['id'].value
 		type = posted_data['type'].value
 		set_session(type,id)
-		print 'set'
 	elif(posted_data['cmd'].value == 'clear'):
 		clear_cookies()
 	

@@ -69,7 +69,7 @@ function validate_login(type_of_user){
     		document.getElementById('error_space').innerHTML = 'Incorrect Email-Password Combination';
     	}
     	else{
-    		var login_details = {cmd:'set',type:type_of_user, id:result};
+    		var login_details = {cmd:'set',type:type_of_user, id:result.replace(/(<([^>]+)>)/ig,"")};
     		$.ajax({
 	    		data:login_details,
 	    		url: 'session.py',
