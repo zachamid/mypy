@@ -11,8 +11,7 @@ if session.in_session():
 	cookie.load(string_cookie)
 
 session.print_cookie()
-print "Content-type: text/html"
-print """\n\n
+print """Content-type: text/html\n\n
 <html>
   	<head>
   	<div class="container">
