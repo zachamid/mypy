@@ -34,7 +34,6 @@ data = cursor.fetchall()
 db.close()    
 print """content-type: text/html
 
-<html><body>"""
+"""
 print json.dumps(data)
 
-print "</body></html>"
