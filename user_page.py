@@ -38,7 +38,7 @@ print """\n
         			<table width="100%" style="border-spacing:10px">
           				<tr>
             				<td style="width:50%">
-              					First Name: <input class="form-control" type="text" id="FirstName" value="%s">
+              					First Name: <input class="form-control" type="text" id="FirstName" value=%s>
             				</td>
             				<td>
               					<div id="FirstName_alert"></div>
@@ -46,7 +46,7 @@ print """\n
           				</tr>
           				<tr>
             				<td style="width:50%">
-              					Last Name: <input class="form-control" type="text" id="LastName" value="%s" >
+              					Last Name: <input class="form-control" type="text" id="LastName" value=%s >
             				</td>
             				<td>
               					<div id="LastName_alert"></div>
@@ -54,7 +54,7 @@ print """\n
           				</tr>
           				<tr>
             				<td style="width:50%">
-              					Email: <input class="form-control" type="text" id="Email" value="%s" readonly>
+              					Email: <input class="form-control" type="text" id="Email" value=%s readonly>
             				</td>
             				<td>
               					<div id="Email_alert"></div>
