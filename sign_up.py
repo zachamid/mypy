@@ -7,10 +7,11 @@ string_cookie = os.environ.get('HTTP_COOKIE')
 cookie = session.return_cookie()
 
 # If new session
+print "Content-type: text/html"
 if session.in_session():
 	cookie.load(string_cookie)
 	print 'Location:\'user_page.py\''
-print """Content-type: text/html\n\n
+print """\n
 
 <html>
 	<head>
