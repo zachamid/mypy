@@ -136,6 +136,7 @@ function update_user(type_of_user, id){
     				user['Password'] = document.getElementById('new_Password').value;
     			}
     			user['type'] = type_of_user;
+    			console.log(user);
     			if(login_result != '-1'){
     				$.ajax({
 						data:user,
