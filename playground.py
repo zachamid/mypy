@@ -3,7 +3,15 @@
 import cgi, cgitb, json, MySQLdb, db_connection,session, common_components
 cgitb.enable()
 
-print """Content-type: text/html
+string_cookie = os.environ.get('HTTP_COOKIE')
+cookie = session.return_cookie()
+
+# If new session
+if session.in_session():
+	cookie.load(string_cookie)
+	session.print_cookie()
+
+print """Content-type: text/html\n\n
 
 <html>
 	<head>
@@ -17,7 +25,6 @@ print """Content-type: text/html
 	<body>
 		<div class="container">"""
 
-cookie = session.return_cookie()
 if not session.in_session():
 	common_components.print_header()
 else:

@@ -3,17 +3,15 @@
 import cgi, cgitb, json, MySQLdb, db_connection,session, common_components
 cgitb.enable()
 
-print "Content-type:text/html"
+string_cookie = os.environ.get('HTTP_COOKIE')
 cookie = session.return_cookie()
-if not session.in_session():
-	print """Location:index.py
-	
-	"""
-else:
-	print """
-	
-	"""
-print """\n
+
+# If new session
+if session.in_session():
+	cookie.load(string_cookie)
+	session.print_cookie()
+print """Content-type: text/html\n\n
+
 <html>
 	<head>
     		<script src="jquery-1.11.1.min.js"></script>
