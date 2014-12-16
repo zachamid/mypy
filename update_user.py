@@ -6,7 +6,7 @@ cgitb.enable()
 string_cookie = os.environ.get('HTTP_COOKIE')
 cookie = session.return_cookie()
 cookie.load(string_cookie)
-session.print_session()
+session.print_cookie()
 print """content-type:text/html
 
 """
