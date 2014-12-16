@@ -38,7 +38,7 @@ print """\n
         			<table width="100%" style="border-spacing:10px">
           				<tr>
             				<td style="width:50%">
-              					First Name: <input class="form-control" type="text" id="FirstName" value=%s>
+              					First Name: <input class="form-control" type="text" id="FirstName" value="""+person_record['FirstName']+""">
             				</td>
             				<td>
               					<div id="FirstName_alert"></div>
@@ -46,7 +46,7 @@ print """\n
           				</tr>
           				<tr>
             				<td style="width:50%">
-              					Last Name: <input class="form-control" type="text" id="LastName" value=%s >
+              					Last Name: <input class="form-control" type="text" id="LastName" value="""+person_record['LastName']+""">
             				</td>
             				<td>
               					<div id="LastName_alert"></div>
@@ -54,7 +54,7 @@ print """\n
           				</tr>
           				<tr>
             				<td style="width:50%">
-              					Email: <input class="form-control" type="text" id="Email" value=%s readonly>
+              					Email: <input class="form-control" type="text" id="Email" value="""+person_record['Email']+""" readonly>
             				</td>
             				<td>
               					<div id="Email_alert"></div>
@@ -86,10 +86,10 @@ print """\n
           				</tr>
           				<tr>
             				<td style="width:50%">
-               					<div id="class_place">%s</div>
+               					<div id="class_place">"""+person_record['ClassName']+"""</div>
             				</td>
             				<td>
-            					<button class="form-control" onclick='update_user("Student", %d)' type="button">
+            					<button class="form-control" onclick='update_user("Student", """+str(person_record['StudentID'])+""")' type="button">
 									Update
 								</button>
             				</td>
@@ -97,7 +97,7 @@ print """\n
         			</table>
       			</div>
     		</div>
-""" % person_record['FirstName'], person_record['LastName'], person_record['Email'], person_record['ClassName'], int(person_record['StudentID'])
+"""
 print """\n    		
     		<div class="container" style="width:100%">
       			<div class="panel panel-default translucent"><h3>Tasks</h3></div>
