@@ -30,10 +30,11 @@ elif(cmd == 'ClassList'):
 	sql_query = "SELECT * FROM Student WHERE ClassID="+param
 
 cursor.execute(sql_query)
+data = cursor.fetchall()
 db.close()    
 print """content-type: text/html
 
 <html><body>"""
-print json.dumps(ver)
+print json.dumps(data)
 
 print "</body></html>"
