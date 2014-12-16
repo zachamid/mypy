@@ -22,7 +22,7 @@ print """Content-type: text/html\n\n
     </head>
   	<body>
     	<div class="container">"""
-common_components(cookie['id'].value, 'user_page')
+common_components.print_navbar(cookie['id'].value, 'user_page')
 db = db_connection.get_connection()
 cursor = db.cursor()
 sql = 'SELECT * FROM Student INNER JOIN Class ON Student.ClassID=Class.ClassID WHERE StudentID='+cookie['id'].value
