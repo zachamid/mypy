@@ -30,7 +30,7 @@ else:
 print """\n
  <div class="col-xs-12 col-md-6 col-sm-12 ">
     	<div class="panel panel-default translucent"><div class="panel-body">
-    		<h3><a href="sign_up.php">STUDENTS: Sign Up for MyPy</a></h3>
+    		<h3><a href="sign_up.py">STUDENTS: Sign Up for MyPy</a></h3>
     		<h4><ul>
     			<li>Learning in Python, one of the simplest and most intuitive languages in industry.</li>
     			<li>Each concept is modularised into a exercises, so as to avoid confusion</li>
