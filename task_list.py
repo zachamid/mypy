@@ -10,6 +10,8 @@ cookie = session.return_cookie()
 if session.in_session():
 	cookie.load(string_cookie)
 	session.print_cookie()
+else:
+	print 'Location:\'index.py\''
 print """Content-type: text/html\n\n
 
 <html>

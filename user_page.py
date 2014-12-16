@@ -6,10 +6,12 @@ cgitb.enable()
 string_cookie = os.environ.get('HTTP_COOKIE')
 cookie = session.return_cookie()
 
-# If new session
+
 if session.in_session():
 	cookie.load(string_cookie)
 	session.print_cookie()
+else:
+	print 'Location:\'index.py\''
 print """Content-type: text/html\n\n
 
 <html>
