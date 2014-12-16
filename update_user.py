@@ -17,11 +17,11 @@ print """content-type:text/html
 """
 values_to_change = list();
 if 'FirstName' in posted_data:
-	values_to_change.append('FirstName="'+posted_data['FirstName']+'"')
+	values_to_change.append('FirstName="'+posted_data['FirstName'].value+'"')
 if 'LastName' in posted_data:
-	values_to_change.append('LastName="'+posted_data['LastName']+'"')
+	values_to_change.append('LastName="'+posted_data['LastName'].value+'"')
 if 'Password' in posted_data:
-	values_to_change.append('Password="'+posted_data['Password']+'"')
+	values_to_change.append('Password="'+posted_data['Password'].value+'"')
 
 values_to_change =  ",".join(values_to_change);
 
