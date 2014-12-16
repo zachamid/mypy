@@ -11,7 +11,7 @@ import xmltodict
 cgitb.enable()
 
 
-path = '../../tasks/'
+path = '../tasks/'
 
 def get_task_list():
 	db = db_connection.get_connection()
