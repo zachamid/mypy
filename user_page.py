@@ -109,7 +109,7 @@ print """\n
            					<th>Last Opened</th>
            					<th>Date Completed</th></tr>
 """
-sql_query = 'SELECT * FROM Progress INNER JOIN Task ON Progress.TaskID=Task.TaskID WHERE Progress.StudentID='+person_record['StudentID'];
+sql_query = 'SELECT * FROM Progress INNER JOIN Task ON Progress.TaskID=Task.TaskID WHERE Progress.StudentID='+str(person_record['StudentID']);
 cursor.execute(sql_query)
 progress_records = cursor.fetchall()
 for record in progress_records:
