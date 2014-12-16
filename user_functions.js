@@ -65,13 +65,13 @@ function validate_login(type_of_user){
     	data : data,
     	url : 'login_validation.py',
     	type : "POST",
-    	dataType: 'text'}).done(function(result){
+    	dataType: 'text'}).done(function(id){
     	if(result.indexOf("-1") > -1){
     		document.getElementById('error_space').innerHTML = 'Incorrect Email-Password Combination';
     	}
     	else{
     		set_cookies(type_of_user,id);
-	  		//window.location.reload();
+	  		window.location.reload();
 		}
 	
  	});
