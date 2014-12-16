@@ -49,9 +49,9 @@ def print_navbar(id, curr_page):
 	else:
 		print '<li><a href="user_page.py">Details</a></li>'
 	if(curr_page == 'task_list'):
-		print '<li class="active"><a href="#">Task_List</a></li>'
+		print '<li class="active"><a href="#">Task List</a></li>'
 	else:
-		print '<li><a href="task_list.py">Task_List</a></li>'
+		print '<li><a href="task_list.py">Task List</a></li>'
 	if(curr_page == 'playground'):
 		print '<li class="active"><a href="#">Playground</a></li>'
 	else:
