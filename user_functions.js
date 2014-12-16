@@ -112,7 +112,6 @@ function update_user(type_of_user, id){
     var flag = [];
     for(counter =0; counter < fields.length; counter++){
     	flag[counter] = validate_detail(fields[counter]);
-    	console.log(flag[counter]);
     }
     if(flag.indexOf(0) == -1){
     	alert('Please fix your form and Retry');
@@ -135,8 +134,6 @@ function update_user(type_of_user, id){
     			if(flag[3] == 0 && flag[4] ==0){
     				user['Password'] = document.getElementById('new_Password').value;
     			}
-    			user['type'] = type_of_user;
-    			console.log(user);
     			if(login_result != '-1'){
     				$.ajax({
 						data:user,
