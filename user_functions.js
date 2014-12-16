@@ -64,8 +64,7 @@ function validate_login(type_of_user){
   	$.ajax({
     	data : data,
     	url : 'login_validation.py',
-    	type : "POST",
-    	dataType: 'text'}).done(function(id){
+    	type : "POST"}).done(function(id){
     	if(id.indexOf("-1") > -1){
     		document.getElementById('error_space').innerHTML = 'Incorrect Email-Password Combination';
     	}
