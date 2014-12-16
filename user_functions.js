@@ -71,7 +71,7 @@ function validate_login(type_of_user){
     	}
     	else{
     		set_cookies(type_of_user,id);
-	  		window.location.reload();
+	  		//window.location.reload();
 		}
 	
  	});
