@@ -7,7 +7,7 @@ posted_data = cgi.FieldStorage()
 table = posted_data['table'].value
 columns = posted_data['columns'].value
 values = posted_data['values'].value
-sql_query = "INSERT INTO %s(%s) VALUES(%s)",(table,columns,values)
+sql_query = "INSERT INTO "+table+"("+columns+") VALUES("+values+")"
 db = db_connection.get_connection()
 cursor = db.cursor()
 cursor.execute(sql_query)
