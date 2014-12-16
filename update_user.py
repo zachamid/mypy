@@ -5,11 +5,13 @@ import cgitb
 import MySQLdb
 import MySQLdb.cursors
 import db_connection
+import session
 cgitb.enable()
 
+cookie = session.return_session()
 db = db_connection.get_connection()
 posted_data = cgi.FieldStorage()
-id = posted_data['id'].value
+id = cookie['id'].value
 type = posted_data['type'].value
 values_to_change = list();
 if 'FirstName' in posted_data:
