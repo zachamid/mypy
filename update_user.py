@@ -11,7 +11,9 @@ print """content-type:text/html
 
 """
 db = db_connection.get_connection()
-posted_data = cgi.FieldStorage()
+posted_data = cgi.FieldStorage(fp=self.rfile,
+    headers=self.headers,
+    environ={'REQUEST_METHOD':'POST'})
 id = cookie['id'].value
 #type = posted_data['type'].value
 #values_to_change = list();
