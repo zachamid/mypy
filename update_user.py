@@ -15,7 +15,6 @@ type = cookie['type'].value
 print """content-type:text/html
 
 """
-type = posted_data['type'].value
 values_to_change = list();
 if 'FirstName' in posted_data:
 	values_to_change.append('FirstName="'+posted_data['FirstName']+'"')
