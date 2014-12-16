@@ -45,15 +45,15 @@ def print_navbar(id, curr_page):
 	<ul class="nav navbar-nav">
 	"""
 	if(curr_page == 'user_page'):
-		print '<li class="active">Details</a></li>'
+		print '<li class="active"><a href="#">Details</a></li>'
 	else:
 		print '<li><a href="user_page.py">Details</a></li>'
 	if(curr_page == 'task_list'):
-		print '<li class="active">Task_List</a></li>'
+		print '<li class="active"><a href="#">Task_List</a></li>'
 	else:
-		print '<li><a href="task_lisy.py">Task_List</a></li>'
+		print '<li><a href="task_list.py">Task_List</a></li>'
 	if(curr_page == 'playground'):
-		print '<li class="active">Playground</a></li>'
+		print '<li class="active"><a href="#">Playground</a></li>'
 	else:
 		print '<li><a href="playground.py">Playground</a></li>'
 	
