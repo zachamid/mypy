@@ -8,7 +8,13 @@ import db_connection
 import session
 cgitb.enable()
 
+string_cookie = os.environ.get('HTTP_COOKIE')
 cookie = session.return_cookie()
+cookie.load(string_cookie)
+session.print_session()
+print """content-type:text/html
+
+"""
 db = db_connection.get_connection()
 posted_data = cgi.FieldStorage()
 id = cookie['id'].value
@@ -22,7 +28,5 @@ if 'Password' in posted_data:
 	values_to_change.append('Password="'+posted_data['Password']+'"')
 
 values_to_change =  ",".join(values_to_change);
-print """content-type:text/html
 
-"""
 sql_statement = 'UPDATE '+type+' SET '+values_to_change+' WHERE '+type+'ID='+id
