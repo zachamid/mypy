@@ -2,9 +2,9 @@
 
 import cgi
 import cgitb
-#import MySQLdb
-#import MySQLdb.cursors
-#import db_connection
+import MySQLdb
+import MySQLdb.cursors
+import db_connection
 cgitb.enable()
 
 db = db_connection.get_connection()
