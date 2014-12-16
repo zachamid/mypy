@@ -70,9 +70,7 @@ function validate_login(type_of_user){
     		document.getElementById('error_space').innerHTML = 'Incorrect Email-Password Combination';
     	}
     	else{
-    		
-	  		document.cookie = "type="+type_of_user;
-	  		document.cookie = "id="+result;
+    		set_cookies(type_of_user,id);
 	  		//window.location.reload();
 		}
 	
@@ -103,15 +101,7 @@ function insert_user(table, person){
                		data : user_detail,
                		url : '/insert.py',
                		type : "POST"}).done(function(id){
-               			/*if(id != -1){
-	               			var login_credentials={id:id,type:table};
-    	           			$.ajax({
-        	       				data: login_credentials,
-            	   				url: '/set_sessions.php',
-               					type: 'POST'}).done(function(){
-               						window.location.reload();
-               				});
-               			}*/
+               			set_cookies(table,id);
                	});
         	}
 	});
@@ -133,7 +123,7 @@ function update_user(type_of_user, id){
     		data : {email: document.getElementById('Email').value,
     				password:document.getElementById('Password').value,
     				type:type_of_user},
-    		url : '/login_validation.php',
+    		url : '/login_validation.py',
     		type : "POST",}).done(function(login_result){
     			var user = {};
     			if(flag[0]==0){
@@ -149,7 +139,7 @@ function update_user(type_of_user, id){
     			if(login_result != '-1'){
     				$.ajax({
 						data:user,
-						url: '/update_user.php',
+						url: '/update_user.py',
 						type: 'POST'}).done(function(update_result){
 							if(update_result=='0'){
 								window.location.reload();
@@ -164,6 +154,11 @@ function update_user(type_of_user, id){
 				}
 			});
 	}
+}
+
+function set_cookies(type_of_user,id){
+	document.cookie = "type="+type_of_user;
+	document.cookie = "id="+id;
 }
 
 function clear_cookies(){
