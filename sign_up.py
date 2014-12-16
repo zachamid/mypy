@@ -10,7 +10,7 @@ cookie = session.return_cookie()
 print "Content-type: text/html"
 if session.in_session():
 	cookie.load(string_cookie)
-	print 'Location:\'user_page.py\''
+	print 'Location: user_page.py'
 print """\n
 
 <html>
