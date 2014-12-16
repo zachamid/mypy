@@ -8,7 +8,7 @@ import db_connection
 import session
 cgitb.enable()
 
-cookie = session.return_session()
+cookie = session.return_cookie()
 db = db_connection.get_connection()
 posted_data = cgi.FieldStorage()
 id = cookie['id'].value
