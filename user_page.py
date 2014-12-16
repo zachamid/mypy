@@ -97,7 +97,7 @@ print """\n
         			</table>
       			</div>
     		</div>
-""" % person_record['FirstName'], person_record['LastName'], person_record['Email'], person_record['ClassName'], str(person_record['StudentID'])
+""" % person_record['FirstName'], person_record['LastName'], person_record['Email'], person_record['ClassName'], int(person_record['StudentID'])
 print """\n    		
     		<div class="container" style="width:100%">
       			<div class="panel panel-default translucent"><h3>Tasks</h3></div>
