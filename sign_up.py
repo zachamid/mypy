@@ -79,7 +79,7 @@ print """\n
   	</head>
   	<body>
   		<div class='container'>"""
-commmon_components.print_header()
+common_components.print_header()
     
 print """\n
     	<div class="container"><div class="panel panel-default translucent"><h3>Student Sign Up</h3></div><div class="panel panel-default translucent">
