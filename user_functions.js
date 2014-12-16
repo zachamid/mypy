@@ -70,21 +70,9 @@ function validate_login(type_of_user){
     		document.getElementById('error_space').innerHTML = 'Incorrect Email-Password Combination';
     	}
     	else{
-    		/*var login_details = {cmd:'set',type:type_of_user, id:result};
-    		$.ajax({
-	    		data:login_details,
-	    		url: 'session.py',
-	    		type: 'POST',
-	    		success: function(html){
-	    			//window.location.assign('user_page.py');
-	    			window.location.reload();
-	    		}
-	  		});*/
-	  		var div = document.createElement("div");
-	  		div.innerHTML = result.replace(/(\r\n|\n|\r)/gm,"");
-	  		var id = div.textContent || div.innerText || "";
+    		
 	  		document.cookie = "type="+type_of_user;
-	  		document.cookie = "id="+id;
+	  		document.cookie = "id="+result;
 	  		//window.location.reload();
 		}
 	
@@ -103,7 +91,7 @@ function insert_user(table, person){
     var data = {cmd: 'CheckEmail', param:person['Email']};
     $.ajax({
     	data : data,
-        url : '/run_query.php',
+        url : '/run_query.py',
         type : "POST",
         dataType : "json"}).done(function(result){
         	if(result.length != 0){
@@ -113,9 +101,9 @@ function insert_user(table, person){
              	var user_detail = {table:table, values:values, columns: fields};
              	$.ajax({
                		data : user_detail,
-               		url : '/insert.php',
+               		url : '/insert.py',
                		type : "POST"}).done(function(id){
-               			if(id != -1){
+               			/*if(id != -1){
 	               			var login_credentials={id:id,type:table};
     	           			$.ajax({
         	       				data: login_credentials,
@@ -123,7 +111,7 @@ function insert_user(table, person){
                					type: 'POST'}).done(function(){
                						window.location.reload();
                				});
-               			}
+               			}*/
                	});
         	}
 	});

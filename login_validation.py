@@ -20,7 +20,7 @@ result = cursor.fetchall()
 
 print """content-type: text/html
 
-<html><body>"""
+"""
 if len(result) != 0:
 	if result[0]['Password'] == password:
 		id = result[0][type_of_user+'ID']
@@ -29,5 +29,3 @@ if len(result) != 0:
 		print -1
 else:
 	print -1
-
-print "</body></html>"
