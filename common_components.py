@@ -51,11 +51,11 @@ def print_navbar(id, curr_page):
 	if(curr_page == 'task_list'):
 		print '<li class="active">Task_List</a></li>'
 	else:
-		print '<li><a href="user_page.php">Task_List</a></li>'
+		print '<li><a href="task_lisy.py">Task_List</a></li>'
 	if(curr_page == 'playground'):
 		print '<li class="active">Playground</a></li>'
 	else:
-		print '<li><a href="user_page.php">Playground</a></li>'
+		print '<li><a href="playground.py">Playground</a></li>'
 	
 	print """\n
 	</ul><ul class="nav navbar-nav navbar-right">
