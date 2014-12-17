@@ -12,8 +12,8 @@ cookie = session.return_cookie()
 if session.in_session():
 	cookie.load(string_cookie)
 	session.print_cookie()
-elif cookie['type'].value == 'Student':
-	print 'Location:../index.py'
+	if cookie['type'].value == 'Student':
+		print 'Location:../index.py'
 print """Content-type: text/html\n\n
 
 <html><head>
