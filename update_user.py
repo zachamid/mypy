@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb, json, MySQLdb, MySQLdb.cursors, db_connection, os
+import cgi, cgitb, json, MySQLdb, MySQLdb.cursors, db_connection, os,session
 cgitb.enable()
 
 posted_data = cgi.FieldStorage()
