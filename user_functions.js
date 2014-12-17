@@ -145,7 +145,7 @@ function update_user(type_of_user, id){
 								window.location.reload();
 							}
 							else{
-								alert(update_result);
+								alert('Could not update');
 							}
 					});
 				}
