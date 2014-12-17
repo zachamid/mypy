@@ -63,7 +63,7 @@ function validate_login(type_of_user){
   	var data = {email: email, password:pword, type:type_of_user};
   	$.ajax({
     	data : data,
-    	url : 'login_validation.py',
+    	url : '/login_validation.py',
     	type : "POST"}).done(function(id){
     	id = id.trim();
     	if(id.indexOf("-1") > -1){
