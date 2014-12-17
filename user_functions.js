@@ -141,7 +141,7 @@ function update_user(type_of_user, id){
 						data:user,
 						url: '/update_user.py',
 						type: 'POST'}).done(function(update_result){
-							if(update_result=='1'){
+							if(update_result.trim()=='1'){
 								window.location.reload();
 							}
 							else{
