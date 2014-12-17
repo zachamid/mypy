@@ -3,14 +3,13 @@
 import cgi, cgitb, json, MySQLdb, MySQLdb.cursors, db_connection, os, session,sys
 cgitb.enable()
 
+posted_data = cgi.FieldStorage()
 string_cookie = os.environ.get('HTTP_COOKIE')
 cookie = session.return_cookie()
 cookie.load(string_cookie)
 session.print_cookie()
 
 db = db_connection.get_connection()
-posted_data = cgi.FieldStorage()
-#posted_data = cgi.FieldStorage()
 id = cookie['id'].value
 type = cookie['type'].value
 print """content-type:text/html
