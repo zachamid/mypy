@@ -18,9 +18,9 @@ print """Content-type: text/html\n\n
 
 <html><head>
 <script src="/jquery-1.11.1.min.js"></script>
-<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
-<script src='user_functions.js'></script>
-<link rel="stylesheet" type="text/css" href="general_style.css">
+<link href="/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+<script src='/user_functions.js'></script>
+<link rel="stylesheet" type="text/css" href="/general_style.css">
 <link href="teacher_style.css" rel="stylesheet">
 </head>
 	<body>"""
