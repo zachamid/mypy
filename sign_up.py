@@ -3,6 +3,50 @@
 import cgi, cgitb, json, MySQLdb, db_connection,session, common_components,os
 cgitb.enable()
 
+def print_details_form():
+	    print """\n <table width="100%" style="border-spacing:10px">
+        		<tr>
+          			<td style="width:50%">
+             			<input class="form-control" type="text" id="FirstName" placeholder="First Name" onblur='validate_detail(this.id)'>
+          			</td>
+          			<td>
+           			  	<div id="FirstName_alert"></div>
+          			</td>
+        		</tr>
+        		<tr>
+          			<td style="width:50%">
+            			<input class="form-control" type="text" id="LastName" placeholder="Last Name" onblur='validate_detail(this.id)'>
+          			</td>
+          			<td>
+            	 		<div id="LastName_alert"></div>
+          			</td>
+        		</tr>
+        		<tr>
+          			<td style="width:50%">
+            			<input class="form-control" type="text" id="Email" placeholder="Email Address" onblur='validate_detail(this.id)'>
+          			</td>
+          			<td>
+            	 		<div id="Email_alert"></div>
+          			</td>
+        		</tr>
+        		<tr>
+          			<td style="width:50%">
+            			<input class="form-control" type="password" id="Password" placeholder="Password" onblur='validate_detail(this.id)'>
+          			</td>
+          			<td>
+             			<div id="Password_alert"></div>
+          			</td>
+        		</tr>
+        		<tr>
+          			<td style="width:50%">
+            			<input class="form-control" type="password" id="confirm_Password" placeholder="Confirm Password" onblur='validate_detail(this.id)'>
+          			</td>
+          			<td>
+             			<div id="confirm_Password_alert"></div>
+          			</td>
+        		</tr>
+      		</table>"""
+
 string_cookie = os.environ.get('HTTP_COOKIE')
 cookie = session.return_cookie()
 
@@ -83,50 +127,9 @@ common_components.print_header()
     
 print """\n
     	<div class="container"><div class="panel panel-default translucent"><h3>Student Sign Up</h3></div><div class="panel panel-default translucent">
-    		<h4>Student Details</h4>
-      		<table width="100%" style="border-spacing:10px">
-        		<tr>
-          			<td style="width:50%">
-             			<input class="form-control" type="text" id="FirstName" placeholder="First Name" onblur='validate_detail(this.id)'>
-          			</td>
-          			<td>
-           			  	<div id="FirstName_alert"></div>
-          			</td>
-        		</tr>
-        		<tr>
-          			<td style="width:50%">
-            			<input class="form-control" type="text" id="LastName" placeholder="Last Name" onblur='validate_detail(this.id)'>
-          			</td>
-          			<td>
-            	 		<div id="LastName_alert"></div>
-          			</td>
-        		</tr>
-        		<tr>
-          			<td style="width:50%">
-            			<input class="form-control" type="text" id="Email" placeholder="Email Address" onblur='validate_detail(this.id)'>
-          			</td>
-          			<td>
-            	 		<div id="Email_alert"></div>
-          			</td>
-        		</tr>
-        		<tr>
-          			<td style="width:50%">
-            			<input class="form-control" type="password" id="Password" placeholder="Password" onblur='validate_detail(this.id)'>
-          			</td>
-          			<td>
-             			<div id="Password_alert"></div>
-          			</td>
-        		</tr>
-        		<tr>
-          			<td style="width:50%">
-            			<input class="form-control" type="password" id="confirm_Password" placeholder="Confirm Password" onblur='validate_detail(this.id)'>
-          			</td>
-          			<td>
-             			<div id="confirm_Password_alert"></div>
-          			</td>
-        		</tr>
-      		</table>
-    	</div></div>
+    		<h4>Student Details</h4>"""
+print_details_form()
+print """\n    	</div></div>
     	<div class="container"><div class="panel panel-default translucent">
       		<h4>Class Details</h4></br>
       		<table width="100%" style="border-spacing:10px">
