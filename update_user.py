@@ -9,7 +9,7 @@ cookie.load(string_cookie)
 session.print_cookie()
 
 db = db_connection.get_connection()
-posted_data = cgi.FieldStorage(fp=self.rfile,headers=self.headers,environ={'REQUEST_METHOD':'POST'})
+posted_data = cgi.FieldStorage()
 #posted_data = cgi.FieldStorage()
 id = cookie['id'].value
 type = cookie['type'].value
