@@ -1,17 +1,17 @@
 #!/usr/bin/python
 
-import cgi, cgitb, json, MySQLdb, MySQLdb.cursors, db_connection, os, session,sys
+import cgi, cgitb, json, MySQLdb, MySQLdb.cursors, db_connection, os
 cgitb.enable()
 
 posted_data = cgi.FieldStorage()
-string_cookie = os.environ.get('HTTP_COOKIE')
-cookie = session.return_cookie()
-cookie.load(string_cookie)
-session.print_cookie()
+#string_cookie = os.environ.get('HTTP_COOKIE')
+#cookie = session.return_cookie()
+#cookie.load(string_cookie)
+#session.print_cookie()
 
 db = db_connection.get_connection()
-id = cookie['id'].value
-type = cookie['type'].value
+#id = cookie['id'].value
+#type = cookie['type'].value
 print """content-type:text/html
 
 """
@@ -25,7 +25,7 @@ if 'Password' in posted_data:
 
 values_to_change =  ",".join(values_to_change);
 
-sql_statement = 'UPDATE '+type+' SET '+values_to_change+' WHERE '+type+'ID='+id
+sql_statement = 'UPDATE '+' SET '+values_to_change+' WHERE '+type+'ID='
 print sql_statement
 print posted_data
 #cursor = db.cursor()
