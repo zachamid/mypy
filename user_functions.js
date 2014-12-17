@@ -126,7 +126,7 @@ function update_user(type_of_user, id){
     		type : "POST",}).done(function(login_result){
     			var user = {};
     			user['id']=id;
-    			user['type']=type;
+    			user['type']=type_of_user;
     			if(flag[0]==0){
     				user['FirstName']=document.getElementById('FirstName').value;
     			}
