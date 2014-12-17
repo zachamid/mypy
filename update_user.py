@@ -26,6 +26,7 @@ if 'Password' in posted_data:
 values_to_change =  ",".join(values_to_change);
 
 sql_statement = 'UPDATE '+type+' SET '+values_to_change+' WHERE '+type+'ID='+id
-cursor = db.cursor()
-cursor.execute(sql_statement)
-print cursor.rowcount
+print sql_statement
+#cursor = db.cursor()
+#cursor.execute(sql_statement)
+#print cursor.rowcount
