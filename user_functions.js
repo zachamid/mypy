@@ -138,8 +138,8 @@ function update_user(type_of_user, id){
     				$.ajax({
 						data:user,
 						url: '/update_user.py',
-						type: 'GET'}).done(function(update_result){
-							if(update_result=='0'){
+						type: 'POST'}).done(function(update_result){
+							if(update_result=='1'){
 								window.location.reload();
 							}
 							else{
