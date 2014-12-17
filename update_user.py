@@ -28,6 +28,7 @@ values_to_change =  ",".join(values_to_change);
 
 sql_statement = 'UPDATE '+type+' SET '+values_to_change+' WHERE '+type+'ID='+id
 print sql_statement
+print posted_data
 #cursor = db.cursor()
 #cursor.execute(sql_statement)
 #print cursor.rowcount
