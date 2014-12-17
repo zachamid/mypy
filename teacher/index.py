@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-import Cookie, cgi, cgitb, os
-import ../session as session
-import ../common_components as common_components
+import Cookie, cgi, cgitb, os,sys
+sys.path.append(os.pardir)
+import session,common_components
 
 cgitb.enable()
 
