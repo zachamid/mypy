@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb, json, MySQLdb, MySQLdb.cursors, db_connection, os
+import cgi, cgitb, json, MySQLdb, MySQLdb.cursors, db_connection, os, session
 cgitb.enable()
 
 string_cookie = os.environ.get('HTTP_COOKIE')
