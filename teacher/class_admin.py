@@ -56,6 +56,7 @@ sql_query = """ SELECT * FROM Class
 				INNER JOIN TeacherClassRelationship 
 				ON Class.ClassID=TeacherClassRelationship.ClassID 
 				WHERE TeacherID="""+str(cookie['id'].value);
+cursor = db.get_connection()
 cursor.execute(sql_query)
 class_records = cursor.fetchall()
 for record in class_records:

@@ -14,7 +14,7 @@ if 'Password' in posted_data:
 
 values_to_change =  ",".join(values_to_change);
 
-db = db_connection.get_connection()
+cursor = db_connection.get_connection()
 
 id = posted_data['id'].value
 type = posted_data['type'].value
@@ -24,6 +24,5 @@ print """content-type:text/html
 
 
 sql_statement = 'UPDATE '+type+' SET '+values_to_change+' WHERE '+type+'ID='+id
-cursor = db.cursor()
 cursor.execute(sql_statement)
 print cursor.rowcount

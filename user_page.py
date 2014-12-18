@@ -25,8 +25,7 @@ print """Content-type: text/html\n\n
   	<body>
     	<div class="container">"""
 common_components.print_navbar(cookie['id'].value, 'user_page')
-db = db_connection.get_connection()
-cursor = db.cursor()
+cursor = db_connection.get_connection()
 sql = 'SELECT * FROM Student INNER JOIN Class ON Student.ClassID=Class.ClassID WHERE StudentID='+cookie['id'].value
 cursor.execute(sql)
 person_record = cursor.fetchone()

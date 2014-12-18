@@ -14,8 +14,7 @@ cgitb.enable()
 path = '../tasks/'
 
 def get_task_list():
-	db = db_connection.get_connection()
-	cursor = db.cursor()
+	cursor = db_connection.get_connection()
 	sql = 'SELECT * FROM Task'
 	cursor.execute(sql)
 	out = cursor.fetchall()

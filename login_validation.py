@@ -12,9 +12,8 @@ posted_data = cgi.FieldStorage()
 email = posted_data['email'].value
 password = posted_data['password'].value
 type_of_user = posted_data['type'].value
-db = db_connection.get_connection()
+cursor = db_connection.get_connection()
 sql = "SELECT * FROM "+type_of_user+" WHERE Email='"+email+"'"
-cursor = db.cursor()
 cursor.execute(sql)
 result = cursor.fetchall()
 

@@ -10,8 +10,7 @@ cgitb.enable()
 
 posted_data = cgi.FieldStorage()
 cmd = posted_data['cmd'].value
-db = db_connection.get_connection()
-cursor = db.cursor()
+cursor = db_connection.get_connection()
 sql_query=''
 if cmd == "Schools":
 	sql_query = "SELECT DISTINCT School FROM Class"
