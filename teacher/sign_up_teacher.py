@@ -2,7 +2,7 @@
 
 import Cookie, cgi, cgitb, os,sys
 sys.path.append(os.pardir)
-import session,common_components, sign_up as sign_up_form
+import session,common_components, sign_up
 
 cgitb.enable()
 
