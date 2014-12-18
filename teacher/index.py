@@ -24,7 +24,6 @@ print """Content-type: text/html\n\n
 <link href="teacher_style.css" rel="stylesheet">
 </head>
 	<body>"""
-print session.in_session()
 if not session.in_session():
 	common_components.print_header_teacher()
 else:
