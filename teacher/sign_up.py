@@ -2,7 +2,7 @@
 
 import Cookie, cgi, cgitb, os,sys
 sys.path.append(os.pardir)
-import session,common_components, sign_up
+import session,common_components
 
 cgitb.enable()
 
@@ -55,7 +55,48 @@ print """Content-type: text/html\n\n
 print """\n
     <div class="container"><div class="panel panel-default translucent"><h3>Teacher Sign Up</h3></div><div class="panel panel-default translucent">
       <h4>Teacher Details</h4>"""
-sign_up_form.print_details_form()
+print """\n <table width="100%" style="border-spacing:10px">
+        		<tr>
+          			<td style="width:50%">
+             			<input class="form-control" type="text" id="FirstName" placeholder="First Name" onblur='validate_detail(this.id)'>
+          			</td>
+          			<td>
+           			  	<div id="FirstName_alert"></div>
+          			</td>
+        		</tr>
+        		<tr>
+          			<td style="width:50%">
+            			<input class="form-control" type="text" id="LastName" placeholder="Last Name" onblur='validate_detail(this.id)'>
+          			</td>
+          			<td>
+            	 		<div id="LastName_alert"></div>
+          			</td>
+        		</tr>
+        		<tr>
+          			<td style="width:50%">
+            			<input class="form-control" type="text" id="Email" placeholder="Email Address" onblur='validate_detail(this.id)'>
+          			</td>
+          			<td>
+            	 		<div id="Email_alert"></div>
+          			</td>
+        		</tr>
+        		<tr>
+          			<td style="width:50%">
+            			<input class="form-control" type="password" id="Password" placeholder="Password" onblur='validate_detail(this.id)'>
+          			</td>
+          			<td>
+             			<div id="Password_alert"></div>
+          			</td>
+        		</tr>
+        		<tr>
+          			<td style="width:50%">
+            			<input class="form-control" type="password" id="confirm_Password" placeholder="Confirm Password" onblur='validate_detail(this.id)'>
+          			</td>
+          			<td>
+             			<div id="confirm_Password_alert"></div>
+          			</td>
+        		</tr>
+      		</table>"""
 print """\n    </div></div>
     <div class="container">
       <input type="button" value="Submit" class="btn btn-default" onclick="sign_up()">
