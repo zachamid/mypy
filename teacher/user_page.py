@@ -92,7 +92,7 @@ print """\n
             			</td>
           			</tr>
           			<tr><td>
-         				<button class="form-control" onclick='update_user('Teacher',"""+record['TeacherID']+""")' type="button">
+         				<button class="form-control" onclick='update_user('Teacher',"""+str(record['TeacherID'])+""")' type="button">
 									Update
 						</button>
           			<td></tr>
