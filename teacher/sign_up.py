@@ -14,6 +14,8 @@ if session.in_session():
 	session.print_cookie()
 	if cookie['type'].value == 'Student':
 		print 'Location:../index.py'
+	else:
+		print 'Location:index.py'
 print """Content-type: text/html\n\n
 
 <html>
