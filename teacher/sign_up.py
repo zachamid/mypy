@@ -1,6 +1,23 @@
+#!/usr/bin/env python
 
+import Cookie, cgi, cgitb, os,sys
+sys.path.append(os.pardir)
+import session,common_components, sign_up
 
-print """\n
+cgitb.enable()
+
+string_cookie = os.environ.get('HTTP_COOKIE')
+cookie = session.return_cookie()
+
+if session.in_session():
+	cookie.load(string_cookie)
+	session.print_cookie()
+	if cookie['type'].value == 'Student':
+		print 'Location:../index.py'
+else:
+	print 'Location: index.py'
+print """Content-type: text/html\n\n
+
 <html>
 	<head>
 		<script src="../jquery-1.11.1.min.js"></script>
@@ -38,7 +55,7 @@ print """\n
 print """\n
     <div class="container"><div class="panel panel-default translucent"><h3>Teacher Sign Up</h3></div><div class="panel panel-default translucent">
       <h4>Teacher Details</h4>"""
-sign_up.
+sign_up.print_details_form()
 print """\n    </div></div>
     <div class="container">
       <input type="button" value="Submit" class="btn btn-default" onclick="sign_up()">

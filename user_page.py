@@ -88,7 +88,7 @@ print """\n
           				</tr>
           				<tr>
             				<td style="width:50%">
-               					<div id="class_place">"""+person_record['ClassName']+"""</div>
+               					<div id="class_place">"""+person_record['ClassName']+"""\n</div>
             				</td>
             				<td>
             					<button class="form-control" onclick='update_user("Student", """+str(person_record['StudentID'])+""")' type="button">

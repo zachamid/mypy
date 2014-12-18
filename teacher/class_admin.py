@@ -1,4 +1,22 @@
+#!/usr/bin/env python
 
+import Cookie, cgi, cgitb, os,sys
+sys.path.append(os.pardir)
+import session,common_components
+
+cgitb.enable()
+
+string_cookie = os.environ.get('HTTP_COOKIE')
+cookie = session.return_cookie()
+
+if session.in_session():
+	cookie.load(string_cookie)
+	session.print_cookie()
+	if cookie['type'].value == 'Student':
+		print 'Location:../index.py'
+else:
+	print 'Location: index.py'
+print """Content-type: text/html\n\n
 
 <html>
 	<head>
@@ -27,20 +45,27 @@
       				</div>
       				<div class="panel panel-default translucent">
       					<table>
-      						<?php
-      							$sql_query = "SELECT * FROM Class INNER JOIN TeacherClassRelationship ON Class.ClassID=TeacherClassRelationship.ClassID WHERE TeacherID=".$_SESSION['id'];
-    							if(!$result = $db->query($sql_query)){
-    								die('There was an error running the query ['.$db->error.']');
-  								}
-  								while($row = $result->fetch_assoc()){
-  									echo "<tr>";
-  									echo "<td>".$row['ClassID']."</td>";
-  									echo "<td>".$row['ClassName']."</td>";
-  									echo "<td>".$row['School']."</td>";
-  									echo "<td>Remove</td>";
-  									echo "</tr>";
-  								}
-      						?>
+      						<tr>
+      							<th>ID</th>
+      							<th>Name</th>
+      							<th>School</th>
+      							<th></th>
+      						</tr>
+"""
+sql_query = """ SELECT * FROM Class 
+				INNER JOIN TeacherClassRelationship 
+				ON Class.ClassID=TeacherClassRelationship.ClassID 
+				WHERE TeacherID="""+str(cookie['id'].value);
+cursor.execute(sql_query)
+class_records = cursor.fetchall()
+for record in class_records:
+	print '<tr>'
+	print '<td>'+record['ClassID']+'</td>'
+	print '<td>'+record['ClassName']+'</td>'
+	print '<td>'+record['School']+'</td>'
+	print '<td>Remove</td>'
+	print '</tr>'
+print """\n
       					</table>
       					
       				</div>

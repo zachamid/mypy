@@ -99,7 +99,7 @@ def print_navbar_teacher(id, curr_page):
 	<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span>
 	<span class="icon-bar"></span><span class="icon-bar"></span>
 	</button>
-	<a class="navbar-brand" href="#">'"""
+	<a class="navbar-brand" href="#">"""
 	print name
 	print """\n</a>
 	</div><div id="navbar" class="navbar-collapse collapse">
@@ -108,16 +108,20 @@ def print_navbar_teacher(id, curr_page):
 	if(curr_page == 'user_page'):
 		print '<li class="active">Details</a></li>'
 	else:
-		print '<li><a href="teacher/user_page.php">Details</a></li>'
+		print '<li><a href="user_page.py">Details</a></li>'
 	if(curr_page == 'task_list'):
 		print '<li class="active">Class Administration</a></li>'
 	else:
-		print '<li><a href="user_page.php">Class Administration</a></li>'
+		print '<li><a href="class_admin.php">Class Administration</a></li>'
 	if(curr_page == 'playground'):
 		print '<li class="active">Task Administration</a></li>'
 	else:
-		print '<li><a href="user_page.php">Task Administration</a></li>'
-	
+		print '<li><a href="task_admin.py">Task Administration</a></li>'
+	if(record['Administrator']==1):
+		if(curr_page == 'admin'):
+			print '<li class="active">Site Administration</a></li>'
+		else:
+			print '<li><a href="admin.py">Task Administration</a></li>'
 	print """\n
 	</ul><ul class="nav navbar-nav navbar-right">
 	<li><a onclick="clear_cookies()"><span class="glyphicon glyphicon-log-out"></span>&nbsp
