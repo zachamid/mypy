@@ -49,8 +49,7 @@ def print_header_teacher():
 	
 def print_navbar(id, curr_page):
 	sql_query = 'SELECT * FROM Student WHERE StudentID='+id
-	db = db_connection.get_connection()
-	cursor = db.cursor()
+	cursor = db_connection.get_connection()
 	cursor.execute(sql_query)
 	record = cursor.fetchone()
 	name = record['FirstName']+' '+record['LastName']
@@ -87,8 +86,7 @@ def print_navbar(id, curr_page):
 	
 def print_navbar_teacher(id, curr_page):
 	sql_query = 'SELECT * FROM Teacher WHERE TeacherID='+id
-	db = db_connection.get_connection()
-	cursor = db.cursor()
+	cursor = db_connection.get_connection()
 	cursor.execute(sql_query)
 	record = cursor.fetchone()
 	name = record['FirstName']+' '+record['LastName']
