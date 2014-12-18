@@ -162,6 +162,7 @@ function set_cookies(type_of_user,id){
 }
 
 function clear_cookies(){
+	console.log('Clearing');
 	var cookies = document.cookie.split(";");
 
     for (var i = 0; i < cookies.length; i++) {
