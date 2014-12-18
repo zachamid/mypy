@@ -61,7 +61,7 @@ print """\n
           			</tr>
           			<tr>
             			<td style="width:50%">
-              				Email: <input class="form-control" type="text" id="Email" value="""+record['Email']+""">
+              				Email: <input class="form-control" type="text" id="Email" value="""+record['Email']+""" readonly>
             			</td>
             			<td>
               				<div id="Email_alert"></div>
