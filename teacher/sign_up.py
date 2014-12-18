@@ -49,7 +49,7 @@ print """Content-type: text/html\n\n
   </head>
   <body>
 """
-
+common_components.print_header_teacher()
 print """\n
     <div class="container"><div class="panel panel-default translucent"><h3>Teacher Sign Up</h3></div><div class="panel panel-default translucent">
       <h4>Teacher Details</h4>"""
