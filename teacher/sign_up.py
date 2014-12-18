@@ -2,7 +2,7 @@
 
 import Cookie, cgi, cgitb, os,sys
 sys.path.append(os.pardir)
-import session,common_components, sign_up
+import session,common_components, sign_up as sign_up_form
 
 cgitb.enable()
 
@@ -55,7 +55,7 @@ print """Content-type: text/html\n\n
 print """\n
     <div class="container"><div class="panel panel-default translucent"><h3>Teacher Sign Up</h3></div><div class="panel panel-default translucent">
       <h4>Teacher Details</h4>"""
-sign_up.print_details_form()
+sign_up_form.print_details_form()
 print """\n    </div></div>
     <div class="container">
       <input type="button" value="Submit" class="btn btn-default" onclick="sign_up()">
