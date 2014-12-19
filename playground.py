@@ -19,6 +19,7 @@ print """Content-type: text/html\n\n
 		<script src="skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
 		<script src="jquery-1.11.1.min.js" type="text/javascript"></script> 
 		<script src="python_functions.js" type="text/javascript"></script>
+		<script src="user_functions.js" type="text/javascript"></script>
     	<link rel="stylesheet" type="text/css" href="general_style.css">
     	<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
 	</head>

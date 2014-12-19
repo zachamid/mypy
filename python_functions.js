@@ -19,7 +19,18 @@ function run_code(code_area,output,err) {
 function auto_generate(struct){
 	switch(struct){
 		case 'for':
-		case 'While':
-		
+		case 'while':
+		case 'if':
 	}
+}
+
+function run_code_test_cases(code,testcases){
+	var user_code = document.getElementById(code).value;
+	//Indent every line by two
+	//Add def function(<args>):
+	//insert line
+	//for each test case
+	//  print out test case
+	//  print out function(test case)
+	//run
 }
