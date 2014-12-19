@@ -29,15 +29,9 @@ print """Content-type: text/html\n\n
 	</head>
 	<body>
 		<div class="container">
-			<?php
-  				$curr_page='class_admin.php';
-    			include 'nav_bar.php';
-    			$sql_query = 'SELECT * FROM Teacher WHERE TeacherID='.$_SESSION['id'];
-    			if(!$result = $db->query($sql_query)){
-    				die('There was an error running the query [' . $db->error . ']');
-  				}
-  				$row = $result->fetch_assoc();
-    		?>
+"""
+common_components.print_navbar_teacher(cookie['id'].value, 'site_admin')
+print """\n
     		<div class="container col-sm-6 col-md-9">
     			<div class="container" style="width:100%">
     				<div class="panel panel-default translucent">
