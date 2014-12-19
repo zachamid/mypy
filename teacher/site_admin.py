@@ -7,6 +7,7 @@ cgitb.enable()
 string_cookie = os.environ.get('HTTP_COOKIE')
 cookie = session.return_cookie()
 cursor = db_connection.get_connection()
+print 'Content-type: text/html'
 if session.in_session():
 	if cookie['type'].value == 'Teacher':
 		cursor.execute('SELECT * FROM Teacher WHERE TeacherID='+cookie['id'].value)
@@ -18,7 +19,7 @@ if session.in_session():
 else:
 	print 'Location: ../index.py'
 	
-print """Content-type: text/html\n\n
+print """\n
 
 <html>
 	<head>
