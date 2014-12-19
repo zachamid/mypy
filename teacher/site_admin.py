@@ -19,7 +19,7 @@ if session.in_session():
 else:
 	print 'Location: ../index.py'
 	
-print """\n
+print """\n\n
 
 <html>
 	<head>
