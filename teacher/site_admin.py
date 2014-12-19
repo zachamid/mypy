@@ -14,11 +14,11 @@ if session.in_session():
 		cursor.execute('SELECT * FROM Teacher WHERE TeacherID='+cookie['id'].value)
 		record = cursor.fetchone()
 		if record['Administrator'] == 0:
-			print 'Location: index.py'
+			print 'Location:index.py'
 	else:
-		print 'Location: ../index.py'
+		print 'Location:../index.py'
 else:
-	print 'Location: ../index.py'
+	print 'Location:../index.py'
 	
 print """\n\n
 
