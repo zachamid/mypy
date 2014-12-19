@@ -9,6 +9,7 @@ cookie = session.return_cookie()
 cursor = db_connection.get_connection()
 print 'Content-type: text/html'
 if session.in_session():
+	session.print_cookie()
 	if cookie['type'].value == 'Teacher':
 		cursor.execute('SELECT * FROM Teacher WHERE TeacherID='+cookie['id'].value)
 		record = cursor.fetchone()
