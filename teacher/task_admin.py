@@ -72,7 +72,7 @@ print """Content-type: text/html\n\n
 			function show_XML_info(task_id){
 				get_task_xml(task_id,function(result){
     				var task_info = document.getElementById("task_info");
-    				task_info.innerHTML =print_object(result);
+    				task_info.innerHTML =result;
     			});
 			}
 			
