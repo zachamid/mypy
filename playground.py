@@ -24,7 +24,7 @@ print """Content-type: text/html\n\n
 		<script>
 		$(function() {
 			$(".lined").linedtextarea(
-			{selectedLine: 1}
+			{}
 			);
 		});
 		</script>
@@ -48,7 +48,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
 				<div class="panel-body">
-					<textarea class="form-control code-holder lined" rows="10" id="code">
+					<textarea class="form-control lined" rows="10" id="code">
 for i in range(8):
  print i
 					</textarea>
@@ -62,11 +62,11 @@ for i in range(8):
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
 				<div class="panel-body">
-					<textarea class="form-control code-holder lined" rows="5" id="output"></textarea>
+					<textarea class="form-control lined" rows="5" id="output"></textarea>
 				</div>
 				<div class="panel-heading">Error Console</div>
 				<div class="panel-body">
-					<textarea class="form-control code-holder lined" rows="5" id="error"></textarea>
+					<textarea class="form-control lined" rows="5" id="error"></textarea>
 				</div>
 				
 			</div>
