@@ -48,7 +48,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
 				<div class="panel-body">
-					<textarea class="lined" rows="10" id="code"></textarea>
+					<textarea class="lined" rows="10" cols="60" id="code"></textarea>
 					<button class="form-control" onclick='run_code("code","output","error")' type="button">
 						Run
 					</button>
@@ -59,11 +59,11 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
 				<div class="panel-body">
-					<textarea class="lined" rows="5" id="output"></textarea>
+					<textarea class="lined" rows="5" id="output" cols="60" ></textarea>
 				</div>
 				<div class="panel-heading">Error Console</div>
 				<div class="panel-body">
-					<textarea class="lined" rows="5" id="error"></textarea>
+					<textarea class="lined" rows="5" id="error" cols="60" ></textarea>
 				</div>
 				
 			</div>
