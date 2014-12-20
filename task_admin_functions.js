@@ -51,8 +51,9 @@ function print_xml_object(obj) {
 	console.log(ret_string);
 	if("testcases" in task){
 		ret_string+="<b>Testcases</b>:";
-		testcases = task["testcases"];
+		testcases = task["testcases"]['testcase'];
 		for(testcase in testcases){
+			
 			if(typeof(testcase['arg']) == 'Array'){
 				ret_string+="args: ("+ testcase["arg"].join(", ")+")";
 			}
