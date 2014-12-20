@@ -57,6 +57,7 @@ function print_xml_object(obj) {
 			ret_string+="args: ("+ testcase["arg"].join(", ");
 			//", outcome: "+ testcase['outcome'];
 			}
+		}
 	}
   	return ret_string;
 }
