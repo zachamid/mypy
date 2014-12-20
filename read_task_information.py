@@ -48,7 +48,9 @@ def retrieve_file_info():
 		else:
 			file_info[task['TaskID']]['directory'] = 0
 	return file_info
-	
+
+
+
 def retrieve_task_xml(id):
 	new_path = path+str(id)+"/info.xml"
 	info = xmltodict.parse(open(new_path, "r"))
