@@ -73,6 +73,7 @@ print """Content-type: text/html\n\n
     		$( document ).ready(function() {
     			check_directory(populate_table);
     			get_task_info(function(result){
+    				console.log(result);
     				for (var record in result){
     					for (var object in record){
     						for (var field in object){
