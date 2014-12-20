@@ -73,8 +73,10 @@ print """Content-type: text/html\n\n
     		$( document ).ready(function() {
     			check_directory(populate_table);
     			get_task_info(function(result){
-    				for (var field in result){
-    					document.getElementById('task_info').innerHTML+=result[field]+'</br>';
+    				for (var object in result){
+    					for (var field in object){
+	    					document.getElementById('task_info').innerHTML+=object[field].value+'</br>';
+	    				}
     				}
     			});
 			});
