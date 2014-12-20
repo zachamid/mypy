@@ -16,7 +16,7 @@ def print_header():
     <button type="button" class="btn btn-default btn-sm" onclick="validate_login('Student')">
   	<span class="glyphicon glyphicon-log-in"></span> Login
 	</button>&nbsp&nbsp
-	<button type="button" class="btn btn-default btn-sm" onclick="location.href='sign_up.php'">
+	<button type="button" class="btn btn-default btn-sm" onclick="location.href='sign_up.py'">
   	<span class="glyphicon glyphicon-user"></span> Sign Up
 	</button>
     </br><div id="error_space"></div>
@@ -107,11 +107,11 @@ def print_navbar_teacher(id, curr_page):
 		print '<li class="active">Details</a></li>'
 	else:
 		print '<li><a href="user_page.py">Details</a></li>'
-	if(curr_page == 'task_list'):
+	if(curr_page == 'class_admin'):
 		print '<li class="active">Class Administration</a></li>'
 	else:
-		print '<li><a href="class_admin.php">Class Administration</a></li>'
-	if(curr_page == 'playground'):
+		print '<li><a href="class_admin.py">Class Administration</a></li>'
+	if(curr_page == 'task_admin'):
 		print '<li class="active">Task Administration</a></li>'
 	else:
 		print '<li><a href="task_admin.py">Task Administration</a></li>'
@@ -119,7 +119,7 @@ def print_navbar_teacher(id, curr_page):
 		if(curr_page == 'admin'):
 			print '<li class="active">Site Administration</a></li>'
 		else:
-			print '<li><a href="admin.py">Task Administration</a></li>'
+			print '<li><a href="site_admin.py">Site Administration</a></li>'
 	print """\n
 	</ul><ul class="nav navbar-nav navbar-right">
 	<li><a onclick="clear_cookies()"><span class="glyphicon glyphicon-log-out"></span>&nbsp
