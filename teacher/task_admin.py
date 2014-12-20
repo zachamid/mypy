@@ -76,7 +76,7 @@ print """Content-type: text/html\n\n
     				for (var record in result){
     					task =result[record];
     					for(var key in task){
-    						task_info.innerHTML +="<b>"+key+"</b>: "+key[task]+"</br>";
+    						task_info.innerHTML +="<b>"+key+"</b>: "+task[key]+"</br>";
     					}
     				}
     			});
