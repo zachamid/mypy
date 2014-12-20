@@ -23,7 +23,6 @@ print """Content-type: text/html\n\n
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script>
 		$(function() {
-			$(".lined").width($(".lined").parentNode.width);
 			$(".lined").linedtextarea(
 			{selectedLine: 1}
 			);
@@ -48,7 +47,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
 				<div class="panel-body">
-					<textarea class="lined" rows="10" id="code"></textarea>
+					<textarea class="lined" rows="10" cols="100" id="code"></textarea>
 					<button class="form-control" onclick='run_code("code","output","error")' type="button">
 						Run
 					</button>
@@ -59,11 +58,11 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
 				<div class="panel-body">
-					<textarea class="lined" rows="5" id="output" style="width:100%"></textarea>
+					<textarea class="lined" rows="5" id="output" cols="100"></textarea>
 				</div>
 				<div class="panel-heading">Error Console</div>
 				<div class="panel-body">
-					<textarea class="lined" rows="5" id="error" style="width:100%"></textarea>
+					<textarea class="lined" rows="5" id="error" cols="100"></textarea>
 				</div>
 				
 			</div>
