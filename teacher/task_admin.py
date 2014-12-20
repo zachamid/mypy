@@ -72,7 +72,7 @@ print """Content-type: text/html\n\n
     		$( document ).ready(function() {
     			check_directory(populate_table);
     			get_task_info(function(result){
-    				task_info_space = document.getElementById('task_info');
+    				var task_info_space = document.getElementById("task_info");
     				for (var record in result){
     					task =result[record];
     					for(var key in task){
