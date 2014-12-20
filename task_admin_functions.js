@@ -46,7 +46,7 @@ function print_xml_object(obj) {
 	if("tag" in task){
 		ret_string+="<b>Tags</b>:";
 		tags = task["tag"];
-		if(typeof(tags) == 'Array'){
+		if(Array.isArray(tags)){
 			ret_string += tags.join(", ");
 		}
 		else{
