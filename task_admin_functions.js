@@ -48,6 +48,7 @@ function print_xml_object(obj) {
 		tags = task["tag"];
 		ret_string += tags.join(", ")+"</br>"
 	}
+	console.log(ret_string);
 	if("testcases" in task){
 		ret_string+="<b>Testcases</b>:";
 		testcases = task["testcases"];
