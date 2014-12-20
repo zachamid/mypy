@@ -69,7 +69,6 @@ def retrieve_task_xml(id):
 		return error
 
 
-#db = db_connection.get_connection()
 posted_data = cgi.FieldStorage()
 cmd = posted_data['cmd'].value
 

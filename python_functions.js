@@ -26,6 +26,8 @@ function auto_generate(struct){
 
 function run_code_test_cases(code,testcases){
 	var user_code = document.getElementById(code).value;
+	user_code_lines = user_code.split("\n")
+	
 	//Indent every line by two
 	//Add def function(<args>):
 	//insert line

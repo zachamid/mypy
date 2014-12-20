@@ -17,11 +17,13 @@ print """Content-type: text/html\n\n
 	<head>
 		<script src="skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
 		<script src="skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
+		<script src="jquery-linedtextarea.js" type="text/javascript"
 		<script src="jquery-1.11.1.min.js" type="text/javascript"></script> 
 		<script src="python_functions.js" type="text/javascript"></script>
 		<script src="user_functions.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="jquery-linedtextarea.css">
     	<link rel="stylesheet" type="text/css" href="general_style.css">
-    	<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="container">"""
@@ -39,7 +41,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
 				<div class="panel-body">
-					<textarea class="form-control code-holder" rows="10" id="code">
+					<textarea class="form-control code-holder lined" rows="10" id="code">
 for i in range(8):
  print i
 					</textarea>
@@ -53,11 +55,11 @@ for i in range(8):
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
 				<div class="panel-body">
-					<textarea class="form-control code-holder" rows="5" id="output"></textarea>
+					<textarea class="form-control code-holder lined" rows="5" id="output"></textarea>
 				</div>
 				<div class="panel-heading">Error Console</div>
 				<div class="panel-body">
-					<textarea class="form-control code-holder" rows="5" id="error"></textarea>
+					<textarea class="form-control code-holder lined" rows="5" id="error"></textarea>
 				</div>
 				
 			</div>
