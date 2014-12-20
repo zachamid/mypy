@@ -73,7 +73,7 @@ print """Content-type: text/html\n\n
     			check_directory(populate_table);
     			get_task_xml(1,function(result){
     				var task_info = document.getElementById("task_info");
-    				task_info.innerHTML +=print_obj(result);
+    				task_info.innerHTML +=print_object(result);
     			});
 			});
     	</script>
