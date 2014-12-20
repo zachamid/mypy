@@ -53,8 +53,14 @@ def retrieve_file_info():
 
 def retrieve_task_xml(id):
 	new_path = path+str(id)+"/info.xml"
-	info = xmltodict.parse(open(new_path, "r"))
-	return info
+	try:
+		info = xmltodict.parse(open(new_path, "r"))
+		return info
+	except IOError:
+		error = dict()
+		error['Error_Title'] = 'File Not Found'
+		error['Description'] = 'file "'+new_path+'"'
+		return error;
 
 
 #db = db_connection.get_connection()
