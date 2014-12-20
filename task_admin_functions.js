@@ -45,18 +45,30 @@ function print_xml_object(obj) {
 	ret_string+="<b>Difficulty</b>:"+task["@difficulty"]+"</br>";
 	if("tag" in task){
 		ret_string+="<b>Tags</b>:";
+		tags = task["tag"];
 		if(typeof(tags) == 'Array'){
-			tags = task["tag"];
 			ret_string += tags.join(", ");
 		}
 		else{
-			ret_string += task["tag"];
+			ret_string += tags;
 		}
 		ret_string += "</br>";
 	}
 	if("testcase" in task){
 		ret_string+="<b>Testcases</b>:";
-		for(testcase in testcases){
+		testcases = task['testcase'];
+		if(typeof(testcases) == 'Array'){
+			for(testcase in testcases){
+				if(typeof(testcase['arg']) == 'Array'){
+					ret_string+="args: ("+ testcase["arg"].join(", ")+")";
+				}
+				else{
+					ret_string+="args: ("+ testcase["arg"] + ")";
+				}
+				ret_string += ", outcome: "+ testcase['outcome'];
+			}
+		}
+		else{
 			if(typeof(testcase['arg']) == 'Array'){
 				ret_string+="args: ("+ testcase["arg"].join(", ")+")";
 			}
