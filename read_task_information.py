@@ -61,7 +61,7 @@ def retrieve_task_xml(id):
 		error['Error_Title'] = 'File Not Found'
 		error['Description'] = 'file "'+new_path+'" Not Found'
 		return error
-	except ExpatError e:
+	except ExpatError:
 		error = dict()
 		error['Error_Title'] = 'XML Error'
 		error['Description'] = e['args']
