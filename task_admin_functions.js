@@ -41,8 +41,8 @@ function get_task_xml(task_id, data_manipulation){
 function print_xml_object(obj) {
 	ret_string="";
 	task = obj["task"];
-	ret_string="<b>Description</b>:"+task["@Description"]+"</br>";
-	ret_string+="<b>Difficulty</b>:"+task["@Difficulty"]+"</br>";
+	ret_string="<b>Description</b>:"+task["Description"]+"</br>";
+	ret_string+="<b>Difficulty</b>:"+task["Difficulty"]+"</br>";
 	if("tag" in task){
 		ret_string+="<b>Tags</b>:";
 		tags = task["tag"];
