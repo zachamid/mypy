@@ -59,8 +59,8 @@ function print_xml_object(obj) {
 		testcases = task['testcase'];
 		if(typeof(testcases) == 'Array'){
 			for(testcase in testcases){
+				console.log(testcase);
 				if(typeof(testcase['arg']) == 'Array'){
-				console.log('True');
 					ret_string+="args: ("+ testcase["arg"].join(", ")+")";
 				}
 				else{
