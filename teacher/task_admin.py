@@ -73,9 +73,12 @@ print """Content-type: text/html\n\n
     		$( document ).ready(function() {
     			check_directory(populate_table);
     			get_task_info(function(result){
-    				for (var object in result){
-    					document.getElementById('task_info').innerHTML+=object["TaskID"]+'</br>';
-    					document.getElementById('task_info').innerHTML+=object["Title"]+'</br>';
+    				for (var record in result){
+    					for (var object in record){
+    						for (var field in object){
+    							document.getElemenById('task_info').innerHTML = object[field] + "</br>";
+    						}
+    					}
     				}
     			});
 			});
