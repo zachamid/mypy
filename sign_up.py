@@ -81,7 +81,7 @@ print """\n
 common_components.print_header()
     
 print """\n
-    	<div class="container"><div class="panel panel-default translucent"><h3>Student Sign Up</h3></div><div class="panel panel-default translucent">
+    	<div class="panel panel-default translucent"><h3>Student Sign Up</h3></div><div class="panel panel-default translucent">
     		<h4>Student Details</h4>"""
 print """\n <table width="100%" style="border-spacing:10px">
         		<tr>
@@ -141,6 +141,6 @@ print """\n    	</div></div>
     	</div></div>
     	<div class="container">
       		<input type="button" value="Submit" class="btn btn-default" onclick="sign_up()">
-    	</div>&nbsp
+    	
   	</body>
 </html>	"""
