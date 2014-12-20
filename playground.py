@@ -32,8 +32,7 @@ print """Content-type: text/html\n\n
     	<link rel="stylesheet" type="text/css" href="general_style.css">
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
 	</head>
-	<body>
-		<div class="container">"""
+	<body>"""
 
 if not session.in_session():
 	common_components.print_header()
@@ -67,7 +66,6 @@ print """\n
 				</div>
 				
 			</div>
-		</div>
 		</div>
 	</body>
 </html>
