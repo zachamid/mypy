@@ -59,8 +59,13 @@ def retrieve_task_xml(id):
 	except IOError:
 		error = dict()
 		error['Error_Title'] = 'File Not Found'
-		error['Description'] = 'file "'+new_path+'"'
-		return error;
+		error['Description'] = 'file "'+new_path+'" Not Found'
+		return error
+	except ExpatError e:
+		error = dict()
+		error['Error_Title'] = 'XML Error'
+		error['Description'] = e['args']
+		return error
 
 
 #db = db_connection.get_connection()
