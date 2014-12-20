@@ -58,9 +58,8 @@ function print_xml_object(obj) {
 		ret_string+="<b>Testcases</b>:";
 		testcases = task['testcase'];
 		if(Array.isArray(testcases)){
-			console.log('TESTCASES EVERYWHERE');
 			for(testcase in testcases){
-				if(typeof(testcase['arg']) == 'Array'){
+				if(Array.isArray(testcase['arg'])){
 					ret_string+="args: ("+ testcases[testcase]["arg"].join(", ")+")";
 				}
 				else{
@@ -70,7 +69,7 @@ function print_xml_object(obj) {
 			}
 		}
 		else{
-			if(typeof(testcases['arg']) == 'Array'){
+			if(Array.isArray(testcases['arg'])){
 				ret_string+="args: ("+ testcases["arg"].join(", ")+")";
 			}
 			else{
