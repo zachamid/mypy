@@ -69,13 +69,13 @@ function print_xml_object(obj) {
 			}
 		}
 		else{
-			if(typeof(testcase) == 'Array'){
-				ret_string+="args: ("+ testcase["arg"].join(", ")+")";
+			if(typeof(testcases['arg']) == 'Array'){
+				ret_string+="args: ("+ testcases["arg"].join(", ")+")";
 			}
 			else{
-				ret_string+="args: ("+ testcase["arg"] + ")";
+				ret_string+="args: ("+ testcases["arg"] + ")";
 			}
-			ret_string += ", outcome: "+ testcase['outcome'];
+			ret_string += ", outcome: "+ testcases['outcome'];
 		}
 	}
   	return ret_string;
