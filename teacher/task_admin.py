@@ -75,7 +75,7 @@ print """Content-type: text/html\n\n
     			get_task_info(function(result){
     				for (var object in result){
     					for (var field in object){
-	    					document.getElementById('task_info').innerHTML+=object[field].value+'</br>';
+	    					document.getElementById('task_info').innerHTML+=object[field]+'</br>';
 	    				}
     				}
     			});
