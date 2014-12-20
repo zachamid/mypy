@@ -48,10 +48,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
 				<div class="panel-body">
-					<textarea class="form-control code-holder lined" rows="10" id="code">
-for i in range(8):
- print i
-					</textarea>
+					<textarea class="form-control code-holder lined" rows="10" id="code"></textarea>
 					<button class="form-control" onclick='run_code("code","output","error")' type="button">
 						Run
 					</button>
