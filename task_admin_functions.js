@@ -57,17 +57,16 @@ function print_xml_object(obj) {
 	if("testcase" in task){
 		ret_string+="<b>Testcases</b>:";
 		testcases = task['testcase'];
-		
-			console.log(testcases);
+		console.log(testcases);
 		if(typeof(testcases) == 'Object'){
 			for(testcase in testcases){
 				if(typeof(testcase['arg']) == 'Array'){
-					ret_string+="args: ("+ testcase["arg"].join(", ")+")";
+					ret_string+="args: ("+ testcases[testcase]["arg"].join(", ")+")";
 				}
 				else{
-					ret_string+="args: ("+ testcase["arg"] + ")";
+					ret_string+="args: ("+ testcases[testcase]["arg"] + ")";
 				}
-				ret_string += ", outcome: "+ testcase['out']+"</br>";
+				ret_string += ", outcome: "+ testcases[testcase]['out']+"</br>";
 			}
 		}
 		else{
