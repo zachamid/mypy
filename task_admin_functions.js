@@ -38,14 +38,22 @@ function get_task_xml(task_id, data_manipulation){
     });
 }
 
-function print_object(obj) {
+function print_xml_object(obj) {
 	ret_string="";
-	for (var key in obj) {
-    	if (typeof(obj[key]) == 'object') {
-      		ret_string+=print_object(obj[key])+"</br>";
-    	} else {
-    		ret_string+="<b>" + key + "</b>: " + obj[key]+"</br>";
-    	}
-  	}
+	task = obj[task];
+	ret_string="<b>Description</b>:"+task["@Description"]+"</br>";
+	ret_string+="<b>Difficulty</b>:"+task["@Difficulty"]+"</br>";
+	if("tag" in task){
+		ret_string+="<b>Tags</b>:";
+		tags = task["tag"];
+		retstring += ", ".join(tags)+"</br>"
+	}
+	if("testcases" in task){
+		ret_string+="<b>Testcases</b>:";
+		testcases = task["testcases"];
+		for(testcase in testcases){
+			ret_string+="args: ("+ ", ".join(testcase["arg"])+", outcome: "+ testcase['outcome'];
+		}
+	}
   	return ret_string;
 }
