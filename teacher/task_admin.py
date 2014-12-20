@@ -69,7 +69,7 @@ print """Content-type: text/html\n\n
     			}
 			}
 			
-			function show_XML_info(task_id){
+			function show_xml_info(task_id){
 				get_task_xml(task_id,function(result){
     				var task_info = document.getElementById("task_info");
     				console.log(print_XML_object(result));
