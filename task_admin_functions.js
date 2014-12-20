@@ -53,9 +53,10 @@ function print_xml_object(obj) {
 		ret_string+="<b>Testcases</b>:";
 		testcases = task["testcases"]["testcase"];
 		for(testcase in testcases){
-			if(typeof(testcase['arg']) == ''
-			ret_string+="args: ("+ testcase["arg"].join(", ")
-			", outcome: "+ testcase['outcome'];
+			if(typeof(testcase['arg']) == ''){
+			ret_string+="args: ("+ testcase["arg"].join(", ");
+			//", outcome: "+ testcase['outcome'];
+			}
 	}
   	return ret_string;
 }
