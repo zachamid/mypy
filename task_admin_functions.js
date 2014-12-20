@@ -4,7 +4,6 @@ function check_directory(data_manipulation){
     	data: {cmd:"File_Info"},
     	type: 'POST',
     	dataType: 'json'}).done(function(result){
-    		console.log(result);
     		data_manipulation(result);
     	});
 }

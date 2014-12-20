@@ -39,7 +39,6 @@ print """Content-type: text/html\n\n
     			var counter = 1;
     			
     			for(var task in tasks){
-    				console.log("Entered the function");
     				var row = table.insertRow(counter);
     				row.insertCell(0).innerHTML = task;
     				if(tasks[task]['directory'] == 1){
@@ -75,9 +74,11 @@ print """Content-type: text/html\n\n
     			get_task_info(function(result){
     				console.log(result);
     				for (var record in result){
+    					console.log(record);
     					for (var object in record){
+    						console.log(object);
     						for (var field in object){
-    							document.getElementById('task_info').innerHTML += object[field] + "</br>";
+    							console.log(field);
     						}
     					}
     				}
