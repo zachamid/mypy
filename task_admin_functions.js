@@ -1,4 +1,4 @@
-function check_directory(task_id,data_manipulation){
+function check_directory(data_manipulation){
 	$.ajax({
 		url : '/read_task_information.py',
     	data: {cmd:"File_Info"},
