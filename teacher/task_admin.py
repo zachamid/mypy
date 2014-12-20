@@ -40,7 +40,7 @@ print """Content-type: text/html\n\n
     			
     			for(var task in tasks){
     				var row = table.insertRow(counter);
-    				row.insertCell(0).innerHTML = task;
+    				row.insertCell(0).innerHTML = "<a onclick=\"show_XML_info("+task+")\""+task+"</a>";
     				if(tasks[task]['directory'] == 1){
     					row.insertCell(1).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
     				}
@@ -69,12 +69,15 @@ print """Content-type: text/html\n\n
     			}
 			}
 			
-    		$( document ).ready(function() {
-    			check_directory(populate_table);
-    			get_task_xml(1,function(result){
+			function show_XML_info(task_id){
+				get_task_xml(task_id,function(result){
     				var task_info = document.getElementById("task_info");
     				task_info.innerHTML +=print_object(result);
     			});
+			}
+			
+    		$( document ).ready(function() {
+    			check_directory(populate_table);
 			});
     	</script>
 	</head>
