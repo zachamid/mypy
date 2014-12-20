@@ -58,6 +58,7 @@ function print_xml_object(obj) {
 		ret_string+="<b>Testcases</b>:";
 		testcases = task['testcase'];
 		if(typeof(testcases) == 'Object'){
+			console.log('TESTCASE EVERYWHERE');
 			if(typeof(testcases['arg']) == 'Array'){
 				ret_string+="args: ("+ testcases["arg"].join(", ")+")";
 			}
