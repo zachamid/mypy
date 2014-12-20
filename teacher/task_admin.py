@@ -76,7 +76,7 @@ print """Content-type: text/html\n\n
     				for (var record in result){
     					for (var object in record){
     						for (var field in object){
-    							document.getElemenById('task_info').innerHTML = object[field] + "</br>";
+    							document.getElementById('task_info').innerHTML += object[field] + "</br>";
     						}
     					}
     				}
