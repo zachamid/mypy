@@ -74,7 +74,7 @@ print """Content-type: text/html\n\n
     			get_task_info(function(result){
     				console.log(result);
     				for (var record in result){
-    					console.log(record);
+    					console.log(result[record]);
     					for (var object in result[record]){
     						console.log(result[record[object]]);
     						for (var field in result[record[object]]){
