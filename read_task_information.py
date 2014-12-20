@@ -65,7 +65,7 @@ def retrieve_task_xml(id):
 	except xml.parsers.expat.ExpatError as e:
 		error = dict()
 		error['Error_Title'] = 'XML Error'
-		error['Description'] = e.args
+		error['Description'] = e.args[0]
 		return error
 
 
