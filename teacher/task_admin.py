@@ -78,7 +78,7 @@ print """Content-type: text/html\n\n
     					for (var object in record){
     						console.log(object);
     						for (var field in object){
-    							console.log(field);
+    							console.log(field.value);
     						}
     					}
     				}
