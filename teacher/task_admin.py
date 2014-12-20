@@ -71,7 +71,7 @@ print """Content-type: text/html\n\n
 			
     		$( document ).ready(function() {
     			check_directory(populate_table);
-    			get_task_XML(1,function(result){
+    			get_task_xml(1,function(result){
     				var task_info = document.getElementById("task_info");
     				task_info.innerHTML +=print_obj(result);
     			});
