@@ -40,7 +40,7 @@ print """Content-type: text/html\n\n
     			
     			for(var task in tasks){
     				var row = table.insertRow(counter);
-    				row.insertCell(0).innerHTML = "<a onclick='show_XML_info("+task+")'"+task+"</a>";
+    				row.insertCell(0).innerHTML = "<a onclick='show_XML_info("+task+")'>"+task+"</a>";
     				if(tasks[task]['directory'] == 1){
     					row.insertCell(1).innerHTML = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
     				}
