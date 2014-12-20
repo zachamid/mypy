@@ -74,9 +74,8 @@ print """Content-type: text/html\n\n
     			check_directory(populate_table);
     			get_task_info(function(result){
     				for (var object in result){
-    					for (var field in object){
-	    					document.getElementById('task_info').innerHTML+=object[field]+'</br>';
-	    				}
+    					document.getElementById('task_info').innerHTML+=object["TaskID"]+'</br>';
+    					document.getElementById('task_info').innerHTML+=object["Title"]+'</br>';
     				}
     			});
 			});
