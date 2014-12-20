@@ -70,6 +70,7 @@ function print_xml_object(obj) {
 		}
 		else{
 			if(typeof(testcases['arg']) == 'Array'){
+				console.log('True');
 				ret_string+="args: ("+ testcases["arg"].join(", ")+")";
 			}
 			else{
