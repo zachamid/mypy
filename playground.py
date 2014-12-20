@@ -17,8 +17,8 @@ print """Content-type: text/html\n\n
 	<head>
 		<script src="skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
 		<script src="skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
-		<script src="jquery-linedtextarea.js" type="text/javascript"
 		<script src="jquery-1.11.1.min.js" type="text/javascript"></script> 
+		<script src="jquery-linedtextarea.js" type="text/javascript"></script>
 		<script src="python_functions.js" type="text/javascript"></script>
 		<script src="user_functions.js" type="text/javascript"></script>
 		<link rel="stylesheet" type="text/css" href="jquery-linedtextarea.css">
