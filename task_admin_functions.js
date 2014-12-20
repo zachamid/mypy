@@ -46,13 +46,13 @@ function print_xml_object(obj) {
 	if("tag" in task){
 		ret_string+="<b>Tags</b>:";
 		tags = task["tag"];
-		ret_string += ", ".join(tags)+"</br>"
+		ret_string += tags.join(", ")+"</br>"
 	}
 	if("testcases" in task){
 		ret_string+="<b>Testcases</b>:";
 		testcases = task["testcases"];
 		for(testcase in testcases){
-			ret_string+="args: ("+ ", ".join(testcase["arg"])+", outcome: "+ testcase['outcome'];
+			ret_string+="args: ("+ testcase["arg"].join(", ")+", outcome: "+ testcase['outcome'];
 		}
 	}
   	return ret_string;
