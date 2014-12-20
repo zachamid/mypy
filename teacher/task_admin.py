@@ -81,8 +81,7 @@ print """Content-type: text/html\n\n
 			});
     	</script>
 	</head>
-	<body>
-		<div class="container">"""
+	<body>"""
 common_components.print_navbar_teacher(cookie['id'].value,'task_admin')
 print """\n
     		<div class="container col-sm-6 col-md-9">
@@ -99,6 +98,5 @@ print """\n
       				</div>
       			</div>
       		</div>
-    	</div>
     </body>
 </html>"""

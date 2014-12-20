@@ -22,8 +22,7 @@ print """Content-type: text/html\n\n
     	<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     	<link href="general_style.css" rel="stylesheet">
     </head>
-  	<body>
-    	<div class="container">"""
+  	<body>"""
 common_components.print_navbar(cookie['id'].value, 'user_page')
 cursor = db_connection.get_connection()
 sql = 'SELECT * FROM Student INNER JOIN Class ON Student.ClassID=Class.ClassID WHERE StudentID='+cookie['id'].value
@@ -119,6 +118,6 @@ for record in progress_records:
 print """\n</table>
       			</div>
     		</div>
-    	</div></div>
+    	</div>
   	</body>
 </html>"""

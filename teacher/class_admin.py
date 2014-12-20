@@ -28,7 +28,6 @@ print """Content-type: text/html\n\n
     	<link href="teacher_style.css" rel="stylesheet">
 	</head>
 	<body>
-		<div class="container">
 """
 common_components.print_navbar_teacher(cookie['id'].value, 'site_admin')
 print """\n
@@ -74,7 +73,6 @@ print """\n
       				</div>
       			</div>
       		</div>
-		</div>
 	</body>
 </html>
 """

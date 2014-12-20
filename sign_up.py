@@ -77,8 +77,7 @@ print """\n
   			}
   		</script>
   	</head>
-  	<body>
-  		<div class='container'>"""
+  	<body>"""
 common_components.print_header()
     
 print """\n
@@ -142,6 +141,6 @@ print """\n    	</div></div>
     	</div></div>
     	<div class="container">
       		<input type="button" value="Submit" class="btn btn-default" onclick="sign_up()">
-    	</div>&nbsp</div>
+    	</div>&nbsp
   	</body>
 </html>	"""

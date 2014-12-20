@@ -55,8 +55,7 @@ print """Content-type: text/html\n\n
 				});
     		</script>
 	</head>
-	<body>
-		<div class="container">"""
+	<body>"""
 common_components.print_navbar(cookie['id'].value, 'task_list')
 print """\n
 			<div class="panel panel-default translucent">
@@ -68,7 +67,6 @@ print """\n
       		</div>
       		<div id='task_info' class="panel panel-default translucent">
       		</div>
-		</div>
 	</body>
 </html>
 """

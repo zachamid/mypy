@@ -31,7 +31,6 @@ print """Content-type: text/html\n\n
     	</script>
   	</head>
   	<body>
-  		<div class="container">
 """
 common_components.print_navbar_teacher(cookie['id'].value,'user_page')
 cursor = db_connection.get_connection()
@@ -98,7 +97,6 @@ print """\n
           			<td></tr>
         		</table>
       		</div>
-    	</div>
     	</div>
   </body>
 </html>
