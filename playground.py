@@ -21,6 +21,12 @@ print """Content-type: text/html\n\n
 		<script src="jquery-linedtextarea.js" type="text/javascript"></script>
 		<script src="python_functions.js" type="text/javascript"></script>
 		<script src="user_functions.js" type="text/javascript"></script>
+		$(function() {
+			$(".lined").linedtextarea(
+			{selectedLine: 1}
+			);
+		});
+
 		<link rel="stylesheet" type="text/css" href="jquery-linedtextarea.css">
     	<link rel="stylesheet" type="text/css" href="general_style.css">
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
