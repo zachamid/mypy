@@ -36,13 +36,13 @@ print """\n\n
 	<body>"""
 common_components.print_navbar_teacher(cookie['id'].value, 'site_admin')
 print """\n
-		<div class="container col-sm-12 col-md-12"><div class="panel panel-default">
+		<div class="container col-sm-12 col-md-12"><div class="panel panel-default translucent">
 			Create Classes
 		</div></div>
-		<div class="container col-sm-12 col-md-12"><div class="panel panel-default">
+		<div class="container col-sm-12 col-md-12"><div class="panel panel-default translucent">
 			Manage Teachers
 		</div></div>
-		<div class="container col-sm-12 col-md-12"><div class="panel panel-default">
+		<div class="container col-sm-12 col-md-12"><div class="panel panel-default translucent">
 			Accept Requests
 		</div></div>
 	</body>
