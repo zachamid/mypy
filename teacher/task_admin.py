@@ -75,8 +75,8 @@ print """Content-type: text/html\n\n
     				console.log(result);
     				for (var record in result){
     					task =result[record];
-    					console.log(task['TaskID']));
-    					console.log(task['Title']));
+    					console.log(task['TaskID']);
+    					console.log(task['Title']);
     				}
     			});
 			});
