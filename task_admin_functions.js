@@ -44,7 +44,7 @@ function print_object(obj) {
     	if (typeof(obj[key]) == 'object') {
       		ret_string+=print_object(obj[key])+"</br>";
     	} else {
-    		ret_string+="Key: " + key + " Values: " + obj[key]+"</br>";
+    		ret_string+="<b>" + key + "</b>: " + obj[key]+"</br>";
     	}
   	}
   	return ret_string;
