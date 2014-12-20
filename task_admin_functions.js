@@ -69,7 +69,7 @@ function print_xml_object(obj) {
 			}
 		}
 		else{
-			if(typeof(testcase['arg']) == 'Array'){
+			if(typeof(testcase) == 'Array'){
 				ret_string+="args: ("+ testcase["arg"].join(", ")+")";
 			}
 			else{
