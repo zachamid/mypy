@@ -65,7 +65,7 @@ function print_xml_object(obj) {
 				else{
 					ret_string+="args: ("+ testcase["arg"] + ")";
 				}
-				ret_string += ", outcome: "+ testcase['outcome'];
+				ret_string += ", outcome: "+ testcase['out'];
 			}
 		}
 		else{
@@ -75,7 +75,7 @@ function print_xml_object(obj) {
 			else{
 				ret_string+="args: ("+ testcases["arg"] + ")";
 			}
-			ret_string += ", outcome: "+ testcases['outcome'];
+			ret_string += ", outcome: "+ testcases['out'];
 		}
 	}
   	return ret_string;
