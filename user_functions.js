@@ -162,14 +162,14 @@ function set_cookies(type_of_user,id){
 }
 
 function clear_cookies(){
-	    var cookies = document.cookie.split(";");
-
-    for (var i = 0; i < cookies.length; i++) {
+	var cookies = document.cookie.split(";");
+	document.cookie = "id=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	document.cookie = "type=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    /*for (var i = 0; i < cookies.length; i++) {
     	var cookie = cookies[i];
     	var eqPos = cookie.indexOf("=");
     	document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    }
-    console.log(document.cookie.split(";"));
-    window.location.reload();
+    }*/
+    //window.location.reload();
     
 }
