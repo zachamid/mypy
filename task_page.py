@@ -36,7 +36,7 @@ print """Content-type: text/html\n\n
 		});
 		$( document ).ready(function() {
 			get_task_py("""+task_id+""",'task_skeleton.py',insert_python_content_to_code_area);
-		}
+		});
 		</script>
 		<link rel="stylesheet" type="text/css" href="jquery-linedtextarea.css">
     	<link rel="stylesheet" type="text/css" href="general_style.css">
