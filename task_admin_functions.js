@@ -100,3 +100,4 @@ function print_xml_object(obj) {
     	}
   	}
   	return ret_string;
+}
