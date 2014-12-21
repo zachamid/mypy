@@ -73,7 +73,7 @@ def get_python_code_from_file(task_id, file_name):
 	try:
 		f = open(file_path,'r')
 		ret = dict()
-		ret[filename] = f.read()
+		ret[file_name] = f.read()
 		return ret 
 	except IOError:
 		error = dict()
