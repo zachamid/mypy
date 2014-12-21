@@ -50,7 +50,7 @@ function get_task_py(task_id, file_name, data_manipulation){
 
 function print_xml_object(obj) {
 	ret_string="";
-	if "task" in obj{
+	if("task" in obj){
 		task = obj["task"];
 		ret_string="<b>Description</b>:"+task["@description"]+"</br>";
 		ret_string+="<b>Difficulty</b>:"+task["@difficulty"]+"</br>";
