@@ -45,7 +45,7 @@ print """Content-type: text/html\n\n
 	<body>
 """		
 common_components.print_navbar(cookies['id'].value,'')
-"""\n
+print """\n
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
