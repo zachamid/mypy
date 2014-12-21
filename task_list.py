@@ -44,7 +44,7 @@ print """Content-type: text/html\n\n
     			function open_task_page(taskID){
     				var mapForm = document.createElement("form");
     				mapForm.method = "POST";
-    				mapForm.action = "/task.py";
+    				mapForm.action = "/task_page.py";
 					var mapInput = document.createElement("input");
     				mapInput.type = "text";
     				mapInput.name = "task_id";
