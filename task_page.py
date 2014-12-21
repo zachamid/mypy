@@ -26,7 +26,7 @@ print """Content-type: text/html\n\n
 		<script src="task_admin_functions.js" type="text/javascript"></script>
 		<script>
 		function insert_python_content_to_code_area(result){
-			if !("Error_Title" in result){
+			if (!("Error_Title" in result)){
 				document.getElementById('code').value = result['task_skeleton.py'];
 			}
 		}
