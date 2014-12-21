@@ -16,23 +16,24 @@ function run_code(code_area,output,err) {
    	}
 }
 
-function auto_generate(struct){
+function auto_generate(struct, text_area){
+	text_area_DOM = document.getElementById(text_area);
+	cursor_start = text_area_DOM.selectionStart;
+	cursor_end = text_area_DOM.selectionEnd;
+	text = text_area_DOM.value;
+	text_before = text.substring(0, cursor_start);
+	text_after = text.substring(cursor_end, text.length);
+	code = '';
 	switch(struct){
 		case 'for':
+			code = 'for i in xrange(start,finish):\n\t#Code to be iterated';
+			break;
 		case 'while':
+			code = 'while(condition):\n\t #Code to be iterated';
+			break;
 		case 'if':
+			code = 'if(condition):\n\t #Code to be executed';
+			break;
 	}
-}
-
-function run_code_test_cases(code,testcases){
-	var user_code = document.getElementById(code).value;
-	user_code_lines = user_code.split("\n")
-	
-	//Indent every line by two
-	//Add def function(<args>):
-	//insert line
-	//for each test case
-	//  print out test case
-	//  print out function(test case)
-	//run
+	text_area_DOM.value = text_before+code+text_after;
 }

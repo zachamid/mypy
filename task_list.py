@@ -11,7 +11,7 @@ if session.in_session():
 	cookie.load(string_cookie)
 	session.print_cookie()
 else:
-	print 'Location:\'index.py\''
+	print 'Location:index.py'
 print """Content-type: text/html\n\n
 
 <html>
@@ -35,19 +35,23 @@ print """Content-type: text/html\n\n
     						tasks[task]['task_skeleton.py'] == 1 &&
     						tasks[task]['task_complete.py'] == 1){
     						var row = table.insertRow(counter);
-    						row.insertCell(0).innerHTML = "<a onclick='get_xml_data("+task+")'>"+task+'</a>';
+    						row.insertCell(0).innerHTML = "<a onclick='open_task_page("+task+")'>"+task+'</a>';
     						counter++;
     					}
     				}
     			}
     			
-    			function get_xml_data(taskID){
-    				var info_area = document.getElementById('task_info');
-    				info_area.innerHTML = 'Loading Information...';
-    				
-    				get_task_xml(taskID, function(xml_info){
-    					info_area.innerHTML = print_object(xml_info);
-    				});
+    			function open_task_page(taskID){
+    				var mapForm = document.createElement("form");
+    				mapForm.method = "POST";
+    				mapForm.action = "/task.py";
+					var mapInput = document.createElement("input");
+    				mapInput.type = "text";
+    				mapInput.name = "task_id";
+    				mapInput.value = taskID;
+    				mapForm.appendChild(mapInput);
+    				document.body.appendChild(mapForm);
+    				mapForm.submit();
     			}
     			
     			$( document ).ready(function() {
