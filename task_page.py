@@ -11,7 +11,7 @@ else:
 	print 'Location: index.py'
 
 task_info = cgi.FieldStorage()
-task_id = task_info['TaskID'].value
+task_id = task_info['task_id'].value
 
 print """Content-type: text/html\n\n
 
