@@ -37,7 +37,7 @@ common_components.print_navbar(cookies['id'].value,'')
 print """\n
 		<div class="container col-sm-6 col-md-9">
 			<div class="panel  panel-default translucent">
-			<table width="100%">
+			<table class="translucent" width="100%">
 				<tr>
 					<td><b>ID</b></td>
 					<td><b>Task Name</b></td>
