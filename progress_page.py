@@ -52,8 +52,12 @@ for record in progress_records:
 	print '<td>'+record['DateStarted'].strftime("%Y-%m-%d %H:%M:%S")+'</td>'
 	if record['DateModified'] is not None:
 		print '<td>'+record['DateModified'].strftime("%Y-%m-%d %H:%M:%S")+'</td>'
+	else:
+		print '<td></td>'
 	if record['DateCompleted'] is not None:
 		print '<td>'+record['DateCompleted'].strftime("%Y-%m-%d %H:%M:%S")+'</td>'
+	else:
+		print '<td></td>'
 	print '<td>'+str(record['Points'])+'</td></td>'
 print """\n	</table>
 		</div></div>
