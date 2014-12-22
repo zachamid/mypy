@@ -6,7 +6,7 @@ cgitb.enable()
 cookie_string = os.environ.get("HTTP_COOKIE","")
 cookie = session.return_cookie()
 if session.in_session():
-	if cookies['type'].value == 'Teacher':
+	if cookie['type'].value == 'Teacher':
 		print 'Location: index.py'
 	else:
 		cookie.load(string_cookie)
