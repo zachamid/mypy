@@ -38,13 +38,13 @@ print """\n
 		<div class="container col-sm-6 col-md-9">
 			<div class="panel  panel-default translucent">
 			<table>
-				<tr><h4>
-					<td>ID</td>
-					<td>Task Name</td>
-					<td>Date Started</td>
-					<td>Date Modified</td>
-					<td>Date Completed</td>
-					<td>Points</td></h4>
+				<tr>
+					<td><b>ID</b></td>
+					<td><b>Task Name</b></td>
+					<td><b>Date Started</b></td>
+					<td><b>Date Modified</b></td>
+					<td><b>Date Completed</b></td>
+					<td><b>Points</b></td>
 				</tr>"""
 for record in progress_records:
 	print '<tr><td>'+str(record['TaskID'])+'</td>'
