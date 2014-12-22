@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb, json, MySQLdb, db_connection,Cookie, common_components,os
+import cgi, cgitb, json, MySQLdb, db_connection,Cookie, common_components,os,datetime
 cgitb.enable()
 
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
@@ -12,6 +12,24 @@ else:
 
 task_info = cgi.FieldStorage()
 task_id = task_info['task_id'].value
+
+cursor = db_connection.get_connection()
+try:
+	cursor.execute("""SELECT * FROM Progress WHERE
+					StudentID = %d AND TaskID = %d""",(cookie['id'].value,task_id))
+
+	if cursor.rowcount == 0:
+		cursor.execute("""INSERT INTO Progress (StudentID, TaskID)
+						Values(%d, %d)""")
+	else:
+		progress_record = cursor.fetchone()
+		curr_date = datetime.datetime.now()	
+		cursor.execute("""UPDATE Progress
+						SET DateModified=%s
+						WHERE ProgressID=%d
+						""",(curr_date, progress_record['ProgressID']))
+except MySQLdb.Error, e:
+	print "MySQL Error [%d]: %s" % (e.args[0], e.args[1])
 
 print """Content-type: text/html\n\n
 
