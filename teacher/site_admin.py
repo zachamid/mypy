@@ -2,7 +2,7 @@
 
 import Cookie, cgi, cgitb, os,sys
 sys.path.append(os.pardir)
-import session,common_components,db_connection
+import common_components,db_connection
 
 cgitb.enable()
 

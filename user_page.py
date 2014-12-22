@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb, json, MySQLdb, db_connection,session, common_components,os
+import cgi, cgitb, json, MySQLdb, db_connection,Cookie, common_components,os
 cgitb.enable()
 
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
