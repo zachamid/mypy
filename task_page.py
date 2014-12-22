@@ -3,7 +3,7 @@
 import cgi, cgitb, json, MySQLdb, db_connection,Cookie, common_components,os,datetime
 cgitb.enable()
 
-print "Content-type: html/text\n\n"
+print "
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
 	if cookies['type'] == 'Teacher':
@@ -34,7 +34,7 @@ try:
 except MySQLdb.Error, e:
 	print "MySQL Error [%d]: %s" % (e.args[0], e.args[1])
 
-print """\n\n
+print """Content-type: text/html\n\n
 
 <html>
 	<head>
