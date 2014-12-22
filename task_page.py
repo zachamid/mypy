@@ -26,7 +26,7 @@ try:
 		curr_date = datetime.datetime.now()	
 		cursor.execute("""UPDATE Progress
 						SET DateModified=%s
-						WHERE ProgressID=%d
+						WHERE ProgressID=%s
 						""",(curr_date, progress_record['ProgressID']))
 except MySQLdb.Error, e:
 	print "MySQL Error [%d]: %s" % (e.args[0], e.args[1])
