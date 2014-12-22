@@ -3,7 +3,7 @@
 import cgi, cgitb, json, MySQLdb, db_connection,session, common_components,os,datetime
 cgitb.enable()
 
-cookie_string = os.environ.get("HTTP_COOKIE",""))
+cookie_string = os.environ.get("HTTP_COOKIE","")
 cookie = session.return_cookie()
 if cookie.in_session():
 	if cookies['type'].value == 'Teacher':
