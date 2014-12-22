@@ -15,7 +15,7 @@ cursor = db_connection.get_connection()
 cursor.execute('''SELECT * FROM Progress
 					INNER JOIN Task
 					ON Progress.TaskID = Task.TaskID
-					WHERE Progress.StudentID=%s''',(cookies['type'].value))
+					WHERE Progress.StudentID=%d''',(cookies['id'].value))
 progress_records = cursor.fetchall()
 
 print """Content-type: text/html\n\n
