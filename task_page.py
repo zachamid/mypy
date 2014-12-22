@@ -1,12 +1,16 @@
 #!/usr/bin/python
 
-import cgi, cgitb, json, MySQLdb, db_connection,Cookie, common_components,os,datetime
+import cgi, cgitb, json, MySQLdb, db_connection,session, common_components,os,datetime
 cgitb.enable()
 
-cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
-if cookies.has_key('id') and cookies.has_key('type'):
-	if cookies['type'] == 'Teacher':
+cookie_string = os.environ.get("HTTP_COOKIE",""))
+cookie = session.return_cookie()
+if cookie.in_session():
+	if cookies['type'].value == 'Teacher':
 		print 'Location: index.py'
+	else:
+		cookie.load(string_cookie)
+		session.print_cookie()
 else:
 	print 'Location: index.py'
 
