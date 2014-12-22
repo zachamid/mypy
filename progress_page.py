@@ -47,10 +47,12 @@ print """\n
 					<td>Points</td>
 				</tr>"""
 for record in progress_records:
-	print """\n<tr><td> """+str(record['ProgressID'])+"""\n </td><td> """
-	+record['Title']+"""\n </td><td> """+record['DateStarted']+"""\n </td><td> """
-	+record['DateModified']+"""\n </td><td> """+record['DateCompleted']
-	+"""\n </td><td> """+str(record['Points'])+"""\n </td></tr>"""
+	print '<tr><td>'+record['TaskID']+'</td>'
+	print '<td>'+record['Title']+'</td>'
+	print '<td>'+record['DateStarted']+'</td>'
+	print '<td>'+record['DateModified']+'</td>'
+	print '<td>'+record['DateCompleted']+'</td>'
+	print '<td>'+record['Points']+'</td></td>'
 print """\n	</table>
 		</div></div>
 	</body>
