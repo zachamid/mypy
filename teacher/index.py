@@ -6,7 +6,7 @@ import common_components
 
 cgitb.enable()
 
-string_cookie = os.environ.get('HTTP_COOKIE')
+cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
 	print cookies
 	if cookies['type'].value == 'Student':
