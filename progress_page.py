@@ -47,14 +47,14 @@ print """\n
 					<td>Points</td>
 				</tr>"""
 for record in progress_records:
-	print """\n<tr>
-				<td>%d</td> 
-				<td>%s</td> 
-				<td>%s</td> 
-				<td>%s</td>
-				<td>%s</td>
-				<td>%d</td>
-			</tr>""",(record['ProgressID'],record['Title'],
+	print '''\n<tr>
+				<td> %d </td> 
+				<td> %s </td> 
+				<td> %s </td> 
+				<td> %s </td>
+				<td> %s </td>
+				<td> %d </td>
+			</tr>''',(record['ProgressID'],record['Title'],
 			record['DateStarted'],record['DateModified'],record['DateCompleted'],
 			record['Points'])
 print """\n	</table>
