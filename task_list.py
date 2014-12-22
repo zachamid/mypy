@@ -3,13 +3,9 @@
 import cgi, cgitb, json, MySQLdb, db_connection,session, common_components,os
 cgitb.enable()
 
-string_cookie = os.environ.get('HTTP_COOKIE')
-cookie = session.return_cookie()
-
-# If new session
-if session.in_session():
-	cookie.load(string_cookie)
-	session.print_cookie()
+cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
+if cookies.has_key('id') and cookies.has_key('type'):
+	print os.environ.get("HTTP_COOKIE","")
 else:
 	print 'Location:index.py'
 print """Content-type: text/html\n\n
@@ -60,7 +56,7 @@ print """Content-type: text/html\n\n
     		</script>
 	</head>
 	<body>"""
-common_components.print_navbar(cookie['id'].value, 'task_list')
+common_components.print_navbar(cookies['id'].value, 'task_list')
 print """\n
 			<div class="panel panel-default translucent">
       			<h3>List of Tasks</h3>

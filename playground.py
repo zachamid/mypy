@@ -1,16 +1,12 @@
 #!/usr/bin/python
 
-import cgi, cgitb, json, MySQLdb, db_connection,session, common_components,os
+import cgi, cgitb, json, MySQLdb, db_connection, Cookie, common_components,os
 cgitb.enable()
 
-string_cookie = os.environ.get('HTTP_COOKIE')
-cookie = session.return_cookie()
-
-# If new session
-if session.in_session():
-	cookie.load(string_cookie)
-	session.print_cookie()
-
+cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
+if cookies.has_key('id') and cookies.has_key('type'):
+	print os.environ.get("HTTP_COOKIE","")
+	
 print """Content-type: text/html\n\n
 
 <html>
@@ -32,13 +28,13 @@ print """Content-type: text/html\n\n
 	</head>
 	<body>"""
 
-if not session.in_session():
+if not (cookies.has_key('id') and cookies.has_key('type')):
 	common_components.print_header()
 else:
-	if cookie['type'].value == "Student":
-		common_components.print_navbar(cookie['id'].value,'playground')
+	if cookies['type'].value == "Student":
+		common_components.print_navbar(cookies['id'].value,'playground')
 	else:
-		common_components.print_navbar_teacher(cookie['id'].value,'playground')
+		common_components.print_navbar_teacher(cookies['id'].value,'playground')
 
 print """\n
 		<div class="col-xs-12 col-md-6 col-sm-12">

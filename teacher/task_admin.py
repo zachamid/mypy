@@ -6,13 +6,10 @@ import session,common_components
 
 cgitb.enable()
 
-string_cookie = os.environ.get('HTTP_COOKIE')
-cookie = session.return_cookie()
-
-if session.in_session():
-	cookie.load(string_cookie)
-	session.print_cookie()
-	if cookie['type'].value == 'Student':
+cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
+if cookies.has_key('id') and cookies.has_key('type'):
+	print os.environ.get("HTTP_COOKIE","")
+	if cookies['type'].value == 'Student':
 		print 'Location:../index.py'
 else:
 	print 'Location: index.py'
@@ -83,7 +80,7 @@ print """Content-type: text/html\n\n
     	</script>
 	</head>
 	<body>"""
-common_components.print_navbar_teacher(cookie['id'].value,'task_admin')
+common_components.print_navbar_teacher(cookies['id'].value,'task_admin')
 print """\n
     		<div class="container col-sm-6 col-md-9">
     			<div class="container" style="width:100%">

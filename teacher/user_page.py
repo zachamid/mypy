@@ -6,13 +6,10 @@ import session,common_components,db_connection
 
 cgitb.enable()
 
-string_cookie = os.environ.get('HTTP_COOKIE')
-cookie = session.return_cookie()
-
-if session.in_session():
-	cookie.load(string_cookie)
-	session.print_cookie()
-	if cookie['type'].value == 'Student':
+cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
+if cookies.has_key('id') and cookies.has_key('type'):
+	print os.environ.get("HTTP_COOKIE","")
+	if cookies['type'].value == 'Student':
 		print 'Location:../index.py'
 else:
 	print 'Location: index.py'
@@ -32,9 +29,9 @@ print """Content-type: text/html\n\n
   	</head>
   	<body>
 """
-common_components.print_navbar_teacher(cookie['id'].value,'user_page')
+common_components.print_navbar_teacher(cookies['id'].value,'user_page')
 cursor = db_connection.get_connection()
-sql_query = 'SELECT * FROM Teacher WHERE TeacherID='+cookie['id'].value
+sql_query = 'SELECT * FROM Teacher WHERE TeacherID='+cookies['id'].value
 cursor.execute(sql_query)
 record = cursor.fetchone()
 print """\n

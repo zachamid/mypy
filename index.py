@@ -1,16 +1,12 @@
 #!/usr/bin/env python
 
-import session, Cookie, cgi, cgitb, os, common_components
+import Cookie, cgi, cgitb, os, common_components
 
 cgitb.enable()
 
-string_cookie = os.environ.get('HTTP_COOKIE')
-cookie = session.return_cookie()
-
-# If new session
-if session.in_session():
-	cookie.load(string_cookie)
-	session.print_cookie()
+cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
+if cookies.has_key('id') and cookies.has_key('type'):
+	print os.environ.get("HTTP_COOKIE","")
 print """Content-type: text/html\n\n
 
 <html><head>
@@ -19,13 +15,13 @@ print """Content-type: text/html\n\n
 <script src='user_functions.js'></script>
 <link rel="stylesheet" type="text/css" href="general_style.css">
 </head><body>"""
-if not session.in_session():
+if not (cookies.has_key('id') and cookies.has_key('type')):
 	common_components.print_header()
 else:
-	if cookie['type'].value == 'Student':
-		common_components.print_navbar(cookie['id'].value,'')
+	if cookies['type'].value == 'Student':
+		common_components.print_navbar(cookies['id'].value,'')
 	else:
-		common_components.print_navbar_teacher(cookie['id'].value,'')
+		common_components.print_navbar_teacher(cookies['id'].value,'')
 
 print """\n
  <div class="col-xs-12 col-md-6 col-sm-12 ">

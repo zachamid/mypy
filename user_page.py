@@ -3,13 +3,10 @@
 import cgi, cgitb, json, MySQLdb, db_connection,session, common_components,os
 cgitb.enable()
 
-string_cookie = os.environ.get('HTTP_COOKIE')
-cookie = session.return_cookie()
+cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 
-
-if session.in_session():
-	cookie.load(string_cookie)
-	session.print_cookie()
+if cookies.has_key('id') and cookies.has_key('type'):
+	print os.environ.get("HTTP_COOKIE","")
 else:
 	print 'Location:index.py'
 print """Content-type: text/html\n\n
@@ -23,9 +20,12 @@ print """Content-type: text/html\n\n
     	<link href="general_style.css" rel="stylesheet">
     </head>
   	<body>"""
-common_components.print_navbar(cookie['id'].value, 'user_page')
+common_components.print_navbar(cookies['id'].value, 'user_page')
 cursor = db_connection.get_connection()
-sql = 'SELECT * FROM Student INNER JOIN Class ON Student.ClassID=Class.ClassID WHERE StudentID='+cookie['id'].value
+sql = '''SELECT * FROM Student 
+		INNER JOIN Class 
+		ON Student.ClassID=Class.ClassID
+		WHERE StudentID='''+cookies['id'].value
 cursor.execute(sql)
 person_record = cursor.fetchone()
 print """\n

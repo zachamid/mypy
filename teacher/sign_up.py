@@ -2,17 +2,15 @@
 
 import Cookie, cgi, cgitb, os,sys
 sys.path.append(os.pardir)
-import session,common_components
+import common_components
 
 cgitb.enable()
 
-string_cookie = os.environ.get('HTTP_COOKIE')
-cookie = session.return_cookie()
+cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 
-if session.in_session():
-	cookie.load(string_cookie)
-	session.print_cookie()
-	if cookie['type'].value == 'Student':
+if cookies.has_key('id') and cookies.has_key('type'):
+	print os.environ.get("HTTP_COOKIE","")
+	if cookies['type'].value == 'Student':
 		print 'Location:../index.py'
 	else:
 		print 'Location:index.py'

@@ -2,17 +2,14 @@
 
 import Cookie, cgi, cgitb, os,sys
 sys.path.append(os.pardir)
-import session,common_components, db_connection
+import common_components, db_connection
 
 cgitb.enable()
 
-string_cookie = os.environ.get('HTTP_COOKIE')
-cookie = session.return_cookie()
-
-if session.in_session():
-	cookie.load(string_cookie)
-	session.print_cookie()
-	if cookie['type'].value == 'Student':
+cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
+if cookies.has_key('id') and cookies.has_key('type'):
+	print os.environ.get("HTTP_COOKIE","")
+	if cookies['type'].value == 'Student':
 		print 'Location:../index.py'
 else:
 	print 'Location: index.py'
@@ -29,7 +26,7 @@ print """Content-type: text/html\n\n
 	</head>
 	<body>
 """
-common_components.print_navbar_teacher(cookie['id'].value, 'site_admin')
+common_components.print_navbar_teacher(cookies['id'].value, 'site_admin')
 print """\n
     		<div class="container col-sm-6 col-md-9">
     			<div class="container" style="width:100%">
@@ -48,7 +45,7 @@ print """\n
 sql_query = """ SELECT * FROM Class 
 				INNER JOIN TeacherClassRelationship 
 				ON Class.ClassID=TeacherClassRelationship.ClassID 
-				WHERE TeacherID="""+str(cookie['id'].value);
+				WHERE TeacherID="""+str(cookies['id'].value);
 cursor = db_connection.get_connection()
 cursor.execute(sql_query)
 class_records = cursor.fetchall()

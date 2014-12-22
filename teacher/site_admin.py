@@ -6,14 +6,14 @@ import session,common_components,db_connection
 
 cgitb.enable()
 
-string_cookie = os.environ.get('HTTP_COOKIE')
+cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 cookie = session.return_cookie()
 cursor = db_connection.get_connection()
 print 'Content-type: text/html'
-if session.in_session():
-	session.print_cookie()
-	if cookie['type'].value == 'Teacher':
-		cursor.execute('SELECT * FROM Teacher WHERE TeacherID='+cookie['id'].value)
+if cookies.has_key('id') and cookies.has_key('type'):
+	print os.environ.get("HTTP_COOKIE","")
+	if cookies['type'].value == 'Teacher':
+		cursor.execute('SELECT * FROM Teacher WHERE TeacherID='+cookies['id'].value)
 		record = cursor.fetchone()
 		if record['Administrator'] == 0:
 			print 'Location:index.py'
@@ -34,7 +34,7 @@ print """\n\n
   		<link href="teacher_style.css" rel="stylesheet">
 	</head>
 	<body>"""
-common_components.print_navbar_teacher(cookie['id'].value, 'site_admin')
+common_components.print_navbar_teacher(cookies['id'].value, 'site_admin')
 print """\n
 		<div class="container col-sm-12 col-md-12"><div class="panel panel-default translucent">
 			Create Classes
