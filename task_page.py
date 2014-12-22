@@ -16,7 +16,7 @@ task_id = task_info['task_id'].value
 cursor = db_connection.get_connection()
 try:
 	cursor.execute("""SELECT * FROM Progress WHERE
-					StudentID = %d AND TaskID = %d""",(cookie['id'].value,task_id))
+					StudentID = %d AND TaskID = %d""",(cookies['id'].value,task_id))
 
 	if cursor.rowcount == 0:
 		cursor.execute("""INSERT INTO Progress (StudentID, TaskID)
