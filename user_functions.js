@@ -167,11 +167,6 @@ function clear_cookies(){
 	document.cookie = "type=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
 	document.cookie = "id=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/teacher";
 	document.cookie = "type=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/teacher";
-    /*for (var i = 0; i < cookies.length; i++) {
-    	var cookie = cookies[i];
-    	var eqPos = cookie.indexOf("=");
-    	document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    }*/
-    //window.location.reload();
+    window.location.reload();
     
 }
