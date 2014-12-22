@@ -34,7 +34,10 @@ print """Content-type: text/html\n\n
 	</head>
 	<body>"""
 common_components.print_navbar(cookies['id'].value,'')
-print progress_records
+print '''SELECT * FROM Progress
+					INNER JOIN Task
+					ON Progress.TaskID = Task.TaskID
+					WHERE Progress.StudentID=%s''',(cookies['type'].value)
 print """\n
 		<div class="container col-sm-6 col-md-9">
 			<div class="panel  panel-default translucent">
