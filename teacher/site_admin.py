@@ -7,11 +7,10 @@ import common_components,db_connection
 cgitb.enable()
 
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
-cookie = session.return_cookie()
 cursor = db_connection.get_connection()
 print 'Content-type: text/html'
 if cookies.has_key('id') and cookies.has_key('type'):
-	print os.environ.get("HTTP_COOKIE","")
+	print cookies
 	if cookies['type'].value == 'Teacher':
 		cursor.execute('SELECT * FROM Teacher WHERE TeacherID='+cookies['id'].value)
 		record = cursor.fetchone()

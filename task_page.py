@@ -3,13 +3,13 @@
 import cgi, cgitb, json, MySQLdb, db_connection,Cookie, common_components,os,datetime
 cgitb.enable()
 
-print "Content-type: html/text\n"
+print "Content-type: html/text\n\n"
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
 	if cookies['type'] == 'Teacher':
 		print 'Location: index.py'
 	else:
-		print os.environ.get("HTTP_COOKIE","")
+		print cookies
 else:
 	print 'Location: index.py'
 

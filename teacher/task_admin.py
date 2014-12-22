@@ -8,7 +8,7 @@ cgitb.enable()
 
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
-	print os.environ.get("HTTP_COOKIE","")
+	print cookies
 	if cookies['type'].value == 'Student':
 		print 'Location:../index.py'
 else:
