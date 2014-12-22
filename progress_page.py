@@ -49,9 +49,9 @@ print """\n
 for record in progress_records:
 	print '<tr><td>'+str(record['TaskID'])+'</td>'
 	print '<td>'+record['Title']+'</td>'
-	print '<td>'+record['DateStarted']+'</td>'
-	print '<td>'+record['DateModified']+'</td>'
-	print '<td>'+record['DateCompleted']+'</td>'
+	print '<td>'+record['DateStarted'].strftime("%Y-%m-%d %H:%M:%S")+'</td>'
+	print '<td>'+record['DateModified'].strftime("%Y-%m-%d %H:%M:%S")+'</td>'
+	print '<td>'+record['DateCompleted'].strftime("%Y-%m-%d %H:%M:%S")+'</td>'
 	print '<td>'+str(record['Points'])+'</td></td>'
 print """\n	</table>
 		</div></div>
