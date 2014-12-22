@@ -9,7 +9,7 @@ if session.in_session():
 	if cookie['type'].value == 'Teacher':
 		print 'Location: index.py'
 	else:
-		cookie.load(string_cookie)
+		cookie.load(cookie_string)
 		session.print_cookie()
 else:
 	print 'Location: index.py'
