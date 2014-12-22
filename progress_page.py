@@ -36,6 +36,7 @@ print """Content-type: text/html\n\n
 common_components.print_navbar(cookies['id'].value,'')
 print """\n
 		<div class="container col-sm-6 col-md-9">
+			<div class="panel  panel-default translucent">
 			<table>
 				<tr>
 					<td>ID</td>
@@ -51,7 +52,7 @@ for record in progress_records:
 			record['DateStarted'],record['DateModified'],record['DateCompleted'],
 			record['Points'])
 print """\n	</table>
-		</div>
+		</div></div>
 	</body>
 </html>
 """
