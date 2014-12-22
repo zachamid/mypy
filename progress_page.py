@@ -15,7 +15,7 @@ cursor = db_connection.get_connection()
 cursor.execute('''SELECT * FROM Progress
 					INNER JOIN Task
 					ON Progress.TaskID = Task.TaskID
-					WHERE Progress.StudentID=%d''',(cookies['id'].value))
+					WHERE Progress.StudentID=%s''',(cookies['id'].value))
 progress_records = cursor.fetchall()
 
 print """Content-type: text/html\n\n
@@ -34,10 +34,6 @@ print """Content-type: text/html\n\n
 	</head>
 	<body>"""
 common_components.print_navbar(cookies['id'].value,'')
-print '''SELECT * FROM Progress
-					INNER JOIN Task
-					ON Progress.TaskID = Task.TaskID
-					WHERE Progress.StudentID=%s''',(cookies['type'].value)
 print """\n
 		<div class="container col-sm-6 col-md-9">
 			<div class="panel  panel-default translucent">
