@@ -77,13 +77,18 @@ task_xml = task_delivery.get_task_xml(task_id)['task']
 if('testcase' in task_xml and 'method' in task_xml):
 	print """\n	<div class="panel panel-default translucent" style="width:100%">
 					<table>"""
-	for testcase in task_xml['testcase']:
-		print "			<tr>"
-		print "				<td>"+ testcase['arg']+"</td>"
-		print "			</tr>"
+	if 'arg' in task_xml['testcase'] and 'task' in task_xml['testcase']:
+		print '<tr><td>'+ task_xml['testcase']['@description']+"</td>"
+		print '<td>'+ task_xml['testcase']['arg']+"</td></tr>"
+	else:
+		for testcase in task_xml['testcase']:
+			print "			<tr>"
+			print "				<td>"+ testcase['@description']+"</td>"
+			print "				<td>"+ testcase['arg']+"</td>"
+			print "			</tr>"		
 	print """\n		</table>
-				</div>
-				<button class="form-control" 
+			</div>
+			<button class="form-control" 
 	onclick='compile_code(document.getElementById("code").value"""+task_id+""","output","error")'
      type="button">Run</button>"""
 else:
