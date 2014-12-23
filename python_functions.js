@@ -18,7 +18,7 @@ function run_code(code,output,err) {
 function compile_code(code, task_id, output, err){
 	$.ajax({
 		url : '/read_task_information.py',
-    	data: {cmd:"Get_Task_Compile_Code",params:task_id, params2: code},
+    	data: {cmd:"Get_Task_Compile_Code",task_id:task_id, code: code},
     	type: 'POST',
     	dataType: 'json'}).done(function(code){
     		run_code(code['code'],output, err);

@@ -11,7 +11,7 @@ function check_directory(data_manipulation){
 function get_task_info(taskID,data_manipulation){
 	$.ajax({
 		url : '/read_task_information.py',
-    	data: {cmd:"Get_Task_Info",params:taskID},
+    	data: {cmd:"Get_Task_Info",task_id:taskID},
     	type: 'POST',
     	dataType: 'text'}).done(function(tasks){
     			data_manipulation(tasks);
@@ -31,7 +31,7 @@ function get_task_info(data_manipulation){
 function get_task_xml(task_id, data_manipulation){
 	$.ajax({
 		url : '/read_task_information.py',
-    	data: {cmd:"Get_Task_XML_Info", params:task_id},
+    	data: {cmd:"Get_Task_XML_Info", task_id:task_id},
     	type: 'POST',
     	dataType: 'json'}).done(function(tasks){
     			data_manipulation(tasks);
@@ -41,7 +41,7 @@ function get_task_xml(task_id, data_manipulation){
 function get_task_py(task_id, file_name, data_manipulation){
 	$.ajax({
 		url : '/read_task_information.py',
-    	data: {cmd:"Get_Task_Python_File", params:task_id, params_2:file_name},
+    	data: {cmd:"Get_Task_Python_File", task_id:task_id, file_name:file_name},
     	type: 'POST',
     	dataType: 'json'}).done(function(tasks){
     			data_manipulation(tasks);
