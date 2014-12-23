@@ -86,7 +86,7 @@ def get_compile_code(task_id, given_code):
 		ret_dict['code'] = given_code
 	else:
 		compile_code = given_code+"\n\n\n"
-		if 'arg' in task_xml['testcase'] and 'task' in task_xml['testcase']:
+		if 'arg' in xml_data['testcase'] and 'task' in xml_data['testcase']:
 			compile_code += """print "TestCase %s: %s(%s)"\n """,
 			(xml_data['testcase']['@description'],
 			xml_data['method'],str(testcase['args']))
