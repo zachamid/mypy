@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import cgi, cgitb, json, MySQLdb, db_connection,Cookie, common_components,os,datetime
+import task_delivery
 cgitb.enable()
 
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
@@ -71,10 +72,26 @@ print """\n
 				<div class="panel-heading">Python Source Code</div>
 				<div class="panel-body">
 					<textarea class="lined" cols="80" rows="10" id="code"></textarea>
-					<button class="form-control" onclick='run_code("code","output","error")' type="button">
+"""
+task_xml = task_delivery.get_task_xml(task_id)
+if('testcase' in task_xml and 'method' in task_xml):
+	print """\n<div class="container col-md-6 col-sm-12">
+    		<div class="panel panel-default translucent" style="width:100%">
+    		<table>"""
+    for testcase in task_xml['testcase']:
+    	print "<tr>"
+    	print "<td>"+ testcase['@description']+"</td>"
+    	print "<td>"+ testcase['arg']+"</td></tr></br>"
+    print """\n<button class="form-control"
+	onclick='compile_code(document.getElementById("code").value"""+task_id+""","output","error")' type="button">
+	Run</button>"""
+else:
+	print """\n
+		<button class="form-control"
+		onclick='run_code(document.getElementById("code").value,"output","error")' type="button">
 						Run
-					</button>
-				</div>
+					</button>"""
+print """\n		</div>
 			</div>
 		</div>
 		<div class="col-xs-12 col-md-6 col-sm-12">

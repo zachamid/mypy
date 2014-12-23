@@ -1,5 +1,4 @@
-function run_code(code_area,output,err) {
-   	var code = document.getElementById(code_area).value;
+function run_code(code,output,err) {
    	var mypre = document.getElementById(output);
    	var error_area = document.getElementById(err);
    	mypre.value = '';
@@ -14,6 +13,16 @@ function run_code(code_area,output,err) {
    	} catch (e) {
    		error_area.value = e;
    	}
+}
+
+function compile_code(code, task_id, output, err){
+	$.ajax({
+		url : '/read_task_information.py',
+    	data: {cmd:"Get_Compile_Code",params:task_id},
+    	type: 'POST',
+    	dataType: 'json'}).done(function(code){
+    		run_code(code['code'],output, err);
+    });
 }
 
 function auto_generate(struct, text_area){
