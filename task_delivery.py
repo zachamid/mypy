@@ -87,15 +87,13 @@ def get_compile_code(task_id, given_code):
 	else:
 		compile_code = given_code+"\n\n\n"
 		if 'arg' in xml_data['testcase'] and 'task' in xml_data['testcase']:
-			compile_code += """print "TestCase %s: %s(%s)"\n """,
-			(xml_data['testcase']['@description'],
-			xml_data['method'],str(testcase['args']))
-			compile_code += """%s(%s)\n""",(xml_data['method'],
-			str(xml_data['testcase']['args']))
+			compile_code += "print \"TestCase " + xml_data['testcase']['@description']
+			+": "+xml_data['method']+"("+str(xml_data['testcase']['args'])+")\n"
+			compile_code += xml_data['method']+"("+str(xml_data['testcase']['args'])+")\n"
 		else:
 			for testcase in xml_data['testcase']:
-				compile_code += """print "TestCase %s: %s(%s)"\n """,
-				(testcase['@description'],xml_data['method'],str(testcase['args']))
-				compile_code += """%s(%s)\n""",(xml_data['method'],str(testcase['args']))
+				compile_code += "print \"TestCase " + testcase['@description']
+				+": "+xml_data['method']+"("+str(testcase['args'])+")\n"
+				compile_code += xml_data['method']+"("+str(testcase['args']))+")\n"
 		ret_dict['code'] = compile_code
 	return ret_dict
