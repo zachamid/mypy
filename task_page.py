@@ -87,7 +87,7 @@ else:
 		<button class="form-control"
 		onclick='run_code(document.getElementById("code").value,"output","error")' type="button">
 						Run
-					</button></div>"""
+					</button></div></div>"""
 print """\n		</div>
 			</div>
 		</div>
