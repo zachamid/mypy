@@ -80,10 +80,10 @@ if('testcase' in task_xml and 'method' in task_xml):
 		print "<tr>"
 		print "<td>"+ testcase+"</td>"
 		print "</tr>"
-	print """\n<table></div>
+	print """\n<table>
 	<button class="form-control" 
 	onclick='compile_code(document.getElementById("code").value"""+task_id+""","output","error")'
-     type="button">Run</button>"""
+     type="button">Run</button></div></div>"""
 else:
 	print """\n
 		<button class="form-control"
