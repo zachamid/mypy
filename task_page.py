@@ -73,10 +73,12 @@ print """\n
 				<div class="panel-body">
 					<textarea class="lined" cols="80" rows="10" id="code"></textarea>
 """
+
 task_xml = task_delivery.get_task_xml(task_id)
+
 if('testcase' in task_xml and 'method' in task_xml):
 	print """\n<div class="container col-md-6 col-sm-12"><div class="panel panel-default translucent" style="width:100%"><table>"""
-    for testcase in task_xml['testcase']:
+	for testcase in task_xml['testcase']:
 		print "<tr>"
 		print "<td>"+ testcase['@description']+"</td>"
 		print "<td>"+ testcase['arg']+"</td></tr></br>"
