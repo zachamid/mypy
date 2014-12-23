@@ -89,7 +89,7 @@ if('testcase' in task_xml and 'method' in task_xml):
 	print """\n		</table>
 			</div>
 			<button class="form-control" 
-	onclick='compile_code(document.getElementById("code").value"""+task_id+""","output","error")'
+	onclick='compile_code(document.getElementById("code").value,"""+task_id+""","output","error")'
      type="button">Run</button>"""
 else:
 	print """\n
