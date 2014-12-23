@@ -79,7 +79,7 @@ if('testcase' in task_xml and 'method' in task_xml):
 					<table>"""
 	for testcase in task_xml['testcase']:
 		print "			<tr>"
-		print "				<td>"+ task_xml['testcase'][testcase]+"</td>"
+		print "				<td>"+ task_xml['testcase'][testcase]['arg']+"</td>"
 		print "			</tr>"
 	print """\n		</table>
 				</div>
