@@ -37,6 +37,6 @@ elif str(cmd) == "Get_Task_Python_File":
 	print json.dumps(file_content)
 elif str(cmd) == "Get_Task_Compile_Code":
 	task_id = posted_data['params'].value
-	file_content = task_delivery.get_python_code_from_file(task_id,'task_skeleton.py')
-	compile_code = task_delivery.get_compile_code(task_id, file_content['task_skeleton.py'])
+	given_code = posted_data['params2'].value
+	compile_code = task_delivery.get_compile_code(task_id, given_code)
 	print json.dumps(compile_code)
