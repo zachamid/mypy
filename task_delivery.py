@@ -94,6 +94,6 @@ def get_compile_code(task_id, given_code):
 			for testcase in xml_data['testcase']:
 				compile_code += "print \"TestCase " + testcase['@description']
 				+": "+xml_data['method']+"("+str(testcase['args'])+")\n"
-				compile_code += xml_data['method']+"("+str(testcase['args']))+")\n"
+				compile_code += xml_data['method']+"("+str(testcase['args'])+")\n"
 		ret_dict['code'] = compile_code
 	return ret_dict
