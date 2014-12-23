@@ -70,7 +70,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
 				<div class="panel-body">
-					<textarea class="lined" cols="80" rows="10" id="code"></textarea>
+					<textarea class="lined" cols="80" rows="10" id="code"></textarea></div>
 """
 
 task_xml = task_delivery.get_task_xml(task_id)['task']
@@ -80,8 +80,10 @@ if('testcase' in task_xml and 'method' in task_xml):
 		print "<tr>"
 		print "<td>"+ testcase+"</td>"
 		print "</tr>"
-	print """\n<table><button class="form-control" onclick='compile_code(document.getElementById("code").value"""+task_id+""","output","error")'
-     type="button">Run</button></div>"""
+	print """\n<table></div>
+	<button class="form-control" 
+	onclick='compile_code(document.getElementById("code").value"""+task_id+""","output","error")'
+     type="button">Run</button>"""
 else:
 	print """\n
 		<button class="form-control"
