@@ -76,8 +76,8 @@ print """\n
 task_xml = task_delivery.get_task_xml(task_id)
 if('testcase' in task_xml and 'method' in task_xml):
 	print """\n<div class="container col-md-6 col-sm-12">
-    		<div class="panel panel-default translucent" style="width:100%">
-    		<table>"""
+    <div class="panel panel-default translucent" style="width:100%">
+    <table>"""
     for testcase in task_xml['testcase']:
     	print "<tr>"
     	print "<td>"+ testcase['@description']+"</td>"
