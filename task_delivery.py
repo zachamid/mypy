@@ -88,7 +88,7 @@ def get_compile_code(task_id, given_code):
 		compile_code = given_code+"\n\n\n"
 		for testcase in xml_data['test_case']:
 			compile_code += """print "TestCase %s: %s(%s)"\n """,
-			(testcase['description'],xml_data['method'],str(testcase['args'])
-			compile_code += """%s(%s)\n""",(xml_data['method'],str(testcase['args'])
+			(testcase['description'],xml_data['method'],str(testcase['args']))
+			compile_code += """%s(%s)\n""",(xml_data['method'],str(testcase['args']))
 		ret_dict['code'] = compile_code
 	return ret_dict
