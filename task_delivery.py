@@ -80,7 +80,7 @@ def get_python_code_from_file(task_id, file_name):
 		return error
 
 def get_compile_code(task_id, given_code):
-	xml_data = get_task_xml()['task']
+	xml_data = get_task_xml(task_id)['task']
 	ret_dict = dict()
 	if('Error' in xml_data or 'testcase' not in xml_data):
 		ret_dict['code'] = given_code
