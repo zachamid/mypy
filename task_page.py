@@ -73,7 +73,7 @@ print """\n
 					<textarea class="lined" cols="80" rows="10" id="code"></textarea>
 """
 
-task_xml = task_delivery.get_task_xml(task_id)
+task_xml = task_delivery.get_task_xml(task_id)['task']
 print task_xml
 print 'testcase' in task_xml
 print 'method' in task_xml
