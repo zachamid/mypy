@@ -82,7 +82,7 @@ if('testcase' in task_xml and 'method' in task_xml):
 		print "<tr>"
 		print "<td>"+ testcase['@description']+"</td>"
 		print "<td>"+ testcase['arg']+"</td></tr></br>"
-    print """\n<button class="form-control" onclick='compile_code(document.getElementById("code").value"""+task_id+""","output","error")'
+	print """\n<button class="form-control" onclick='compile_code(document.getElementById("code").value"""+task_id+""","output","error")'
      type="button">Run</button>"""
 else:
 	print """\n
