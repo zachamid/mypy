@@ -70,28 +70,29 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
 				<div class="panel-body">
-					<textarea class="lined" cols="80" rows="10" id="code"></textarea></div>
+					<textarea class="lined" cols="80" rows="10" id="code"></textarea>
+				</div>
 """
-
 task_xml = task_delivery.get_task_xml(task_id)['task']
 if('testcase' in task_xml and 'method' in task_xml):
-	print """\n<div class="panel panel-default translucent" style="width:100%"><table>"""
+	print """\n	<div class="panel panel-default translucent" style="width:100%">
+					<table>"""
 	for testcase in task_xml['testcase']:
-		print "<tr>"
-		print "<td>"+ testcase+"</td>"
-		print "</tr>"
-	print """\n<table>
-	<button class="form-control" 
+		print "			<tr>"
+		print "				<td>"+ testcase+"</td>"
+		print "			</tr>"
+	print """\n		<table>
+				</div>
+				<button class="form-control" 
 	onclick='compile_code(document.getElementById("code").value"""+task_id+""","output","error")'
-     type="button">Run</button></div></div></div>"""
+     type="button">Run</button>"""
 else:
 	print """\n
-		<button class="form-control"
+			<button class="form-control"
 		onclick='run_code(document.getElementById("code").value,"output","error")' type="button">
 						Run
-					</button>"""
-print """\n		</div>
-			</div>
+			</button>"""
+print """\n	</div>
 		</div>
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
