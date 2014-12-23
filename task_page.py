@@ -81,13 +81,13 @@ if('testcase' in task_xml and 'method' in task_xml):
 		print "<td>"+ testcase+"</td>"
 		print "</tr>"
 	print """\n<table><button class="form-control" onclick='compile_code(document.getElementById("code").value"""+task_id+""","output","error")'
-     type="button">Run</button>"""
+     type="button">Run</button></div>"""
 else:
 	print """\n
 		<button class="form-control"
 		onclick='run_code(document.getElementById("code").value,"output","error")' type="button">
 						Run
-					</button></div></div>"""
+					</button>"""
 print """\n		</div>
 			</div>
 		</div>
