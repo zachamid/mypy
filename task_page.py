@@ -15,7 +15,6 @@ else:
 
 task_info = cgi.FieldStorage()
 task_id = task_info['task_id'].value
-
 cursor = db_connection.get_connection()
 try:
 	cursor.execute("""SELECT * FROM Progress WHERE
@@ -75,7 +74,7 @@ print """\n
 """
 
 task_xml = task_delivery.get_task_xml(task_id)
-
+print task_xml
 if('testcase' in task_xml and 'method' in task_xml):
 	print """\n<div class="container col-md-6 col-sm-12"><div class="panel panel-default translucent" style="width:100%"><table>"""
 	for testcase in task_xml['testcase']:
