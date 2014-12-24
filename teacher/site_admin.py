@@ -63,14 +63,14 @@ print """\n\n
     					header_row.insertCell(2).innerHTML = '<b>Last Name</b>';
     					header_row.insertCell(3).innerHTML = '<b>Email</b>';
     					header_row.insertCell(4).innerHTML = '';
-    					var counter = 0;
+    					var counter = 1;
     					for (student in result){
     						var row = table.insertRow(counter);
-    						row.insertCell(0).innerHTML = result['StudentID'];
-    						row.insertCell(0).innerHTML = result['FirstName'];
-    						row.insertCell(0).innerHTML = result['LastName'];
-    						row.insertCell(0).innerHTML = result['Email'];
-    						row.insertCell(0).innerHTML = 'Delete';
+    						row.insertCell(0).innerHTML = student['StudentID'];
+    						row.insertCell(1).innerHTML = student['FirstName'];
+    						row.insertCell(2).innerHTML = student['LastName'];
+    						row.insertCell(3).innerHTML = student['Email'];
+    						row.insertCell(4).innerHTML = 'Delete';
     					}
     				});
  			}
