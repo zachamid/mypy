@@ -50,7 +50,7 @@ print """\n\n
  			function getClassList(){
  				class_select = document.getElementById('classes');
  				class_ID = class_select.options[class_select.selectedIndex];
- 				var data = {cmd: "ClassList",param1:class_ID};
+ 				var data = {cmd: "ClassList",ClassID:''+class_ID};
  				var table = document.getElementById('classList');
  				$.ajax({
       				data : data,
