@@ -22,7 +22,7 @@ elif(cmd == 'CheckEmail'):
 	sql_query = "SELECT Email FROM Student WHERE Email='"+email+"' UNION "
 	sql_query = sql_query+"SELECT Email FROM Teacher WHERE Email='"+email+"'"
 elif(cmd == 'ClassList'):
-	classID = posted_data['ClassID'].value
+	classID = posted_data['param1'].value
 	sql_query = "SELECT * FROM Student WHERE ClassID="+classID
 	
 
