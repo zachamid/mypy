@@ -47,7 +47,9 @@ print """\n\n
     				});
  			}
  			
- 			function getClassList(class_ID){
+ 			function getClassList(){
+ 				class_select = document.getElementById('classes');
+ 				class_ID = class_select.options[class_select.selectedIndex];
  				var data = {cmd: "ClassList",classID:class_ID};
  				var table = document.getElementById('classList');
  				$.ajax({
@@ -103,7 +105,7 @@ print """\n
 				Edit Class Lists
 				</br>
 				<select class="form-control" id="classes" 
-				onchange="getClassList(this.options[this.selectedIndex])"
+				onchange="getClassList()"
 				onfocus="getClasses()"></select>
 				</br>
 				<div id='classListDiv'>
