@@ -36,7 +36,7 @@ print """\n\n
     			var data = {cmd: "Classes"};
     			$.ajax({
       				data : data,
-      				url : 'admin_queries.py',
+      				url : '/admin_queries.py',
       				type : "POST",
       				dataType : "json"}).done(function(result){
       					var class_select = document.getElementById('classes');
@@ -52,7 +52,7 @@ print """\n\n
  				var table = document.getElementById('classList');
  				$.ajax({
       				data : data,
-      				url : 'admin_queries.py',
+      				url : '/admin_queries.py',
       				type : "POST",
       				dataType : "json"}).done(function(result){
       					var header_row = table.insertRow(0);
