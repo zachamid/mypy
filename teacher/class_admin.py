@@ -19,7 +19,7 @@ print """Content-type: text/html\n\n
 	<head>
 		<script src="../jquery-1.11.1.min.js"></script>
     	<script src='../user_functions.js'></script>
-    	<title>Welcome</title>
+    	<title>Class Administration</title>
     	<link href="../bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     	<link href="../general_style.css" rel="stylesheet">
     	<link href="teacher_style.css" rel="stylesheet">

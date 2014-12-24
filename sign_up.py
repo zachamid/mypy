@@ -18,39 +18,6 @@ print """\n
   		<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
   		<link rel="stylesheet" type="text/css" href="general_style.css">
   		<script>
-   			$(document).ready(function(){
-     			var data = {cmd: "Schools"};
-       				$.ajax({
-         				data : data,
-         				url : 'run_query.py',
-         				type : "POST",
-         				dataType : "json"}).done(function(result){
-           					var school_select = document.getElementById('schools');
-           					for(counter=0;counter<result.length; counter++){
-             					var new_option = new Option(result[counter]['School'],counter+1);
-             					school_select.options[school_select.options.length] = new_option;
-           					}
-           					getClasses(school_select.options[school_select.selectedIndex].text);
-         				});
-   			})
-
-  			function getClasses(){
-    			var school_select = document.getElementById('schools');
-    			var school = school_select.options[school_select.selectedIndex].text;
-    			var data = {cmd: "Classes", param:school};
-    			$.ajax({
-      				data : data,
-      				url : 'run_query.py',
-      				type : "POST",
-      				dataType : "json"}).done(function(result){
-      					var class_select = document.getElementById('classes');
-      					for(counter=0;counter<result.length; counter++){
-        					var new_option = new Option(result[counter]['ClassName'],result[counter]['ClassID']);
-        					class_select.options[counter] = new_option;
-      					}
-    				});
- 			}
-
 			function sign_up(){
   				var fields = ['FirstName', 'LastName', 'Email','Password','confirm_Password'];
     			var flag = 0;
@@ -72,6 +39,23 @@ print """\n
 					insert_user('Student',student);
     			}
   			}
+  			
+  			function getClasses(){
+    			var school_select = document.getElementById('schools');
+    			var school = school_select.options[school_select.selectedIndex].text;
+    			var data = {cmd: "Classes"};
+    			$.ajax({
+      				data : data,
+      				url : 'admin_queries.py',
+      				type : "POST",
+      				dataType : "json"}).done(function(result){
+      					var class_select = document.getElementById('classes');
+      					for(counter=0;counter<result.length; counter++){
+        					var new_option = new Option(result[counter]['ClassName'],result[counter]['ClassID']);
+        					class_select.options[counter] = new_option;
+      					}
+    				});
+ 			}
   		</script>
   	</head>
   	<body>"""
@@ -127,13 +111,10 @@ print """\n    	</div></div>
       		<h4>Class Details</h4></br>
       		<table width="100%" style="border-spacing:10px">
         		<tr><td style="width:50%">
-          			<select class="form-control" id="schools" onchange="getClasses()"></select>
+          			<select class="form-control" id="classes" onfocus="getClasses()">"""
+          			"""/n</select>
         		</td><td>&nbsp</td></tr>
-        		<tr><td style="width:50%">
-          			<select class="form-control" id="classes">
-            			<option>Select a school</option>
-          			</select>
-        		</td><td>&nbsp</td></tr>
+        		<td>&nbsp</td></tr>
       		</table>
     	</div></div>
     	<div class="container">

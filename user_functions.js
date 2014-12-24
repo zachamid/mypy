@@ -89,7 +89,7 @@ function insert_user(table, person){
     var data = {cmd: 'CheckEmail', param:person['Email']};
     $.ajax({
     	data : data,
-        url : '/run_query.py',
+        url : '/admin_queries.py',
         type : "POST",
         dataType : "json"}).done(function(result){
         	if(result.length != 0){
