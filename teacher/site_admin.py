@@ -53,7 +53,7 @@ print """\n\n
  				var data = {cmd: "ClassList",ClassID:''+class_ID};
  				var table = document.getElementById('classList');
  				row_no = table.rows.length;
- 				for (row_count=row_no;row_count >0; row_count--){
+ 				for (row_count=row_no-1;row_count >=0; row_count--){
  					table.deleteRow(row_count);	
  				}
  				$.ajax({
