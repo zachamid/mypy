@@ -21,10 +21,10 @@ print """Content-type: text/html\n\n
 <link href="teacher_style.css" rel="stylesheet">
 </head>
 	<body>"""
-if not session.in_session():
-	common_components.print_header_teacher()
-else:
+if cookies.has_key('id') and cookies.has_key('type'):
 	common_components.print_navbar_teacher(cookies['id'].value,'')
+else:
+	common_components.print_header_teacher()
 
 print """\n
  
