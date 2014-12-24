@@ -86,7 +86,7 @@ function insert_user(table, person){
     }
     fields = fields.substring(0,fields.length-1);
     values = values.substring(0,values.length-1);
-    var data = {cmd: 'CheckEmail', param:person['Email']};
+    var data = {cmd: 'CheckEmail', Email:person['Email']};
     $.ajax({
     	data : data,
         url : '/admin_queries.py',
