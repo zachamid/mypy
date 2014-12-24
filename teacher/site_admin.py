@@ -70,10 +70,10 @@ print """\n\n
     					var counter = 1;
     					for (student in result){
     						var row = table.insertRow(counter);
-    						row.insertCell(0).innerHTML = student['StudentID'];
-    						row.insertCell(1).innerHTML = student['FirstName'];
-    						row.insertCell(2).innerHTML = student['LastName'];
-    						row.insertCell(3).innerHTML = student['Email'];
+    						row.insertCell(0).innerHTML = student[StudentID];
+    						row.insertCell(1).innerHTML = student[FirstName];
+    						row.insertCell(2).innerHTML = student[LastName];
+    						row.insertCell(3).innerHTML = student[Email];
     						row.insertCell(4).innerHTML = 'Delete';
     					}
     				});
