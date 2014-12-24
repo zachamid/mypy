@@ -27,8 +27,7 @@ elif(cmd == 'ClassList'):
 	
 
 cursor.execute(sql_query)
-data = cursor.fetchall()
-db.close()    
+data = cursor.fetchall() 
 print """content-type: text/html
 
 """
