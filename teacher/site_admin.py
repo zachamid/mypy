@@ -49,7 +49,7 @@ print """\n\n
  			
  			function getClassList(){
  				class_select = document.getElementById('classes');
- 				class_ID = class_select.options[class_select.selectedIndex];
+ 				class_ID = class_select.options[class_select.selectedIndex].value;
  				var data = {cmd: "ClassList",ClassID:''+class_ID};
  				var table = document.getElementById('classList');
  				$.ajax({
