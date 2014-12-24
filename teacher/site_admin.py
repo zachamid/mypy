@@ -52,6 +52,10 @@ print """\n\n
  				class_ID = class_select.options[class_select.selectedIndex].value;
  				var data = {cmd: "ClassList",ClassID:''+class_ID};
  				var table = document.getElementById('classList');
+ 				row_no = table.rows.length;
+ 				for (row_count=0;row_count < row_no; row_count++){
+ 					table.deleteRow(row_count);	
+ 				}
  				$.ajax({
       				data : data,
       				url : '/admin_queries.py',
