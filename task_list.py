@@ -55,7 +55,7 @@ for task in file_info:
 		cursor.execute('SELECT * FROM Task WHERE TaskID='+task)
 		task_info = cursor.fetchone()
 		print "<a onclick='open_task_page(task)'><tr><td>"+task+'</td><td>'+task_info['Title']+'</td></tr></a>'
-      			"""\n
+      	print """\n
       			</table>
       		</div>
       		<div id='task_info' class="panel panel-default translucent">
