@@ -140,7 +140,7 @@ print """\n\n
  			
  			function removeFromClass(studentID){
  				data = {id: studentID,
- 						type: 'Student'
+ 						type: 'Student',
  						ClassID: '-1'};
  				$.ajax({
       				data : data,
