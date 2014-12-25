@@ -177,7 +177,7 @@ print """\n
 				</br>
 				<select class="form-control" id="classes" 
 				onchange="getClassList()"
-				onfocus="getClasses()"></select>
+				onfocus="getClasses('classes')"></select>
 				</br>
 				<div>
 					<table id='classList'>
