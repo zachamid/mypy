@@ -139,7 +139,7 @@ function update_user(type_of_user, id){
     			if(login_result != '-1'){
     				$.ajax({
 						data:user,
-						url: '/update_user.py',
+						url: '/update.py',
 						type: 'POST'}).done(function(update_result){
 							if(update_result.trim()=='1'){
 								window.location.reload();

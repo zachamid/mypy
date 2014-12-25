@@ -41,8 +41,10 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
 				<div class="panel-body">
-					<textarea class="lined" cols="80" rows="10" id="code"></textarea>
-					<button class="form-control" onclick='run_code("code","output","error")' type="button">
+					<textarea class="lined" width="100%" rows="10" id="code"></textarea>
+					<button class="form-control" 
+					onclick='run_code(document.getElementById("code").value,"output","error")'
+					 type="button">
 						Run
 					</button>
 				</div>

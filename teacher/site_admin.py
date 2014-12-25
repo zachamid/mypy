@@ -32,14 +32,14 @@ print """\n\n
   		<link href="../general_style.css" rel="stylesheet">
   		<link href="teacher_style.css" rel="stylesheet">
   		<script>
-  			function getClasses(){
+  			function getClasses(select_id){
     			var data = {cmd: "Classes"};
     			$.ajax({
       				data : data,
       				url : '/admin_queries.py',
       				type : "POST",
       				dataType : "json"}).done(function(result){
-      					var class_select = document.getElementById('classes');
+      					var class_select = document.getElementById(select_id);
       					for(counter=0;counter<result.length; counter++){
         					var new_option = new Option(result[counter]['ClassName'],result[counter]['ClassID']);
         					class_select.options[counter] = new_option;
@@ -67,6 +67,7 @@ print """\n\n
     					header_row.insertCell(2).innerHTML = '<b>Last Name</b>';
     					header_row.insertCell(3).innerHTML = '<b>Email</b>';
     					header_row.insertCell(4).innerHTML = '';
+    					header_row.insertCell(5).innerHTML = '';
     					var counter = 1;
     					for (student in result){
     						var row = table.insertRow(counter);
@@ -74,9 +75,80 @@ print """\n\n
     						row.insertCell(1).innerHTML = result[student]['FirstName'];
     						row.insertCell(2).innerHTML = result[student]['LastName'];
     						row.insertCell(3).innerHTML = result[student]['Email'];
-    						row.insertCell(4).innerHTML = 'Delete';
+    						row.insertCell(4).innerHTML = '<a onclick="removeFromClass('+result[student]['StudentID']+')">Remove from class</a>';
+    						row.insertCell(5).innerHTML = "<a onclick=delete('\""+result[student]['StudentID']+"\",\"Student\")'>Delete</a>';
+    						counter++;
     					}
     				});
+ 			}
+ 			
+ 			function getUnassignedList(){
+ 				var data = {cmd: "ClassList",ClassID:'-1'};
+ 				var table = document.getElementById('unassignedList');
+ 				row_no = table.rows.length;
+ 				for (row_count=row_no-1;row_count >=0; row_count--){
+ 					table.deleteRow(row_count);	
+ 				}
+ 				$.ajax({
+      				data : data,
+      				url : '/admin_queries.py',
+      				type : "POST",
+      				dataType : "json"}).done(function(result){
+      					var header_row = table.insertRow(0);
+    					header_row.insertCell(0).innerHTML = '<b>ID</b>';
+    					header_row.insertCell(1).innerHTML = '<b>First Name</b>';
+    					header_row.insertCell(2).innerHTML = '<b>Last Name</b>';
+    					header_row.insertCell(3).innerHTML = '<b>Email</b>';
+    					header_row.insertCell(4).innerHTML = '';
+    					header_row.insertCell(5).innerHTML = '';
+    					var counter = 1;
+    					for (student in result){
+    						var row = table.insertRow(counter);
+    						row.insertCell(0).innerHTML = result[student]['StudentID'];
+    						row.insertCell(1).innerHTML = result[student]['FirstName'];
+    						row.insertCell(2).innerHTML = result[student]['LastName'];
+    						row.insertCell(3).innerHTML = result[student]['Email'];
+    						row.insertCell(4).innerHTML = '<select id=\'classSelect'+counter+'\'></select>';
+    						row.insertCell(5).innerHTML = "<a onclick=delete('\""+result[student]['StudentID']+"\",\"Student\")'>Delete</a>';
+    						getClasses('classSelect'+counter);
+    						counter++;
+    					}
+    				});
+ 			}
+ 			
+ 			function insertClass(){
+ 				class_name = document.getElementById('className').value;
+ 				data = {table:'Class',columns:'ClassName',values:class_Name};
+ 				$.ajax({
+      				data : data,
+      				url : '/insert.py',
+      				type : "POST",
+      				dataType : "text"}).done(function(result){
+      					getClasses();
+      				});
+ 			}
+ 			
+ 			function delete(id,type){
+ 				data = {table:type,id:id};
+ 				$.ajax({
+      				data : data,
+      				url : '/delete.py',
+      				type : "POST",
+      				dataType : "text"}).done(function(result){
+      				});
+ 			}
+ 			
+ 			function removeFromClass(studentID){
+ 				data = {id: studentID,
+ 						type: 'Student'
+ 						ClassID: '-1'};
+ 				$.ajax({
+      				data : data,
+      				url : '/update.py',
+      				type : "POST",
+      				dataType : "text"}).done(function(result){
+      					getClasses();
+      				});
  			}
  		</script>
 	</head>
@@ -91,16 +163,11 @@ print """\n
 				Add Class</br>
 				<table>
 					<tr>
-						<td>Class Name:</td>
-					</tr>
-					<tr>
 						<td>
-							<input type="text" name="className">
+							<input type="text" id="className">
 						</td>
           				<td>
-          					<button>
-          						Add Class
-          					</button>
+          					<button onclick='insertClass()'>Add Class</button>
           				</td>
 					</tr>
 				</table>
@@ -108,12 +175,20 @@ print """\n
 			<div class="panel panel-default translucent">
 				Edit Class Lists
 				</br>
+				<div>
+					<table id='classList'>
+					</table>
+				</div>
+			</div>
+			<div class="panel panel-default translucent">
+				Assign Unassigned Students
+				</br>
 				<select class="form-control" id="classes" 
 				onchange="getClassList()"
 				onfocus="getClasses()"></select>
 				</br>
-				<div id='classListDiv'>
-					<table id='classList'>
+				<div>
+					<table id='unassignedList'>
 					</table>
 				</div>
 			</div>
