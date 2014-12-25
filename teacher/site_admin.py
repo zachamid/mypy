@@ -108,7 +108,7 @@ print """\n\n
     						row.insertCell(1).innerHTML = result[student]['FirstName'];
     						row.insertCell(2).innerHTML = result[student]['LastName'];
     						row.insertCell(3).innerHTML = result[student]['Email'];
-    						row.insertCell(4).innerHTML = '<select id=\'classSelect'+counter+'\'></select>';
+    						row.insertCell(4).innerHTML = "<select id='classSelect'"+counter+"'></select>";
     						row.insertCell(5).innerHTML = "<a onclick=delete('\""+result[student]['StudentID']+"\",\"Student\")'>Delete</a>';
     						getClasses('classSelect'+counter);
     						counter++;
@@ -175,6 +175,10 @@ print """\n
 			<div class="panel panel-default translucent">
 				Edit Class Lists
 				</br>
+				<select class="form-control" id="classes" 
+				onchange="getClassList()"
+				onfocus="getClasses()"></select>
+				</br>
 				<div>
 					<table id='classList'>
 					</table>
@@ -182,10 +186,6 @@ print """\n
 			</div>
 			<div class="panel panel-default translucent">
 				Assign Unassigned Students
-				</br>
-				<select class="form-control" id="classes" 
-				onchange="getClassList()"
-				onfocus="getClasses()"></select>
 				</br>
 				<div>
 					<table id='unassignedList'>
