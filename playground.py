@@ -20,6 +20,8 @@ print """Content-type: text/html\n\n
 		<script>
 		$(function() {
 			$(".lined").linedtextarea({selectedLine: 1});
+			width = document.getElementById('codeDiv').width
+			document.getElementById('code').width = width*.9;
 		});
 		</script>
 		<link rel="stylesheet" type="text/css" href="jquery-linedtextarea.css">
@@ -40,8 +42,8 @@ print """\n
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
-				<div class="panel-body">
-					<textarea class="lined" width="100%" rows="10" id="code"></textarea>
+				<div id='codeDiv' class="panel-body">
+					<textarea class="lined" rows="10" id="code"></textarea>
 					<button class="form-control" 
 					onclick='run_code(document.getElementById("code").value,"output","error")'
 					 type="button">
