@@ -9,8 +9,8 @@ columns = posted_data['columns'].value
 values = posted_data['values'].value
 sql_query = "INSERT INTO "+table+"("+columns+") VALUES("+values+")"
 cursor = db_connection.get_connection()
-cursor.execute(sql_query)
-id = cursor.lastrowid
+#cursor.execute(sql_query)
+#id = cursor.lastrowid
 
 print """content-type:text/html
 
