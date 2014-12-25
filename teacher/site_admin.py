@@ -118,7 +118,7 @@ print """\n\n
  			
  			function insertClass(){
  				class_name = document.getElementById('className').value;
- 				data = {table:'Class',columns:'ClassName',values:class_Name};
+ 				data = {table:'Class',columns:'ClassName',values:class_name};
  				$.ajax({
       				data : data,
       				url : '/insert.py',
