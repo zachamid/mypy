@@ -19,9 +19,10 @@ print """Content-type: text/html\n\n
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script>
 		$(function() {
-			$(".lined").linedtextarea({selectedLine: 1});
+			
 			width = document.getElementById('codeDiv').width
 			document.getElementById('code').width = width*.9;
+			$(".lined").linedtextarea({selectedLine: 1});
 		});
 		</script>
 		<link rel="stylesheet" type="text/css" href="jquery-linedtextarea.css">
