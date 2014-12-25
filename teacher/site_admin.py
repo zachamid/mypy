@@ -124,7 +124,6 @@ print """\n\n
       				url : '/insert.py',
       				type : "POST",
       				dataType : "text"}).done(function(result){
-      					getClasses();
       				});
  			}
  			
