@@ -146,7 +146,7 @@ print """\n\n
       				url : '/update.py',
       				type : "POST",
       				dataType : "text"}).done(function(result){
-      					getClasses();
+      					getClassList();
       				});
  			}
  		</script>

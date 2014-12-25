@@ -15,4 +15,5 @@ id = cursor.lastrowid
 print """content-type:text/html
 
 """
+print sql_query
 print id
