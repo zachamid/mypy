@@ -20,8 +20,8 @@ print """Content-type: text/html\n\n
 		<script>
 		$(function() {
 			
-			width = document.getElementById('codeDiv').width
-			document.getElementById('code').style.width=width*.7;
+			width = document.getElementById('codeDiv').style.width
+			document.getElementById('code').style.width=width*.9;
 			$(".lined").linedtextarea({selectedLine: 1});
 		});
 		</script>
