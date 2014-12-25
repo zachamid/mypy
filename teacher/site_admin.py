@@ -76,7 +76,7 @@ print """\n\n
     						row.insertCell(2).innerHTML = result[student]['LastName'];
     						row.insertCell(3).innerHTML = result[student]['Email'];
     						row.insertCell(4).innerHTML = '<a onclick="removeFromClass('+result[student]['StudentID']+')">Remove from class</a>';
-    						row.insertCell(5).innerHTML = "<a onclick='delete("+result[student]['StudentID']+",'Student')'>Delete</a>";
+    						row.insertCell(5).innerHTML = "<a onclick='delete_from_table("+result[student]['StudentID']+",'Student')'>Delete</a>";
     						counter++;
     					}
     				});
@@ -109,7 +109,7 @@ print """\n\n
     						row.insertCell(2).innerHTML = result[student]['LastName'];
     						row.insertCell(3).innerHTML = result[student]['Email'];
     						row.insertCell(4).innerHTML = "<select id='classSelect'"+counter+"'></select>";
-    						row.insertCell(5).innerHTML = "<a onclick='delete("+result[student]['StudentID']+",'Student')'>Delete</a>";
+    						row.insertCell(5).innerHTML = "<a onclick='delete_from_table("+result[student]['StudentID']+",'Student')'>Delete</a>";
     						getClasses('classSelect'+counter);
     						counter++;
     					}
@@ -128,7 +128,7 @@ print """\n\n
       				});
  			}
  			
- 			function delete(id,type){
+ 			function delete_from_table(id,type){
  				data = {table:type,id:id};
  				$.ajax({
       				data : data,
