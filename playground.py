@@ -21,7 +21,7 @@ print """Content-type: text/html\n\n
 		$(function() {
 			
 			width = document.getElementById('codeDiv').width
-			document.getElementById('code').style.width=width*.9;
+			document.getElementById('code').style.width=width*.7;
 			$(".lined").linedtextarea({selectedLine: 1});
 		});
 		</script>
