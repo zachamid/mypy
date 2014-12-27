@@ -14,7 +14,6 @@ print """Content-type: text/html\n\n
 		<script src="skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
 		<script src="skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
 		<script src="jquery-1.11.1.min.js" type="text/javascript"></script> 
-		<script src="jquery-linedtextarea.js" type="text/javascript"></script>
 		<script src="behave.js" type="text/javascript"></script>
 		<script src="python_functions.js" type="text/javascript"></script>
 		<script src="user_functions.js" type="text/javascript"></script>
@@ -56,7 +55,6 @@ print """Content-type: text/html\n\n
 			});
 		});
 		</script>
-		<link rel="stylesheet" type="text/css" href="jquery-linedtextarea.css">
     	<link rel="stylesheet" type="text/css" href="general_style.css">
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
 	</head>
