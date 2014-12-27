@@ -32,9 +32,6 @@ print """\n\n
   		<link href="../general_style.css" rel="stylesheet">
   		<link href="teacher_style.css" rel="stylesheet">
   		<script>
-  			$(function() {
-  				getUnassignedList();
-  			}
   			function getClasses(select_id){
     			var data = {cmd: "Classes"};
     			$.ajax({
@@ -153,6 +150,9 @@ print """\n\n
       				});
  			}
  			
+  			$(function() {
+  				getUnassignedList();
+  			});
  		</script>
 	</head>
 	<body>"""
