@@ -23,7 +23,8 @@ table,td, tr{
 	background-color:rgba(255,255,255,.9);
 }
 
-textarea{
+
+		textarea{
 			width:400px;
 			
 			/* The following three rules make a difference in the script */
@@ -42,8 +43,7 @@ textarea{
 			textarea:focus{
 				border-color:#333;
 			}
-
-.container{
+		.container{
 			position:relative;
 			display:inline-block;
 			}
