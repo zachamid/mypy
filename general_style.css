@@ -24,15 +24,15 @@ table,td, tr{
 }
 textarea{
 	font-family: "Courier New", Courier, monospace !important;
-	width:400px;
-	overflow:hidden;
-	line-height: 13px;
-	font-size: 13px;
-	border:1px solid #999;
-	padding:10px;
-	margin:0;
-	display:block;
-	outline:none;
+	width:400px !important;
+	overflow:hidden !important;
+	line-height: 13px !important;
+	font-size: 13px !important;
+	border:1px solid #999 !important;
+	padding:10px !important;
+	margin:0 !important;
+	display:block !important;
+	outline:none !important;
 }
 textarea:focus{
 	border-color:#333;
@@ -43,15 +43,15 @@ textarea:focus{
 	display:inline-block;
 }
 .line-nums{
-	font-size:13px;
-	line-height:13px;
-	padding:10px 4px;
-	font-family: monospace;
-	background: #EEE;
-	position: absolute;
-	width: 20px;
-	left: -28px;
-	bottom: 0;
-	top: 0;
-	text-align:right;
+	font-size:13px !important;
+	line-height:13px !important;
+	padding:10px 4px !important;
+	font-family: monospace !important;
+	background: #EEE !important;
+	position: absolute !important;
+	width: 20px !important;
+	left: -28px !important;
+	bottom: 0 !important;
+	top: 0 !important;
+	text-align:right !important;
 }
