@@ -37,11 +37,7 @@ textarea{
 textarea:focus{
 	border-color:#333;
 }
-		
-.container{
-	position:relative;
-	display:inline-block;
-}
+
 .line-nums{
 	font-size:13px;
 	line-height:13px;
