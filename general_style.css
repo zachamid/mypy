@@ -39,8 +39,8 @@ textarea:focus{
 }
 		
 .container{
-	position:relative !important;
-	display:inline-block !important;
+	position:relative ;
+	display:inline-block;
 }
 .line-nums{
 	font-size:13px !important;
@@ -48,7 +48,7 @@ textarea:focus{
 	padding:10px 4px !important;
 	font-family: monospace !important;
 	background: #EEE !important;
-	position: absolute !important;
+	/*position: absolute !important;*/
 	width: 20px !important;
 	left: -28px !important;
 	bottom: 0 !important;
