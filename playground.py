@@ -32,6 +32,28 @@ print """Content-type: text/html\n\n
 			    autoStrip: 		true,
 			    autoIndent: 	true
 			});
+			var editor = new Behave({
+			
+				textarea: 		document.getElementById('output'),
+				replaceTab: 	true,
+			    softTabs: 		true,
+			    tabSize: 		4,
+			    autoOpen: 		true,
+			    overwrite: 		true,
+			    autoStrip: 		true,
+			    autoIndent: 	true
+			});
+			var editor = new Behave({
+			
+				textarea: 		document.getElementById('error'),
+				replaceTab: 	true,
+			    softTabs: 		true,
+			    tabSize: 		4,
+			    autoOpen: 		true,
+			    overwrite: 		true,
+			    autoStrip: 		true,
+			    autoIndent: 	true
+			});
 		});
 		</script>
 		<link rel="stylesheet" type="text/css" href="jquery-linedtextarea.css">
@@ -66,12 +88,14 @@ print """\n
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
-				<div class="panel-body">
-					<textarea class="lined" cols="80" rows="5" id="output"></textarea>
+				<div class='container'>
+					<div class="line-nums"><span>1</span></div>
+					<textarea class="lined" rows="5" id="output"></textarea>
 				</div>
 				<div class="panel-heading">Error Console</div>
-				<div class="panel-body">
-					<textarea class="lined" cols="80" rows="5" id="error"></textarea>
+				<div class='container'>
+					<div class="line-nums"><span>1</span></div>
+					<textarea class="lined" rows="5" id="error"></textarea>
 				</div>
 				
 			</div>
