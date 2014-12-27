@@ -52,17 +52,15 @@ print """\n
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
-				<div id='codeDiv' class="panel-body">
-					<div class='container'>
-						<div class="line-nums"><span>1</span></div>
-						<textarea class="lined" rows="10" id="code"></textarea>
-						<button class="form-control" 
+				<div class='container'>
+					<div class="line-nums"><span>1</span></div>
+					<textarea class="lined" rows="10" id="code"></textarea>
+				</div>
+				<button class="form-control" 
 						onclick='run_code(document.getElementById("code").value,"output","error")'
 						 type="button">
 						Run
-						</button>
-					</div>
-				</div>
+					</button>
 			</div>
 		</div>
 		<div class="col-xs-12 col-md-6 col-sm-12">
