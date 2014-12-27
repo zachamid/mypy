@@ -46,3 +46,16 @@ function auto_generate(struct, text_area){
 	}
 	text_area_DOM.value = text_before+code+text_after;
 }
+
+function insert_num_lines(){
+	BehaveHooks.add(['keydown'], function(data){
+				var numLines = data.lines.total,
+					house = document.getElementsByClassName('line-nums')[0],
+					html = '',
+					i;
+				for(i=0; i<numLines; i++){
+					html += '<div>'+(i+1)+'</div>';
+				}
+				house.innerHTML = html;
+			});
+}

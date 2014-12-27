@@ -19,10 +19,18 @@ print """Content-type: text/html\n\n
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script>
 		$(function() {
+			insert_num_lines()
+			var editor = new Behave({
 			
-			width = document.getElementById('codeDiv').style.width
-			document.getElementById('code').cols='"'+width+'"';
-			$(".lined").linedtextarea({selectedLine: 1});
+				textarea: 		document.getElementById('code'),
+				replaceTab: 	true,
+			    softTabs: 		true,
+			    tabSize: 		4,
+			    autoOpen: 		true,
+			    overwrite: 		true,
+			    autoStrip: 		true,
+			    autoIndent: 	true
+			});
 		});
 		</script>
 		<link rel="stylesheet" type="text/css" href="jquery-linedtextarea.css">
@@ -44,12 +52,15 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
 				<div id='codeDiv' class="panel-body">
-					<textarea class="lined" rows="10" id="code"></textarea>
-					<button class="form-control" 
-					onclick='run_code(document.getElementById("code").value,"output","error")'
-					 type="button">
+					<div class='container'>
+						<div class="line-nums"><span>1</span></div>
+						<textarea class="lined" rows="10" id="code"></textarea>
+						<button class="form-control" 
+						onclick='run_code(document.getElementById("code").value,"output","error")'
+						 type="button">
 						Run
-					</button>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
