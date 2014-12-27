@@ -25,6 +25,7 @@ table,td, tr{
 
 
 		textarea{
+			font-family: "Courier New", Courier, monospace;
 			width:400px;
 			
 			/* The following three rules make a difference in the script */
