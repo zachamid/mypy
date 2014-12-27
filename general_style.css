@@ -39,8 +39,8 @@ textarea:focus{
 }
 		
 .container{
-	position:relative;
-	display:inline-block;
+	position:relative !important;
+	display:inline-block !important;
 }
 .line-nums{
 	font-size:13px !important;
