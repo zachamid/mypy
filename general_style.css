@@ -33,7 +33,7 @@ textarea{
 	margin:0 !important;
 	display:block !important;
 	outline:none !important;
-	right:28px !important;
+	right:30px !important;
 }
 textarea:focus{
 	border-color:#333;
