@@ -24,7 +24,7 @@ table,td, tr{
 }
 textarea{
 	font-family: "Courier New", Courier, monospace !important;
-	width: 100%;
+	width: 40%;
 	position: relative !important;
 	overflow:hidden !important;
 	line-height: 13px !important;
