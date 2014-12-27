@@ -7,7 +7,7 @@ posted_data = cgi.FieldStorage()
 values_to_change = list();
 for key in posted_data:
 	if key != 'id' and key != 'type':
-		values_to_change.append(key.'="'+posted_data[key].value+'"')
+		values_to_change.append(key+'="'+posted_data[key].value+'"')
 
 values_to_change =  ",".join(values_to_change);
 
