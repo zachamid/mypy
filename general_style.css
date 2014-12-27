@@ -48,9 +48,9 @@ textarea:focus{
 	padding:10px 4px !important;
 	font-family: monospace !important;
 	background: #EEE !important;
-	/*position: absolute !important;*/
+	position: absolute !important
 	width: 20px !important;
-	left: -28px !important;
+	left: -20px !important;
 	bottom: 0 !important;
 	top: 0 !important;
 	text-align:right !important;
