@@ -21,7 +21,7 @@ textarea{
 	font-family: "Courier New", Courier, monospace !important;
 	width: 90%;
 	position: relative !important;
-	overflow:scroll !important;
+	overflow:hidden !important;
 	line-height: 13px !important;
 	font-size: 13px !important;
 	padding:10px !important;
