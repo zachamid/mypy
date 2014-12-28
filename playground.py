@@ -31,28 +31,10 @@ print """Content-type: text/html\n\n
 			    autoStrip: 		true,
 			    autoIndent: 	true
 			});
-			var editor = new Behave({
-			
-				textarea: 		document.getElementById('output'),
-				replaceTab: 	true,
-			    softTabs: 		true,
-			    tabSize: 		4,
-			    autoOpen: 		true,
-			    overwrite: 		true,
-			    autoStrip: 		true,
-			    autoIndent: 	true
-			});
-			var editor = new Behave({
-			
-				textarea: 		document.getElementById('error'),
-				replaceTab: 	true,
-			    softTabs: 		true,
-			    tabSize: 		4,
-			    autoOpen: 		true,
-			    overwrite: 		true,
-			    autoStrip: 		true,
-			    autoIndent: 	true
-			});
+		});
+		
+		$('#code').on('scroll', function () {
+    		$('#line-nums').scrollTop($(this).scrollTop());
 		});
 		</script>
     	<link rel="stylesheet" type="text/css" href="general_style.css">
@@ -72,8 +54,8 @@ print """\n
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
-				<div class='container'>
-					<div class="line-nums"><span>1</span></div>
+				<div class='container col-xs-12 col-md-6 col-sm-12'>
+					<div class="line-nums" id="line-nums"><span>1</span></div>
 					<textarea class="lined" rows="10" id="code"></textarea>
 				</div>
 				<button class="form-control" 
@@ -87,12 +69,10 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
 				<div class='container'>
-					<div class="line-nums"><span>1</span></div>
 					<textarea class="lined" rows="5" id="output"></textarea>
 				</div>
 				<div class="panel-heading">Error Console</div>
 				<div class='container'>
-					<div class="line-nums"><span>1</span></div>
 					<textarea class="lined" rows="5" id="error"></textarea>
 				</div>
 				

@@ -128,17 +128,20 @@ print """\n\n
  			}
  			
  			function deleteStudent(id){
- 				data = {table:'Student',id:''+id};
- 				$.ajax({
-      				data : data,
-      				url : '/delete.py',
-      				type : "POST",
-      				dataType : "text"}).done(function(result){
-      					getClassList();
-      					getUnassignedList();
-      				});
+ 				var confirm = confirm("Are you sure you want to delete this Student");
+ 				if(confirm == true){
+	 				data = {table:'Student',id:''+id};
+	 				$.ajax({
+	      				data : data,
+	      				url : '/delete.py',
+	      				type : "POST",
+	      				dataType : "text"}).done(function(result){
+	      					getClassList();
+	      					getUnassignedList();
+	      				});
+	 			}
  			}
- 			
+ 					
  			function removeFromClass(studentID){
  				data = {id: studentID,
  						type: 'Student',

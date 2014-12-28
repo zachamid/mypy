@@ -12,11 +12,6 @@ body {
 table,td, tr{
   padding:10px;
 }
-.alert{
-  width:50%;
-  height:50%;
-  float:center;
-}
 
 .translucent {
 	background-color:#0000;
@@ -26,14 +21,14 @@ textarea{
 	font-family: "Courier New", Courier, monospace !important;
 	width: 40%;
 	position: relative !important;
-	overflow:hidden !important;
+	overflow:scroll !important;
 	line-height: 13px !important;
 	font-size: 13px !important;
 	padding:10px !important;
 	margin:0 !important;
 	display:block !important;
 	outline:none !important;
-	left:30px !important;
+	left:10% !important;
 }
 textarea:focus{
 	border-color:#333;
@@ -45,6 +40,7 @@ textarea:focus{
 }
 .line-nums{
 	font-size:13px !important;
+	overflow : hidden !important;
 	line-height:13px !important;
 	padding:10px 4px !important;
 	font-family: monospace !important;
