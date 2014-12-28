@@ -128,7 +128,7 @@ print """\n\n
  			}
  			
  			function delete_from_table(id,type){
- 				data = {table:type,id:id};
+ 				data = {table:''+type,id:''+id};
  				$.ajax({
       				data : data,
       				url : '/delete.py',
