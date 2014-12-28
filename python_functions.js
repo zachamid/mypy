@@ -47,7 +47,7 @@ function auto_generate(struct, text_area){
 	text_area_DOM.value = text_before+code+text_after;
 }
 
-function insert_num_lines(){
+function code_area_prep(){
 	BehaveHooks.add(['keydown'], function(data){
 				var numLines = data.lines.total,
 					house = document.getElementsByClassName('line-nums')[0],
@@ -63,4 +63,5 @@ function insert_num_lines(){
 					fontSize = parseInt( getComputedStyle(data.editor.element)['font-size'] ),
 					padding = parseInt( getComputedStyle(data.editor.element)['padding'] );
 					data.editor.element.style.height = (((numLines*fontSize)+padding))+'px';
+		});
 }
