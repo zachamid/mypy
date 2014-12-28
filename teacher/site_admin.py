@@ -133,7 +133,10 @@ print """\n\n
       				data : data,
       				url : '/delete.py',
       				type : "POST",
-      				dataType : "text"}).done(function(result){});
+      				dataType : "text"}).done(function(result){
+      					getClassList();
+      					getUnassignedList();
+      				});
  			}
  			
  			function removeFromClass(studentID){
