@@ -76,7 +76,7 @@ print """\n\n
     						row.insertCell(2).innerHTML = result[student]['LastName'];
     						row.insertCell(3).innerHTML = result[student]['Email'];
     						row.insertCell(4).innerHTML = '<a onclick="removeFromClass('+result[student]['StudentID']+')">Remove from class</a>';
-    						row.insertCell(5).innerHTML = '<a onclick="delete_from_table("Student")">Delete</a>';
+    						row.insertCell(5).innerHTML = '<a onclick="delete_from_table()">Delete</a>';
     						counter++;
     					}
     				});
@@ -109,7 +109,7 @@ print """\n\n
     						row.insertCell(2).innerHTML = result[student]['LastName'];
     						row.insertCell(3).innerHTML = result[student]['Email'];
     						row.insertCell(4).innerHTML = "<select id='classSelect"+result[student]['StudentID']+"'></select>";
-    						row.insertCell(5).innerHTML = "<a onclick='delete_from_table("+result[student]['StudentID']+",\"Student\")'>Delete</a>";
+    						row.insertCell(5).innerHTML = "<a onclick='delete_from_table()'>Delete</a>";
     						getClasses('classSelect'+result[student]['StudentID']);
     						counter++;
     					}
