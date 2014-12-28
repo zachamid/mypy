@@ -109,7 +109,7 @@ print """\n\n
     						row.insertCell(2).innerHTML = result[student]['LastName'];
     						row.insertCell(3).innerHTML = result[student]['Email'];
     						row.insertCell(4).innerHTML = "<select id='classSelect"+result[student]['StudentID']+"'></select>";
-    						row.insertCell(5).innerHTML = "<a onclick='delete_from_table('Student',"+result[student]['StudentID']+")'>Delete</a>";
+    						row.insertCell(5).innerHTML = "<a onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</a>";
     						getClasses('classSelect'+result[student]['StudentID']);
     						counter++;
     					}
@@ -127,8 +127,8 @@ print """\n\n
       				});
  			}
  			
- 			function delete_from_table(type,id){
- 				data = {table:''+type,id:''+id};
+ 			function deleteStudent(id){
+ 				data = {table:'Student',id:''+id};
  				$.ajax({
       				data : data,
       				url : '/delete.py',
