@@ -128,8 +128,8 @@ print """\n\n
  			}
  			
  			function deleteStudent(id){
- 				var confirm = confirm("Are you sure you want to delete this Student");
- 				if(confirm == true){
+ 				var conf = window.confirm("Are you sure you want to delete this Student");
+ 				if(conf == true){
 	 				data = {table:'Student',id:''+id};
 	 				$.ajax({
 	      				data : data,
