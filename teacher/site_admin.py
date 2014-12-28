@@ -76,7 +76,7 @@ print """\n\n
     						row.insertCell(2).innerHTML = result[student]['LastName'];
     						row.insertCell(3).innerHTML = result[student]['Email'];
     						row.insertCell(4).innerHTML = '<a onclick="removeFromClass('+result[student]['StudentID']+')">Remove from class</a>';
-    						row.insertCell(5).innerHTML = '<a onclick="delete_from_table()">Delete</a>';
+    						row.insertCell(5).innerHTML = '<a onclick='deleteStudent("+result[student]['StudentID']+")'">Delete</a>';
     						counter++;
     					}
     				});
