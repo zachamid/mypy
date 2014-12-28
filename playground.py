@@ -34,7 +34,7 @@ print """Content-type: text/html\n\n
 		});
 		
 		$("#code").scroll(function(){
-            $("#line-nums").scrollTop($("#topdiv").scrollTop());
+            $("#line-nums").scrollTop($("#code").scrollTop());
         });
 		</script>
     	<link rel="stylesheet" type="text/css" href="general_style.css">
