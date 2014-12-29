@@ -26,10 +26,10 @@ print """Content-type: text/html\n\n
 				replaceTab: 	true,
 			    softTabs: 		true,
 			    tabSize: 		4,
-			    autoOpen: 		true,
-			    overwrite: 		true,
-			    autoStrip: 		true,
-			    autoIndent: 	true
+			    autoOpen: 		false,
+			    overwrite: 		false,
+			    autoStrip: 		false,
+			    autoIndent: 	false
 			});
 		});
 		</script>
