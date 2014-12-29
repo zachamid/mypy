@@ -15,6 +15,9 @@ function run_code(code,output,err) {
    	}
 }
 
+function correct_code(){
+}
+
 function compile_code(code, task_id, output, err){
 	$.ajax({
 		url : '/read_task_information.py',

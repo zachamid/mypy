@@ -45,6 +45,24 @@ print """Content-type: text/html\n\n
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script src="task_admin_functions.js" type="text/javascript"></script>
 		<script>
+		function open_task_page(taskID){
+    				var mapForm = document.createElement("form");
+    				mapForm.method = "POST";
+    				mapForm.action = "/correction_page.py";
+					var taskid = document.createElement("input");
+    				taskid.type = "text";
+    				taskid.name = "task_id";
+    				taskid.value = taskID;
+    				mapForm.appendChild(taskid);
+    				var code = document.createElement("input");
+    				code.type = "textarea";
+    				code.name = "code";
+    				code.value =  document.getElementById("code").value;
+    				mapForm.appendChild(code);
+    				document.body.appendChild(mapForm);
+    				mapForm.submit();
+    			}
+		
 		function insert_python_content_to_code_area(result){
 			if (!("Error_Title" in result)){
 				document.getElementById('code').value = result['task_skeleton.py'];
@@ -105,7 +123,12 @@ else:
 			<button class="form-control"
 		onclick='run_code(document.getElementById("code").value,"output","error")' type="button">
 						Run
-			</button>"""
+			</button
+			<button class="form-control"
+		onclick='run_code(document.getElementById("code").value,"output","error")' type="button">
+						Run
+			</button>>"""
+			
 print """\n	</div>
 		</div>
 		<div class="col-xs-12 col-md-6 col-sm-12">
@@ -118,7 +141,6 @@ print """\n	</div>
 				<div class='container' style="width:100%">
 					<textarea rows="5" id="error" readonly></textarea>
 				</div>
-				
 			</div>
 		</div>
 	</body>
