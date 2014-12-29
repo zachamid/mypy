@@ -65,11 +65,11 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
 				<div class='container' style="width:100%">
-					<textarea rows="5" id="output"></textarea>
+					<textarea rows="5" id="output" readonly></textarea>
 				</div>
 				<div class="panel-heading">Error Console</div>
 				<div class='container' style="width:100%">
-					<textarea rows="5" id="error"></textarea>
+					<textarea rows="5" id="error" readonly></textarea>
 				</div>
 				
 			</div>

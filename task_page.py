@@ -52,32 +52,10 @@ print """Content-type: text/html\n\n
 				replaceTab: 	true,
 			    softTabs: 		true,
 			    tabSize: 		4,
-			    autoOpen: 		true,
-			    overwrite: 		true,
-			    autoStrip: 		true,
-			    autoIndent: 	true
-			});
-			var editor = new Behave({
-			
-				textarea: 		document.getElementById('output'),
-				replaceTab: 	true,
-			    softTabs: 		true,
-			    tabSize: 		4,
-			    autoOpen: 		true,
-			    overwrite: 		true,
-			    autoStrip: 		true,
-			    autoIndent: 	true
-			});
-			var editor = new Behave({
-			
-				textarea: 		document.getElementById('error'),
-				replaceTab: 	true,
-			    softTabs: 		true,
-			    tabSize: 		4,
-			    autoOpen: 		true,
-			    overwrite: 		true,
-			    autoStrip: 		true,
-			    autoIndent: 	true
+			    autoOpen: 		false,
+			    overwrite: 		false,
+			    autoStrip: 		false,
+			    autoIndent: 	false
 			});
 		});
 		</script>
@@ -91,7 +69,7 @@ print """\n
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
-				<div class='container'>
+				<div class='container' width="100%">
 					<div class="line-nums"><span>1</span></div>
 					<textarea class="lined" rows="10" id="code"></textarea>
 				</div>
@@ -125,14 +103,14 @@ print """\n	</div>
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
-				<div class='container'>
+				<div class='container' width="100%">
 					<div class="line-nums"><span>1</span></div>
-					<textarea class="lined" rows="5" id="output"></textarea>
+					<textarea class="lined" rows="5" id="output" readonly></textarea>
 				</div>
 				<div class="panel-heading">Error Console</div>
-				<div class='container'>
+				<div class='container' width="100%">
 					<div class="line-nums"><span>1</span></div>
-					<textarea class="lined" rows="5" id="error"></textarea>
+					<textarea class="lined" rows="5" id="error" readonly></textarea>
 				</div>		
 			</div>
 		</div>

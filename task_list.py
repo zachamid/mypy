@@ -52,7 +52,7 @@ for task in file_info:
 	and file_info[task]['task_complete.py'] == 1
 	and file_info[task]['task_skeleton.py'] == 1 
 	and file_info[task]['info.xml'] == 1):
-		cursor.execute('SELECT * FROM Task WHERE TaskID='+task)
+		cursor.execute('SELECT * FROM Task WHERE TaskID='+str(task))
 		task_info = cursor.fetchone()
 		print "<a onclick='open_task_page(task)'><tr><td>"+task+'</td><td>'+task_info['Title']+'</td></tr></a>'
       	print """\n
