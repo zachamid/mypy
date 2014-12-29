@@ -43,6 +43,7 @@ print """Content-type: text/html\n\n
 		<script src="behave.js" type="text/javascript"></script>
 		<script src="python_functions.js" type="text/javascript"></script>
 		<script src="user_functions.js" type="text/javascript"></script>
+		<script src="task_admin_functions.js" type="text/javascript"></script>
 		<script>
 		function insert_python_content_to_code_area(result){
 			if (!("Error_Title" in result)){
