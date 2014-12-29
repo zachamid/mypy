@@ -45,7 +45,7 @@ print """Content-type: text/html\n\n
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script>
 		$(function() {
-			insert_num_lines()
+			code_area_prep();
 			var editor = new Behave({
 			
 				textarea: 		document.getElementById('code'),
