@@ -55,11 +55,9 @@ print """Content-type: text/html\n\n
     				taskid.value = taskID;
     				mapForm.appendChild(taskid);
     				var code = document.createElement("input");
-    				input_code = '';
-    				
     				code.type = "textarea";
     				code.name = "code";
-    				code.value = document.getElementById('code').replace(/\\r?\\n/g, '<br />');
+    				code.value = document.getElementById('code').value.replace(/\\r?\\n/g, '<br />');
     				mapForm.appendChild(code);
     				document.body.appendChild(mapForm);
     				mapForm.submit();
