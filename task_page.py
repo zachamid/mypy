@@ -120,7 +120,7 @@ if('testcase' in task_xml and 'method' in task_xml):
      type="button">Run</button>
      <button class="form-control" 
 	onclick='correct("""+task_id+""")'
-     type="button">Run</button>"""
+     type="button">Correct</button>"""
      
 else:
 	print """\n
