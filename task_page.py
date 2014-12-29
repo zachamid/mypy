@@ -69,7 +69,7 @@ print """\n
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
-				<div class='container' width="100%">
+				<div class='container' style="width:100%">
 					<div class="line-nums"><span>1</span></div>
 					<textarea class="lined" rows="10" id="code"></textarea>
 				</div>
