@@ -39,12 +39,12 @@ print code
 print """
 
 """
-task_correction.judge_correctness(task_id, code)
+task_correction.judge_correctness(task_id, code.replace('</br','\n'))
 print """
 
 """
 
-task_correction.judge_similarity(task_id, code)
+task_correction.judge_similarity(task_id, code.replace('</br','\n'))
 """\n
 	</body>
 </html>
