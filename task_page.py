@@ -51,8 +51,9 @@ print """Content-type: text/html\n\n
 			}
 		}
 		$(function() {
-			get_task_py("""+task_id+""",'task_skeleton.py',insert_python_content_to_code_area);
 			code_area_prep();
+			get_task_py("""+task_id+""",'task_skeleton.py',insert_python_content_to_code_area);
+			
 			var editor = new Behave({
 			
 				textarea: 		document.getElementById('code'),
