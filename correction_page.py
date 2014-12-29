@@ -34,20 +34,25 @@ print """Content-type: text/html\n\n
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
 	<body>
+		<div class="col-xs-12 col-md-12 col-sm-12">
+			<div class="panel panel-default translucent">
+			Original Code</br>
 """
 print code
+print """\n </br><b>Correctness Judge</b></br>"""
 codetocorrect = code.replace('</br>','\n')
 codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t');
 print """
 
 """
 task_correction.judge_correctness(task_id, codetocorrect)
-print """
-
+print """ \n
+</br><b>Similarity Judge</b></br>
 """
 
 task_correction.judge_similarity(task_id, codetocorrect)
 """\n
+		</div></div>
 	</body>
 </html>
 """
