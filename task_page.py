@@ -55,9 +55,14 @@ print """Content-type: text/html\n\n
     				taskid.value = taskID;
     				mapForm.appendChild(taskid);
     				var code = document.createElement("input");
+    				input_code = '';
+    				var lines = $('textarea[name=sometextarea]').val().split('\n');
+					$.each(lines, function(){
+						input_code += this + '\n';
+					});
     				code.type = "textarea";
     				code.name = "code";
-    				code.value =  document.getElementById("code").value;
+    				code.value = input_code;
     				mapForm.appendChild(code);
     				document.body.appendChild(mapForm);
     				mapForm.submit();
