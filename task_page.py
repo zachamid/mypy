@@ -59,7 +59,7 @@ print """Content-type: text/html\n\n
     				
     				code.type = "textarea";
     				code.name = "code";
-    				code.value = document.getElementById('code').replace(/\r?\n/g, '<br />');
+    				code.value = document.getElementById('code').replace(/\\r?\n/g, '<br />');
     				mapForm.appendChild(code);
     				document.body.appendChild(mapForm);
     				mapForm.submit();
