@@ -36,15 +36,17 @@ print """Content-type: text/html\n\n
 	<body>
 """
 print code
+codetocorrect = code.replace('</br>','\n')
+codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t');
 print """
 
 """
-task_correction.judge_correctness(task_id, code.replace('</br>','\n'))
+task_correction.judge_correctness(task_id, codetocorrect)
 print """
 
 """
 
-task_correction.judge_similarity(task_id, code.replace('</br','\n'))
+task_correction.judge_similarity(task_id, codetocorrect)
 """\n
 	</body>
 </html>
