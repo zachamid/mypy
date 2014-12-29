@@ -19,7 +19,7 @@ table,td, tr{
 }
 textarea{
 	font-family: "Courier New", Courier, monospace !important;
-	width: 90%;
+	width: 100%;
 	position: relative !important;
 	line-height: 13px !important;
 	font-size: 13px !important;
@@ -34,7 +34,7 @@ textarea:focus{
 .lined{
 	overflow:hidden !important;
 	left:8% !important;
-	width:100% !important;
+	width:90% !important;
 }
 .container{
 	position:relative ;
