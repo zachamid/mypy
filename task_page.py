@@ -45,7 +45,7 @@ print """Content-type: text/html\n\n
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script src="task_admin_functions.js" type="text/javascript"></script>
 		<script>
-		function open_task_page(taskID){
+		function correct(taskID){
     				var mapForm = document.createElement("form");
     				mapForm.method = "POST";
     				mapForm.action = "/correction_page.py";
@@ -117,7 +117,11 @@ if('testcase' in task_xml and 'method' in task_xml):
 			</div>
 			<button class="form-control" 
 	onclick='compile_code(document.getElementById("code").value,"""+task_id+""","output","error")'
+     type="button">Run</button>
+     <button class="form-control" 
+	onclick='correct("""+task_id+""")'
      type="button">Run</button>"""
+     
 else:
 	print """\n
 			<button class="form-control"
