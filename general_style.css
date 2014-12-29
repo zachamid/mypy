@@ -27,13 +27,14 @@ textarea{
 	margin:0 !important;
 	display:block !important;
 	outline:none !important;
-	left:8% !important;
 }
 textarea:focus{
 	border-color:#333;
 }
 .lined{
 	overflow:hidden !important;
+	left:8% !important;
+	width:100% !important;
 }
 .container{
 	position:relative ;
