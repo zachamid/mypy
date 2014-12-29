@@ -35,7 +35,15 @@ print """Content-type: text/html\n\n
     </head>
 	<body>
 """
+print code
+print """
+
+"""
 task_correction.judge_correctness(task_id, code)
+print """
+
+"""
+
 task_correction.judge_similarity(task_id, code)
 """\n
 	</body>
