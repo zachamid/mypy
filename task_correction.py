@@ -12,11 +12,13 @@ import task_delivery
 
 def judge_correctness(id, code):
 	exec(code)
-	exec(task_delivery.get_python_code_from_file(id, 'task_complete.py'))
+	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
+	exec(py['code'])
 
 def judge_similarity(id, code):
 	print ast.parse(code)
-	print ast.parse(task_delivery.get_python_code_from_file(id, 'task_complete.py'))
+	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
+	print ast.parse(py['code'])
 
 def judge_time(id,code):
 	print 'Currently developing time metric algorithm'
