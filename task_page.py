@@ -56,13 +56,10 @@ print """Content-type: text/html\n\n
     				mapForm.appendChild(taskid);
     				var code = document.createElement("input");
     				input_code = '';
-    				var lines = $('textarea[name=sometextarea]').val().split('\n');
-					$.each(lines, function(){
-						input_code += this + '</br>';
-					});
+    				
     				code.type = "textarea";
     				code.name = "code";
-    				code.value = input_code;
+    				code.value = document.getElementById('code').replace(/\r?\n/g, '<br />');
     				mapForm.appendChild(code);
     				document.body.appendChild(mapForm);
     				mapForm.submit();
