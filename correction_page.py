@@ -39,7 +39,7 @@ print code
 print """
 
 """
-task_correction.judge_correctness(task_id, code.replace('</br','\n'))
+task_correction.judge_correctness(task_id, code.replace('</br>','\n'))
 print """
 
 """
