@@ -10,11 +10,10 @@ import db_connection
 import xml
 import read
 import task_delivery
-cgitb.enable()
 
 def judge_correctness(id, code):
-	print exec(code)
-	print exec(get_python_code_from_file(id, 'task_complete.py'))
+	exec(code)
+	exec(get_python_code_from_file(id, 'task_complete.py'))
 
 def judge_similarity(id, code):
 	print ast.parse(code)
