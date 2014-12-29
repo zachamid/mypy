@@ -64,12 +64,12 @@ print """\n
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
-				<div class='container'>
-					<textarea class="lined" rows="5" id="output"></textarea>
+				<div class='container' style="width:100%">
+					<textarea rows="5" id="output"></textarea>
 				</div>
 				<div class="panel-heading">Error Console</div>
-				<div class='container'>
-					<textarea class="lined" rows="5" id="error"></textarea>
+				<div class='container' style="width:100%">
+					<textarea rows="5" id="error"></textarea>
 				</div>
 				
 			</div>

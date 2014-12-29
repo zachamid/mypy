@@ -62,8 +62,11 @@ function code_area_prep(){
 				var numLines = data.lines.total,
 					fontSize = parseInt( getComputedStyle(data.editor.element)['font-size'] ),
 					padding = parseInt( getComputedStyle(data.editor.element)['padding'] );
-					if(parseInt(data.editor.element.offsetHeight) < ((numLines*fontSize)+padding) ) {
+					if((10 < numLines) {
 						data.editor.element.style.height = (((numLines*fontSize)+padding))+'px';
+					}
+					else{
+						data.editor.element.style.height = (((10*fontSize)+padding))+'px';
 					}
 		});
 }

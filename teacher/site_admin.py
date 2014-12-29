@@ -109,6 +109,7 @@ print """\n\n
     						row.insertCell(2).innerHTML = result[student]['LastName'];
     						row.insertCell(3).innerHTML = result[student]['Email'];
     						row.insertCell(4).innerHTML = "<select id='classSelect"+result[student]['StudentID']+"'></select>";
+    						row.insertCell(4).innerHTML += "<button onclick=''>Assign</button>"
     						row.insertCell(5).innerHTML = "<a onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</a>";
     						getClasses('classSelect'+result[student]['StudentID']);
     						counter++;
