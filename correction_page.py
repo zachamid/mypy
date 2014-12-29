@@ -35,7 +35,7 @@ print """Content-type: text/html\n\n
     </head>
 	<body>
 """
-print code.replace('\n', '<br />')
+print code.replace('\n', '</br>')
 print """
 
 """
