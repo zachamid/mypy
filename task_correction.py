@@ -8,7 +8,6 @@ import MySQLdb
 import MySQLdb.cursors
 import db_connection
 import xml
-import read
 import task_delivery
 
 def judge_correctness(id, code):
