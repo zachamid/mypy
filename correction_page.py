@@ -36,7 +36,7 @@ print """Content-type: text/html\n\n
 	<body>
 """
 task_correction.judge_correctness(task_id, code)
-task_correction.judge_closeness(task_id, code)
+task_correction.judge_similarity(task_id, code)
 """\n
 	</body>
 </html>
