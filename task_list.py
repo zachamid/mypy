@@ -54,7 +54,7 @@ for task in file_info:
 	and file_info[task]['info.xml'] == 1):
 		cursor.execute('SELECT * FROM Task WHERE TaskID='+str(task))
 		task_info = cursor.fetchone()
-		print "<tr><td><a onclick='open_task_page(task)'>"+str(task)+'</a></td><td>'+task_info['Title']+'</td></tr>'
+		print "<tr><td><a onclick='open_task_page("+str(task)+")'>"+str(task)+'</a></td><td>'+task_info['Title']+'</td></tr>'
       	print """\n
       			</table>
       		</div>
