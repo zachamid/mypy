@@ -58,7 +58,7 @@ print """Content-type: text/html\n\n
     				input_code = '';
     				var lines = $('textarea[name=sometextarea]').val().split('\n');
 					$.each(lines, function(){
-						input_code += this + '\n';
+						input_code += this + '</br>';
 					});
     				code.type = "textarea";
     				code.name = "code";
