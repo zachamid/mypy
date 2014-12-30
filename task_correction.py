@@ -18,7 +18,7 @@ def str_node(node):
     else:
         return repr(node)
 def ast_visit(node, level=0):
-    print('  ' * level + str_node(node))
+    print('  ' * level + str_node(node)+'\n')
     for field, value in ast.iter_fields(node):
         if isinstance(value, list):
             for item in value:
