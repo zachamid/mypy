@@ -32,7 +32,7 @@ def judge_correctness(task_id,student_id, code):
 	#set_code = eval('python '+'../tasks/'+task_id+'/task_complete.py')
 	set_code = 'Mine'
 	print '</br>'
-	print 'Levenshtein Distance: ', 
+	print 'Levenshtein Distance: '+ 
 	str(levenshteinDistance(user_code,set_code, len(user_code), len(set_code)))
 
 def judge_similarity(id, code):
