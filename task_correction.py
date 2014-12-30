@@ -9,6 +9,7 @@ import MySQLdb.cursors
 import db_connection
 import xml
 import task_delivery
+import subprocess
 
 def levenshteinDistance(str1,str2,len1,len2):
 	if len1 == 0:
@@ -26,7 +27,8 @@ def levenshteinDistance(str1,str2,len1,len2):
 
 def judge_correctness(task_id,student_id, code):
 	task_delivery.save_to_file(task_id,student_id, code)
-	user_code = eval(code)
+	filename = task_delivery.path+str(task_id)+'/'+str(student_id)+'.py'
+	user_code = subprocess.Popen(['python', filename], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 	print '</br>'
 	set_code = eval('python '+'../tasks/'+task_id+'/task_complete.py')
 	print '</br>'
