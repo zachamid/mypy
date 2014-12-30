@@ -27,11 +27,17 @@ def levenshteinDistance(str1,str2,len1,len2):
 
 def judge_correctness(task_id,student_id, code):
 	task_delivery.save_to_file(task_id,student_id, code)
-	filename = task_delivery.path+str(task_id)+'/'+str(student_id)+'.py'
-	user_code = subprocess.Popen(['python', filename], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-	print '</br>'+ user_code.communicate()[0]
-	set_code = eval('python '+'../tasks/'+task_id+'/task_complete.py')
-	print '</br>'
+	dirname = task_delivery.path+str(task_id)+'/'
+	user_code = subprocess.Popen(['python', dirname+str(student_id)+'.py'],
+	stdout=subprocess.PIPE, 
+	stderr=subprocess.STDOUT)
+	user_code=user_code.communicate()[0]
+	print '</br>'+ user_code
+	set_code = subprocess.Popen(['python', dirname+str(student_id)+'.py'],
+	stdout=subprocess.PIPE, 
+	stderr=subprocess.STDOUT)
+	set_code=set_code.communicate()[0]
+	print '</br>'+set_code
 	print 'Levenshtein Distance: '+ str(levenshteinDistance(user_code,set_code, len(user_code), len(set_code)))
 
 def judge_similarity(id, code):
