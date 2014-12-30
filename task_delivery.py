@@ -10,7 +10,7 @@ import xml
 import xmltodict
 cgitb.enable()
 
-path = '../tasks/'
+path = '/home/mypy_tasks/'
 
 def get_task_list():
 	cursor = db_connection.get_connection()
