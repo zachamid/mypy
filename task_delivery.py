@@ -8,6 +8,7 @@ import MySQLdb.cursors
 import db_connection
 import xml
 import xmltodict
+import subprocess
 cgitb.enable()
 
 path = '../tasks/'
@@ -95,7 +96,13 @@ def get_compile_code(task_id, given_code):
 				compile_code += xml_data['method']+"("+str(testcase['arg'])+")\n"
 		ret_dict['code'] = compile_code
 	return ret_dict
-	
+
+def get_python_output(file_path):
+	result = subprocess.Popen(['python', file_path],
+	stdout=subprocess.PIPE, 
+	stderr=subprocess.STDOUT)
+	return result.communicate()[0]
+
 def save_to_file(task_id, student_id, code):
 	user_attempt = open(path+task_id+'/'+student_id+'.py', 'w')
 	user_attempt.write(code)
