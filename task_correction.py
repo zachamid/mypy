@@ -25,12 +25,10 @@ def levenshteinDistance(str1,str2,len1,len2):
 	levenshteinDistance(str1,str2,len1-1,len2-1)+cost)
 
 def judge_correctness(task_id,student_id, code):
-	#task_delivery.save_to_file(task_id,student_id, code)
-	#user_code = eval('python '+'../tasks/'+task_id+'/'+student_id+'.py')
-	user_code = 'Line'
+	task_delivery.save_to_file(task_id,student_id, code)
+	user_code = eval('python '+'../tasks/'+task_id+'/'+student_id+'.py')
 	print '</br>'
-	#set_code = eval('python '+'../tasks/'+task_id+'/task_complete.py')
-	set_code = 'Mine'
+	set_code = eval('python '+'../tasks/'+task_id+'/task_complete.py')
 	print '</br>'
 	print 'Levenshtein Distance: '+ str(levenshteinDistance(user_code,set_code, len(user_code), len(set_code)))
 
