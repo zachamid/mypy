@@ -38,7 +38,7 @@ def judge_correctness(task_id,student_id, code):
 	stderr=subprocess.STDOUT)
 	set_code=set_code.communicate()[0]
 	print '</br>'+set_code
-	print 'Levenshtein Distance: '+ str(levenshteinDistance(user_code,set_code, len(user_code), len(set_code)))
+	print '</br>Levenshtein Distance: '+ str(levenshteinDistance(user_code,set_code, len(user_code), len(set_code)))
 
 def judge_similarity(id, code):
 	print ast.dump(ast.parse(code))
