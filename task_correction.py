@@ -31,7 +31,7 @@ def judge_correctness(id, code):
 	set_code = eval(py['task_complete.py'])
 	print '</br>'
 	print 'Levenshtein Distance: ', 
-	str(levenshteinDistance(user_code,set_code, len(user_code), len(set_code))
+	str(levenshteinDistance(user_code,set_code, len(user_code), len(set_code)))
 
 def judge_similarity(id, code):
 	print ast.dump(ast.parse(code))
