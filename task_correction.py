@@ -10,6 +10,23 @@ import db_connection
 import xml
 import task_delivery
 
+def str_node(node):
+    if isinstance(node, ast.AST):
+        fields = [(name, str_node(val)) for name, val in ast.iter_fields(node) if name not in ('left', 'right')]
+        rv = '%s(%s' % (node.__class__.__name__, ', '.join('%s=%s' % field for field in fields))
+        return rv + ')'
+    else:
+        return repr(node)
+def ast_visit(node, level=0):
+    print('  ' * level + str_node(node))
+    for field, value in ast.iter_fields(node):
+        if isinstance(value, list):
+            for item in value:
+                if isinstance(item, ast.AST):
+                    ast_visit(item, level=level+1)
+        elif isinstance(value, ast.AST):
+            ast_visit(value, level=level+1)
+
 def levenshteinDistance(str1,str2,len1,len2):
 	if len1 == 0:
 		return len2
@@ -34,10 +51,10 @@ def judge_correctness(task_id,student_id, code):
 	print '</br>Levenshtein Distance: '+ str(levenshteinDistance(user_code,set_code, len(user_code), len(set_code)))
 
 def judge_similarity(id, code):
-	print ast.dump(ast.parse(code))
+	print ast_visit(ast.parse(code))
 	print '</br>'
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
-	print ast.dump(ast.parse(py['task_complete.py']))
+	print ast_visit(ast.parse(py['task_complete.py']))
 	print '</br>'
 
 def judge_time(id,code):
