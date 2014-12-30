@@ -95,3 +95,8 @@ def get_compile_code(task_id, given_code):
 				compile_code += xml_data['method']+"("+str(testcase['arg'])+")\n"
 		ret_dict['code'] = compile_code
 	return ret_dict
+	
+def save_to_file(task_id, student_id, code):
+	user_attempt = open(path+task_id+'/'+student_id+'.py', 'w')
+	user_attempt.write(code)
+	user_attempt.close()
