@@ -14,6 +14,7 @@ else:
 	print 'Location: index.py'
 
 task_info = cgi.FieldStorage()
+student_id = cookies['id'].value
 task_id = task_info['task_id'].value
 code = task_info['code'].value
 cursor = db_connection.get_connection()
@@ -45,7 +46,7 @@ codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t');
 print """
 
 """
-task_correction.judge_correctness(task_id, codetocorrect)
+task_correction.judge_correctness(task_id,student_id,codetocorrect)
 print """ \n
 </br><b>Similarity Judge</b></br>
 """
