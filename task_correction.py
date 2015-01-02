@@ -77,6 +77,7 @@ def judge_similarity(id, code):
 	ast_visit(ast.parse(code))
 	print '</br>'
 	print str(ast2dict(ast.parse(code)))
+	print '</br>'
 	print str(ast2dict(ast.parse(py['task_complete.py'])))
 	print '</br>'
 
