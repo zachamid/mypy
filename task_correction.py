@@ -27,17 +27,17 @@ def ast_visit(node, level=0):
         elif isinstance(value, ast.AST):
             ast_visit(value, level=level+1)
 
+
 def ast_similarity(node1, node2, level=0):
-	print('</br>&nbsp&nbsp&nbsp&nbsp' * level + '%s:' % (node1.__class__.__name__))
-	if isinstance(node1, ast.AST) and isinstance(node2, ast.AST):
-		for field, value in ast.iter_fields(node1):
-			print '</br>&nbsp&nbsp&nbsp&nbsp' * (level+1)+field+':'
-			if field in node2._fields:
-				print 'Exists in node2'
-				if isinstance(value,ast.AST):
-					ast_similarity(value, ast.iter_fields(node2)[field], level+1)
-			else:
-				print 'Aint Exists in node2'		
+	print('&nbsp&nbsp&nbsp&nbsp' * level + str_node(node1)+'</br>')
+	print('&nbsp&nbsp&nbsp&nbsp' * level + str_node(node2)+'</br>')
+    for field, value in ast.iter_fields(node):
+        if isinstance(value, list):
+            for item in value:
+                if isinstance(item, ast.AST):
+                    ast_similarity(item, level=level+1)
+        elif isinstance(value, ast.AST):
+            ast_similarity(value, level=level+1)
 
 def levenshteinDistance(str1,str2,len1,len2):
 	if len1 == 0:
