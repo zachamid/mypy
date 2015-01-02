@@ -9,6 +9,7 @@ import MySQLdb.cursors
 import db_connection
 import xml
 import task_delivery
+import meta
 
 def str_node(node):
     if isinstance(node, ast.AST):
@@ -30,15 +31,16 @@ def ast_visit(node, level=0):
 
 
 def ast_similarity(node1, node2, level=0):
-	print('&nbsp&nbsp&nbsp&nbsp' * level + str_node(node1)+'</br>')
-	print('&nbsp&nbsp&nbsp&nbsp' * level + str_node(node2)+'</br>')
-	for field, value in ast.iter_fields(node):
-        if isinstance(value, list):
-            for item in value:
-                if isinstance(item, ast.AST):
-                    ast_similarity(item, level=level+1)
-        elif isinstance(value, ast.AST):
-            ast_similarity(value, level=level+1)
+'''
+	if node1 is empty:
+	if node2 is empty:
+		return measure of non_empty node
+	else:
+		for field in node1.fields:
+			if field is in node2.fields
+				if node1.
+'''	
+	return 0;
 
 def levenshteinDistance(str1,str2,len1,len2):
 	if len1 == 0:
@@ -65,11 +67,13 @@ def judge_correctness(task_id,student_id, code):
 
 def judge_similarity(id, code):
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
-	ast_visit(ast.parse(code))
+	print meta.asttools.get_symbols(ast.parse(code))
 	print '</br>'
-	ast_visit(ast.parse(py['task_complete.py']))
+	meta.asttools.str_ast(ast.parse(code),'&nbsp&nbsp&nbsp&nbsp')
 	print '</br>'
-	print ast_similarity(ast.parse(code),ast.parse(py['task_complete.py']))
+	#ast_visit(ast.parse(py['task_complete.py']))
+	print '</br>'
+	#print ast_similarity(ast.parse(code),ast.parse(py['task_complete.py']))
 	print '</br>'
 
 def judge_time(id,code):
