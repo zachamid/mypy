@@ -33,7 +33,7 @@ def ast2dict(node):
 	fields = dict()
 	for name, val in ast.iter_fields(node):
 		if name not in ('left', 'right'):
-			field[name] = val
+			fields[name] = val
 	code = dict()
 	for field in fields:
 		if isinstance(fields[field], list):
