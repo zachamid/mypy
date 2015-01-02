@@ -50,6 +50,11 @@ task_correction.judge_correctness(task_id,student_id,codetocorrect)
 print """ \n
 </br><b>Similarity Judge</b></br>
 """
+
+codetocorrect = """
+def function():
+	print 'Hello'
+"""
 task_correction.judge_similarity(task_id, codetocorrect)
 print """\n
 		</div></div>
