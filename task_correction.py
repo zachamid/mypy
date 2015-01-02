@@ -70,6 +70,14 @@ def judge_correctness(task_id,student_id, code):
 	print '</br>'+set_code
 	print '</br>Levenshtein Distance: '+ str(levenshteinDistance(user_code,set_code, len(user_code), len(set_code)))
 
+def print_dict(code, level=0):
+	ret_str = ''
+	for key in code:
+		if type(code[key]) == 'dict':
+			print_dict(code[key]), level+1)
+		else:
+			ret_str+= ('&nbsp&nbsp&nbsp&nbsp'*level)+key+':'+code[key]+'<br>'
+
 def judge_similarity(id, code):
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
 	ast_visit(ast.parse(py['task_complete.py']))
@@ -77,10 +85,7 @@ def judge_similarity(id, code):
 	ast_visit(ast.parse(code))
 	print '</br>'
 	code = ast2dict(ast.parse(code))
-	print str(code)
-	print '</br>'
-	code =  ast2dict(ast.parse(py['task_complete.py']))
-	print str(code)
+	print print_dict(code)
 	print '</br>'
 
 def judge_time(id,code):
