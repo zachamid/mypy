@@ -32,10 +32,10 @@ def ast_visit(node, level=0):
 
 def ast_similarity(node1, node2, level=0):
 	for field,val in ast.iter_fields(node1):
-		print field+'='+val+';'
+		print str(field)+'='+str(val)+';'
 	print '<br>'
 	for field,val in ast.iter_fields(node1):
-		print field+'='+val+';'
+		print str(field)+'='+str(val)+';'
 
 def levenshteinDistance(str1,str2,len1,len2):
 	if len1 == 0:
