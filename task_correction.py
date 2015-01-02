@@ -76,9 +76,11 @@ def judge_similarity(id, code):
 	print '</br>'
 	ast_visit(ast.parse(code))
 	print '</br>'
-	print ast2dict(ast.parse(code))
+	code = ast2dict(ast.parse(code))
+	print str(code)
 	print '</br>'
-	print ast2dict(ast.parse(py['task_complete.py']))
+	code =  ast2dict(ast.parse(py['task_complete.py']))
+	print str(code)
 	print '</br>'
 
 def judge_time(id,code):
