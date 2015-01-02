@@ -28,7 +28,7 @@ def ast_visit(node, level=0):
             ast_visit(value, level=level+1)
 
 def ast_similarity(node1, node2, level=0):
-	print('</br>&nbsp&nbsp&nbsp&nbsp' * level + '%s{' % (node.__class__.__name__))
+	print('</br>&nbsp&nbsp&nbsp&nbsp' * level + '%s:' % (node1.__class__.__name__))
 	if isinstance(node1, ast.AST) and isinstance(node2, ast.AST):
 		for field, value in ast.iter_fields(node1):
 			print '</br>&nbsp&nbsp&nbsp&nbsp' * (level+1)+field+':'
