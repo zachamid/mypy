@@ -32,7 +32,7 @@ def ast_similarity(node1, node2, level=0):
 	if isinstance(node1, ast.AST) and isinstance(node2, ast.AST):
 		for field, value in ast.iter_fields(node1):
 			print '</br>&nbsp&nbsp&nbsp&nbsp' * (level+1)+field+':'
-			if field in ast.iter_fields(node1):
+			if field in node2._fields:
 				print 'Exists in node2'
 				if isinstance(value,ast.AST):
 					ast_similarity(value, ast.iter_fields(node2)[field], level+1)
