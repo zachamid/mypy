@@ -40,8 +40,10 @@ def ast2dict(node):
 		if isinstance(fields[field], list):
 			for item in fields[field]:
 				if isinstance(item, ast.AST):
+					print 'encountered AST,'
 					code[item.__class__.__name__] = ast2dict(item)
 		if isinstance(fields[field], ast.AST):
+			print 'encountered AST,'
 			code[fields[field].__class__.__name__] = ast2dict(fields[field])
 		if isinstance(fields[field], basestring) or isinstance(fields[field],int):
 			code[field] = fields[field]
@@ -70,13 +72,7 @@ def judge_correctness(task_id,student_id, code):
 	print '</br>'+set_code
 	print '</br>Levenshtein Distance: '+ str(levenshteinDistance(user_code,set_code, len(user_code), len(set_code)))
 
-def print_dict(code, level=0):
-	ret_str = ''
-	for key in code:
-		if type(code[key]) == 'dict':
-			print_dict(code[key], level+1)
-		else:
-			ret_str+= ('&nbsp&nbsp&nbsp&nbsp'*level)+key+':'+code[key]+'<br>'
+
 
 def judge_similarity(id, code):
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
@@ -84,8 +80,7 @@ def judge_similarity(id, code):
 	print '</br>'
 	ast_visit(ast.parse(code))
 	print '</br>'
-	code = ast2dict(ast.parse(code))
-	print print_dict(code)
+	print ast2dict(ast.parse(code))
 	print '</br>'
 
 def judge_time(id,code):
