@@ -31,7 +31,7 @@ def ast_visit(node, level=0):
 
 
 def ast_similarity(node1, node2, level=0):
-'''
+	'''
 	if node1 is empty:
 	if node2 is empty:
 		return measure of non_empty node
@@ -39,7 +39,7 @@ def ast_similarity(node1, node2, level=0):
 		for field in node1.fields:
 			if field is in node2.fields
 				if node1.
-'''	
+	'''	
 	return 0;
 
 def levenshteinDistance(str1,str2,len1,len2):
