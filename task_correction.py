@@ -64,8 +64,11 @@ def judge_correctness(task_id,student_id, code):
 
 def judge_similarity(id, code):
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
-	print ast_similarity(ast.parse(code),ast.parse(py['task_complete.py']))
+	ast_visit(ast.parse(code))
 	print '</br>'
+	ast_visit(ast.parse(py['task_complete.py']))
+	print '</br>'
+	print ast_similarity(ast.parse(code),ast.parse(py['task_complete.py']))
 	print '</br>'
 
 def judge_time(id,code):
