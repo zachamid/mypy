@@ -29,14 +29,24 @@ def ast_visit(node, level=0):
         elif isinstance(value, ast.AST):
             ast_visit(value, level=level+1)
 
-
-def ast_similarity(node1, node2, level=0):
-	for field,val in ast.iter_fields(node1):
-		print str(field)+'='+str(val)+';'
-	print '<br>'
-	for field,val in ast.iter_fields(node2):
-		print str(field)+'='+str(val)+';'
-
+def ast2dict(node):
+	fields = dict()
+	for name, val in ast.iter_fields(node):
+		if name not in ('left', 'right'):
+			field[name] = val
+	code = dict()
+	for field in fields:
+		if isinstance(fields[field], list):
+			for item in fields[field]:
+				if isinstance(fields[field], ast.AST):
+					code[fields[field].__class__.__name__] = ast2dict(node)
+				if isinstance(fields[field], basestring) or isinstance(fields[field],int):
+					code[field] = fields[field]
+		if isinstance(fields[field], ast.AST):
+			code[fields[field].__class__.__name__] = ast2dict(node)
+		if isinstance(fields[field], basestring) or isinstance(fields[field],int):
+			code[field] = fields[field]
+		
 def levenshteinDistance(str1,str2,len1,len2):
 	if len1 == 0:
 		return len2
@@ -66,7 +76,8 @@ def judge_similarity(id, code):
 	print '</br>'
 	ast_visit(ast.parse(code))
 	print '</br>'
-	print ast_similarity(ast.parse(code),ast.parse(py['task_complete.py']))
+	print str(ast2dict(ast.parse(code)))
+	print str(ast2dict(ast.parse(py['task_complete.py'])))
 	print '</br>'
 
 def judge_time(id,code):
