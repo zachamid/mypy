@@ -9,7 +9,7 @@ import MySQLdb.cursors
 import db_connection
 import xml
 import task_delivery
-import meta
+
 
 def str_node(node):
     if isinstance(node, ast.AST):
@@ -32,13 +32,7 @@ def ast_visit(node, level=0):
 
 def ast_similarity(node1, node2, level=0):
 	'''
-	if node1 is empty:
-	if node2 is empty:
-		return measure of non_empty node
-	else:
-		for field in node1.fields:
-			if field is in node2.fields
-				if node1.
+	
 	'''	
 	return 0;
 
@@ -67,12 +61,9 @@ def judge_correctness(task_id,student_id, code):
 
 def judge_similarity(id, code):
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
-	print meta.asttools.get_symbols(ast.parse(code))
+	ast_visit(ast.parse(py['task_complete.py']))
 	print '</br>'
-	meta.asttools.str_ast(ast.parse(code),'&nbsp&nbsp&nbsp&nbsp')
-	print '</br>'
-	#ast_visit(ast.parse(py['task_complete.py']))
-	print '</br>'
+	ast_visit(ast.parse(code))
 	#print ast_similarity(ast.parse(code),ast.parse(py['task_complete.py']))
 	print '</br>'
 
