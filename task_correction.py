@@ -39,12 +39,10 @@ def ast2dict(node):
 	for field in fields:
 		if isinstance(fields[field], list):
 			for item in fields[field]:
-				if isinstance(fields[field], ast.AST):
-					code[fields[field].__class__.__name__] = ast2dict(node)
-				if isinstance(fields[field], basestring) or isinstance(fields[field],int):
-					code[field] = fields[field]
+				if isinstance(item, ast.AST):
+					code[item.__class__.__name__] = ast2dict(item)
 		if isinstance(fields[field], ast.AST):
-			code[fields[field].__class__.__name__] = ast2dict(node)
+			code[fields[field].__class__.__name__] = ast2dict(fields[field])
 		if isinstance(fields[field], basestring) or isinstance(fields[field],int):
 			code[field] = fields[field]
 	return code
