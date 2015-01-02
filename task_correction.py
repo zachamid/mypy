@@ -17,6 +17,7 @@ def str_node(node):
         return rv + ')'
     else:
         return repr(node)
+
 def ast_visit(node, level=0):
     print('&nbsp&nbsp&nbsp&nbsp' * level + str_node(node)+'</br>')
     for field, value in ast.iter_fields(node):
@@ -31,7 +32,7 @@ def ast_visit(node, level=0):
 def ast_similarity(node1, node2, level=0):
 	print('&nbsp&nbsp&nbsp&nbsp' * level + str_node(node1)+'</br>')
 	print('&nbsp&nbsp&nbsp&nbsp' * level + str_node(node2)+'</br>')
-    for field, value in ast.iter_fields(node):
+	for field, value in ast.iter_fields(node):
         if isinstance(value, list):
             for item in value:
                 if isinstance(item, ast.AST):
