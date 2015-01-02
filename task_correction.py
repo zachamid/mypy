@@ -74,7 +74,7 @@ def print_dict(code, level=0):
 	ret_str = ''
 	for key in code:
 		if type(code[key]) == 'dict':
-			print_dict(code[key]), level+1)
+			print_dict(code[key], level+1)
 		else:
 			ret_str+= ('&nbsp&nbsp&nbsp&nbsp'*level)+key+':'+code[key]+'<br>'
 
