@@ -27,6 +27,18 @@ def ast_visit(node, level=0):
         elif isinstance(value, ast.AST):
             ast_visit(value, level=level+1)
 
+def ast_similarity(node1, node2, level=0):
+	print('</br>&nbsp&nbsp&nbsp&nbsp' * level + '%s{' % (node.__class__.__name__))
+	if isinstance(node1, ast.AST) and isinstance(node2, ast.AST):
+		for field, value in ast.iter_fields(node1):
+			print '</br>&nbsp&nbsp&nbsp&nbsp' * (level+1)+field+':'
+			if field in ast.iter_fields(node2):
+				print 'Exists in node2'
+				if isinstance(value,ast.AST):
+					ast_similarity(value, ast.iter_fields(node2)[field], level+1)
+			else:
+				print 'Aint Exists in node2'		
+
 def levenshteinDistance(str1,str2,len1,len2):
 	if len1 == 0:
 		return len2
@@ -51,10 +63,10 @@ def judge_correctness(task_id,student_id, code):
 	print '</br>Levenshtein Distance: '+ str(levenshteinDistance(user_code,set_code, len(user_code), len(set_code)))
 
 def judge_similarity(id, code):
-	print ast_visit(ast.parse(code))
+	print ast_similarity(ast.parse(code))
 	print '</br>'
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
-	print ast_visit(ast.parse(py['task_complete.py']))
+	print ast_similarity(ast.parse(py['task_complete.py']))
 	print '</br>'
 
 def judge_time(id,code):
