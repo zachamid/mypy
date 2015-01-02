@@ -34,6 +34,7 @@ def ast2dict(node):
 	for name, val in ast.iter_fields(node):
 		if name not in ('left', 'right'):
 			fields[name] = val
+	print fields
 	code = dict()
 	for field in fields:
 		if isinstance(fields[field], list):
@@ -46,6 +47,7 @@ def ast2dict(node):
 			code[fields[field].__class__.__name__] = ast2dict(node)
 		if isinstance(fields[field], basestring) or isinstance(fields[field],int):
 			code[field] = fields[field]
+	return code
 		
 def levenshteinDistance(str1,str2,len1,len2):
 	if len1 == 0:
