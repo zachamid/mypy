@@ -52,15 +52,18 @@ def adapted_jaccard(dict1, dict2):
 	for field in dict1:
 		if field in dict2:
 			if type(dict1[field]) is dict and type(dict2[field]) is dict:
+				print 'Checking dicts </br>'
 				union_count += adapted_jaccard(dict1[field],dict2[field])
 			elif type(dict1[field]) is str and type(dict2[field]) is str:
+				print 'Checking strings </br>'
 				dist=levenshteinDistance(dict1[field],dict2[field],len(dict1[field]),len(dict2[field]))
 				union_count += dist/max([len(dict1[field]),len(dict2[field])])
 			elif type(dict1[field]) is int and type(dict2[field]) is int:
+				print 'Checking ints </br>'
 				dist=abs(dict1[field] - dict2[field])
 				union_count += dist/max([dict1[field],dict2[field]])
 			else:
-				print 'Type 1 is '+str(type(dict1[field])) + '</br> Type 2 is '+str(type(dict2[field]))
+				print 'Type 1 is '+str(type(dict1[field])) + '</br> Type 2 is '+str(type(dict2[field]))+'</br>'
 	intersection_count = len(dict1)+len(dict2)-union_count
 	return union_count/intersection_count
 
@@ -86,7 +89,6 @@ def judge_correctness(task_id,student_id, code):
 	set_code = task_delivery.get_python_output(dirname+'task_complete.py')
 	print '</br>'+set_code
 	print '</br>Levenshtein Distance: '+ str(levenshteinDistance(user_code,set_code, len(user_code), len(set_code)))
-
 
 
 def judge_similarity(id, code):
