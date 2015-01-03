@@ -62,7 +62,7 @@ def adapted_jaccard(dict1, dict2):
 				dist=abs(dict1[field] - dict2[field])
 				union_count += dist/max([dict1[field],dict2[field]])
 			else:
-				print 'Type 1 is '+type(dict1[field]) + '</br> Type 2 is '+type(dict2[field])
+				print 'Type 1 is '+str(type(dict1[field])) + '</br> Type 2 is '+str(type(dict2[field]))
 	intersection_count = len(dict1)+len(dict2)-union_count
 	return union_count/intersection_count
 
