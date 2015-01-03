@@ -41,10 +41,8 @@ def ast2dict(node):
 			for item in fields[field]:
 				if isinstance(item, ast.AST):
 					code[item.__class__.__name__] = ast2dict(item)
-					print '(length:'+str(len(code[item.__class__.__name__]))+')'
 		if isinstance(fields[field], ast.AST):
 			code[fields[field].__class__.__name__] = ast2dict(fields[field])
-			print '(length:'+str(len(code[fields[field].__class__.__name__]))+')'
 		if isinstance(fields[field], basestring) or isinstance(fields[field],int):
 			code[field] = fields[field]
 	return code
@@ -53,12 +51,12 @@ def adapted_jaccard(dict1, dict2):
 	union_count = 0
 	for field in dict1:
 		if field in dict2:
-			if type(dict1[field]) is 'dict' and type(dict2[field]) is'dict':
+			if isinstance(dict1[field]) is dict and type(dict2[field]) is dict:
 				union_count += adapted_jaccard(dict1[field],dict2[field])
-			elif type(dict1[field]) is 'str' and type(dict2[field]) is 'str':
+			elif type(dict1[field]) is str and type(dict2[field]) is str:
 				dist=levenshteinDistance(dict1[field],dict2[field],len(dict1[field]),len(dict2[field]))
 				union_count += dist/max([len(dict1[field]),len(dict2[field])])
-			elif type(dict1[field]) is 'int' and type(dict2[field]) is 'int':
+			elif type(dict1[field]) is int and type(dict2[field]) is int:
 				dist=abs(dict1[field] - dict2[field])
 				union_count += dist/max([dict1[field],dict2[field]])
 			else:
