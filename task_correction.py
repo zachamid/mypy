@@ -56,7 +56,7 @@ def adapted_jaccard(dict1, dict2):
 			if type(dict1[field]) is 'dict' and type(dict2[field]) is'dict':
 				union_count += adapted_jaccard(dict1[field],dict2[field])
 			elif type(dict1[field]) is 'str' and type(dict2[field]) is 'str':
-				dist=levenshteinDistance(dict1[field],dict2[field],len(dict1[field]),len(dict2[field])))
+				dist=levenshteinDistance(dict1[field],dict2[field],len(dict1[field]),len(dict2[field]))
 				union_count += dist/max([len(dict1[field]),len(dict2[field])])
 			elif type(dict1[field]) is 'int' and type(dict2[field]) is 'int':
 				dist=abs(dict1[field] - dict2[field])
