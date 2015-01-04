@@ -52,14 +52,14 @@ def adapted_jaccard(dict1, dict2):
 	for field in dict1:
 		if field in dict2:
 			if type(dict1[field]) is dict and type(dict2[field]) is dict:
-				print 'Checking dicts </br>'
+				print 'Checking dicts:'+field+' </br>'
 				union_count += adapted_jaccard(dict1[field],dict2[field])
 			elif type(dict1[field]) is str and type(dict2[field]) is str:
-				print 'Checking strings </br>'
+				print 'Checking strings:'+field+' </br>'
 				dist=levenshteinDistance(dict1[field],dict2[field],len(dict1[field]),len(dict2[field]))
 				union_count += dist/max([len(dict1[field]),len(dict2[field])])
 			elif type(dict1[field]) is int and type(dict2[field]) is int:
-				print 'Checking ints </br>'
+				print 'Checking ints:'+field+' </br>'
 				dist=abs(dict1[field] - dict2[field])
 				union_count += dist/max([dict1[field],dict2[field]])
 			else:
