@@ -55,7 +55,7 @@ codetocorrect = """
 def function():
 	print 'Hello'
 """
-#task_correction.judge_similarity(task_id, codetocorrect)
+task_correction.judge_similarity(task_id, codetocorrect)
 print """\n
 		</div></div>
 	</body>
