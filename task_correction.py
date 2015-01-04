@@ -96,7 +96,8 @@ def judge_similarity(id, code):
 	dict1 = ast2dict(ast.parse(py['task_complete.py']))
 	dict2 = ast2dict(ast.parse(code))
 	print '</br>'
-	#print adapted_jaccard(dict1, dict2)
+	print adapted_jaccard(dict1, dict2)
+	print '</br>'
 	print str(dict1)
 	print '</br>'
 	print str(dict2)
