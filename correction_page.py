@@ -51,7 +51,7 @@ print """\n
       				<tr>
       					<td colspan="2">
 """
-print code
+print codetocorrect
 print """\n				</td>
 					</tr>
 					<tr>
