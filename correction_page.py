@@ -30,24 +30,7 @@ print """Content-type: text/html\n\n
 		<script src="python_functions.js" type="text/javascript"></script>
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script src="task_admin_functions.js" type="text/javascript"></script>
-		<script>
-			$(function() {
-			code_area_prep();
-			
-			var editor = new Behave({
-			
-				textarea: 		document.getElementById('code'),
-				replaceTab: 	true,
-			    softTabs: 		true,
-			    tabSize: 		4,
-			    autoOpen: 		false,
-			    overwrite: 		false,
-			    autoStrip: 		false,
-			    autoIndent: 	false
-			});
-		});
-		</script>
-    	<link rel="stylesheet" type="text/css" href="general_style.css">
+		<link rel="stylesheet" type="text/css" href="general_style.css">
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     	<style>
 			table,td,th, tr {
@@ -67,8 +50,7 @@ print """\n
       				<tr>
       					<td colspan="2">
       					<div class='container' style="width:100%">
-							<div class="line-nums"><span>1</span></div>
-								<textarea class="lined" rows="10" id="code" readonly>
+							<textarea class="lined" rows="10" id="code" readonly>
 """
 print codetocorrect
 print """\n				</textarea></div></div>
