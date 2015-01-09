@@ -30,7 +30,23 @@ print """Content-type: text/html\n\n
 		<script src="python_functions.js" type="text/javascript"></script>
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script src="task_admin_functions.js" type="text/javascript"></script>
-		<script></script>
+		<script>
+			$(function() {
+			code_area_prep();
+			
+			var editor = new Behave({
+			
+				textarea: 		document.getElementById('code'),
+				replaceTab: 	true,
+			    softTabs: 		true,
+			    tabSize: 		4,
+			    autoOpen: 		false,
+			    overwrite: 		false,
+			    autoStrip: 		false,
+			    autoIndent: 	false
+			});
+		});
+		</script>
     	<link rel="stylesheet" type="text/css" href="general_style.css">
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     	<style>
@@ -42,18 +58,21 @@ print """Content-type: text/html\n\n
 	<body>
 """
 common_components.print_navbar(cookies['id'].value,'')
-#codetocorrect = code.replace('</br>','\n')
-#codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t')
+codetocorrect = code.replace('</br>','\n')
+codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t')
 print """\n
 		<div class="container">
       		<div class="panel panel-default">
       			<table style="width:100%">
       				<tr>
-      					<td colspan="2"><code>
+      					<td colspan="2">
+      					<div class='container' style="width:100%">
+							<div class="line-nums"><span>1</span></div>
+								<textarea class="lined" rows="10" id="code" readonly>
 """
-#print codetocorrect.replace('\t','&nbsp;&nbsp;&nbsp;&nbsp;').replace('\n','</br>')
 print code
-print """\n				</code></td>
+print """\n				</textarea></div></div>
+						</td>
 					</tr>
 					<tr>
 						<td>
@@ -61,7 +80,7 @@ print """\n				</code></td>
 						</td>
 						<td>
 """
-#print task_correction.judge_correctness(task_id,student_id,codetocorrect)
+print task_correction.judge_correctness(task_id,student_id,codetocorrect)
 print """\n 			</td>
 					</tr>
 					<tr>
@@ -78,7 +97,7 @@ print """/n				</td>
 						</td>
 						<td>
 """
-#print task_correction.judge_time(task_id,codetocorrect)
+print task_correction.judge_time(task_id,codetocorrect)
 print """\n 			</td>
 					</tr>
 					<tr>
@@ -86,7 +105,7 @@ print """\n 			</td>
 							Attempts
 						</td>
 						<td>"""
-#task_correction.judge_attempts(task_id, codetocorrect)
+task_correction.judge_attempts(task_id, codetocorrect)
 print """/n				</td>
 					</tr>
 				</table>
