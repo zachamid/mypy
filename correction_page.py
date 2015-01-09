@@ -33,6 +33,11 @@ print """Content-type: text/html\n\n
 		<script></script>
     	<link rel="stylesheet" type="text/css" href="general_style.css">
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    	<style>
+			table,td,th, tr {
+    			border: 1px solid black;
+			}
+		</style>
     </head>
 	<body>
 """
@@ -72,7 +77,7 @@ print """/n				</td>
 						</td>
 						<td>
 """
-print task_correction.judge_time(task_id,student_id,codetocorrect)
+print task_correction.judge_time(task_id,codetocorrect)
 print """\n 			</td>
 					</tr>
 					<tr>
