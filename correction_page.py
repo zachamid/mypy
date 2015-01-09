@@ -61,7 +61,7 @@ print """\n				</code></td>
 						</td>
 						<td>
 """
-print task_correction.judge_correctness(task_id,student_id,codetocorrect)
+#print task_correction.judge_correctness(task_id,student_id,codetocorrect)
 print """\n 			</td>
 					</tr>
 					<tr>
@@ -78,7 +78,7 @@ print """/n				</td>
 						</td>
 						<td>
 """
-print task_correction.judge_time(task_id,codetocorrect)
+#print task_correction.judge_time(task_id,codetocorrect)
 print """\n 			</td>
 					</tr>
 					<tr>
@@ -86,7 +86,7 @@ print """\n 			</td>
 							Attempts
 						</td>
 						<td>"""
-task_correction.judge_attempts(task_id, codetocorrect)
+#task_correction.judge_attempts(task_id, codetocorrect)
 print """/n				</td>
 					</tr>
 				</table>
