@@ -36,6 +36,7 @@ print """Content-type: text/html\n\n
 			table,td,th, tr {
     			border: 1px solid black;
 			}
+			
 		</style>
     </head>
 	<body>
@@ -50,7 +51,7 @@ print """\n
       				<tr>
       					<td colspan="2">
       					<div class='container' style="width:100%">
-							<textarea class="lined" rows="10" id="code" readonly>
+							<textarea readonly>
 """
 print task_delivery.get_compile_code(task_id, codetocorrect)['code']
 print """\n				</textarea></div></div>
