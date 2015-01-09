@@ -43,7 +43,7 @@ print """Content-type: text/html\n\n
 """
 common_components.print_navbar(cookies['id'].value,'')
 codetocorrect = code.replace('</br>','\n')
-codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t');
+codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t')
 print """\n
 		<div class="container">
       		<div class="panel panel-default">
@@ -51,7 +51,7 @@ print """\n
       				<tr>
       					<td colspan="2"><code>
 """
-print code
+print codetocorrect.replace('\t','&nbsp;&nbsp;&nbsp;&nbsp;').replace('\n','</br>')
 print """\n				</code></td>
 					</tr>
 					<tr>
