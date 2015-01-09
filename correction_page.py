@@ -70,7 +70,7 @@ print """\n
 							<div class="line-nums"><span>1</span></div>
 								<textarea class="lined" rows="10" id="code" readonly>
 """
-print code
+print codetocorrect
 print """\n				</textarea></div></div>
 						</td>
 					</tr>
