@@ -49,10 +49,10 @@ print """\n
       		<div class="panel panel-default">
       			<table style="width:100%">
       				<tr>
-      					<td colspan="2">
+      					<td colspan="2"><code>
 """
 print code
-print """\n				</td>
+print """\n				</code></td>
 					</tr>
 					<tr>
 						<td>
