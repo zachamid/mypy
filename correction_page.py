@@ -51,7 +51,7 @@ print """\n
       				<tr>
       					<td colspan="2"><code>
 """
-print code.replace('  ','&nbsp;&nbsp;&nbsp;&nbsp;').replace('\n','</br>')
+print codecorrect.replace('\t','&nbsp;&nbsp;&nbsp;&nbsp;').replace('\n','</br>')
 print """\n				</code></td>
 					</tr>
 					<tr>
