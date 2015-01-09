@@ -47,26 +47,6 @@ def ast2dict(node):
 			code[field] = fields[field]
 	return code
 
-def adapted_jaccard(dict1, dict2):
-	union_count = 0
-	for field in dict1:
-		if field in dict2:
-			if type(dict1[field]) is dict and type(dict2[field]) is dict:
-				print 'Checking dicts:'+field+' </br>'
-				union_count += adapted_jaccard(dict1[field],dict2[field])
-			elif type(dict1[field]) is str and type(dict2[field]) is str:
-				print 'Checking strings:'+field+' </br>'
-				dist=levenshteinDistance(dict1[field],dict2[field],len(dict1[field]),len(dict2[field]))
-				union_count += dist/max([len(dict1[field]),len(dict2[field])])
-			elif type(dict1[field]) is int and type(dict2[field]) is int:
-				print 'Checking ints:'+field+' </br>'
-				dist=abs(dict1[field] - dict2[field])
-				union_count += dist/max([dict1[field],dict2[field]])
-			else:
-				print 'Type 1 is '+str(type(dict1[field])) + '</br> Type 2 is '+str(type(dict2[field]))+'</br>'
-	intersection_count = len(dict1)+len(dict2)-union_count
-	return union_count/intersection_count
-
 def levenshteinDistance(str1,str2,len1,len2):
 	if len1 == 0:
 		return len2
@@ -80,6 +60,58 @@ def levenshteinDistance(str1,str2,len1,len2):
 	return min(levenshteinDistance(str1,str2,len1-1,len2)+1,
 	levenshteinDistance(str1,str2,len1,len2-1)+1,
 	levenshteinDistance(str1,str2,len1-1,len2-1)+cost)
+
+def similarity_index_per_item(item1, item2):
+	if type(item1)==str and type(item2)==str:
+		return levenshteinIndex(item1,item2)
+	if (type(item1)==int and type(item1)==int) or (type(item1)==float and type(item2)==float) or (type(item1)==long and type(item2)==long):
+		return 1-abs((float)(item1 - item2))/max([item1,item2])
+	if type(item1)==bool and type(item2)==bool:
+		if item1 == item2:
+			return 1
+		else:
+			return 0
+	if (type(item1)==dict and type(item2)==dict) or (type(item1)==list and type(item2)==list):
+		distance = jaccard(item1,item2)
+		return distance
+		
+def levenshteinIndex(str1,str2):
+	distance = levenshteinDistance(str1,str2,len(str1),len(str2))
+	return 1-(float)(distance)/max([len(str1),len(str2)])
+
+def ast2dict(node):
+	fields = dict()
+	for name, val in ast.iter_fields(node):
+		if name not in ('left', 'right'):
+			fields[name] = val
+	code = dict()
+	for field in fields:
+		if isinstance(fields[field], list):
+			for item in fields[field]:
+				if isinstance(item, ast.AST):
+					code[item.__class__.__name__] = ast2dict(item)
+		if isinstance(fields[field], ast.AST):
+			code[fields[field].__class__.__name__] = ast2dict(fields[field])
+		if isinstance(fields[field], basestring) or isinstance(fields[field],int):
+			code[field] = fields[field]
+	return code
+	
+def jaccard(dict1, dict2, level=0):
+	intersection = 0
+	if(len(dict1)==0 and len(dict2)==0):
+		return 1
+	if(len(dict1)==0 or len(dict2)==0):
+		return 0
+	if type(dict1)==dict and type(dict2)==dict:
+		for field in dict1:
+			if field in dict2:
+				intersection += similarity_index_per_item(dict1[field], dict2[field])
+	else:
+		for x in xrange(0,min([len(dict1),len(dict2)])):
+			intersection += similarity_index_per_item(dict1[x], dict2[x])
+			
+	union = len(dict1)+len(dict2)-intersection
+	return (float)(intersection/union)
 
 def judge_correctness(task_id,student_id, code):
 	task_delivery.save_to_file(task_id,student_id, code)
@@ -96,7 +128,7 @@ def judge_similarity(id, code):
 	dict1 = ast2dict(ast.parse(py['task_complete.py']))
 	dict2 = ast2dict(ast.parse(code))
 	print '</br>'
-	print adapted_jaccard(dict1, dict2)
+	print jaccard(dict1, dict2)
 	print '</br>'
 	print str(dict1)
 	print '</br>'

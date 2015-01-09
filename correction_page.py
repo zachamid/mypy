@@ -35,27 +35,57 @@ print """Content-type: text/html\n\n
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
 	<body>
-		<div class="col-xs-12 col-md-12 col-sm-12">
-			<div class="panel panel-default translucent">
-			Original Code</br>
 """
-print code
-print """\n </br><b>Correctness Judge</b></br>"""
+common_components.print_navbar(cookies['id'].value,'')
 codetocorrect = code.replace('</br>','\n')
 codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t');
-print """
+print """\n
+		<div class="container">
+      		<div class="panel panel-default">
+      			<table style="width:100%">
+      				<tr>
+      					<td colspan="2">
+"""
+print code
+print """\n				</td>
+					</tr>
+					<tr>
+						<td>
+							Correctness
+						</td>
+						<td>
+"""
+print task_correction.judge_correctness(task_id,student_id,codetocorrect)
+print """\n 			</td>
+					</tr>
+					<tr>
+						<td>
+							Similarity to Model Answer
+						</td>
+						<td>"""
+print task_correction.judge_similarity(task_id, codetocorrect)
+print """/n				</td>
+					</tr>
+					<tr>
+						<td>
+							Time
+						</td>
+						<td>
+"""
+print task_correction.judge_time(task_id,student_id,codetocorrect)
+print """\n 			</td>
+					</tr>
+					<tr>
+						<td>
+							Attempts
+						</td>
+						<td>"""
+task_correction.judge_attempts(task_id, codetocorrect)
+print """/n				</td>
+					</tr>
+				</table>
+"""
 
-"""
-task_correction.judge_correctness(task_id,student_id,codetocorrect)
-print """ \n
-</br><b>Similarity Judge</b></br>
-"""
-
-codetocorrect = """
-def function():
-	print 'Hello'
-"""
-task_correction.judge_similarity(task_id, codetocorrect)
 print """\n
 		</div></div>
 	</body>
