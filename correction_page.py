@@ -51,7 +51,7 @@ print """\n
       				<tr>
       					<td colspan="2">
       					<div class='container' style="width:100%">
-							<textarea readonly>
+							<textarea rows="10" readonly>
 """
 print task_delivery.get_compile_code(task_id, codetocorrect)['code']
 print """\n				</textarea></div></div>
