@@ -52,7 +52,7 @@ print """\n
       					<div class='container' style="width:100%">
 							<textarea class="lined" rows="10" id="code" readonly>
 """
-print task_delivery.get_compile_code(task_id, codetocorrect)
+print task_delivery.get_compile_code(task_id, codetocorrect)['code']
 print """\n				</textarea></div></div>
 						</td>
 					</tr>
