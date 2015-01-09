@@ -39,10 +39,9 @@ textarea:focus{
 .container{
 	position:relative ;
 	display:inline-block;
-	padding: 20px;
 }
 .panel{
-	padding: 20px;
+	padding: 40px;
 }
 .line-nums{
 	font-size:13px !important;
