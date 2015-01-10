@@ -113,8 +113,9 @@ def jaccard(dict1, dict2, level=0):
 	union = len(dict1)+len(dict2)-intersection
 	return (float)(intersection/union)
 
-def judge_correctness(output1, output2):
-	return levenshteinIndex(output1, output2)
+def judge_correctness(taskid, submitted_output):
+	desired_output = task_delivery.get_python_code_from_file(taskid, 'result.txt')['result.txt']
+	return levenshteinIndex(desired_output, submitted_output)
 
 
 def judge_similarity(id, code):
