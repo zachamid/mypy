@@ -45,7 +45,7 @@ print """Content-type: text/html\n\n
 common_components.print_navbar(cookies['id'].value,'')
 codetocorrect = code.replace('</br>','\n')
 codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t')
-print """\n
+print """&nbsp
 		<div class="container">
       		<div class="panel panel-default">
       			<table style="width:100%">
@@ -55,7 +55,7 @@ print """\n
 							<textarea rows="10" readonly>
 """
 print task_delivery.get_compile_code(task_id, codetocorrect)['code']
-print """\n				</textarea></div></div>
+print """&nbsp				</textarea></div></div>
 						</td>
 					</tr>
 					<tr>
@@ -65,7 +65,7 @@ print """\n				</textarea></div></div>
 						<td>
 """
 print task_correction.judge_correctness(task_id,student_id,codetocorrect)
-print """\n 			</td>
+print """&nbsp 			</td>
 					</tr>
 					<tr>
 						<td>
@@ -73,7 +73,7 @@ print """\n 			</td>
 						</td>
 						<td>"""
 print task_correction.judge_similarity(task_id, codetocorrect)
-print """/n				</td>
+print """&nbsp				</td>
 					</tr>
 					<tr>
 						<td>
@@ -82,7 +82,7 @@ print """/n				</td>
 						<td>
 """
 print task_correction.judge_time(task_id,codetocorrect)
-print """\n 			</td>
+print """&nbsp			</td>
 					</tr>
 					<tr>
 						<td>
@@ -90,7 +90,7 @@ print """\n 			</td>
 						</td>
 						<td>"""
 task_correction.judge_attempts(task_id, codetocorrect)
-print """/n				</td>
+print """&nbsp			</td>
 					</tr>
 				</table>
 """
