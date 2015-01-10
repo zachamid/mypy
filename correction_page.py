@@ -64,7 +64,7 @@ print """&nbsp				</textarea></div></div>
 						</td>
 						<td>
 """
-task_correction.judge_correctness(task_id,student_id,codetocorrect)
+#task_correction.judge_correctness(task_id,student_id,codetocorrect)
 print """&nbsp 			</td>
 					</tr>
 					<tr>
@@ -81,7 +81,7 @@ print """&nbsp				</td>
 						</td>
 						<td>
 """
-task_correction.judge_time(task_id,codetocorrect)
+#task_correction.judge_time(task_id,codetocorrect)
 print """&nbsp			</td>
 					</tr>
 					<tr>
@@ -89,7 +89,7 @@ print """&nbsp			</td>
 							Attempts
 						</td>
 						<td>"""
-task_correction.judge_attempts(task_id, codetocorrect)
+#task_correction.judge_attempts(task_id, codetocorrect)
 print """&nbsp			</td>
 					</tr>
 				</table>
