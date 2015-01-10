@@ -128,9 +128,8 @@ else:
 			<button class="form-control"
 		onclick='run_code(document.getElementById("code").value,"output","error")' type="button">
 						Run
-			</button
-			<button class="form-control"
-		onclick='correct("""+task_id+""")' type="button">
+			</button>
+			<button class="form-control" onclick='correct("""+task_id+""")' type="button">
 						Correct
 			</button>"""
 			
