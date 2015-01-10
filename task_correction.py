@@ -125,7 +125,9 @@ def judge_similarity(id, code):
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
 	dict1 = ast2dict(ast.parse(py['task_complete.py']))
 	dict2 = ast2dict(ast.parse(code))
-	print jaccard(dict1, dict2)
+	#print jaccard(dict1, dict2)
+	print dict1
+	print dict2
 
 def judge_time(id,code):
 	print 'Currently developing time metric algorithm'
