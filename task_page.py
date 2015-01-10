@@ -58,9 +58,9 @@ print """Content-type: text/html\n\n
     				code.type = "textarea";
     				code.name = "code";
     				code.value = document.getElementById('code').value;
-    				var code = document.createElement("input");
-    				code.type = "textarea";
-    				code.name = "code";
+    				var output = document.createElement("input");
+    				output.type = "textarea";
+    				output.name = "output";
     				output.value = document.getElementById('output').value;
     				mapForm.appendChild(output);
     				document.getElementById('postform').appendChild(mapForm);
