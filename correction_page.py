@@ -17,6 +17,7 @@ task_info = cgi.FieldStorage()
 student_id = cookies['id'].value
 task_id = task_info['task_id'].value
 code = task_info['code'].value
+output = task_info["output"].value
 cursor = db_connection.get_connection()
 
 print """Content-type: text/html\n\n
@@ -50,11 +51,18 @@ print """&nbsp
       		<div class="panel panel-default">
       			<table style="width:100%">
       				<tr>
-      					<td colspan="2">
-      					<div class='container' style="width:100%">
+      					<td>
+      					<div class='container' style="width:50%">
 							<textarea rows="10" readonly>
 """
-print task_delivery.get_compile_code(task_id, codetocorrect)['code']
+print code
+print """&nbsp				</textarea></div></div>
+						</td>
+						<td>
+      					<div class='container' style="width:50%">
+							<textarea rows="10" readonly>
+"""
+print output
 print """&nbsp				</textarea></div></div>
 						</td>
 					</tr>

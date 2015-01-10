@@ -57,10 +57,13 @@ print """Content-type: text/html\n\n
     				var code = document.createElement("input");
     				code.type = "textarea";
     				code.name = "code";
-    				code.value = document.getElementById('code').value.replace(/\\r?\\n/g, '</br>');
-    				code.value = code.value.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
-    				mapForm.appendChild(code);
-    				document.body.appendChild(mapForm);
+    				code.value = document.getElementById('code').value;
+    				var code = document.createElement("input");
+    				code.type = "textarea";
+    				code.name = "code";
+    				output.value = document.getElementById('output').value;
+    				mapForm.appendChild(output);
+    				document.getElementById('postform').appendChild(mapForm);
     				mapForm.submit();
     			}
 		
@@ -147,6 +150,7 @@ print """\n	</div>
 				</div>
 			</div>
 		</div>
+		<div id="postform" style="display: none;"></div>
 	</body>
 </html>
 """

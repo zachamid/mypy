@@ -113,19 +113,16 @@ def jaccard(dict1, dict2, level=0):
 	union = len(dict1)+len(dict2)-intersection
 	return (float)(intersection/union)
 
-def judge_correctness(task_id,student_id, code):
-	task_delivery.save_to_file(task_id,student_id, code)
-	dirname = task_delivery.path+str(task_id)+'/'
-	user_code = task_delivery.get_python_output(dirname+str(student_id)+'.py')
-	set_code = task_delivery.get_python_output(dirname+'task_complete.py')
-	return levenshteinIndex(user_code,set_code)
+def judge_correctness(output1, output2):
+	return levenshteinIndex(output1, output2)
 
 
 def judge_similarity(id, code):
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
 	dict1 = ast2dict(ast.parse(py['task_complete.py']))
 	dict2 = ast2dict(ast.parse(code))
-	#print jaccard(dict1, dict2)
+	print jaccard(dict1, dict2)
+	print '</br>'
 	print dict1
 	print '</br>'
 	print dict2
