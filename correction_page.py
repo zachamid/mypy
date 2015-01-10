@@ -64,7 +64,7 @@ print """&nbsp				</textarea></div></div>
 						</td>
 						<td>
 """
-print task_correction.judge_correctness(task_id,student_id,codetocorrect)
+task_correction.judge_correctness(task_id,student_id,codetocorrect)
 print """&nbsp 			</td>
 					</tr>
 					<tr>
@@ -72,7 +72,7 @@ print """&nbsp 			</td>
 							Similarity to Model Answer
 						</td>
 						<td>"""
-print task_correction.judge_similarity(task_id, codetocorrect)
+#print task_correction.judge_similarity(task_id, codetocorrect)
 print """&nbsp				</td>
 					</tr>
 					<tr>
@@ -81,7 +81,7 @@ print """&nbsp				</td>
 						</td>
 						<td>
 """
-print task_correction.judge_time(task_id,codetocorrect)
+task_correction.judge_time(task_id,codetocorrect)
 print """&nbsp			</td>
 					</tr>
 					<tr>
