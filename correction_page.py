@@ -73,7 +73,7 @@ print """&nbsp				</textarea></div></div>
 						</td>
 						<td>
 """
-print task_correction.judge_correctness(task_id,output)
+print task_correction.judge_correctness(task_id,outputtocorrect)
 print """&nbsp 			</td>
 					</tr>
 					<tr>
