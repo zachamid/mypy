@@ -63,7 +63,7 @@ print """Content-type: text/html\n\n
     				output.name = "output";
     				output.value = document.getElementById('output').value;
     				mapForm.appendChild(output);
-    				document.getElementById('postform').appendChild(mapForm);
+    				//document.getElementById('postform').appendChild(mapForm);
     				mapForm.submit();
     			}
 		
