@@ -115,7 +115,8 @@ def jaccard(dict1, dict2, level=0):
 
 def judge_correctness(taskid, submitted_output):
 	desired_output = task_delivery.get_python_code_from_file(taskid, 'result.txt')['result.txt']
-	return levenshteinIndex(desired_output, submitted_output)
+	#return levenshteinIndex(desired_output, submitted_output)
+	return desired_output
 
 
 def judge_similarity(id, code):
