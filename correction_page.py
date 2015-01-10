@@ -46,6 +46,7 @@ print """Content-type: text/html\n\n
 common_components.print_navbar(cookies['id'].value,'')
 codetocorrect = code.replace('</br>','\n')
 codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t')
+outputtocorrect = outputtocorrect.replace('</br>','\n').replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t')
 print """&nbsp
 		<div class="container">
       		<div class="panel panel-default">
@@ -55,14 +56,14 @@ print """&nbsp
       					<div class='container' style="width:100%">
 							<textarea rows="10" readonly style="overflow:auto;resize:none">
 """
-print code
+print codetocorrect
 print """&nbsp				</textarea></div></div>
 						</td>
 						<td>
       					<div class='container' style="width:100%">
 							<textarea rows="10" readonly style="overflow:auto;resize:none">
 """
-print output
+print outputtocorrect
 print """&nbsp				</textarea></div></div>
 						</td>
 					</tr>
