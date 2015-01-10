@@ -55,7 +55,7 @@ print """&nbsp
       					<div class='container' style="width:100%">
 							<textarea rows="10" readonly style="overflow:auto;resize:none">
 """
-print codetocorrect
+print code
 print """&nbsp				</textarea></div></div>
 						</td>
 						<td>
