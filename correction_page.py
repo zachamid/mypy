@@ -53,14 +53,14 @@ print """&nbsp
       				<tr>
       					<td>
       					<div class='container' style="width:50%">
-							<textarea rows="10" readonly>
+							<textarea rows="10" readonly style:"overflow:auto;resize:none">
 """
-print code
+print codetocorrect
 print """&nbsp				</textarea></div></div>
 						</td>
 						<td>
       					<div class='container' style="width:50%">
-							<textarea rows="10" readonly>
+							<textarea rows="10" readonly style:"overflow:auto;resize:none">
 """
 print output
 print """&nbsp				</textarea></div></div>
@@ -72,7 +72,7 @@ print """&nbsp				</textarea></div></div>
 						</td>
 						<td>
 """
-print task_correction.judge_correctness(task_id,student_id,codetocorrect)
+print task_correction.judge_correctness(task_id,codetocorrect)
 print """&nbsp 			</td>
 					</tr>
 					<tr>
