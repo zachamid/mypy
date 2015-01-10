@@ -118,7 +118,7 @@ def judge_correctness(task_id,student_id, code):
 	dirname = task_delivery.path+str(task_id)+'/'
 	user_code = task_delivery.get_python_output(dirname+str(student_id)+'.py')
 	set_code = task_delivery.get_python_output(dirname+'task_complete.py')
-	print levenshteinDistance(user_code,set_code, len(user_code), len(set_code))
+	return levenshteinDistance(user_code,set_code, len(user_code), len(set_code))
 
 
 def judge_similarity(id, code):
