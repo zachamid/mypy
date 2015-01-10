@@ -42,9 +42,9 @@ print """Content-type: text/html\n\n
     </head>
 	<body>
 """
-#common_components.print_navbar(cookies['id'].value,'')
-#codetocorrect = code.replace('</br>','\n')
-#codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t')
+common_components.print_navbar(cookies['id'].value,'')
+codetocorrect = code.replace('</br>','\n')
+codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t')
 print """&nbsp
 		<div class="container">
       		<div class="panel panel-default">
@@ -54,7 +54,7 @@ print """&nbsp
       					<div class='container' style="width:100%">
 							<textarea rows="10" readonly>
 """
-#print task_delivery.get_compile_code(task_id, codetocorrect)['code']
+print task_delivery.get_compile_code(task_id, codetocorrect)['code']
 print """&nbsp				</textarea></div></div>
 						</td>
 					</tr>
