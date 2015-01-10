@@ -35,6 +35,7 @@ print """Content-type: text/html\n\n
     	<style>
 			table,td,th, tr {
     			border: 1px solid black;
+    			padding: 10px;
 			}
 			
 		</style>
