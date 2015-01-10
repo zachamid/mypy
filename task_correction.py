@@ -117,22 +117,15 @@ def judge_correctness(task_id,student_id, code):
 	task_delivery.save_to_file(task_id,student_id, code)
 	dirname = task_delivery.path+str(task_id)+'/'
 	user_code = task_delivery.get_python_output(dirname+str(student_id)+'.py')
-	print '</br>'+ user_code
 	set_code = task_delivery.get_python_output(dirname+'task_complete.py')
-	print '</br>'+set_code
-	print '</br>Levenshtein Distance: '+ str(levenshteinDistance(user_code,set_code, len(user_code), len(set_code)))
+	print levenshteinDistance(user_code,set_code, len(user_code), len(set_code))
 
 
 def judge_similarity(id, code):
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
 	dict1 = ast2dict(ast.parse(py['task_complete.py']))
 	dict2 = ast2dict(ast.parse(code))
-	print '</br>'
 	print jaccard(dict1, dict2)
-	print '</br>'
-	print str(dict1)
-	print '</br>'
-	print str(dict2)
 
 def judge_time(id,code):
 	print 'Currently developing time metric algorithm'
