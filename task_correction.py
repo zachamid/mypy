@@ -9,6 +9,7 @@ import MySQLdb.cursors
 import db_connection
 import xml
 import task_delivery
+import pylev
 
 
 def str_node(node):
@@ -47,20 +48,6 @@ def ast2dict(node):
 			code[field] = fields[field]
 	return code
 
-def levenshteinDistance(str1,str2,len1,len2):
-	if len1 == 0:
-		return len2
-	if len2 == 0:
-		return len1
-	
-	cost = 1
-	if str1[len1-1]==str2[len2-1]:
-		cost = 0
-	
-	return min(levenshteinDistance(str1,str2,len1-1,len2)+1,
-	levenshteinDistance(str1,str2,len1,len2-1)+1,
-	levenshteinDistance(str1,str2,len1-1,len2-1)+cost)
-
 def similarity_index_per_item(item1, item2):
 	if type(item1)==str and type(item2)==str:
 		return levenshteinIndex(item1,item2)
@@ -76,7 +63,7 @@ def similarity_index_per_item(item1, item2):
 		return distance
 		
 def levenshteinIndex(str1,str2):
-	distance = levenshteinDistance(str1,str2,len(str1),len(str2))
+	distance = pylev.levenshtein(str1,str2)
 	return 1-(float)(distance)/max([len(str1),len(str2)])
 
 def ast2dict(node):
