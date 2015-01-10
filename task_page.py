@@ -132,7 +132,7 @@ else:
 			<button class="form-control"
 		onclick='correct("""+task_id+""")' type="button">
 						Correct
-			</button>>"""
+			</button>"""
 			
 print """\n	</div>
 		</div>
