@@ -57,11 +57,13 @@ print """Content-type: text/html\n\n
     				var code = document.createElement("input");
     				code.type = "textarea";
     				code.name = "code";
-    				code.value = document.getElementById('code').value;
+    				code.value = document.getElementById('code').value.replace(/\\r?\\n/g, '</br>');
+    				code.value = code.value.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
     				var output = document.createElement("input");
     				output.type = "textarea";
     				output.name = "output";
-    				output.value = document.getElementById('output').value;
+    				output.value = document.getElementById('output').value.replace(/\\r?\\n/g, '</br>');
+    				output.value = output.value.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
     				mapForm.appendChild(output);
     				mapForm.appendChild(code);
     				document.getElementById('postform').appendChild(mapForm);
