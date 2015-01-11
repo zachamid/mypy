@@ -41,7 +41,7 @@ textarea:focus{
 	display:inline-block;
 }
 .panel{
-	padding: 40px;
+	padding: 20px;
 }
 .line-nums{
 	font-size:13px !important;
