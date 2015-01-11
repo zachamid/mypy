@@ -64,7 +64,7 @@ def similarity_index_per_item(item1, item2):
 		
 def levenshteinIndex(str1,str2):
 	distance = pylev.levenshtein(str1,str2)
-	return (distance,1-(float)(distance)/max([len(str1),len(str2)]))
+	return 1-(float)(distance)/max([len(str1),len(str2)])
 
 def ast2dict(node):
 	fields = dict()
