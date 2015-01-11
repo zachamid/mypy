@@ -81,7 +81,7 @@ print """&nbsp 			</td>
 							Similarity to Model Answer
 						</td>
 						<td>"""
-#print task_correction.judge_similarity(task_id, codetocorrect)
+print task_correction.judge_similarity(task_id, codetocorrect)
 print """&nbsp				</td>
 					</tr>
 					<tr>
