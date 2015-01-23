@@ -33,7 +33,7 @@ elif(cmd == 'TeacherList'):
 		ON Class.ClassID = TeacherClassRelationship.ClassID
 		INNER JOIN Teacher
 		ON Teacher.TeacherID = TeacherClassRelationship.TeacherID
-		ORDER Class.ClassID ASC
+		ORDER BY Class.ClassID ASC
 	"""
 	
 
