@@ -219,7 +219,7 @@ print """\n
 				<div id='TeacherList'>
 				"""
 					
-				"""\n
+print				"""\n
 				</div>
 			</div>
 		</div>
