@@ -58,8 +58,6 @@ for task in file_info:
       	print """\n
       			</table>
       		</div>
-      		<div id='task_info' class="panel panel-default translucent">
-      		</div>
       	</div>
 	</body>
 </html>
