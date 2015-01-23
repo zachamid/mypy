@@ -47,6 +47,17 @@ print """\n\n
     				});
  			}
  			
+ 			function getTeacherList(){
+ 				var data = {cmd: "TeacherList"};
+ 				$.ajax({
+ 					data: data,
+ 					url: '/admin_queries.py',
+ 					type: "POST",
+ 					dataType: "json"}).done(function(result){
+ 						console.log(result);
+ 				});
+ 			}
+ 			
  			function getClassList(){
  				class_select = document.getElementById('classes');
  				class_ID = class_select.options[class_select.selectedIndex].value;
@@ -158,6 +169,7 @@ print """\n\n
  			
   			$(function() {
   				getUnassignedList();
+  				getTeacherList();
   			});
  		</script>
 	</head>
@@ -204,7 +216,11 @@ print """\n
 		</div></div>
 		<div class="container col-sm-12 col-md-12">
 			<div class="panel panel-default translucent">
-				Teacher Administration
+				<div id='TeacherList'>
+				"""
+					
+				"""\n
+				</div>
 			</div>
 		</div>
 	</body>

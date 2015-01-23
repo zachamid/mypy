@@ -24,6 +24,17 @@ elif(cmd == 'CheckEmail'):
 elif(cmd == 'ClassList'):
 	classID = posted_data['ClassID'].value
 	sql_query = "SELECT * FROM Student WHERE ClassID="+classID
+elif(cmd == 'TeacherList'):
+	sql_query = """
+		SELECT Class.ClassID, Class.ClassName, Teacher.TeacherID, Teacher.FirstName,
+		Teacher.LastName
+		FROM Class
+		INNER JOIN TeacherClassRelationship
+		ON Class.ClassID = TeacherClassRelationship.ClassID
+		INNER JOIN Teacher
+		ON Teacher.TeacherID = TeacherClassRelationship.TeacherID
+		ORDER Class.ClassID ASC
+	"""
 	
 
 cursor.execute(sql_query)
