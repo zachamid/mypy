@@ -67,12 +67,12 @@ print """\n\n
  							currentRow.insertCell(0).innerHTML='<b>'+result[0]['ClassName']+'</b>';
  							var currentCell = currentRow.insertCell(1);
 	 						for(counter = 1; counter<result.length; counter++){
-	 							if(currClass != result[counter]['ClassID']){
+	 							/*if(currClass != result[counter]['ClassID']){
 	 								currentRow=teacherList.insertRow(row_counter);
 	 								currentRow.insertCell(0).innerHTML='<b>'+result[counter]['ClassName']+'</b>';
 	 								currentCell=currentRow.insertCell(1);
 	 								row_counter++;
-	 							}
+	 							}*/
 	 							currentCell.innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
 	 						}
 	 					}
