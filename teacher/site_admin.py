@@ -63,7 +63,7 @@ print """\n\n
  							row_counter = 0
  							var currentRow = teacherList.insertRow(row_counter);
  							row_counter++;
- 							var currClass = result[0][ClassID];
+ 							var currClass = result[0]['ClassID'];
  							currentRow.insertCell(0).innerHTML='<b>'+result[0][ClassName]+'</b>';
  							var currentCell = currentRow.insertCell(1);
 	 						for(counter = 1; counter<result.length; counter++){
