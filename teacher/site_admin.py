@@ -55,6 +55,7 @@ print """\n\n
  					type: "POST",
  					dataType: "json"}).done(function(result){
  						teacherList = document.getElementById('teacherList');
+ 						console.log(result);
  						for (row_count=teacherList.rows.length-1;row_count >=0; row_count--){
  							teacherList.deleteRow(row_count);	
  						}
