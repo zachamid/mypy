@@ -73,7 +73,7 @@ print """\n\n
 	 								currentCell=currentRow.insertCell(1);
 	 								row_counter++;
 	 							}
-	 							currentCell+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
+	 							currentCell.innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
 	 						}
 	 					}
  				});
