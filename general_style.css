@@ -11,6 +11,7 @@ body {
 
 table,td, tr{
   padding:10px;
+  vertical-align: top;
 }
 
 .translucent {
