@@ -54,7 +54,27 @@ print """\n\n
  					url: '/admin_queries.py',
  					type: "POST",
  					dataType: "json"}).done(function(result){
- 						console.log(result);
+ 						teacherList = document.getElementById('teacherList');
+ 						for (row_count=teacherList.rows.length-1;row_count >=0; row_count--){
+ 							teacherList.deleteRow(row_count);	
+ 						}
+ 						if(result.length !=0){
+ 							row_counter = 0
+ 							var currentRow = teacherList.insertRow(row_counter);
+ 							row_counter++;
+ 							var currClass = result[0][ClassID];
+ 							currentRow.insertCell(0).innerHTML='<b>'+result[0][ClassName]+'</b>';
+ 							var currentCell = currentRow.insertCell(1);
+	 						for(counter = 1; counter<result.length; counter++){
+	 							if(currClass != result[counter][ClassID]){
+	 								currentRow=teacherList.insertRow(row_counter);
+	 								currentRow.insertCell(0).innerHTML='<b>'+result[counter][ClassName]+'</b>';
+	 								currentCell=currentRow.insertCell(1);
+	 								row_counter++;
+	 							}
+	 							currentCell+=result[counter][FirstName]+' '+result[counter][LastName]+'</br>';
+	 						}
+	 					}
  				});
  			}
  			
@@ -216,11 +236,7 @@ print """\n
 		</div></div>
 		<div class="container col-sm-12 col-md-12">
 			<div class="panel panel-default translucent">
-				<div id='TeacherList'>
-				"""
-					
-print				"""\n
-				</div>
+				<table id='teacherList'></table>
 			</div>
 		</div>
 	</body>
