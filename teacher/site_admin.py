@@ -58,7 +58,8 @@ print """\n\n
     			run_admin_query('Teachers',{}, function(result){
       					var teacher_select = document.getElementById('teacher_select');
       					for(counter=0;counter<result.length; counter++){
-        					var new_option = new Option(result[counter]['ClassName'],result[counter]['ClassID']);
+      						var name = result[counter]['FirstName']+" "+result[counter]['LastName']
+        					var new_option = new Option(name,result[counter]['TeacherID']);
         					teacher_select.options[counter] = new_option;
       					}
     			});
