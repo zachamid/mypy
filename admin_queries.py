@@ -24,7 +24,9 @@ elif(cmd == 'CheckEmail'):
 elif(cmd == 'ClassList'):
 	classID = posted_data['ClassID'].value
 	sql_query = "SELECT * FROM Student WHERE ClassID="+classID
-elif(cmd == 'TeacherList'):
+elif(cmd == 'Teachers'):
+	sql_query = 'SELECT TeacherID, FirstName, LastName FROM Teacher'
+elif(cmd == 'ClassTeacherList'):
 	sql_query = """
 		SELECT Class.ClassID, Class.ClassName, Teacher.TeacherID, Teacher.FirstName,
 		Teacher.LastName

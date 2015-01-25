@@ -32,33 +32,46 @@ print """\n\n
   		<link href="../general_style.css" rel="stylesheet">
   		<link href="teacher_style.css" rel="stylesheet">
   		<script>
-  			function getClasses(select_id){
-    			var data = {cmd: "Classes"};
+  			function run_admin_query(cmd, params, post_function){
+  				var data = {cmd: cmd};
+  				for(key in params){
+  					data[key]=params[key];
+  				}
     			$.ajax({
       				data : data,
       				url : '/admin_queries.py',
       				type : "POST",
-      				dataType : "json"}).done(function(result){
+      				dataType : "json"}).done(post_function);
+  			}
+  		
+  			function getClasses(select_id){
+    			run_admin_query('Classes',{}, function(result){
       					var class_select = document.getElementById(select_id);
       					for(counter=0;counter<result.length; counter++){
         					var new_option = new Option(result[counter]['ClassName'],result[counter]['ClassID']);
         					class_select.options[counter] = new_option;
       					}
-    				});
+    			});
+ 			}
+ 			
+ 			function getTeachers(){
+    			run_admin_query('Teachers',{}, function(result){
+      					var teacher_select = document.getElementById('teacher_id');
+      					for(counter=0;counter<result.length; counter++){
+        					var new_option = new Option(result[counter]['ClassName'],result[counter]['ClassID']);
+        					teacher_select.options[counter] = new_option;
+      					}
+    			});
  			}
  			
  			function getTeacherList(){
- 				var data = {cmd: "TeacherList"};
- 				$.ajax({
- 					data: data,
- 					url: '/admin_queries.py',
- 					type: "POST",
- 					dataType: "json"}).done(function(result){
+ 				run_admin_query("ClassTeacherList",{}, function(result){
  						teacherList = document.getElementById('teacherList');
  						console.log(result);
  						for (row_count=teacherList.rows.length-1;row_count >=0; row_count--){
  							teacherList.deleteRow(row_count);	
  						}
+	 					teacher_select = document.getElementById('teacher_select');
  						if(result.length !=0){
  							row_counter = 0
  							var currentRow = teacherList.insertRow(row_counter);
@@ -74,6 +87,7 @@ print """\n\n
 	 								row_counter++;
 	 							}
 	 							currentCell.innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
+	 							
 	 						}
 	 					}
  				});
@@ -82,17 +96,13 @@ print """\n\n
  			function getClassList(){
  				class_select = document.getElementById('classes');
  				class_ID = class_select.options[class_select.selectedIndex].value;
- 				var data = {cmd: "ClassList",ClassID:''+class_ID};
+ 				var data = {ClassID:''+class_ID};
  				var table = document.getElementById('classList');
  				row_no = table.rows.length;
  				for (row_count=row_no-1;row_count >=0; row_count--){
  					table.deleteRow(row_count);	
  				}
- 				$.ajax({
-      				data : data,
-      				url : '/admin_queries.py',
-      				type : "POST",
-      				dataType : "json"}).done(function(result){
+ 				run_admin_query('ClassList', data, function(result){
       					var header_row = table.insertRow(0);
     					header_row.insertCell(0).innerHTML = '<b>ID</b>';
     					header_row.insertCell(1).innerHTML = '<b>First Name</b>';
@@ -115,17 +125,13 @@ print """\n\n
  			}
  			
  			function getUnassignedList(){
- 				var data = {cmd: "ClassList",ClassID:'-1'};
+ 				var data = {ClassID:'-1'};
  				var table = document.getElementById('unassignedList');
  				row_no = table.rows.length;
  				for (row_count=row_no-1;row_count >=0; row_count--){
  					table.deleteRow(row_count);	
  				}
- 				$.ajax({
-      				data : data,
-      				url : '/admin_queries.py',
-      				type : "POST",
-      				dataType : "json"}).done(function(result){
+ 				run_admin_query('ClassList',data, function(result){
       					var header_row = table.insertRow(0);
     					header_row.insertCell(0).innerHTML = '<b>ID</b>';
     					header_row.insertCell(1).innerHTML = '<b>First Name</b>';
@@ -191,6 +197,8 @@ print """\n\n
   			$(function() {
   				getUnassignedList();
   				getTeacherList();
+  				getClasses('class_select');
+  				getTeachers();
   			});
  		</script>
 	</head>
@@ -237,7 +245,11 @@ print """\n
 		</div></div>
 		<div class="container col-sm-12 col-md-12">
 			<div class="panel panel-default translucent">
+				Teacher Class Assignments </br>
 				<table id='teacherList'></table>
+				Assign Teacher</br>
+				<select class="form-control" id='teacher_select'></select> &nbsp
+				<select class="form-control" id='class_select'></select>
 			</div>
 		</div>
 	</body>
