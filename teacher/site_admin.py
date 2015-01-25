@@ -56,7 +56,7 @@ print """\n\n
  			
  			function getTeachers(){
     			run_admin_query('Teachers',{}, function(result){
-      					var teacher_select = document.getElementById('teacher_id');
+      					var teacher_select = document.getElementById('teacher_select');
       					for(counter=0;counter<result.length; counter++){
         					var new_option = new Option(result[counter]['ClassName'],result[counter]['ClassID']);
         					teacher_select.options[counter] = new_option;
