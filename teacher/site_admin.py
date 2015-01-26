@@ -266,7 +266,7 @@ print """\n
 				<table><tr><td>
 				<select class="form-control" id='teacher_select'></select></td>
 				<td><select class="form-control" id='class_select'></select></td>
-				<td><button class="form-control">Assign</button></td>
+				<td><button class="form-control" onclick='assignToClass()'>Assign</button></td>
 				</table>
 			</div>
 		</div>
