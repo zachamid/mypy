@@ -13,7 +13,7 @@ if table == 'TeacherClassRelationship':
 	sql_query = '''SELECT * FROM TeacherClassRelationship
 					WHERE ClassID='''+ classID+' AND TeacherID='+teacherID
 	cursor.execute(sql_query)
-	if cursor.count != 0:
+	if cursor.rowcount != 0:
 		id = 0
 if(not isset(id)):
 	sql_query = "INSERT INTO "+table+"("+columns+") VALUES("+values+")"
