@@ -7,10 +7,19 @@ posted_data = cgi.FieldStorage()
 table = posted_data['table'].value
 columns = posted_data['columns'].value
 values = posted_data['values'].value
-sql_query = "INSERT INTO "+table+"("+columns+") VALUES("+values+")"
 cursor = db_connection.get_connection()
-cursor.execute(sql_query)
-id = cursor.lastrowid
+if table == 'TeacherClassRelationship':
+	classID, teacherID = values.split(',');
+	sql_query = '''SELECT * FROM TeacherClassRelationship
+					WHERE ClassID=%d AND TeacherID=%d
+	''' % (classID,TeacherID)
+	cursor.execute(sql_query)
+	if cursor.count != 0:
+		id = 0
+if(not isset(id)):
+	sql_query = "INSERT INTO "+table+"("+columns+") VALUES("+values+")"
+	cursor.execute(sql_query)
+	id = cursor.lastrowid
 
 print """content-type:text/html
 

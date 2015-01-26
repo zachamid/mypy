@@ -72,7 +72,6 @@ print """\n\n
  						for (row_count=teacherList.rows.length-1;row_count >=0; row_count--){
  							teacherList.deleteRow(row_count);	
  						}
-	 					teacher_select = document.getElementById('teacher_select');
  						if(result.length !=0){
  							row_counter = 0
  							var currentRow = teacherList.insertRow(row_counter);
@@ -181,6 +180,21 @@ print """\n\n
 	      				});
 	 			}
  			}
+ 			
+ 			function assignToClass(){
+ 				var classID = document.getElementById('class_select').value;
+ 				var teacherID = document.getElementById('teacher_select').value;
+ 				var params = {table:'TeacherClassRelationship',
+ 								columns:'ClassID, TeacherID',
+ 								values:'"'+classID+'","'+teacherID+'"'};
+ 				$.ajax({
+      				data : params,
+      				url : '/insert.py',
+      				type : "POST",
+      				dataType : "text"}).done(function(result){
+      					getTeacherList();
+      				});
+ 			}
  					
  			function removeFromClass(studentID){
  				data = {id: studentID,
@@ -252,7 +266,7 @@ print """\n
 				<table><tr><td>
 				<select class="form-control" id='teacher_select'></select></td>
 				<td><select class="form-control" id='class_select'></select></td>
-				<td><button>Assign</button></td>
+				<td><button class="form-control">Assign</button></td>
 				</table>
 			</div>
 		</div>
