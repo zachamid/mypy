@@ -249,8 +249,11 @@ print """\n
 				Teacher Class Assignments </br>
 				<table id='teacherList'></table>
 				Assign Teacher</br>
-				<select class="form-control" id='teacher_select'></select> &nbsp
-				<select class="form-control" id='class_select'></select>
+				<table><tr><td>
+				<select class="form-control" id='teacher_select'></select></td>
+				<td><select class="form-control" id='class_select'></select></td>
+				<td><button>Assign</button></td>
+				</table>
 			</div>
 		</div>
 	</body>
