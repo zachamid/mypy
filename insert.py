@@ -11,7 +11,7 @@ cursor = db_connection.get_connection()
 if table == 'TeacherClassRelationship':
 	classID, teacherID = values.split(',');
 	sql_query = '''SELECT * FROM TeacherClassRelationship
-					WHERE ClassID='''+ classID+' AND TeacherID='TeacherID
+					WHERE ClassID='''+ classID+' AND TeacherID='+TeacherID
 	cursor.execute(sql_query)
 	if cursor.count != 0:
 		id = 0
