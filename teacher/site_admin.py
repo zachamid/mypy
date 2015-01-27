@@ -93,6 +93,10 @@ print """\n\n
  				});
  			}
  			
+ 			function getAdminList(){
+ 				run_admin_query('AdministratorList',{});
+ 			}
+ 			
  			function getClassList(){
  				class_select = document.getElementById('classes');
  				class_ID = class_select.options[class_select.selectedIndex].value;
@@ -117,7 +121,7 @@ print """\n\n
     						row.insertCell(1).innerHTML = result[student]['FirstName'];
     						row.insertCell(2).innerHTML = result[student]['LastName'];
     						row.insertCell(3).innerHTML = result[student]['Email'];
-    						row.insertCell(4).innerHTML = '<a onclick="removeFromClass('+result[student]['StudentID']+')">Remove from class</a>';
+    						row.insertCell(4).innerHTML = '<a onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove from class</a>';
     						row.insertCell(5).innerHTML = "<a onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</a>";
     						counter++;
     					}
@@ -147,7 +151,7 @@ print """\n\n
     						row.insertCell(2).innerHTML = result[student]['LastName'];
     						row.insertCell(3).innerHTML = result[student]['Email'];
     						row.insertCell(4).innerHTML = "<select id='classSelect"+result[student]['StudentID']+"'></select>";
-    						row.insertCell(4).innerHTML += "<button onclick=''>Assign</button>"
+    						row.insertCell(4).innerHTML += "<button class='form-control' onclick='AssignStudentToClass("+result[student]['StudentID']+",document.getElementById('classSelect"+result[student]['StudentID']+"').value)'>Assign</button>"
     						row.insertCell(5).innerHTML = "<a onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</a>";
     						getClasses('classSelect'+result[student]['StudentID']);
     						counter++;
@@ -181,7 +185,7 @@ print """\n\n
 	 			}
  			}
  			
- 			function assignToClass(){
+ 			function assignTeacherToClass(){
  				var classID = document.getElementById('class_select').value;
  				var teacherID = document.getElementById('teacher_select').value;
  				var params = {table:'TeacherClassRelationship',
@@ -196,16 +200,18 @@ print """\n\n
       				});
  			}
  					
- 			function removeFromClass(studentID){
+ 			function assignStudentToClass(studentID,classID){
+ 				delete_after = delete_after || -1;
  				data = {id: studentID,
  						type: 'Student',
- 						ClassID: '-1'};
+ 						ClassID: classID};
  				$.ajax({
       				data : data,
       				url : '/update.py',
       				type : "POST",
       				dataType : "text"}).done(function(result){
       					getClassList();
+      					getUnassignedList();
       				});
  			}
  			
@@ -266,7 +272,19 @@ print """\n
 				<table><tr><td>
 				<select class="form-control" id='teacher_select'></select></td>
 				<td><select class="form-control" id='class_select'></select></td>
-				<td><button class="form-control" onclick='assignToClass()'>Assign</button></td>
+				<td><button class="form-control" onclick='assignTeacherToClass()'>Assign</button></td>
+				</table>
+			</div>
+		</div>
+		<div class="container col-sm-12 col-md-12">
+			<div class="panel panel-default translucent">
+				Administrators </br>
+				<table id='teacherList'></table>
+				Assign Teacher</br>
+				<table><tr><td>
+				<select class="form-control" id='teacher_select'></select></td>
+				<td><select class="form-control" id='class_select'></select></td>
+				<td><button class="form-control" onclick='assignTeacherToClass()'>Assign</button></td>
 				</table>
 			</div>
 		</div>
