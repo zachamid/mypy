@@ -87,7 +87,7 @@ print """\n\n
 	 								row_counter++;
 	 							}
 	 							currentCell.innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
-	 							
+	 							currClass = result[counter]['ClassID'];
 	 						}
 	 					}
  				});
