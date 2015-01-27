@@ -55,19 +55,20 @@ print """\n\n
  			}
  			
  			function getTeachers(){
-    				run_admin_query('Teachers',{}, function(result){
+    			run_admin_query('Teachers',{}, function(result){
       					var teacher_select = document.getElementById('teacher_select');
       					for(counter=0;counter<result.length; counter++){
       						var name = result[counter]['FirstName']+" "+result[counter]['LastName']
         					var new_option = new Option(name,result[counter]['TeacherID']);
         					teacher_select.options[counter] = new_option;
       					}
-    				});
+    			});
  			}
  			
  			function getTeacherList(){
  				run_admin_query("ClassTeacherList",{}, function(result){
  						teacherList = document.getElementById('teacherList');
+ 						console.log(result);
  						for (row_count=teacherList.rows.length-1;row_count >=0; row_count--){
  							teacherList.deleteRow(row_count);	
  						}
@@ -79,7 +80,6 @@ print """\n\n
  							currentRow.insertCell(0).innerHTML='<b>'+result[0]['ClassName']+'</b>';
  							var currentCell = currentRow.insertCell(1);
 	 						for(counter = 0; counter<result.length; counter++){
-								console.log(currClass);
 	 							if(currClass != result[counter]['ClassID']){
 	 								currentRow=teacherList.insertRow(row_counter);
 	 								currentRow.insertCell(0).innerHTML='<b>'+result[counter]['ClassName']+'</b>';
