@@ -93,8 +93,10 @@ print """\n\n
  				});
  			}
  			
- 			function getAdminList(){
- 				run_admin_query('AdministratorList',{});
+ 			function getNonAdminList(){
+ 				run_admin_query('Admins',{AdminFlag:0},function(result){
+					if(r
+				});
  			}
  			
  			function getClassList(){
@@ -279,12 +281,11 @@ print """\n
 		<div class="container col-sm-12 col-md-12">
 			<div class="panel panel-default translucent">
 				Administrators </br>
-				<table id='teacherList'></table>
-				Assign Teacher</br>
-				<table><tr><td>
-				<select class="form-control" id='teacher_select'></select></td>
-				<td><select class="form-control" id='class_select'></select></td>
-				<td><button class="form-control" onclick='assignTeacherToClass()'>Assign</button></td>
+				<table id='AdminList'></table>
+				</br>
+				<table><tr>
+				<td><select class="form-control" id='admin_select'></select></td>
+				<td><button class="form-control" onclick='assignTeacherToClass()'>Make Admin</button></td>
 				</table>
 			</div>
 		</div>
