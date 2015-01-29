@@ -274,7 +274,7 @@ print """\n\n
  		</script>
 		<style>
 			table {
-				width: 90%;
+				width: 50%;
 			}
 		</style>
 	</head>
