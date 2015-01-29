@@ -21,6 +21,5 @@ print """content-type:text/html
 
 
 sql_statement = 'UPDATE '+type+' SET '+values_to_change+' WHERE '+type+'ID='+id
-print sql_statement
 cursor.execute(sql_statement)
 print cursor.rowcount
