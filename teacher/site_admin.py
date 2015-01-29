@@ -119,7 +119,7 @@ print """\n\n
 						var name = result[counter]['FirstName']+' '+result[counter]['LastName'];
 						currentRow=admin_table.insertRow(counter);
 						currentRow.insertCell(0).innerHTML=name;
-						console.log(getCookie('id')!=result['TeacherID']);
+						console.log(getCookie('id')+ ':'+result['TeacherID']);
 						if(getCookie('id') != result['TeacherID']){
 							currentRow.insertCell(1).innerHTML="<a href='toggleAdmin("+result[counter]['TeacherID']+",0)'>Remove Admin Privileges</a>";
 						}
