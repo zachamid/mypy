@@ -50,7 +50,7 @@ print """\n\n
       					for(counter=0;counter<result.length; counter++){
         					var new_option = new Option(result[counter]['ClassName'],result[counter]['ClassID']);
         					class_select.options[counter] = new_option;
-      					}
+      					}/video/doing-wwe-finishers-in-public-is-as-amazing-as-youd-imagine/
     			});
  			}
  			
@@ -86,12 +86,25 @@ print """\n\n
 	 								row_counter++;
 	 							}
 	 							currentCell.innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
+								currentrow.inserCell(2).innerHTML = "<button onclick='deleteAssignment("+result[counter]['TeacherClassRelationshipID']+")'>Unassign</button>";
 	 							currClass = result[counter]['ClassID'];
 	 						}
 	 					}
  				});
  			}
  			
+			function deleteAssignment(id){
+				data = {table:'TeacherClassRelationship',id:''+id};
+	 			$.ajax({
+	      				data : data,
+	      				url : '/delete.py',
+	      				type : "POST",
+	      				dataType : "text"}).done(function(result){
+	      					getClassList();
+	      					getUnassignedList();
+	      			});
+			}
+
  			function getNonAdminSelect(){
  				run_admin_query('Admins',{AdminFlag:0},function(result){
  					admin_select = document.getElementById('admin_select');
@@ -134,7 +147,7 @@ print """\n\n
  				if(teacherID != -1){
 	 				data = {id: teacherID,
 	 					type: 'Teacher',
-	 					Adminstrator: flag};
+	 					Administrator: flag};
 	 				$.ajax({
 	      				data : data,
 	      				url : '/update.py',
