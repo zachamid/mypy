@@ -159,9 +159,7 @@ print """\n\n
     					header_row.insertCell(0).innerHTML = '<b>ID</b>';
     					header_row.insertCell(1).innerHTML = '<b>First Name</b>';
     					header_row.insertCell(2).innerHTML = '<b>Last Name</b>';
-    					header_row.insertCell(3).innerHTML = '<b>Email</b>';
-    					header_row.insertCell(4).innerHTML = '';
-    					header_row.insertCell(5).innerHTML = '';
+    					header_row.insertCell(3).innerHTML = '';
     					var counter = 1;
     					for (student in result){
     						var row = table.insertRow(counter);
@@ -169,8 +167,8 @@ print """\n\n
     						row.insertCell(0).innerHTML = result[student]['StudentID'];
     						row.insertCell(1).innerHTML = result[student]['FirstName'];
     						row.insertCell(2).innerHTML = result[student]['LastName'];
-    						row.insertCell(4).innerHTML = '<button onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove</button></br>';
-    						row.insertCell(4).innerHTML += "<button onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
+    						row.insertCell(3).innerHTML = '<button onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove</button></br>';
+    						row.insertCell(3).innerHTML += "<button onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
     						counter++;
     					}
     				});
