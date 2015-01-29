@@ -86,7 +86,7 @@ print """\n\n
 	 							row_counter++;
 	 						}
 	 						currentCell.innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
-							currentRow.insertCell(2).innerHTML = "<button onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+")'>Unassign</button>";
+							currentRow.insertCell(2).innerHTML += "<button onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+")'>Unassign</button>";
 	 						currClass = result[counter]['ClassID'];
 	 					}
 	 				}

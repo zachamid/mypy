@@ -77,7 +77,7 @@ print """\n\n
  						row_counter++;
  						var currClass = result[0]['ClassID'];
  						currentRow.insertCell(0).innerHTML='<b>'+result[0]['ClassName']+'</b>';
- 						var currentCell = currentRow.insertCell(1);*
+ 						var currentCell = currentRow.insertCell(1);
 	 					for(counter = 0; counter<result.length; counter++){
 							if(currClass != result[counter]['ClassID']){
 	 							currentRow=teacherList.insertRow(row_counter);
