@@ -102,8 +102,8 @@ print """\n\n
 					}
 					else{
 						for(counter=0; counter<result.length; counter++){
-							var name = result['FirstName']+' '+result['LastName'];
-							var new_option = new Option(name,result['TeacherID']);
+							var name = result[counter]['FirstName']+' '+result[counter]['LastName'];
+							var new_option = new Option(name,result[counter]['TeacherID']);
         					admin_select.options[counter] = new_option;
 						}
 					}
@@ -117,11 +117,11 @@ print """\n\n
  						admin_table.deleteRow(row_count);	
  					}
 					for(counter=0; counter<result.length; counter++){
-						var name = result['FirstName']+' '+result['LastName'];
+						var name = result[counter]['FirstName']+' '+result[counter]['LastName'];
 						if(getCookie('id') != result['TeacherID']){
 							currentRow=admin_table.insertRow(counter);
 							currentRow.insertCell(0).innerHTML=name;
-							currentRow.insertCell(1).innerHTML="<a href='toggleAdmin("+result['TeacherID']+",0)'>Remove Admin Privileges</a>";
+							currentRow.insertCell(1).innerHTML="<a href='toggleAdmin("+result[counter]['TeacherID']+",0)'>Remove Admin Privileges</a>";
 						}
 					}
 				});
