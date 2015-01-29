@@ -130,6 +130,7 @@ print """\n\n
  			}
  			
  			function toggleAdmin(teacherID,flag){
+				console.log(teacherID+':'+flag);
  				if(teacherID >=0){
 	 				data = {id: teacherID,
 	 						type: 'Teacher',
