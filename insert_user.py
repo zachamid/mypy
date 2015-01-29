@@ -6,7 +6,7 @@ cgitb.enable()
 posted_data = cgi.FieldStorage()
 table = posted_data['table'].value
 cursor = db_connection.get_connection()
-password = hashlib.sha256(posted_data['Password'].value)
+password = hashlib.sha256(posted_data['Password'].value).hexdigest()
 email = posted_data['Email'].value
 fName = posted_data['FirstName'].value
 lName = posted_data['LastName'].value

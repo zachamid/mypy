@@ -6,6 +6,7 @@ import json
 import MySQLdb
 import MySQLdb.cursors
 import db_connection
+import hashlib
 cgitb.enable()
 
 posted_data = cgi.FieldStorage()
@@ -21,7 +22,7 @@ print """content-type: text/html
 
 """
 if len(result) != 0:
-	if result[0]['Password'] == password:
+	if result[0]['Password'] == hashlib.sha256(password).hexdigest():
 		id = result[0][type_of_user+'ID']
 		print id
 	else:
