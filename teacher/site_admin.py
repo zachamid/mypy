@@ -45,13 +45,13 @@ print """\n\n
   			}
   		
   			function getClasses(select_id){
-    			run_admin_query('Classes',{}, function(result){
+   	 			run_admin_query('Classes',{}, function(result){
       					var class_select = document.getElementById(select_id);
       					for(counter=0;counter<result.length; counter++){
         					var new_option = new Option(result[counter]['ClassName'],result[counter]['ClassID']);
         					class_select.options[counter] = new_option;
-      					}/video/doing-wwe-finishers-in-public-is-as-amazing-as-youd-imagine/
-    			});
+      					}
+   	 			});
  			}
  			
  			function getTeachers(){

@@ -50,7 +50,7 @@ print """\n\n
       					for(counter=0;counter<result.length; counter++){
         					var new_option = new Option(result[counter]['ClassName'],result[counter]['ClassID']);
         					class_select.options[counter] = new_option;
-      					}/video/doing-wwe-finishers-in-public-is-as-amazing-as-youd-imagine/
+      					}
     			});
  			}
  			
