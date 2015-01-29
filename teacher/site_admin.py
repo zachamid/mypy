@@ -134,7 +134,7 @@ print """\n\n
  				if(teacherID != -1){
 	 				data = {id: teacherID,
 	 					type: 'Teacher',
-	 					Adminstrator: flag};
+	 					Administrator: flag};
 	 				$.ajax({
 	      				data : data,
 	      				url : '/update.py',

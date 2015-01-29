@@ -131,10 +131,10 @@ print """\n\n
  			
  			function toggleAdmin(teacherID,flag){
 				console.log(teacherID+':'+flag);
- 				if(teacherID >=0){
+ 				if(teacherID != -1){
 	 				data = {id: teacherID,
-	 						type: 'Teacher',
-	 						Adminstrator: flag};
+	 					type: 'Teacher',
+	 					Adminstrator: flag};
 	 				$.ajax({
 	      				data : data,
 	      				url : '/update.py',
