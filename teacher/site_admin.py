@@ -124,7 +124,7 @@ print """\n\n
 							currentRow.insertCell(1).innerHTML="<a href='toggleAdmin("+result[counter]['TeacherID']+",0)'>Remove Admin Privileges</a>";
 						}
 						else{
-							currentRow.insertCell(1).innerHTML='';
+							currentRow.insertCell(1).innerHTML='blah';
 						}
 					}
 				});
