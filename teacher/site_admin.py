@@ -118,10 +118,13 @@ print """\n\n
  					}
 					for(counter=0; counter<result.length; counter++){
 						var name = result[counter]['FirstName']+' '+result[counter]['LastName'];
+						currentRow=admin_table.insertRow(counter);
+						currentRow.insertCell(0).innerHTML=name;
 						if(getCookie('id') != result['TeacherID']){
-							currentRow=admin_table.insertRow(counter);
-							currentRow.insertCell(0).innerHTML=name;
 							currentRow.insertCell(1).innerHTML="<a href='toggleAdmin("+result[counter]['TeacherID']+",0)'>Remove Admin Privileges</a>";
+						}
+						else{
+							currentRow.insertCell(1).innerHTML='';
 						}
 					}
 				});
