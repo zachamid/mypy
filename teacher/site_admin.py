@@ -267,6 +267,8 @@ print """\n\n
   				getTeacherList();
   				getClasses('class_select');
   				getTeachers();
+  				getAdminList();
+  				getNonAdminSelect();
   			});
  		</script>
 	</head>
