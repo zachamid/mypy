@@ -77,7 +77,7 @@ print """\n\n
  						row_counter++;
  						var currClass = result[0]['ClassID'];
  						currentRow.insertCell(0).innerHTML='<b>'+result[0]['ClassName']+'</b>';
- 						var currentCell = currentRow.insertCell(1);
+ 						var currentCell = currentRow.insertCell(1);*
 	 					for(counter = 0; counter<result.length; counter++){
 							if(currClass != result[counter]['ClassID']){
 	 							currentRow=teacherList.insertRow(row_counter);
@@ -86,7 +86,7 @@ print """\n\n
 	 							row_counter++;
 	 						}
 	 						currentCell.innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
-							currentRow.inserCell(2).innerHTML = "<button onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+")'>Unassign</button>";
+							currentRow.insertCell(2).innerHTML = "<button onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+")'>Unassign</button>";
 	 						currClass = result[counter]['ClassID'];
 	 					}
 	 				}
