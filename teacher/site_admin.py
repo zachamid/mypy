@@ -112,7 +112,7 @@ print """\n\n
  			function getAdminList(){
  				run_admin_query('Admins',{AdminFlag:1},function(result){
  					admin_table = document.getElementById('admin_table');
-					for (row_count=teacherList.rows.length-1;row_count >=0; row_count--){
+					for (row_count=admin_table.rows.length-1;row_count >=0; row_count--){
  						admin_table.deleteRow(row_count);	
  					}
 					for(counter=0; counter<result.length; counter++){
