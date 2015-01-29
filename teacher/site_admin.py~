@@ -79,8 +79,7 @@ print """\n\n
  							currentRow.insertCell(0).innerHTML='<b>'+result[0]['ClassName']+'</b>';
  							var currentCell = currentRow.insertCell(1);
 	 						for(counter = 0; counter<result.length; counter++){
-								console.log(currClass);
-	 							if(currClass != result[counter]['ClassID']){
+								if(currClass != result[counter]['ClassID']){
 	 								currentRow=teacherList.insertRow(row_counter);
 	 								currentRow.insertCell(0).innerHTML='<b>'+result[counter]['ClassName']+'</b>';
 	 								currentCell=currentRow.insertCell(1);
@@ -93,12 +92,59 @@ print """\n\n
  				});
  			}
  			
- 			function getNonAdminList(){
+ 			function getNonAdminSelect(){
  				run_admin_query('Admins',{AdminFlag:0},function(result){
-					if(r
+ 					admin_select = document.getElementById('admin_select');
+					if(result.length == 0){
+						var no_option = new Option('No Teachers to Select From',-1);
+        				admin_select.options[0] = no_option;
+					}
+					else{
+						for(counter=0; counter<result.length; counter++){
+							var name = result[counter]['FirstName']+' '+result[counter]['LastName'];
+							var new_option = new Option(name,result[counter]['TeacherID']);
+        					admin_select.options[counter] = new_option;
+						}
+					}
 				});
  			}
  			
+ 			function getAdminList(){
+ 				run_admin_query('Admins',{AdminFlag:1},function(result){
+ 					admin_table = document.getElementById('admin_table');
+					for (row_count=admin_table.rows.length-1;row_count >=0; row_count--){
+ 						admin_table.deleteRow(row_count);	
+ 					}
+					for(counter=0; counter<result.length; counter++){
+						var name = result[counter]['FirstName']+' '+result[counter]['LastName'];
+						currentRow=admin_table.insertRow(counter);
+						currentRow.insertCell(0).innerHTML=name;
+						if(getCookie('id') != result[counter]['TeacherID']){
+							currentRow.insertCell(1).innerHTML="<a href='toggleAdmin("+result[counter]['TeacherID']+",0)'>Remove Admin Privileges</a>";
+						}
+						else{
+							currentRow.insertCell(1).innerHTML='';
+						}
+					}
+				});
+ 			}
+ 			
+ 			function toggleAdmin(teacherID,flag){
+ 				if(teacherID >=0){
+	 				data = {id: teacherID,
+	 						type: 'Teacher',
+	 						Adminstrator: flag};
+	 				$.ajax({
+	      				data : data,
+	      				url : '/update.py',
+	      				type : "POST",
+	      				dataType : "text"}).done(function(result){
+	      					getAdminList();
+	      					getNonAdminSelect();
+	      				});
+	 			}
+			}
+			 			
  			function getClassList(){
  				class_select = document.getElementById('classes');
  				class_ID = class_select.options[class_select.selectedIndex].value;
@@ -222,13 +268,15 @@ print """\n\n
   				getTeacherList();
   				getClasses('class_select');
   				getTeachers();
+  				getAdminList();
+  				getNonAdminSelect();
   			});
  		</script>
 	</head>
 	<body>"""
 common_components.print_navbar_teacher(cookies['id'].value, 'site_admin')
 print """\n
-		<div class="container col-sm-12 col-md-12">
+		<div class="container col-sm-12 col-md-6">
 			<div class="panel panel-default translucent">
 				Class Administration
 			</div></br>
@@ -266,7 +314,7 @@ print """\n
 				</div>
 			</div>
 		</div></div>
-		<div class="container col-sm-12 col-md-12">
+		<div class="container col-sm-12 col-md-6">
 			<div class="panel panel-default translucent">
 				Teacher Class Assignments </br>
 				<table id='teacherList'></table>
@@ -278,15 +326,14 @@ print """\n
 				</table>
 			</div>
 		</div>
-		<div class="container col-sm-12 col-md-12">
+		<div class="container col-sm-12 col-md-6">
 			<div class="panel panel-default translucent">
 				Administrators </br>
-				<table id='AdminList'></table>
+				<table id='admin_table' style='width:100%'></table>
 				</br>
-				<table><tr><td>
-				Make New Administrator:
+				<table><tr>
 				<td><select class="form-control" id='admin_select'></select></td>
-				<td><button class="form-control" onclick='assignTeacherToClass()'>Make Admin</button></td>
+				<td><button class="form-control" onclick='toggleAdmin(document.getElementById("admin_select").value, 1)'>Make Admin</button></td>
 				</table>
 			</div>
 		</div>

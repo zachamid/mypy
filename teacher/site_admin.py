@@ -139,8 +139,8 @@ print """\n\n
 	      				url : '/update.py',
 	      				type : "POST",
 	      				dataType : "text"}).done(function(result){
-	      					getClassList();
-	      					getUnassignedList();
+	      					getAdminList();
+	      					getNonAdminSelect();
 	      				});
 	 			}
 			}
@@ -276,11 +276,9 @@ print """\n\n
 	<body>"""
 common_components.print_navbar_teacher(cookies['id'].value, 'site_admin')
 print """\n
-		<div class="container col-sm-12 col-md-12">
+		<div class="container col-sm-12 col-md-6">
 			<div class="panel panel-default translucent">
-				Class Administration
-			</div></br>
-			<div class="panel panel-default translucent">
+				Class Administration</br>
 				Add Class</br>
 				<table>
 					<tr>
@@ -314,7 +312,7 @@ print """\n
 				</div>
 			</div>
 		</div></div>
-		<div class="container col-sm-12 col-md-12">
+		<div class="container col-sm-12 col-md-6">
 			<div class="panel panel-default translucent">
 				Teacher Class Assignments </br>
 				<table id='teacherList'></table>
@@ -326,7 +324,7 @@ print """\n
 				</table>
 			</div>
 		</div>
-		<div class="container col-sm-12 col-md-12">
+		<div class="container col-sm-12 col-md-6">
 			<div class="panel panel-default translucent">
 				Administrators </br>
 				<table id='admin_table' style='width:100%'></table>
