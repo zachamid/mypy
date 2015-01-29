@@ -114,15 +114,14 @@ print """\n\n
  				run_admin_query('Admins',{AdminFlag:1},function(result){
  					admin_table = document.getElementById('admin_table');
 					for (row_count=teacherList.rows.length-1;row_count >=0; row_count--){
- 						teacherList.deleteRow(row_count);	
+ 						admin_table.deleteRow(row_count);	
  					}
 					for(counter=0; counter<result.length; counter++){
 						var name = result['FirstName']+' '+result['LastName'];
 						if(getCookie('id') != result['TeacherID']){
-							currentRow=teacherList.insertRow(counter);
+							currentRow=admin_table.insertRow(counter);
 							currentRow.insertCell(0).innerHTML=name;
 							currentRow.insertCell(1).innerHTML="<a href='toggleAdmin("+result['TeacherID']+",0)'>Remove Admin Privileges</a>";
-        					admin_select.options[counter] = new_option;
 						}
 					}
 				});
