@@ -169,8 +169,8 @@ print """\n\n
     						row.insertCell(1).innerHTML = result[student]['FirstName'];
     						row.insertCell(2).innerHTML = result[student]['LastName'];
     						row.insertCell(3).innerHTML = result[student]['Email'];
-    						row.insertCell(4).innerHTML = '<a onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove from class</a>';
-    						row.insertCell(5).innerHTML = "<a onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</a>";
+    						row.insertCell(4).innerHTML = '<button onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove</button></br>';
+    						row.insertCell(4).innerHTML += "<button onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
     						counter++;
     					}
     				});
@@ -272,6 +272,11 @@ print """\n\n
   				getNonAdminSelect();
   			});
  		</script>
+		<style>
+			table {
+				width: 100%;
+			}
+		</style>
 	</head>
 	<body>"""
 common_components.print_navbar_teacher(cookies['id'].value, 'site_admin')
