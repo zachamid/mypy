@@ -274,7 +274,7 @@ print """\n\n
  		</script>
 		<style>
 			table {
-				width: 100%;
+				width: 90%;
 			}
 		</style>
 	</head>
@@ -332,7 +332,7 @@ print """\n
 		<div class="container col-sm-12 col-md-6">
 			<div class="panel panel-default translucent">
 				Administrators </br>
-				<table id='admin_table' style='width:100%'></table>
+				<table id='admin_table'></table>
 				</br>
 				<table><tr>
 				<td><select class="form-control" id='admin_select'></select></td>
