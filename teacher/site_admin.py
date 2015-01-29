@@ -93,12 +93,57 @@ print """\n\n
  				});
  			}
  			
- 			function getNonAdminList(){
+ 			function getNonAdminSelect(){
  				run_admin_query('Admins',{AdminFlag:0},function(result){
-					if(r
+ 					admin_select = document.getElementById('admin_select');
+					if(result.length == 0){
+						var no_option = new Option('No Teachers to Select From',-1);
+        				admin_select.options[0] = no_option;
+					}
+					else{
+						for(counter=0; counter<result.length; counter++){
+							var name = result['FirstName']+' '+result['LastName'];
+							var new_option = new Option(name,result['TeacherID']);
+        					admin_select.options[counter] = new_option;
+						}
+					}
 				});
  			}
  			
+ 			function getAdminList(){
+ 				run_admin_query('Admins',{AdminFlag:1},function(result){
+ 					admin_table = document.getElementById('admin_table');
+					for (row_count=teacherList.rows.length-1;row_count >=0; row_count--){
+ 						teacherList.deleteRow(row_count);	
+ 					}
+					for(counter=0; counter<result.length; counter++){
+						var name = result['FirstName']+' '+result['LastName'];
+						if(getCookie('id') != result['TeacherID']){
+							currentRow=teacherList.insertRow(counter);
+							currentRow.insertCell(0).innerHTML=name;
+							currentRow.insertCell(1).innerHTML="<a href='toggleAdmin("+result['TeacherID']+",0)'>Remove Admin Privileges</a>";
+        					admin_select.options[counter] = new_option;
+						}
+					}
+				});
+ 			}
+ 			
+ 			function toggleAdmin(teacherID,flag){
+ 				if(teacherID >=0){
+	 				data = {id: teacherID,
+	 						type: 'Teacher',
+	 						Adminstrator: flag};
+	 				$.ajax({
+	      				data : data,
+	      				url : '/update.py',
+	      				type : "POST",
+	      				dataType : "text"}).done(function(result){
+	      					getClassList();
+	      					getUnassignedList();
+	      				});
+	 			}
+			}
+			 			
  			function getClassList(){
  				class_select = document.getElementById('classes');
  				class_ID = class_select.options[class_select.selectedIndex].value;
@@ -281,11 +326,11 @@ print """\n
 		<div class="container col-sm-12 col-md-12">
 			<div class="panel panel-default translucent">
 				Administrators </br>
-				<table id='AdminList'></table>
+				<table id='admin_table' style='width:100%'></table>
 				</br>
 				<table><tr>
 				<td><select class="form-control" id='admin_select'></select></td>
-				<td><button class="form-control" onclick='assignTeacherToClass()'>Make Admin</button></td>
+				<td><button class="form-control" onclick='toggleAdmin(document.getElementById("admin_select").value, 1)'>Make Admin</button></td>
 				</table>
 			</div>
 		</div>
