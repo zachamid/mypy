@@ -75,7 +75,7 @@ print """\n\n
  						for(counter = 0; counter<result.length; counter++){
 	 						currentRow=teacherList.insertRow(counter);
 							currentRow.insertCell(0).innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
-							currentRow.insertCell(1).innerHTML+="<button class='form-control' onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+")'>Unassign</button>";
+							currentRow.insertCell(1).innerHTML+="<button class='form-control' onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+",')'>Unassign</button>";
 	 					}
 	 				}
  				});
@@ -147,8 +147,8 @@ print """\n\n
 	 			}
 			}
 			 			
- 			function getClassList(class){
- 				class_select = document.getElementById(class);
+ 			function getClassList(class_sel){
+ 				class_select = document.getElementById(class_sel);
  				class_ID = class_select.options[class_select.selectedIndex].value;
  				var data = {ClassID:''+class_ID};
  				var table = document.getElementById('classList');
