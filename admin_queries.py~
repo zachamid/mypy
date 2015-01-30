@@ -27,16 +27,17 @@ elif(cmd == 'ClassList'):
 elif(cmd == 'Teachers'):
 	sql_query = 'SELECT TeacherID, FirstName, LastName FROM Teacher'
 elif(cmd == 'ClassTeacherList'):
+	classID = posted_data['classID'].value
 	sql_query = """
-		SELECT Class.ClassID, Class.ClassName, Teacher.TeacherID, Teacher.FirstName, TeacherClassRelationship.TeacherClassRelID,
+		SELECT Class.ClassID, Class.ClassName, Teacher.TeacherID, Teacher.FirstName, TeacherClassRelationship.TeacherClassRelationshipID,
 		Teacher.LastName
 		FROM Class
 		INNER JOIN TeacherClassRelationship
 		ON Class.ClassID = TeacherClassRelationship.ClassID
 		INNER JOIN Teacher
 		ON Teacher.TeacherID = TeacherClassRelationship.TeacherID
-		ORDER BY Class.ClassID ASC
-	"""
+		ORDER BY Class.ClassID
+		WHERE TeacherClassRelationship.ClassID="""+classID
 elif(cmd == 'Admins'):
 	sql_query = 'SELECT TeacherID, FirstName, LastName FROM Teacher WHERE Administrator='+posted_data['AdminFlag'].value
 	

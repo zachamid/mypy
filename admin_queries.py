@@ -36,7 +36,6 @@ elif(cmd == 'ClassTeacherList'):
 		ON Class.ClassID = TeacherClassRelationship.ClassID
 		INNER JOIN Teacher
 		ON Teacher.TeacherID = TeacherClassRelationship.TeacherID
-		ORDER BY Class.ClassID
 		WHERE TeacherClassRelationship.ClassID="""+classID
 elif(cmd == 'Admins'):
 	sql_query = 'SELECT TeacherID, FirstName, LastName FROM Teacher WHERE Administrator='+posted_data['AdminFlag'].value
