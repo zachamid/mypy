@@ -291,10 +291,10 @@ print """\n
 				<table>
 					<tr>
 						<td>
-							<input type="text" id="className">
+							<input class='form-control' type="text" id="className">
 						</td>
           				<td>
-          					<button onclick='insertClass()'>Add Class</button>
+          					<button class='form-control' onclick='insertClass()'>Add Class</button>
           				</td>
 					</tr>
 				</table>
