@@ -80,7 +80,6 @@ print """\n\n
  						var currentCell = currentRow.insertCell(1);
 						var buttonCell = currentRow.insertCell(2);
 	 					for(counter = 0; counter<result.length; counter++){
-							currentRow=teacherList.insertRow(row_counter);
 							if(currClass != result[counter]['ClassID']){
 	 							currentRow.insertCell(0).innerHTML='<b>'+result[counter]['ClassName']+'</b>';
 	 						}
@@ -93,6 +92,7 @@ print """\n\n
 	 						currentCell.innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
 							buttonCell.innerHTML += "<button class='form-control' onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+")'>Unassign</button></br>";
 	 						currClass = result[counter]['ClassID'];
+							currentRow=teacherList.insertRow(row_counter);
 	 					}
 	 				}
  				});
@@ -182,7 +182,7 @@ print """\n\n
     					var counter = 1;
     					for (student in result){
     						var row = table.insertRow(counter);
-						row.title = result[student]['Email'];
+							row.title = result[student]['Email'];
     						row.insertCell(0).innerHTML = result[student]['StudentID'];
     						row.insertCell(1).innerHTML = result[student]['FirstName'];
     						row.insertCell(2).innerHTML = result[student]['LastName'];
@@ -215,7 +215,7 @@ print """\n\n
     						row.insertCell(1).innerHTML = result[student]['FirstName'];
     						row.insertCell(2).innerHTML = result[student]['LastName'];
     						row.insertCell(3).innerHTML = result[student]['Email'];
-    						row.insertCell(4).innerHTML = "<select id='classSelect"+result[student]['StudentID']+"'></select>";
+    						row.insertCell(4).innerHTML = "<select class='form-control' id='classSelect"+result[student]['StudentID']+"'></select>";
     						row.insertCell(4).innerHTML += "<button class='form-control' onclick='AssignStudentToClass("+result[student]['StudentID']+",document.getElementById('classSelect"+result[student]['StudentID']+"').value)'>Assign</button>"
     						row.insertCell(5).innerHTML = "<button  class='form-control' onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
     						getClasses('classSelect'+result[student]['StudentID']);
