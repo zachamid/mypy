@@ -81,14 +81,14 @@ print """\n\n
  				});
  			}
  			
-			function deleteAssignment(id){
+			function deleteAssignment(id,class_id){
 				data = {table:'TeacherClassRelationship',id:''+id};
 	 			$.ajax({
 	      				data : data,
 	      				url : '/delete.py',
 	      				type : "POST",
 	      				dataType : "text"}).done(function(result){
-	      					getTeacherList
+	      					getTeacherList(class_id);
 	      			});
 			}
 
