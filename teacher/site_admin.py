@@ -323,12 +323,11 @@ print """\n
 		<div class="container col-sm-12 col-md-6">
 			<div class="panel panel-default translucent">
 				Teacher Class Assignments </br>
-				
+				<td><select onclick='getTeacherList(this.value)' class="form-control" id='class_select'></select></td>
 				<table id='teacherList'></table>
 				Assign Teacher</br>
 				<table><tr><td>
 				<select class="form-control" id='teacher_select'></select></td>
-				<td><select class="form-control" id='class_select'></select></td>
 				<td><button class="form-control" onclick='assignTeacherToClass()'>Assign</button></td>
 				</table>
 			</div>
