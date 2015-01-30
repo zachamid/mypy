@@ -66,7 +66,7 @@ print """\n\n
  			}
  			
  			function getTeacherList(ClassID){
- 				run_admin_query("ClassTeacherList",{class: ClassID}, function(result){
+ 				run_admin_query("ClassTeacherList",{classID: ClassID}, function(result){
  					teacherList = document.getElementById('teacherList');
  					for (row_count=teacherList.rows.length-1;row_count >=0; row_count--){
  						teacherList.deleteRow(row_count);	

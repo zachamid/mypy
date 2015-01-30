@@ -66,7 +66,7 @@ print """\n\n
  			}
  			
  			function getTeacherList(ClassID){
- 				run_admin_query("ClassTeacherList",{class: ClassID}, function(result){
+ 				run_admin_query("ClassTeacherList",{ClassID: ClassID}, function(result){
  					teacherList = document.getElementById('teacherList');
  					for (row_count=teacherList.rows.length-1;row_count >=0; row_count--){
  						teacherList.deleteRow(row_count);	
@@ -323,12 +323,11 @@ print """\n
 		<div class="container col-sm-12 col-md-6">
 			<div class="panel panel-default translucent">
 				Teacher Class Assignments </br>
-				
+				<td><select onclick='getTeacherList(this.value)' class="form-control" id='class_select'></select></td>
 				<table id='teacherList'></table>
 				Assign Teacher</br>
 				<table><tr><td>
 				<select class="form-control" id='teacher_select'></select></td>
-				<td><select class="form-control" id='class_select'></select></td>
 				<td><button class="form-control" onclick='assignTeacherToClass()'>Assign</button></td>
 				</table>
 			</div>
