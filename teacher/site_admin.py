@@ -147,8 +147,8 @@ print """\n\n
 	 			}
 			}
 			 			
- 			function getClassList(){
- 				class_select = document.getElementById('classes');
+ 			function getClassList(class_sel){
+ 				class_select = document.getElementById(class_sel);
  				class_ID = class_select.options[class_select.selectedIndex].value;
  				var data = {ClassID:''+class_ID};
  				var table = document.getElementById('classList');
