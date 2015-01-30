@@ -186,7 +186,7 @@ print """\n\n
     						row.insertCell(0).innerHTML = result[student]['StudentID'];
     						row.insertCell(1).innerHTML = result[student]['FirstName'];
     						row.insertCell(2).innerHTML = result[student]['LastName'];
-    						row.insertCell(3).innerHTML = '<button class='form-control' onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove</button></br>';
+    						row.insertCell(3).innerHTML = '<button class="form-control" onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove</button></br>';
     						row.insertCell(3).innerHTML += "<button class='form-control' onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
     						counter++;
     					}
