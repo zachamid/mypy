@@ -75,21 +75,20 @@ print """\n\n
  						for(counter = 0; counter<result.length; counter++){
 	 						currentRow=teacherList.insertRow(counter);
 							currentRow.insertCell(0).innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
-							currentRow.insertCell(1).innerHTML+="<button class='form-control' onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+")'>Unassign</button>";
+							currentRow.insertCell(1).innerHTML+="<button class='form-control' onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+","+ClassID+")'>Unassign</button>";
 	 					}
 	 				}
  				});
  			}
  			
-			function deleteAssignment(id){
+			function deleteAssignment(id,class_id){
 				data = {table:'TeacherClassRelationship',id:''+id};
 	 			$.ajax({
 	      				data : data,
 	      				url : '/delete.py',
 	      				type : "POST",
 	      				dataType : "text"}).done(function(result){
-	      					getClassList();
-	      					getUnassignedList();
+	      					getTeacherList(class_id);
 	      			});
 			}
 
