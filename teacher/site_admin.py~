@@ -73,9 +73,9 @@ print """\n\n
  					}
  					if(result.length !=0){
  						for(counter = 0; counter<result.length; counter++){
+	 						currentRow=teacherList.insertRow(counter);
 							currentRow.insertCell(0).innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
 							currentRow.insertCell(1).innerHTML+="<button class='form-control' onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+")'>Unassign</button></br>";
-	 						currentRow=teacherList.insertRow(counter);
 	 					}
 	 				}
  				});

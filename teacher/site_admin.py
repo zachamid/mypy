@@ -75,7 +75,7 @@ print """\n\n
  						for(counter = 0; counter<result.length; counter++){
 	 						currentRow=teacherList.insertRow(counter);
 							currentRow.insertCell(0).innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
-							currentRow.insertCell(1).innerHTML+="<button class='form-control' onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+")'>Unassign</button></br>";
+							currentRow.insertCell(1).innerHTML+="<button class='form-control' onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+")'>Unassign</button>";
 	 					}
 	 				}
  				});
@@ -169,7 +169,7 @@ print """\n\n
     						row.insertCell(0).innerHTML = result[student]['StudentID'];
     						row.insertCell(1).innerHTML = result[student]['FirstName'];
     						row.insertCell(2).innerHTML = result[student]['LastName'];
-    						row.insertCell(3).innerHTML = '<button class="form-control" onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove</button></br>';
+    						row.insertCell(3).innerHTML = '<button class="form-control" onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove</button>';
     						row.insertCell(3).innerHTML += "<button class='form-control' onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
     						counter++;
     					}
@@ -277,7 +277,7 @@ print """\n\n
 				width: 100%;
 			}
 			td {
-    			vertical-align: middle;
+    				vertical-align: middle;
 			}
 		</style>
 	</head>
