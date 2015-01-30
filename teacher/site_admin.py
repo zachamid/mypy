@@ -80,15 +80,18 @@ print """\n\n
  						var currentCell = currentRow.insertCell(1);
 						var buttonCell = currentRow.insertCell(2);
 	 					for(counter = 0; counter<result.length; counter++){
+							currentRow=teacherList.insertRow(row_counter);
 							if(currClass != result[counter]['ClassID']){
-	 							currentRow=teacherList.insertRow(row_counter);
 	 							currentRow.insertCell(0).innerHTML='<b>'+result[counter]['ClassName']+'</b>';
-	 							currentCell=currentRow.insertCell(1);
-								buttonCell = currentRow.insertCell(2);
-	 							row_counter++;
 	 						}
+	 						else{
+	 							currentRow.insertCell(0).innerHTML='';
+	 						}
+	 						currentCell=currentRow.insertCell(1);
+							buttonCell = currentRow.insertCell(2);
+	 						row_counter++;
 	 						currentCell.innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
-							buttonCell.innerHTML += "<button onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+")'>Unassign</button></br>";
+							buttonCell.innerHTML += "<button class='form-control' onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+")'>Unassign</button></br>";
 	 						currClass = result[counter]['ClassID'];
 	 					}
 	 				}
@@ -135,7 +138,7 @@ print """\n\n
 						currentRow=admin_table.insertRow(counter);
 						currentRow.insertCell(0).innerHTML=name;
 						if(getCookie('id') != result[counter]['TeacherID']){
-							currentRow.insertCell(1).innerHTML="<a href='toggleAdmin("+result[counter]['TeacherID']+",0)'>Remove Admin Privileges</a>";
+							currentRow.insertCell(1).innerHTML="<button class='form-control' onclick='toggleAdmin("+result[counter]['TeacherID']+",0)'>Remove Admin Privileges</button>";
 						}
 						else{
 							currentRow.insertCell(1).innerHTML='';
@@ -183,8 +186,8 @@ print """\n\n
     						row.insertCell(0).innerHTML = result[student]['StudentID'];
     						row.insertCell(1).innerHTML = result[student]['FirstName'];
     						row.insertCell(2).innerHTML = result[student]['LastName'];
-    						row.insertCell(3).innerHTML = '<button onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove</button></br>';
-    						row.insertCell(3).innerHTML += "<button onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
+    						row.insertCell(3).innerHTML = '<button class='form-control' onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove</button></br>';
+    						row.insertCell(3).innerHTML += "<button class='form-control' onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
     						counter++;
     					}
     				});
@@ -214,7 +217,7 @@ print """\n\n
     						row.insertCell(3).innerHTML = result[student]['Email'];
     						row.insertCell(4).innerHTML = "<select id='classSelect"+result[student]['StudentID']+"'></select>";
     						row.insertCell(4).innerHTML += "<button class='form-control' onclick='AssignStudentToClass("+result[student]['StudentID']+",document.getElementById('classSelect"+result[student]['StudentID']+"').value)'>Assign</button>"
-    						row.insertCell(5).innerHTML = "<a onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</a>";
+    						row.insertCell(5).innerHTML = "<button  class='form-control' onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
     						getClasses('classSelect'+result[student]['StudentID']);
     						counter++;
     					}
@@ -289,6 +292,9 @@ print """\n\n
 		<style>
 			table {
 				width: 100%;
+			}
+			td {
+    			vertical-align: middle;
 			}
 		</style>
 	</head>
