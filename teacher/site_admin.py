@@ -88,11 +88,11 @@ print """\n\n
 	 						}
 	 						currentCell=currentRow.insertCell(1);
 							buttonCell = currentRow.insertCell(2);
-	 						row_counter++;
 	 						currentCell.innerHTML+=result[counter]['FirstName']+' '+result[counter]['LastName']+'</br>';
 							buttonCell.innerHTML += "<button class='form-control' onclick='deleteAssignment("+result[counter]['TeacherClassRelID']+")'>Unassign</button></br>";
 	 						currClass = result[counter]['ClassID'];
 							currentRow=teacherList.insertRow(row_counter);
+	 						row_counter++;
 	 					}
 	 				}
  				});
