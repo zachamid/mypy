@@ -158,18 +158,16 @@ print """\n\n
  				run_admin_query('ClassList', data, function(result){
       					var header_row = table.insertRow(0);
     					header_row.insertCell(0).innerHTML = '<b>ID</b>';
-    					header_row.insertCell(1).innerHTML = '<b>First Name</b>';
-    					header_row.insertCell(2).innerHTML = '<b>Last Name</b>';
-    					header_row.insertCell(3).innerHTML = '';
+    					header_row.insertCell(1).innerHTML = '<b>Name</b>';
+    					header_row.insertCell(2).innerHTML = '';
     					var counter = 1;
     					for (student in result){
     						var row = table.insertRow(counter);
 							row.title = result[student]['Email'];
     						row.insertCell(0).innerHTML = result[student]['StudentID'];
-    						row.insertCell(1).innerHTML = result[student]['FirstName'];
-    						row.insertCell(2).innerHTML = result[student]['LastName'];
-    						row.insertCell(3).innerHTML = '<button class="form-control" onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove</button>';
-    						row.insertCell(3).innerHTML += "<button class='form-control' onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
+    						row.insertCell(1).innerHTML = result[student]['FirstName'] + result[student]['LastName'];
+    						row.insertCell(2).innerHTML = '<button class="form-control" onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove</button>';
+    						row.insertCell(2).innerHTML += "<button class='form-control' onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
     						counter++;
     					}
     				});
@@ -185,21 +183,19 @@ print """\n\n
  				run_admin_query('ClassList',data, function(result){
       					var header_row = table.insertRow(0);
     					header_row.insertCell(0).innerHTML = '<b>ID</b>';
-    					header_row.insertCell(1).innerHTML = '<b>First Name</b>';
-    					header_row.insertCell(2).innerHTML = '<b>Last Name</b>';
-    					header_row.insertCell(3).innerHTML = '<b>Email</b>';
+    					header_row.insertCell(1).innerHTML = '<b>Name</b>';
+    					header_row.insertCell(2).innerHTML = '<b>Email</b>';
+    					header_row.insertCell(3).innerHTML = '';
     					header_row.insertCell(4).innerHTML = '';
-    					header_row.insertCell(5).innerHTML = '';
     					var counter = 1;
     					for (student in result){
     						var row = table.insertRow(counter);
     						row.insertCell(0).innerHTML = result[student]['StudentID'];
-    						row.insertCell(1).innerHTML = result[student]['FirstName'];
-    						row.insertCell(2).innerHTML = result[student]['LastName'];
-    						row.insertCell(3).innerHTML = result[student]['Email'];
-    						row.insertCell(4).innerHTML = "<select class='form-control' id='classSelect"+result[student]['StudentID']+"'></select>";
-    						row.insertCell(4).innerHTML += "<button class='form-control' onclick='AssignStudentToClass("+result[student]['StudentID']+",document.getElementById('classSelect"+result[student]['StudentID']+"').value)'>Assign</button>"
-    						row.insertCell(5).innerHTML = "<button  class='form-control' onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
+    						row.insertCell(1).innerHTML = result[student]['FirstName'] + result[student]['LastName'];
+    						row.insertCell(2).innerHTML = result[student]['Email'];
+    						row.insertCell(3).innerHTML = "<select class='form-control' id='classSelect"+result[student]['StudentID']+"'></select>";
+    						row.insertCell(3).innerHTML += "<button class='form-control' onclick='AssignStudentToClass("+result[student]['StudentID']+",document.getElementById('classSelect"+result[student]['StudentID']+"').value)'>Assign</button>"
+    						row.insertCell(4).innerHTML = "<button  class='form-control' onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
     						getClasses('classSelect'+result[student]['StudentID']);
     						counter++;
     					}
