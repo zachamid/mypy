@@ -54,8 +54,17 @@ for task in file_info:
 	and file_info[task]['info.xml'] == 1):
 		cursor.execute('SELECT * FROM Task WHERE TaskID='+str(task))
 		task_info = cursor.fetchone()
-		print "<tr><td><a onclick='open_task_page("+str(task)+")'>"+str(task)+'</a></td><td>'+task_info['Title']+'</td></tr>'
-      	print """\n
+		print "<tr><td><a onclick='open_task_page("+str(task)+")'>"+str(task)+'</a></td><td>'+task_info['Title']+'</td>'
+		cursor.execute('''SELECT DateStarted, DateModified, DateCompleted 
+						FROM Progress 
+						WHERE TaskID='''+task+' AND StudentID='cookies['id'].value)
+		progress_info = cursor.fetchone()
+		for date in ['DateStarted','DateModified','DateCompleted']:
+			print '<td>'
+			print 'N/A' if progress_info[date]==None else progress_info[date]
+			print '</td>'
+		print '</tr>'
+print """\n
       			</table>
       		</div>
       	</div>
