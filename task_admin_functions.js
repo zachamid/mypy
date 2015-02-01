@@ -1,3 +1,15 @@
+function read_task_information(cmd, params, post_function){
+	var data = {cmd: cmd};
+  	for(key in params){
+  		data[key]=params[key];
+  	}
+    $.ajax({
+    	data : data,
+    	url : '/read_task_information.py',
+    	type : "POST",
+    	dataType : "json"}).done(post_function);
+}
+
 function check_directory(data_manipulation){
 	$.ajax({
 		url : '/read_task_information.py',

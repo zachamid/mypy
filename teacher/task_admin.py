@@ -66,8 +66,8 @@ print """Content-type: text/html\n\n
     			}
 			}
 			
-			function show_XML_info(task_id){
-				get_task_xml(task_id,function(result){
+			function show_XML_info(taskID){
+				read_task_information('Get_Task_XML_Info',{task_id:taskID},function(result){
     				var task_info = document.getElementById("task_info");
     				task_info.innerHTML =print_xml_object(result);
     				console.log(result);
@@ -75,7 +75,7 @@ print """Content-type: text/html\n\n
 			}
 			
     		$( document ).ready(function() {
-    			check_directory(populate_table);
+    			read_task_information('Get_Task_File_Info',populate_table);
 			});
     	</script>
 	</head>
