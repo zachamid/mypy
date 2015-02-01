@@ -61,8 +61,8 @@ for task in file_info:
 		cursor.execute('''SELECT DateStarted, DateModified, DateCompleted 
 						FROM Progress 
 						WHERE TaskID='''+str(task)+' AND StudentID='+str(cookies['id'].value))
-		progress_info = cursor.fetchone()
 		if cursor.rowcount != 0:
+			progress_info = cursor.fetchone()
 			for date in ['DateStarted','DateModified','DateCompleted']:
 				print '<td>'
 				print 'N/A' if progress_info[date]==None else progress_info[date]
