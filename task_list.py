@@ -70,7 +70,7 @@ for task in file_info:
 		else:
 			print '<td>N/A</td><td>N/A</td><td>N/A</td>'
 		print '</tr>'
-	print """\n
+print """\n
       			</table>
       		</div>
       	</div>
