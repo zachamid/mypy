@@ -165,7 +165,7 @@ print """\n\n
     						var row = table.insertRow(counter);
 							row.title = result[student]['Email'];
     						row.insertCell(0).innerHTML = result[student]['StudentID'];
-    						row.insertCell(1).innerHTML = result[student]['FirstName'] + result[student]['LastName'];
+    						row.insertCell(1).innerHTML = result[student]['FirstName']+' '+result[student]['LastName'];
     						row.insertCell(2).innerHTML = '<button class="form-control" onclick="AssignStudentToClass('+result[student]['StudentID']+')">Remove</button>';
     						row.insertCell(2).innerHTML += "<button class='form-control' onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
     						counter++;
@@ -191,7 +191,7 @@ print """\n\n
     					for (student in result){
     						var row = table.insertRow(counter);
     						row.insertCell(0).innerHTML = result[student]['StudentID'];
-    						row.insertCell(1).innerHTML = result[student]['FirstName'] + result[student]['LastName'];
+    						row.insertCell(1).innerHTML = result[student]['FirstName']+' '+result[student]['LastName'];
     						row.insertCell(2).innerHTML = result[student]['Email'];
     						row.insertCell(3).innerHTML = "<select class='form-control' id='classSelect"+result[student]['StudentID']+"'></select>";
     						row.insertCell(3).innerHTML += "<button class='form-control' onclick='AssignStudentToClass("+result[student]['StudentID']+",document.getElementById('classSelect"+result[student]['StudentID']+"').value)'>Assign</button>"
@@ -261,7 +261,6 @@ print """\n\n
   			$(function() {
   				getUnassignedList();
   				getTeacherList();
-  				getClasses('class_select');
   				getTeachers();
   				getAdminList();
   				getNonAdminSelect();
@@ -333,7 +332,7 @@ print """\n
 				</br>
 				<table><tr>
 				<td><select class="form-control" id='admin_select'></select></td>
-				<td><button class="form-control" onclick='toggleAdmin(document.getElementById("admin_select").value, 1)'>Make Admin</button></td>
+				<td><button class="form-control" onclick='getClasses("class_select")'onchange='toggleAdmin(document.getElementById("admin_select").value, 1)'>Make Admin</button></td>
 				</table>
 			</div>
 		</div>
