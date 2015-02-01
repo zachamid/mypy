@@ -36,7 +36,7 @@ print """Content-type: text/html\n\n
     			var counter = 1;
     			
     			for(var task in tasks){
-    				console.log(task);
+    				console.log(tasks[task]);
     				var row = table.insertRow(counter);
     				row.insertCell(0).innerHTML = "<a onclick='show_XML_info("+task+")'>"+task+"</a>";
     				if(tasks[task]['directory'] == 1){
