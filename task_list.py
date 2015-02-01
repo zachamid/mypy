@@ -60,7 +60,7 @@ for task in file_info:
 		print "<tr><td><a onclick='open_task_page("+str(task)+")'>"+str(task)+'</a></td><td>'+task_info['Title']+'</td>'
 		cursor.execute('''SELECT DateStarted, DateModified, DateCompleted 
 						FROM Progress 
-						WHERE TaskID='''+task+' AND StudentID='+cookies['id'].value)
+						WHERE TaskID='''+str(task)+' AND StudentID='+str(cookies['id'].value))
 		progress_info = cursor.fetchone()
 		for date in ['DateStarted','DateModified','DateCompleted']:
 			print '<td>'
