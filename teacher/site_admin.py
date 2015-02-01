@@ -281,8 +281,7 @@ common_components.print_navbar_teacher(cookies['id'].value, 'site_admin')
 print """\n
 		<div class="container col-sm-12 col-md-6">
 			<div class="panel panel-default translucent">
-				Class Administration</br>
-				Add Class</br>
+				<h4>Add Class</h4></br>
 				<table>
 					<tr>
 						<td>
@@ -295,7 +294,7 @@ print """\n
 				</table>
 			</div><br>
 			<div class="panel panel-default translucent">
-				Edit Class Lists
+				<h4>Edit Class Lists</h4>
 				</br>
 				<select class="form-control" id="classes" 
 				onchange="getClassList()"
@@ -307,7 +306,7 @@ print """\n
 				</div>
 			</div>
 			<div class="panel panel-default translucent">
-				Assign Unassigned Students
+				<h4>Assign Unassigned Students</h4>
 				</br>
 				<div>
 					<table id='unassignedList'>
@@ -317,7 +316,7 @@ print """\n
 		</div></div>
 		<div class="container col-sm-12 col-md-6">
 			<div class="panel panel-default translucent">
-				Teacher Class Assignments </br>
+				<h4>Teacher Class Assignments </h4></br>
 				<td><select onclick='getTeacherList(this.value)' class="form-control" id='class_select'></select></td>
 				<table id='teacherList'></table>
 				Assign Teacher</br>
@@ -329,7 +328,7 @@ print """\n
 		</div>
 		<div class="container col-sm-12 col-md-6">
 			<div class="panel panel-default translucent">
-				Administrators </br>
+				<h4>Administrators</h4></br>
 				<table id='admin_table'></table>
 				</br>
 				<table><tr>
