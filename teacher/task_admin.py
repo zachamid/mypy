@@ -76,7 +76,7 @@ print """Content-type: text/html\n\n
 			}
 			
     		$( document ).ready(function() {
-    			read_task_information('Get_Task_File_Info',populate_table);
+    			read_task_information('Get_Task_File_Info',{},populate_table);
 			});
     	</script>
 	</head>
