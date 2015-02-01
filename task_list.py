@@ -43,7 +43,10 @@ print """\n
       		<div class="panel panel-default translucent">
       			<table id=task_list width="100%" style="border-spacing:10px">
       				<tr><th><b>ID</b></th>
-      					<th><b>Title</b></th></tr>
+      					<th><b>Title</b></th>
+      					<th><b>Date Started</b></th>
+      					<th><b>Date Modified</b></th>
+      					<th><b>Date Completed</b></th></tr>
       			"""
 cursor = db_connection.get_connection()
 file_info = task_delivery.get_file_info()
@@ -57,7 +60,7 @@ for task in file_info:
 		print "<tr><td><a onclick='open_task_page("+str(task)+")'>"+str(task)+'</a></td><td>'+task_info['Title']+'</td>'
 		cursor.execute('''SELECT DateStarted, DateModified, DateCompleted 
 						FROM Progress 
-						WHERE TaskID='''+task+' AND StudentID='cookies['id'].value)
+						WHERE TaskID='''+task+' AND StudentID='+cookies['id'].value)
 		progress_info = cursor.fetchone()
 		for date in ['DateStarted','DateModified','DateCompleted']:
 			print '<td>'
