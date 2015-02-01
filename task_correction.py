@@ -52,7 +52,7 @@ def similarity_index_per_item(item1, item2):
 	if type(item1)==str and type(item2)==str:
 		return levenshteinIndex(item1,item2)
 	if (type(item1)==int and type(item1)==int) or (type(item1)==float and type(item2)==float) or (type(item1)==long and type(item2)==long):
-		return 1-abs((float)(item1 - item2))/max([item1,item2])
+		return 1-abs((float)(item1 - item2)+1)/max([item1+1,item2+1])
 	if type(item1)==bool and type(item2)==bool:
 		if item1 == item2:
 			return 1
