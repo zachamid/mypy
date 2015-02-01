@@ -7,7 +7,9 @@ function read_task_information(cmd, params, post_function){
     	data : data,
     	url : '/read_task_information.py',
     	type : "POST",
-    	dataType : "json"}).done(post_function(result));
+    	dataType : "json"}).done(function(result){
+    		post_function(result);
+    	});
 }
 
 function check_directory(data_manipulation){
