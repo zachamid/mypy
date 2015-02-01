@@ -36,7 +36,6 @@ print """Content-type: text/html\n\n
     			var counter = 1;
     			
     			for(var task in tasks){
-    				console.log(tasks[task]);
     				var row = table.insertRow(counter);
     				row.insertCell(0).innerHTML = "<a onclick='show_XML_info("+task+")'>"+task+"</a>";
     				if(tasks[task]['directory'] == 1){
@@ -71,7 +70,6 @@ print """Content-type: text/html\n\n
 				read_task_information('Get_Task_XML_Info',{task_id:taskID},function(result){
     				var task_info = document.getElementById("task_info");
     				task_info.innerHTML =print_xml_object(result);
-    				console.log(result);
     			});
 			}
 			
