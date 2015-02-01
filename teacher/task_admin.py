@@ -26,7 +26,6 @@ print """Content-type: text/html\n\n
     	<link href="teacher_style.css" rel="stylesheet">
     	<script>
     		function populate_table(tasks){
-    			console.log('Inside Function');
     			var table = document.getElementById('task_list');
     			var header_row = table.insertRow(0);
     			header_row.insertCell(0).innerHTML = '<b>ID</b>';
@@ -37,6 +36,7 @@ print """Content-type: text/html\n\n
     			var counter = 1;
     			
     			for(var task in tasks){
+    				console.log(task);
     				var row = table.insertRow(counter);
     				row.insertCell(0).innerHTML = "<a onclick='show_XML_info("+task+")'>"+task+"</a>";
     				if(tasks[task]['directory'] == 1){
