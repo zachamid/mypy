@@ -113,22 +113,22 @@ def longest_common_subsequence(code1, code2):
 		for j in range(1,len2+1):
 			if len1[i-1] == len2[j-1]: 
 				C[i][j] = C[i-1][j-1] + 1
-            else:
+			else:
             	C[i][j] = max(C[i][j-1], C[i-1][j])
     return C
 
 def backTrackAll(C, X, Y, i, j):
-    if i == 0 or j == 0:
-        return set([""])
+	if i == 0 or j == 0:
+		return set([""])
     elif X[i-1] == Y[j-1]:
-        return set([Z + X[i-1] for Z in backTrackAll(C, X, Y, i-1, j-1)])
+		return set([Z + X[i-1] for Z in backTrackAll(C, X, Y, i-1, j-1)])
     else:
-        R = set()
-        if C[i][j-1] >= C[i-1][j]:
-            R.update(backTrackAll(C, X, Y, i, j-1))
-        if C[i-1][j] >= C[i][j-1]:
-            R.update(backTrackAll(C, X, Y, i-1, j))
-        return R
+		R = set()
+		if C[i][j-1] >= C[i-1][j]:
+			R.update(backTrackAll(C, X, Y, i, j-1))
+		if C[i-1][j] >= C[i][j-1]:
+			R.update(backTrackAll(C, X, Y, i-1, j))
+		return R
 
 def judge_similarity(id, code):
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
