@@ -111,7 +111,7 @@ def longest_common_subsequence(code1, code2):
 	C=[[0 for j in range(len2+1)] for i in range(len1+1)]
 	for i in range(1, len1+1):
 		for j in range(1,len2+1):
-			if len1[i-1] == len2[j-1]: 
+			if code1[i-1] == code2[j-1]: 
 				C[i][j] = C[i-1][j-1] + 1
 			else:
 				C[i][j] = max(C[i][j-1], C[i-1][j])
