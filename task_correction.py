@@ -117,7 +117,7 @@ def longest_common_subsequence(code1, code2):
 				C[i][j] = max(C[i][j-1], C[i-1][j])
 	return C
 
-def backTrackAll(C, X, Y, i, j):
+def printDiff(C, X, Y, i, j):
 	if i > 0 and j > 0 and X[i-1] == Y[j-1]:
 		printDiff(C, X, Y, i-1, j-1)
 		print "  " + X[i-1]
