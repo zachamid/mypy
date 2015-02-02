@@ -120,14 +120,14 @@ def longest_common_subsequence(code1, code2):
 def printDiff(C, X, Y, i, j):
 	if i > 0 and j > 0 and X[i-1] == Y[j-1]:
 		printDiff(C, X, Y, i-1, j-1)
-		print "</br>  " + X[i-1]
+		print "  " + X[i-1]
 	else:
 		if j > 0 and (i == 0 or C[i][j-1] >= C[i-1][j]):
 			printDiff(C, X, Y, i, j-1)
-			print "</br>+ " + Y[j-1]
+			print "+ " + Y[j-1]
 		elif i > 0 and (j == 0 or C[i][j-1] < C[i-1][j]):
 			printDiff(C, X, Y, i-1, j)
-			print "</br>- " + X[i-1]
+			print "- " + X[i-1]
 
 def judge_similarity(id, code):
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
