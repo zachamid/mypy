@@ -81,7 +81,7 @@ print """&nbsp 			</td>
 							Similarity to Model Answer
 						</td>
 						<td>"""
-print task_correction.judge_similarity(task_id, codetocorrect)
+#print task_correction.judge_similarity(task_id, codetocorrect)
 print "</br></br>"
 correctcode = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
 print code.replace('&nbsp', '.')
