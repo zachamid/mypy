@@ -120,7 +120,7 @@ def longest_common_subsequence(code1, code2):
 def backTrackAll(C, X, Y, i, j):
 	if i == 0 or j == 0:
 		return set([""])
-    elif X[i-1] == Y[j-1]:
+	elif X[i-1] == Y[j-1]:
 		return set([Z + X[i-1] for Z in backTrackAll(C, X, Y, i-1, j-1)])
     else:
 		R = set()
