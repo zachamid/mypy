@@ -84,7 +84,7 @@ print """&nbsp 			</td>
 print task_correction.judge_similarity(task_id, codetocorrect)
 print "</br></br>"
 correctcode = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
-print task_correction.backTrackAll(task_correction.longest_common_subsequence(codetocorrect,correctcode), codetocorrect, correctcode, len(codetocorrect), len(correctcode))
+task_correction.backTrackAll(task_correction.longest_common_subsequence(codetocorrect,correctcode), codetocorrect, correctcode, len(codetocorrect), len(correctcode))
 print """&nbsp				</td>
 					</tr>
 					<tr>

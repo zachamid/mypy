@@ -118,17 +118,16 @@ def longest_common_subsequence(code1, code2):
 	return C
 
 def backTrackAll(C, X, Y, i, j):
-	if i == 0 or j == 0:
-		return set([""])
-	elif X[i-1] == Y[j-1]:
-		return set([Z + X[i-1] for Z in backTrackAll(C, X, Y, i-1, j-1)])
+	if i > 0 and j > 0 and X[i-1] == Y[j-1]:
+		printDiff(C, X, Y, i-1, j-1)
+		print "  " + X[i-1]
 	else:
-		R = set()
-		if C[i][j-1] >= C[i-1][j]:
-			R.update(backTrackAll(C, X, Y, i, j-1))
-		if C[i-1][j] >= C[i][j-1]:
-			R.update(backTrackAll(C, X, Y, i-1, j))
-		return R
+		if j > 0 and (i == 0 or C[i][j-1] >= C[i-1][j]):
+			printDiff(C, X, Y, i, j-1)
+			print "+ " + Y[j-1]
+		elif i > 0 and (j == 0 or C[i][j-1] < C[i-1][j]):
+			printDiff(C, X, Y, i-1, j)
+			print "- " + X[i-1]
 
 def judge_similarity(id, code):
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
