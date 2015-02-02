@@ -122,7 +122,7 @@ def backTrackAll(C, X, Y, i, j):
 		return set([""])
 	elif X[i-1] == Y[j-1]:
 		return set([Z + X[i-1] for Z in backTrackAll(C, X, Y, i-1, j-1)])
-    else:
+	else:
 		R = set()
 		if C[i][j-1] >= C[i-1][j]:
 			R.update(backTrackAll(C, X, Y, i, j-1))
