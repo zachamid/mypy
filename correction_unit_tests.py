@@ -24,13 +24,13 @@ print '<pre>'+code3+'</pre>'
 print '<pre>'+code4+'</pre>'
 
 print '<pre>'
-print task_correction.teachers_report(code1,code1)
+task_correction.teachers_report(code1,code1)
 print '</pre></br></br><pre>'
-print task_correction.teachers_report(code1,code2)
+task_correction.teachers_report(code1,code2)
 print '</pre></br></br><pre>'
-print task_correction.teachers_report(code2,code3)
+task_correction.teachers_report(code2,code3)
 print '</pre></br></br><pre>'
-print task_correction.teachers_report(code3,code2)
+task_correction.teachers_report(code3,code2)
 print '</pre></br></br>'
 
 print '</body></html>'
