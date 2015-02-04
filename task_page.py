@@ -98,6 +98,17 @@ print """Content-type: text/html\n\n
 	<body>
 """		
 common_components.print_navbar(cookies['id'].value,'')
+task_xml = task_delivery.get_task_xml(task_id)['task']
+print """\n
+		<div class="col-xs-12 col-md-12 col-sm-12">
+			<div class="panel panel-default translucent">
+				<div class="panel-heading">Instruction</div>
+				<div class='container' style="width:100%">
+					%s
+				</div>
+			</div>
+		</div>
+""" % (task_xml['@instruction'])
 print """\n
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
@@ -107,7 +118,6 @@ print """\n
 					<textarea class="lined" rows="10" id="code"></textarea>
 				</div>
 """
-task_xml = task_delivery.get_task_xml(task_id)['task']
 if('testcase' in task_xml and 'method' in task_xml):
 	print """\n	<div class="panel panel-default translucent" style="width:100%">
 					<table>"""

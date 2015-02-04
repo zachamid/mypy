@@ -100,10 +100,15 @@ def jaccard(dict1, dict2, level=0):
 	union = len(dict1)+len(dict2)-intersection
 	return (float)(intersection/union)
 
-def judge_correctness(taskid, submitted_output):
-	desired_output = task_delivery.get_python_code_from_file(taskid, 'result.txt')['result.txt']
+def judge_correctness(desired_output, submitted_output):
 	#return levenshteinIndex(desired_output, submitted_output)
 	return levenshteinIndex(desired_output, submitted_output)
+
+def teachers_report(code1,code2):
+	code1 = code1.split('\n')
+	code2 = code2.split('\n')
+	C = longest_common_subsequence(code1, code2)
+	print printDiff(C, code1, code2, len(code1), len(code2))
 
 def longest_common_subsequence(code1, code2):
 	len1 = len(code1)
@@ -129,10 +134,10 @@ def printDiff(C, X, Y, i, j):
 			printDiff(C, X, Y, i-1, j)
 			print "</br>- " + X[i-1]
 
-def judge_similarity(id, code):
+def judge_similarity(desired_code, submitted_code):
 	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
-	dict1 = ast2dict(ast.parse(py['task_complete.py']))
-	dict2 = ast2dict(ast.parse(code))
+	dict1 = ast2dict(ast.parse(desired_code))
+	dict2 = ast2dict(ast.parse(submitted_code))
 	print str(dict1) + '</br>' + str(dict2) + '</br>'
 	print jaccard(dict1, dict2)
 
