@@ -7,6 +7,7 @@ cgitb.enable()
 print '''Content-type: text/html\n\n
 
 <html>
+<body>
 '''
 f=open("unit_test_files/code1.py",'r')
 code1= f.read()
@@ -27,4 +28,4 @@ print task_correction.teachers_report(code1,code2)
 print task_correction.teachers_report(code2,code3)
 print task_correction.teachers_report(code3,code2)
 
-print '</html>'
+print '</body></html>'
