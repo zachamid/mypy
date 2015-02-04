@@ -8,6 +8,7 @@ print '''Content-type: text/html\n\n
 
 <html>
 <body>
+<h1>Correction Unit Tests</h1></br>
 '''
 f=open("unit_test_files/code1.py",'r')
 code1= f.read()
@@ -18,7 +19,7 @@ code3= f.read()
 f=open("unit_test_files/code4.py",'r')
 code4= f.read()
 
-print '<h1>Model Answer</h1><br><pre>'+code1+'</pre>'
+print '<h2>Model Answer</h2><br><pre>'+code1+'</pre>'
 
 print '<table width="100%"><tr><th>Entrant 1</th><th>Entrant 2</th>'
 print '</tr><tr><td><pre>'+code1+'</pre></td>'
