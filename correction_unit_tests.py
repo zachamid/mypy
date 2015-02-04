@@ -20,7 +20,7 @@ code4= f.read()
 
 print '<h1>Model Answer</h1><br><pre>'+code1+'</pre>'
 
-print '<table><tr><th>Entrant 1</th><th>Entrant 2</th><th>Entrant 3</th><th>Entrant 4</th>'
+print '<table width="100%"><tr><th>Entrant 1</th><th>Entrant 2</th><th>Entrant 3</th><th>Entrant 4</th>'
 print '</tr><tr><td><pre>'+code1+'</pre></td>'
 print '<td><pre>'+code2+'</pre></td>'
 print '<td><pre>'+code3+'</pre></td>'
