@@ -23,9 +23,9 @@ print '<pre>'+code2+'</pre>'
 print '<pre>'+code3+'</pre>'
 print '<pre>'+code4+'</pre>'
 
-print task_correction.teachers_report(code1,code1)
-print task_correction.teachers_report(code1,code2)
-print task_correction.teachers_report(code2,code3)
-print task_correction.teachers_report(code3,code2)
+print '<pre>'+task_correction.teachers_report(code1,code1)+'</pre></br></br>'
+print '<pre>'+task_correction.teachers_report(code1,code2)+'</pre></br></br>'
+print '<pre>'+task_correction.teachers_report(code2,code3)+'</pre></br></br>'
+print '<pre>'+task_correction.teachers_report(code3,code2)+'</pre></br></br>'
 
 print '</body></html>'
