@@ -45,7 +45,7 @@ print '<td><pre>'+code4+'</pre></td>'
 print '</tr></table></br></br>'
 
 
-print '<table><tr><th></th><th>Teachers Report</th><th>Compare ASTs</th></tr>'
+print '<table><tr><th>Teachers Report</th><th>Compare ASTs</th></tr>'
 for i in (code1,code2,code3,code4):
 	print '<tr><td><pre>'
 	task_correction.teachers_report(code1, i)
