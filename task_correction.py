@@ -134,8 +134,7 @@ def printDiff(C, X, Y, i, j):
 			printDiff(C, X, Y, i-1, j)
 			print "</br>- " + X[i-1]
 
-def judge_similarity(desired_code, submitted_code):
-	py = task_delivery.get_python_code_from_file(id, 'task_complete.py')
+def compare_asts(desired_code, submitted_code):
 	dict1 = ast2dict(ast.parse(desired_code))
 	dict2 = ast2dict(ast.parse(submitted_code))
 	print str(dict1) + '</br>' + str(dict2) + '</br>'
