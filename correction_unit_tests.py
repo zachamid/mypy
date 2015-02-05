@@ -11,6 +11,8 @@ print '''Content-type: text/html\n\n
 <style>
 	table,td,th, tr {
     	border: 1px solid black;
+	}
+	table{
 		width: 50%;
 	}
 </style>
