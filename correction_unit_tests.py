@@ -9,13 +9,19 @@ print '''Content-type: text/html\n\n
 <html>
 <head>
 <style>
-	table,td,th, tr {
-    	border: 1px solid black;
+	table, td, th {
+		border: 1px solid black;
 	}
-	table{
-		width: 50%;
+
+	table {
+	    width: 50%;
+	}
+
+	th {
+	    height: 50px;
 	}
 </style>
+</head>
 <body>
 <h1>Correction Unit Tests</h1></br>
 '''
