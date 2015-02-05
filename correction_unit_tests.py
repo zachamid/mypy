@@ -18,8 +18,8 @@ print '''Content-type: text/html\n\n
 	    table-layout: fixed;
 	}
 
-	th {
-	    height: 50px;
+	td, th {
+		word-wrap: break-word;
 	}
 </style>
 </head>
