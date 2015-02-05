@@ -14,7 +14,8 @@ print '''Content-type: text/html\n\n
 	}
 
 	table {
-	    width: 50%;
+	    width: 100%;
+	    table-layout: fixed;
 	}
 
 	th {
@@ -46,11 +47,10 @@ print '</tr></table></br></br>'
 
 print '<table><tr><th></th><th>Teachers Report</th><th>Compare ASTs</th></tr>'
 for i in (code1,code2,code3,code4):
-	for j in (code1,code2,code3,code4):
-		print '<tr><td><pre>'
-		task_correction.teachers_report(i,j)
-		print '</pre></td><td><pre>'
-		task_correction.compare_asts(i,j)
-		print '</pre></td></tr>'
+	print '<tr><td><pre>'
+	task_correction.teachers_report(code1, i)
+	print '</pre></td><td><pre>'
+	task_correction.compare_asts(code1, i)
+	print '</pre></td></tr>'
 print '</table>'
 print '</body></html>'
