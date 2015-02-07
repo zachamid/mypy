@@ -46,19 +46,18 @@ def ast2dict(node):
 
 def similarity_index_per_item(item1, item2):
 	if type(item1)==str and type(item2)==str:
-		return levenshteinIndex(item1,item2)
+		return pylev.levenshtein(item1,item2)
 	if ((type(item1)==int and type(item1)==int)
 			or (type(item1)==float and type(item2)==float) 
 			or (type(item1)==long and type(item2)==long)):
-		return 1-(abs((float)(item1 - item2)))/float(max([item1+1,item2+1]))
+		return (abs((float)(item1 - item2)))/float(max([item1+1,item2+1]))
 	if type(item1)==bool and type(item2)==bool:
 		if item1 == item2:
-			return 1
-		else:
 			return 0
+		else:
+			return 1
 	if (type(item1)==dict and type(item2)==dict) or (type(item1)==list and type(item2)==list):
-		return jaccard(item1,item2)
-	return return_val
+		return 1-jaccard(item1,item2)
 		
 def levenshteinIndex(str1,str2):
 	distance = pylev.levenshtein(str1,str2)
@@ -92,7 +91,7 @@ def jaccard(dict1, dict2):
 			if field in dict2:
 				diff = similarity_index_per_item(dict1[field], dict2[field])
 				print '%s:%s => %d' % (str(dict1[field]), str(dict2[field]), diff)
-				intersection += diff
+				intersection += 1-(0.5 * diff)
 			
 	union = len(dict1)+len(dict2)-intersection
 	return (float)(intersection/union)
