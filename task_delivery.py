@@ -107,6 +107,6 @@ def get_python_output(file_path):
 def save_code(task_id, student_id, code):
 	cursor = db_connection.get_connection()
 	curr_date = datetime.datetime.now()	
-	sql = "UPDATE Progress SET Code='%s', DateModified='%s' WHERE TaskID=%s AND StudentID=%s" % (code.replace("'","''"),str(curr_date),str(task_id), str(student_id))
-	cursor.execute(sql)
+	print "UPDATE Progress SET Code='%s', DateModified='%s' WHERE TaskID=%s AND StudentID=%s" % (code.replace("'","''"),str(curr_date),str(task_id), str(student_id))
+	#cursor.execute(sql)
 	
