@@ -111,24 +111,23 @@ if('testcase' in task_xml and 'method' in task_xml):
 			print "			</tr>"		
 	print """\n		</table>
 			</div>
+			<table><tr><td>
 			<button class="form-control" 
-	onclick='compile_code(document.getElementById("code").value,"""+task_id+""","output","error")'
-     type="button">Run</button>
+	onclick='compile_code(document.getElementById("code").value,%s,"output","error")'
+     type="button">Run</button></td><td>
      <button class="form-control" 
-	onclick='correct("""+task_id+""")'
-     type="button">Correct</button>"""
+	onclick='correct(%s)' type="button">Correct</button></td>""" % (str(task_id),str(task_id))
      
 else:
 	print """\n
-			<button class="form-control"
+			<table><tr><td><button class="form-control"
 		onclick='run_code(document.getElementById("code").value,"output","error")' type="button">
 						Run
-			</button>
-			<button class="form-control" onclick='correct("""+task_id+""")' type="button">
-						Correct
-			</button>"""
+			</button></td><td>
+			<button class="form-control" onclick='correct(%s)' type="button">Correct
+			</button></td>""" % (str(task_id))
 			
-print "<button class=\"form-control\" onclick='save_code(document.getElementById(\"code\").value,"+task_id+","+student_id+")' type=\"button\" >Save</button></div>"
+print "<td><button class=\"form-control\" onclick='save_code(document.getElementById(\"code\").value,"+task_id+","+student_id+")' type=\"button\" >Save</button></td></tr></table></div>"
 print		"""\n	</div>
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
