@@ -16,7 +16,7 @@ else:
 task_info = cgi.FieldStorage()
 student_id = cookies['id'].value
 task_id = task_info['task_id'].value
-code = task_info['code'].value
+code = task_info['code'].value.replace('</br>','\n')
 output = task_info["output"].value
 cursor = db_connection.get_connection()
 task_delivery.save_code(code, task_id, student_id)
