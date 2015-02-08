@@ -27,9 +27,7 @@ try:
 	else:
 		progress_record = cursor.fetchone()
 		curr_date = datetime.datetime.now()	
-		cursor.execute("""UPDATE Progress
-						SET DateModified=%s, Attempts=%d
-						WHERE ProgressID=%s
+		cursor.execute("""UPDATE Progress SET DateModified=%s, Attempts=%d WHERE ProgressID=%s
 						""" % (curr_date, progress_record['Attempts']+1,progress_record['ProgressID']))
 except MySQLdb.Error, e:
 	print "MySQL Error [%d]: %s" % (e.args[0], e.args[1])
