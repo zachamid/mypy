@@ -109,7 +109,7 @@ print """\n
 					<div class="line-nums"><span>1</span></div>
 					<textarea class="lined" rows="10" id="code">"""
 if cursor.rowcount != 0:
-	sql = 'SELECT Code FROM Progress WHERE StudentID=%d AND TaskID=%d' % (student_id,task_id)
+	sql = 'SELECT Code FROM Progress WHERE StudentID=%s AND TaskID=%s' % (str(student_id),str(task_id))
 	cursor.execute(sql)
 	print cursor.fetchone()['Code']
 else:
