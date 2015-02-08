@@ -74,6 +74,7 @@ print """&nbsp				</textarea></div></div>
 						</td>
 						<td>
 """
+correct_output = correctcode = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
 print task_correction.judge_correctness(task_id,outputtocorrect)
 print """&nbsp 			</td>
 					</tr>
