@@ -128,7 +128,7 @@ else:
 						Correct
 			</button>"""
 			
-print """\n	<button class="form_control" onclick='save_code(%d,%d,document.getElementById("code").value)'>Save</button></div>
+print """\n	<button class="form_control" onclick='save_code(%s,%s,document.getElementById("code").value)'>Save</button></div>
 		</div>
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
@@ -145,4 +145,4 @@ print """\n	<button class="form_control" onclick='save_code(%d,%d,document.getEl
 		<div id="postform" style="display: none;"></div>
 	</body>
 </html>
-""" % (task_id, student_id)
+""" % (str(task_id), str(student_id))
