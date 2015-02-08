@@ -111,7 +111,7 @@ if('testcase' in task_xml and 'method' in task_xml):
 			print "			</tr>"		
 	print """\n		</table>
 			</div>
-			<table width='100%'><tr><td>
+			<table width="100%"><tr><td>
 			<button class="form-control" 
 	onclick='compile_code(document.getElementById("code").value,%s,"output","error")'
      type="button">Run</button></td><td>
@@ -120,7 +120,7 @@ if('testcase' in task_xml and 'method' in task_xml):
      
 else:
 	print """\n
-			<table width='100%'><tr><td><button class="form-control"
+			<table width="100%"><tr><td><button class="form-control"
 		onclick='run_code(document.getElementById("code").value,"output","error")' type="button">
 						Run
 			</button></td><td>
