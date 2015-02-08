@@ -118,7 +118,7 @@ print """\n
 if new_flag == 0:
 	sql = 'SELECT Code FROM Progress WHERE StudentID=%s AND TaskID=%s' % (str(student_id),str(task_id))
 	cursor.execute(sql)
-	print cursor.fetchone()['Code']
+	print cursor.fetchone()['Code'].replace('</br>','\n')
 else:
 	code = task_delivery.get_python_code_from_file(task_id, 'task_skeleton.py')['task_skeleton.py']
 	cursor.execute("""INSERT INTO Progress (StudentID, TaskID, DateStarted, Code)
