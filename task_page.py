@@ -116,7 +116,8 @@ if new_flag == 0:
 	print cursor.fetchone()['Code']
 else:
 	print task_delivery.get_python_code_from_file(task_id, 'task_skeleton.py')['task_skeleton.py']
-"""\n				</textarea>
+
+print """\n				</textarea>
 				</div>
 """
 if('testcase' in task_xml and 'method' in task_xml):
