@@ -91,7 +91,6 @@ def jaccard(dict1, dict2):
 	return (float)(intersection/union)
 
 def judge_correctness(desired_output, submitted_output):
-	#return levenshteinIndex(desired_output, submitted_output)
 	return levenshteinIndex(desired_output, submitted_output)
 
 def teachers_report(code1,code2):
