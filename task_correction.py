@@ -1,12 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb
-import os
-import ast
-import json
-import xml
-import pylev
-
+import cgi, cgitb, os, ast, json, xml, pylev, math
 
 def str_node(node):
     if isinstance(node, ast.AST):
@@ -136,8 +130,16 @@ def compare_asts(desired_code, submitted_code):
 	print str(dict1) + '</br>' + str(dict2) + '</br>'
 	print jaccard(dict1, dict2)
 
-def judge_time(id,code):
-	print 'Currently developing time metric algorithm'
+def quickest_time(times):
+	min_time = float('inf')
+	for time in times
+		delta = date['DateCompleted']-date['DateStarted']
+		if min_time > delta.total_seconds():
+			min_time = delta
+	return min_time
 
-def judge_attempts(id, code):
-	print 'Currently developing attempt metric algorithm'
+def judge_time(min_time, time):
+	return float(min_time/time)
+
+def judge_attempts(attempts):
+	return float(1/math.sqrt(attempts))

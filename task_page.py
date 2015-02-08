@@ -15,21 +15,22 @@ else:
 
 task_info = cgi.FieldStorage()
 task_id = task_info['task_id'].value
+student_id = cookies['id'].value
 cursor = db_connection.get_connection()
 try:
-	cursor.execute("""SELECT * FROM Progress WHERE
-					StudentID=%s AND TaskID=%s""",(cookies['id'].value,task_id))
+	cursor.execute("""SELECT Attempts, ProgressID FROM Progress WHERE
+					StudentID=%s AND TaskID=%s""",(student_id,task_id))
 
 	if cursor.rowcount == 0:
 		cursor.execute("""INSERT INTO Progress (StudentID, TaskID)
-						Values(%s, %s)""",(cookies['id'].value,task_id))
+						Values(%s, %s)""",(student_id,task_id))
 	else:
 		progress_record = cursor.fetchone()
 		curr_date = datetime.datetime.now()	
 		cursor.execute("""UPDATE Progress
-						SET DateModified=%s
+						SET DateModified=%s, Attempts=%d
 						WHERE ProgressID=%s
-						""",(curr_date, progress_record['ProgressID']))
+						""" % (curr_date, progress_record['Attempts']+1,progress_record['ProgressID']))
 except MySQLdb.Error, e:
 	print "MySQL Error [%d]: %s" % (e.args[0], e.args[1])
 
@@ -70,15 +71,8 @@ print """Content-type: text/html\n\n
     				mapForm.submit();
     			}
 		
-		function insert_python_content_to_code_area(result){
-			if (!("Error_Title" in result)){
-				document.getElementById('code').value = result['task_skeleton.py'];
-			}
-		}
 		$(function() {
 			code_area_prep();
-			get_task_py("""+task_id+""",'task_skeleton.py',insert_python_content_to_code_area);
-			
 			var editor = new Behave({
 			
 				textarea: 		document.getElementById('code'),
@@ -115,7 +109,14 @@ print """\n
 				<div class="panel-heading">Python Source Code</div>
 				<div class='container' style="width:100%">
 					<div class="line-nums"><span>1</span></div>
-					<textarea class="lined" rows="10" id="code"></textarea>
+					<textarea class="lined" rows="10" id="code">"""
+if cursor.row_count != 0:
+	sql = 'SELECT Code FROM Progress WHERE StudentID=%d AND TaskID=%d' % (student_id,task_id)
+	cursor.execute(sql)
+	print cursor.fetchone()['Code']
+else:
+	print get_python_code_from_file(task_id, 'task_skeleton.py')['task_skeleton.py']
+"""\n				</textarea>
 				</div>
 """
 if('testcase' in task_xml and 'method' in task_xml):
