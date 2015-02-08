@@ -19,6 +19,7 @@ task_id = task_info['task_id'].value
 code = task_info['code'].value
 output = task_info["output"].value
 cursor = db_connection.get_connection()
+save_code(code, task_id, student_id)
 
 print """Content-type: text/html\n\n
 
