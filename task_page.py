@@ -28,7 +28,7 @@ try:
 	else:
 		progress_record = cursor.fetchone()
 		cursor.execute("""UPDATE Progress SET DateModified=%s, Attempts=%d WHERE ProgressID=%s
-						""" % (curr_date, progress_record['Attempts']+1,progress_record['ProgressID']))
+						""" % (str(curr_date), progress_record['Attempts']+1,progress_record['ProgressID']))
 except MySQLdb.Error, e:
 	print "MySQL Error [%d]: %s" % (e.args[0], e.args[1])
 
@@ -115,7 +115,7 @@ if new_flag == 0:
 else:
 	code = task_delivery.get_python_code_from_file(task_id, 'task_skeleton.py')['task_skeleton.py']
 	print """INSERT INTO Progress (StudentID, TaskID, DateStarted, Code)
-						Values(%s, %s, %s, %s)""" % (str(student_id),str(task_id),curr_date,"'"+code+"'")
+						Values(%s, %s, %s, %s)""" % (str(student_id),str(task_id),"'"+curr_date+"'","'"+code+"'")
 
 print """\n				</textarea>
 				</div>
