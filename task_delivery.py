@@ -8,7 +8,8 @@ import MySQLdb.cursors
 import db_connection
 import xml
 import xmltodict
-import subprocess
+import datetime
+
 cgitb.enable()
 
 path = '../tasks/'
@@ -103,7 +104,9 @@ def get_python_output(file_path):
 	stderr=subprocess.STDOUT)
 	return result.communicate()[0]
 
-def save_to_file(task_id, student_id, code):
-	user_attempt = open(path+task_id+'/'+student_id+'.py', 'w')
-	user_attempt.write(code)
-	user_attempt.close()
+def save_code(task_id, student_id, code):
+	cursor = db_connection.get_connection()
+	curr_date = datetime.datetime.now()	
+	sql = "UPDATE Progress SET Code='%s', DateModified=%s WHERE TaskID=%d AND StudentID=%d" % (code.replace("'","''"),str(curr_date),task_id, student_id)
+	cursor.execute(sql)
+	

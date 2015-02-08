@@ -12,56 +12,6 @@ function read_task_information(cmd, params, post_function){
     	});
 }
 
-function check_directory(data_manipulation){
-	$.ajax({
-		url : '/read_task_information.py',
-    	data: {cmd:"Get_Task_File_Info"},
-    	type: 'POST',
-    	dataType: 'json'}).done(function(result){
-    		data_manipulation(result);
-    	});
-}
-    		
-function get_task_info(taskID,data_manipulation){
-	$.ajax({
-		url : '/read_task_information.py',
-    	data: {cmd:"Get_Task_Info",task_id:taskID},
-    	type: 'POST',
-    	dataType: 'text'}).done(function(tasks){
-    			data_manipulation(tasks);
-    });
-}
-
-function get_task_info(data_manipulation){
-	$.ajax({
-		url : '/read_task_information.py',
-    	data: {cmd:"Get_Task_DB_Info"},
-    	type: 'POST',
-    	dataType: 'json'}).done(function(tasks){
-    			data_manipulation(tasks);
-    });
-}
-
-function get_task_xml(task_id, data_manipulation){
-	$.ajax({
-		url : '/read_task_information.py',
-    	data: {cmd:"Get_Task_XML_Info", task_id:task_id},
-    	type: 'POST',
-    	dataType: 'json'}).done(function(tasks){
-    			data_manipulation(tasks);
-    });
-}
-
-function get_task_py(task_id, file_name, data_manipulation){
-	$.ajax({
-		url : '/read_task_information.py',
-    	data: {cmd:"Get_Task_Python_File", task_id:task_id, file_name:file_name, student_id:student_id},
-    	type: 'POST',
-    	dataType: 'json'}).done(function(tasks){
-    			data_manipulation(tasks);
-    });
-}
-
 function print_xml_object(obj) {
 	ret_string="";
 	if("task" in obj){

@@ -44,30 +44,6 @@ print """Content-type: text/html\n\n
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script src="task_admin_functions.js" type="text/javascript"></script>
 		<script>
-		function correct(taskID){
-    				var mapForm = document.createElement("form");
-    				mapForm.method = "POST";
-    				mapForm.action = "/correction_page.py";
-					var taskid = document.createElement("input");
-    				taskid.type = "text";
-    				taskid.name = "task_id";
-    				taskid.value = taskID;
-    				mapForm.appendChild(taskid);
-    				var code = document.createElement("input");
-    				code.type = "textarea";
-    				code.name = "code";
-    				code.value = document.getElementById('code').value.replace(/\\r?\\n/g, '</br>');
-    				code.value = code.value.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
-    				var output = document.createElement("input");
-    				output.type = "textarea";
-    				output.name = "output";
-    				output.value = document.getElementById('output').value.replace(/\\r?\\n/g, '</br>');
-    				output.value = output.value.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
-    				mapForm.appendChild(output);
-    				mapForm.appendChild(code);
-    				document.getElementById('postform').appendChild(mapForm);
-    				mapForm.submit();
-    			}
 		
 		$(function() {
 			code_area_prep();
@@ -152,7 +128,7 @@ else:
 						Correct
 			</button>"""
 			
-print """\n	</div>
+print """\n	<button class="form_control" onclick='save_code(%d,%d,document.getElementById("code").value)'>Save</button></div>
 		</div>
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
@@ -169,4 +145,4 @@ print """\n	</div>
 		<div id="postform" style="display: none;"></div>
 	</body>
 </html>
-"""
+""" % (task_id, student_id)

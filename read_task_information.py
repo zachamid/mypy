@@ -40,3 +40,8 @@ elif str(cmd) == "Get_Task_Compile_Code":
 	given_code = posted_data['code'].value
 	compile_code = task_delivery.get_compile_code(task_id, given_code)
 	print json.dumps(compile_code)
+elif str(cmd) == "Save_Code":
+	task_id = posted_data['task_id'].value
+	given_code = posted_data['code'].value
+	student_id = posted_data['student_id'].value
+	task_delivery.save_code(task_id, student_id, given_code)

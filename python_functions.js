@@ -15,15 +15,38 @@ function run_code(code,output,err) {
    	}
 }
 
-function correct_code(){
+function correct(taskID){
+	var mapForm = document.createElement("form");
+    mapForm.method = "POST";
+    mapForm.action = "/correction_page.py";
+	var taskid = document.createElement("input");
+    taskid.type = "text";
+    taskid.name = "task_id";
+	taskid.value = taskID;
+    mapForm.appendChild(taskid);
+    var code = document.createElement("input");
+    code.type = "textarea";
+    code.name = "code";
+    code.value = document.getElementById('code').value.replace(/\\r?\\n/g, '</br>');
+    code.value = code.value.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+    var output = document.createElement("input");
+    output.type = "textarea";
+    output.name = "output";
+    output.value = document.getElementById('output').value.replace(/\\r?\\n/g, '</br>');
+    output.value = output.value.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+    mapForm.appendChild(output);
+    mapForm.appendChild(code);
+    document.getElementById('postform').appendChild(mapForm);
+    mapForm.submit();
+}
+
+function save_code(code, task_id, student_id){
+	params = {code: code, task_id: task_id, student_id: student_id};
+	read_task_information('Save_Code', params, functions(result){});
 }
 
 function compile_code(code, task_id, output, err){
-	$.ajax({
-		url : '/read_task_information.py',
-    	data: {cmd:"Get_Task_Compile_Code",task_id:task_id, code: code},
-    	type: 'POST',
-    	dataType: 'json'}).done(function(code){
+	read_task_information("Get_Task_Compile_Code",{task_id:task_id, code: code},function(code){
     		run_code(code['code'],output, err);
     });
 }
