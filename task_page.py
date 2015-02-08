@@ -18,17 +18,15 @@ task_id = task_info['task_id'].value
 student_id = cookies['id'].value
 cursor = db_connection.get_connection()
 new_flag = 0
+curr_date = datetime.datetime.now()	
 try:
 	cursor.execute("""SELECT Attempts, ProgressID FROM Progress WHERE
 					StudentID=%s AND TaskID=%s""" % (str(student_id),str(task_id)))
 
 	if cursor.rowcount == 0:
 		new_flag = 1
-		cursor.execute("""INSERT INTO Progress (StudentID, TaskID)
-						Values(%s, %s)""" % (str(student_id),str(task_id)))
 	else:
 		progress_record = cursor.fetchone()
-		curr_date = datetime.datetime.now()	
 		cursor.execute("""UPDATE Progress SET DateModified=%s, Attempts=%d WHERE ProgressID=%s
 						""" % (curr_date, progress_record['Attempts']+1,progress_record['ProgressID']))
 except MySQLdb.Error, e:
@@ -115,7 +113,9 @@ if new_flag == 0:
 	cursor.execute(sql)
 	print cursor.fetchone()['Code']
 else:
-	print task_delivery.get_python_code_from_file(task_id, 'task_skeleton.py')['task_skeleton.py']
+	code = task_delivery.get_python_code_from_file(task_id, 'task_skeleton.py')['task_skeleton.py']
+	cursor.execute("""INSERT INTO Progress (StudentID, TaskID, DateStarted, Code)
+						Values(%s, %s, %s, %s)""" % (str(student_id),str(task_id),curr_date,code))
 
 print """\n				</textarea>
 				</div>
