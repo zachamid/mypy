@@ -116,7 +116,7 @@ if('testcase' in task_xml and 'method' in task_xml):
 	onclick='compile_code(document.getElementById("code").value,%s,"output","error")'
      type="button">Run</button></td><td>
      <button class="form-control" 
-	onclick='correct(%s)' type="button">Correct</button></td>""" % (str(task_id),str(task_id))
+	onclick='correct( %s )' type="button">Correct</button></td>""" % (str(task_id),str(task_id))
      
 else:
 	print """\n
