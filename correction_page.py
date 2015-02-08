@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb, json, MySQLdb, db_connection,Cookie, common_components,os,datetime
+import cgi, cgitb, json, MySQLdb, db_connection,Cookie, common_components,os,datetime,re
 import task_delivery, task_correction
 cgitb.enable()
 
@@ -85,8 +85,8 @@ print """&nbsp 			</td>
 #print task_correction.judge_similarity(task_id, codetocorrect)
 print "<pre>"
 correctcode = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
-correctcode = correctcode.split('\n')
-codetocorrect = code.split('\n')
+correctcode = re.sub(' +','  ',correctcode).split('\n')
+codetocorrect = re.sub(' +','  ',codetocorrect).split('\n')
 task_correction.printDiff(task_correction.longest_common_subsequence(codetocorrect,correctcode), codetocorrect, correctcode, len(codetocorrect), len(correctcode))
 print """\n				</pre></td>
 					</tr>
