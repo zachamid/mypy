@@ -17,9 +17,11 @@ task_info = cgi.FieldStorage()
 student_id = cookies['id'].value
 task_id = task_info['task_id'].value
 code = task_info['code'].value
+codetocorrect = code.replace('</br>','\n')
+codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t')
 output = task_info["output"].value
 cursor = db_connection.get_connection()
-task_delivery.save_code(code, task_id, student_id)
+task_delivery.save_code(codetocorrect, task_id, student_id)
 
 print """Content-type: text/html\n\n
 
@@ -45,8 +47,6 @@ print """Content-type: text/html\n\n
 	<body>
 """
 common_components.print_navbar(cookies['id'].value,'')
-codetocorrect = code.replace('</br>','\n')
-codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t')
 outputtocorrect = output.replace('</br>','\n').replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t')
 print """&nbsp
 		<div class="container">
@@ -86,10 +86,6 @@ print """&nbsp 			</td>
 print "</br></br>"
 correctcode = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py'].split('\n')
 codetocorrect = codetocorrect.split('\n')
-print correctcode
-print '</br>'
-print codetocorrect
-print '</br>'
 task_correction.printDiff(task_correction.longest_common_subsequence(codetocorrect,correctcode), codetocorrect, correctcode, len(codetocorrect), len(correctcode))
 print """&nbsp				</td>
 					</tr>
