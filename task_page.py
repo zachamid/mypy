@@ -115,7 +115,7 @@ if new_flag == 0:
 	cursor.execute(sql)
 	print cursor.fetchone()['Code']
 else:
-	print get_python_code_from_file(task_id, 'task_skeleton.py')['task_skeleton.py']
+	print task_delivery.get_python_code_from_file(task_id, 'task_skeleton.py')['task_skeleton.py']
 """\n				</textarea>
 				</div>
 """
