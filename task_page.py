@@ -69,7 +69,7 @@ print """Content-type: text/html\n\n
     		document.getElementById('postform').appendChild(mapForm);
     		console.log(code.value);
     		console.log(output.value);
-    		//mapForm.submit();
+    		mapForm.submit();
 		}
 		$(function() {
 			code_area_prep();
