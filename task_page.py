@@ -17,11 +17,13 @@ task_info = cgi.FieldStorage()
 task_id = task_info['task_id'].value
 student_id = cookies['id'].value
 cursor = db_connection.get_connection()
+new_flag = 0
 try:
 	cursor.execute("""SELECT Attempts, ProgressID FROM Progress WHERE
 					StudentID=%s AND TaskID=%s""" % (str(student_id),str(task_id)))
 
 	if cursor.rowcount == 0:
+		new_flag = 1
 		cursor.execute("""INSERT INTO Progress (StudentID, TaskID)
 						Values(%s, %s)""" % (str(student_id),str(task_id)))
 	else:
@@ -108,7 +110,7 @@ print """\n
 				<div class='container' style="width:100%">
 					<div class="line-nums"><span>1</span></div>
 					<textarea class="lined" rows="10" id="code">"""
-if cursor.rowcount != 0:
+if new_flag == 0:
 	sql = 'SELECT Code FROM Progress WHERE StudentID=%s AND TaskID=%s' % (str(student_id),str(task_id))
 	cursor.execute(sql)
 	print cursor.fetchone()['Code']
