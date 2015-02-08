@@ -25,7 +25,7 @@ print """Content-type: text/html\n\n
 				textarea: 		document.getElementById('code'),
 				replaceTab: 	true,
 			    softTabs: 		true,
-			    tabSize: 		4,
+			    tabSize: 		2,
 			    autoOpen: 		false,
 			    overwrite: 		false,
 			    autoStrip: 		false,
