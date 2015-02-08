@@ -89,7 +89,8 @@ codetocorrect = codetocorrect.split('\n')
 print correctcode
 print '</br>'
 print codetocorrect
-#task_correction.printDiff(task_correction.longest_common_subsequence(codetocorrect,correctcode), codetocorrect, correctcode, len(codetocorrect), len(correctcode))
+print '</br>'
+task_correction.printDiff(task_correction.longest_common_subsequence(codetocorrect,correctcode), codetocorrect, correctcode, len(codetocorrect), len(correctcode))
 print """&nbsp				</td>
 					</tr>
 					<tr>
