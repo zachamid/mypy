@@ -96,11 +96,11 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Instruction</div>
 				<div class='container' style="width:100%">
-					%s
+				"""+task_xml['@instruction']+"""\n
 				</div>
 			</div>
 		</div>
-""" % (task_xml['@instruction'])
+"""
 print """\n
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
