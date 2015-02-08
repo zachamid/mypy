@@ -128,8 +128,8 @@ else:
 						Correct
 			</button>"""
 			
-print "<button class='form_control' onclick='save_code("+task_id+","+student_id+",document.getElementById(\"code\").value)'>Save</button></div>
-		"""\n	</div>
+print "<button class='form_control' onclick='save_code("+task_id+","+student_id+",document.getElementById(\"code\").value)'>Save</button></div>"
+print		"""\n	</div>
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
