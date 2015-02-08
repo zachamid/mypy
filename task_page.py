@@ -58,7 +58,7 @@ print """Content-type: text/html\n\n
     		code.name = "code";
     		code.value = document.getElementById('code').value.replace(/\\r?\\n/g, '</br>');
    		 	code.value = code.value.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
-    		code.value = document.getElementById('code').value;
+    		//code.value = document.getElementById('code').value;
     		var output = document.createElement("input");
     		output.type = "textarea";
     		output.name = "output";
