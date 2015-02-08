@@ -42,7 +42,7 @@ function correct(taskID){
 
 function save_code(code, task_id, student_id){
 	params = {code: code, task_id: task_id, student_id: student_id};
-	read_task_information('Save_Code', params, functions(result){});
+	read_task_information('Save_Code', params, function(result){});
 }
 
 function compile_code(code, task_id, output, err){
