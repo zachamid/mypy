@@ -89,7 +89,7 @@ correctcode = task_delivery.get_python_code_from_file(task_id, 'task_complete.py
 jaccard_score = task_correction.compare_asts(correctcode, codetocorrect)
 #correctcode = re.sub(' +','  ',correctcode).split('\n')
 #codetocorrect = re.sub(' +','  ',codetocorrect).split('\n')
-task_correction.printDiff(task_correction.longest_common_subsequence(codetocorrect,correctcode), codetocorrect, correctcode, len(codetocorrect), len(correctcode))
+task_correction.printDiff(task_correction.longest_common_subsequence(codetocorrect.split('\n'),correctcode.split('\n')), codetocorrect.split('\n'), correctcode.split('\n'), len(codetocorrect.split('\n')), len(correctcode.split('\n')))
 print "				</pre></br>"
 print jaccard_score
 print """\n
