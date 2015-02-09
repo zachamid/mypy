@@ -86,10 +86,13 @@ print """&nbsp 			</td>
 #print task_correction.judge_similarity(task_id, codetocorrect)
 print "<pre>"
 correctcode = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
+jaccard_score = task_correction.compare_asts(correctedcode, codetocorrect)
 correctcode = re.sub(' +','  ',correctcode).split('\n')
 codetocorrect = re.sub(' +','  ',codetocorrect).split('\n')
 task_correction.printDiff(task_correction.longest_common_subsequence(codetocorrect,correctcode), codetocorrect, correctcode, len(codetocorrect), len(correctcode))
-print """\n				</pre></td>
+print "				</pre></br>"
+print """\n
+						</td>
 					</tr>
 					<tr>
 						<td>
