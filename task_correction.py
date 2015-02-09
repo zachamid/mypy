@@ -130,7 +130,7 @@ def compare_asts(desired_code, submitted_code):
 def quickest_time(times):
 	min_time = float('inf')
 	for time in times:
-		delta = date['DateCompleted']-date['DateStarted']
+		delta = time['DateCompleted']-time['DateStarted']
 		if min_time > delta.total_seconds():
 			min_time = delta
 	return min_time
