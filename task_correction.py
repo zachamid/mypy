@@ -126,8 +126,7 @@ def printDiff(C, X, Y, i, j):
 def compare_asts(desired_code, submitted_code):
 	dict1 = ast2dict(ast.parse(desired_code))
 	dict2 = ast2dict(ast.parse(submitted_code))
-	print str(dict1) + '</br>' + str(dict2) + '</br>'
-	print jaccard(dict1, dict2)
+	return jaccard(dict1, dict2)
 
 def quickest_time(times):
 	min_time = float('inf')
