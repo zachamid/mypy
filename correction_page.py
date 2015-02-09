@@ -91,6 +91,7 @@ correctcode = re.sub(' +','  ',correctcode).split('\n')
 codetocorrect = re.sub(' +','  ',codetocorrect).split('\n')
 task_correction.printDiff(task_correction.longest_common_subsequence(codetocorrect,correctcode), codetocorrect, correctcode, len(codetocorrect), len(correctcode))
 print "				</pre></br>"
+print jaccard_score
 print """\n
 						</td>
 					</tr>
