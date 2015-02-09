@@ -17,6 +17,7 @@ task_info = cgi.FieldStorage()
 student_id = cookies['id'].value
 task_id = task_info['task_id'].value
 code = task_info['code'].value
+codetocorrect = code.replace('</br>','\n')
 codetocorrect = code.replace('\n\n','\n')
 codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t').rstrip()
 output = task_info["output"].value
