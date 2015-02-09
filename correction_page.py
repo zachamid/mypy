@@ -110,7 +110,7 @@ print """\n
 sql = 'SELECT DateStarted, DateCompleted FROM Progress'
 cursor.execute(sql)
 times = cursor.fetchall()
-min_time = task_corrections.quickest_time(times)
+min_time = task_correction.quickest_time(times)
 task_time = progress_record['DateCompleted'].total_seconds-progress_record['DateStarted'].total_seconds
 print task_correction.judge_time(min_time,task_time)
 print """&nbsp			</td>
