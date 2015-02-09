@@ -22,6 +22,12 @@ codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t').rstrip()
 output = task_info["output"].value
 cursor = db_connection.get_connection()
 task_delivery.save_code(codetocorrect, task_id, student_id)
+currtime = datetime.datetime.now()
+sql = '''UPDATE Progress SET DateCompleted='%s' WHERE StudentID=%s AND TaskID=%s''' % (str(currtime), str(student_id),str(task_id))
+cursor.execute(sql)
+sql = '''SELECT * FROM Progress WHERE StudentID=%s AND TaskID=%s''' % (str(currtime), str(student_id),str(task_id))
+cursor.execute(sql)
+progress_record = cursor.fetchone()
 
 print """Content-type: text/html\n\n
 
@@ -101,7 +107,12 @@ print """\n
 						</td>
 						<td>
 """
-#task_correction.judge_time(task_id,codetocorrect)
+sql = 'SELECT DateStarted, DateCompleted FROM Progress'
+cursor.execute(sql)
+times = cursor.fetchall()
+min_time = task_corrections.quickest_time(times)
+task_time = progress_record['DateCompleted'].total_seconds-progress_record['DateStarted'].total_seconds
+print task_correction.judge_time(min_time,task_time)
 print """&nbsp			</td>
 					</tr>
 					<tr>
@@ -109,7 +120,7 @@ print """&nbsp			</td>
 							Attempts
 						</td>
 						<td>"""
-#task_correction.judge_attempts(task_id, codetocorrect)
+print task_correction.judge_attempts(progress_record['Attempts'])
 print """&nbsp			</td>
 					</tr>
 				</table>
