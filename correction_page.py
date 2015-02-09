@@ -25,7 +25,7 @@ task_delivery.save_code(codetocorrect, task_id, student_id)
 currtime = datetime.datetime.now()
 sql = '''UPDATE Progress SET DateCompleted='%s' WHERE StudentID=%s AND TaskID=%s''' % (str(currtime), str(student_id),str(task_id))
 cursor.execute(sql)
-sql = '''SELECT * FROM Progress WHERE StudentID=%s AND TaskID=%s''' % (str(currtime), str(student_id),str(task_id))
+sql = '''SELECT * FROM Progress WHERE StudentID=%s AND TaskID=%s''' % (str(student_id),str(task_id))
 cursor.execute(sql)
 progress_record = cursor.fetchone()
 
