@@ -27,6 +27,7 @@ for record in progress_records:
 		league_entry[record['StudentID']]['score'] += score
 		league_entry[record['StudentID']]['no_tasks']+= 1
 	else:
+		league_entry[record['StudentID']] = {}
 		league_entry[record['StudentID']]['score'] = score
 		league_entry[record['StudentID']]['no_tasks']=1
 		league_entry[record['StudentID']]['name']= record['FirstName']+' '+record['LastName']
