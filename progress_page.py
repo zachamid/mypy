@@ -83,6 +83,7 @@ for record in progress_records:
 	print '</tr>'
 print """\n	</table>
 		</div></div>
+		<div id="postform" style="display: none;"></div>
 	</body>
 </html>
 """
