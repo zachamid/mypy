@@ -12,22 +12,63 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		print cookies
 else:
 	print 'Location: index.py'
+cursor = db_connection.get_connection()
 
 task_info = cgi.FieldStorage()
 student_id = cookies['id'].value
 task_id = task_info['task_id'].value
-code = task_info['code'].value
-codetocorrect = code.replace('</br>','\n')
-codetocorrect = codetocorrect.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t').rstrip()
-output = task_info["output"].value
-cursor = db_connection.get_connection()
-task_delivery.save_code(codetocorrect, task_id, student_id)
 currtime = datetime.datetime.now()
-sql = '''UPDATE Progress SET DateCompleted='%s' WHERE StudentID=%s AND TaskID=%s''' % (str(currtime), str(student_id),str(task_id))
-cursor.execute(sql)
-sql = '''SELECT * FROM Progress WHERE StudentID=%s AND TaskID=%s''' % (str(student_id),str(task_id))
-cursor.execute(sql)
-progress_record = cursor.fetchone()
+if('code' in task_info):
+	correct_output = correctcode = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
+	correct_code = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
+	
+	submitted_code = task_info['code'].value
+	submitted_code = submitted_code.replace('</br>','\n')
+	submitted_code = submitted_code.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t').rstrip()
+	
+	submitted_output = task_info["output"].value
+	submitted_output = submitted_output.replace('</br>','\n').replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t')
+	
+	sql = '''SELECT DateStarted, DateCompleted,Attempts FROM Progress WHERE StudentID=%s AND TaskID=%s
+			''' % (str(student_id),str(task_id))
+	cursor.execute(sql)
+	progress_record = cursor.fetchone()
+	
+	sql = '''SELECT DateStarted, DateCompleted,Attempts FROM Progress WHERE StudentID=%s AND TaskID=%s
+			''' % (str(student_id),str(task_id))
+	cursor.execute(sql)
+	times = cursor.fetchall()
+	
+	correctness_score = task_correction.judge_correctness(correct_output,submitted_output)
+	
+	jaccard_score = task_correction.compare_asts(correct_code, submitted_code)
+	
+	attempt_score = task_correction.judge_attempts(progress_record['Attempts']+1)
+	
+	min_time = task_correction.quickest_time(times)
+	task_time = (progress_record['DateCompleted']-progress_record['DateStarted']).seconds
+	time_score = task_correction.judge_time(min_time, task_time)
+	
+	sql = '''UPDATE Progress
+			SET DateCompleted='%s', Correctness_Points=%u, Similarity_Points=%u,
+			Time_Points=%u, Attempts_Points=%u, Output='%s', Code='%s', Attempts=%d
+			WHERE StudentID=%s AND TaskID=%s
+			''' % (str(currtime), correctness_score, jaccard_score, time_score, attempt_score, output, codetocorrect, progress_record['Attempts']+1, str(student_id),str(task_id))
+	cursor.execute(sql)
+
+else:
+	sql = '''SELECT * FROM Progress WHERE StudentID=%s AND TaskID=%s''' % (str(student_id),str(task_id))
+	cursor.execute(sql)
+	progress_record = cursor.fetchone()
+
+	submitted_code = progress_record['Code']
+	submitted_output = progress_record['Output']
+	
+	correctness_score = progress_record['Correctness_Points']
+	jaccard_score = progress_record['Similarity_Points']
+	attempt_score = progress_record['Attempts_Points']
+	time_score = progress_record['Time_Points']
+
 
 print """Content-type: text/html\n\n
 
@@ -53,7 +94,6 @@ print """Content-type: text/html\n\n
 	<body>
 """
 common_components.print_navbar(cookies['id'].value,'')
-outputtocorrect = output.replace('</br>','\n').replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t')
 print """&nbsp
 		<div class="container">
       		<div class="panel panel-default">
@@ -63,14 +103,14 @@ print """&nbsp
       					<div class='container' style="width:100%">
 							<textarea rows="10" readonly style="overflow:auto;resize:none">
 """
-print codetocorrect
+print submitted_code
 print """&nbsp				</textarea></div></div>
 						</td>
 						<td>
       					<div class='container' style="width:100%">
 							<textarea rows="10" readonly style="overflow:auto;resize:none">
 """
-print outputtocorrect
+print submitted_output
 print """&nbsp				</textarea></div></div>
 						</td>
 					</tr>
@@ -80,8 +120,7 @@ print """&nbsp				</textarea></div></div>
 						</td>
 						<td>
 """
-correct_output = correctcode = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
-print task_correction.judge_correctness(correct_output,outputtocorrect)
+print correctness_score
 print """&nbsp 			</td>
 					</tr>
 					<tr>
@@ -89,14 +128,6 @@ print """&nbsp 			</td>
 							Similarity to Model Answer
 						</td>
 						<td>"""
-#print task_correction.judge_similarity(task_id, codetocorrect)
-print "<pre>"
-correctcode = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
-jaccard_score = task_correction.compare_asts(correctcode, codetocorrect)
-#correctcode = re.sub(' +','  ',correctcode).split('\n')
-#codetocorrect = re.sub(' +','  ',codetocorrect).split('\n')
-task_correction.printDiff(task_correction.longest_common_subsequence(codetocorrect.split('\n'),correctcode.split('\n')), codetocorrect.split('\n'), correctcode.split('\n'), len(codetocorrect.split('\n')), len(correctcode.split('\n')))
-print "				</pre></br>"
 print jaccard_score
 print """\n
 						</td>
@@ -107,12 +138,7 @@ print """\n
 						</td>
 						<td>
 """
-sql = 'SELECT DateStarted, DateCompleted FROM Progress'
-cursor.execute(sql)
-times = cursor.fetchall()
-min_time = task_correction.quickest_time(times)
-task_time = (progress_record['DateCompleted']-progress_record['DateStarted']).seconds
-print task_correction.judge_time(min_time,task_time)
+print attempt_score
 print """&nbsp			</td>
 					</tr>
 					<tr>
@@ -120,7 +146,7 @@ print """&nbsp			</td>
 							Attempts
 						</td>
 						<td>"""
-print task_correction.judge_attempts(progress_record['Attempts'])
+print time_score
 print """&nbsp			</td>
 					</tr>
 				</table>
