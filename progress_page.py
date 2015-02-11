@@ -40,8 +40,6 @@ print """Content-type: text/html\n\n
 			    taskid.name = "task_id";
 				taskid.value = taskID;
 			    mapForm.appendChild(taskid);
-			    mapForm.appendChild(output);
-    			mapForm.appendChild(code);
     			document.getElementById('postform').appendChild(mapForm);
     			mapForm.submit();
 			}
