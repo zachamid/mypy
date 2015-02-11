@@ -56,7 +56,7 @@ for record in progress_records:
 		print '<td></td>'
 	if record['DateCompleted'] is not None:
 		print '<td>'+record['DateCompleted'].strftime("%Y-%m-%d %H:%M:%S")+'</td>'
-		score = (float)((40*record['Correctness_Points'])+(30*record['Similarity_Points'])+(15*record['Time_Score'])+(15+record['Attempts_Score']))
+		score = (float)((40*record['Correctness_Points'])+(30*record['Similarity_Points'])+(15*record['Time_Points'])+(15+record['Attempts_Points']))
 		print '<td>'
 	else:
 		print '<td></td>'
