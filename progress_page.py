@@ -30,9 +30,25 @@ print """Content-type: text/html\n\n
 		<script src="task_admin_functions.js" type="text/javascript"></script>
     	<link rel="stylesheet" type="text/css" href="general_style.css">
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+		<script>
+			function open_correction(taskID){
+				var mapForm = document.createElement("form");
+	    		mapForm.method = "POST";
+	  		  	mapForm.action = "/correction_page.py";
+				var taskid = document.createElement("input");
+			    taskid.type = "text";
+			    taskid.name = "task_id";
+				taskid.value = taskID;
+			    mapForm.appendChild(taskid);
+			    mapForm.appendChild(output);
+    			mapForm.appendChild(code);
+    			document.getElementById('postform').appendChild(mapForm);
+    			mapForm.submit();
+			}
+		</script>
 		<style>
 			table,td,th, tr {
-    			border: 1px solid black;
+    			border: 0.5px solid black;
     			padding: 10px;
 			}
 		</style>
@@ -52,7 +68,7 @@ print """\n
 					<td><b>Score</b></td>
 				</tr>"""
 for record in progress_records:
-	print '<tr><td>'+str(record['TaskID'])+'</td>'
+	print '<a href=\'open_correction('+str(record['TaskID'])+')\'><tr><td>'+str(record['TaskID'])+'</td>'
 	print '<td>'+record['Title']+'</td>'
 	print '<td>'+record['DateStarted'].strftime("%Y-%m-%d %H:%M:%S")+'</td>'
 	if record['DateModified'] is not None:
@@ -66,7 +82,7 @@ for record in progress_records:
 	else:
 		print '<td></td>'
 		print '<td></td>'
-	print '</tr>'
+	print '</tr></a>'
 print """\n	</table>
 		</div></div>
 	</body>

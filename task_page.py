@@ -67,8 +67,6 @@ print """Content-type: text/html\n\n
     		mapForm.appendChild(output);
     		mapForm.appendChild(code);
     		document.getElementById('postform').appendChild(mapForm);
-    		console.log(code.value);
-    		console.log(output.value);
     		mapForm.submit();
 		}
 		$(function() {
