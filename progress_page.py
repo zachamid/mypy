@@ -68,7 +68,7 @@ print """\n
 					<td><b>Score</b></td>
 				</tr>"""
 for record in progress_records:
-	print '<a href=\'open_correction('+str(record['TaskID'])+')\'><tr><td>'+str(record['TaskID'])+'</td>'
+	print '<tr onclick=\'open_correction('+str(record['TaskID'])+')\'><td>'+str(record['TaskID'])+'</td>'
 	print '<td>'+record['Title']+'</td>'
 	print '<td>'+record['DateStarted'].strftime("%Y-%m-%d %H:%M:%S")+'</td>'
 	if record['DateModified'] is not None:
@@ -82,7 +82,7 @@ for record in progress_records:
 	else:
 		print '<td></td>'
 		print '<td></td>'
-	print '</tr></a>'
+	print '</tr>'
 print """\n	</table>
 		</div></div>
 	</body>
