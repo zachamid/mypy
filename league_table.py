@@ -32,7 +32,8 @@ for record in progress_records:
 		league_entry[record['StudentID']]['no_tasks']=1
 		league_entry[record['StudentID']]['name']= record['FirstName']+' '+record['LastName']
 		
-league_order=sorted(league_entry, key=lambda league_rec: league_rec['score'])
+#league_order=sorted(league_entry, key=lambda league_rec: league_rec['score'])
+league_order = league_entry.keys()
 
 print """Content-type: text/html\n\n
 
