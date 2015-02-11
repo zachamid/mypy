@@ -25,7 +25,7 @@ for record in progress_records:
 	score = calc_score(record['Correctness_Points'],record['Similarity_Points'],record['Attempts_Points'],record['Time_Points'])
 	if record['StudentID'] in points:
 		league_entry[record['StudentID']]['score'] += score
-		league_entry[record['StudentID']]['no_tasks']++
+		league_entry[record['StudentID']]['no_tasks']+= 1
 	else:
 		league_entry[record['StudentID']]['score'] = score
 		league_entry[record['StudentID']]['no_tasks']=1
