@@ -23,7 +23,7 @@ progress_records = cursor.fetchall()
 league_entry = {}
 for record in progress_records:
 	score = calc_score(record['Correctness_Points'],record['Similarity_Points'],record['Attempts_Points'],record['Time_Points'])
-	if record['StudentID'] in points:
+	if record['StudentID'] in league_entry:
 		league_entry[record['StudentID']]['score'] += score
 		league_entry[record['StudentID']]['no_tasks']+= 1
 	else:
