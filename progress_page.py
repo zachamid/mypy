@@ -30,6 +30,12 @@ print """Content-type: text/html\n\n
 		<script src="task_admin_functions.js" type="text/javascript"></script>
     	<link rel="stylesheet" type="text/css" href="general_style.css">
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			table,td,th, tr {
+    			border: 1px solid black;
+    			padding: 10px;
+			}
+		</style>
 	</head>
 	<body>"""
 common_components.print_navbar(cookies['id'].value,'')
