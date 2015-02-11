@@ -138,7 +138,7 @@ print """\n
 						</td>
 						<td>
 """
-print attempt_score
+print time_score
 print """&nbsp			</td>
 					</tr>
 					<tr>
@@ -146,7 +146,7 @@ print """&nbsp			</td>
 							Attempts
 						</td>
 						<td>"""
-print time_score
+print attempt_score
 print """&nbsp			</td>
 					</tr>
 				</table>
