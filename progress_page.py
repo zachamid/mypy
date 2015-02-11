@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import cgi, cgitb, json, MySQLdb, db_connection, Cookie, common_components,os
+from task_correction.calc_score as calc_score
 cgitb.enable()
 
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
@@ -75,7 +76,7 @@ for record in progress_records:
 		print '<td></td>'
 	if record['DateCompleted'] is not None:
 		print '<td>'+record['DateCompleted'].strftime("%Y-%m-%d %H:%M:%S")+'</td>'
-		score = (float)((40*record['Correctness_Points'])+(30*record['Similarity_Points'])+(15*record['Time_Points'])+(15+record['Attempts_Points']))
+		score = calc_score(record['Correctness_Points'],record['Similarity_Points'],record['Time_Points'],record['Attempts_Points'])
 		print '<td>'+str(score)+'</td>'
 	else:
 		print '<td></td>'

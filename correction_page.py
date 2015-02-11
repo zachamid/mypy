@@ -155,7 +155,7 @@ print """&nbsp			</td>
 						</td>
 						<td><b>
 """
-print (float)((40*correctness_score)+(30*jaccard_score)+(15*time_score)+(15+attempt_score))
+print task_correction.calc_score(correctness_score, jaccard_score, time_score, attempt_score)
 """\n
 						</b></td>
 					</tr>

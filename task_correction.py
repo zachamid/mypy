@@ -140,3 +140,6 @@ def judge_time(min_time, time):
 
 def judge_attempts(attempts):
 	return float(1/math.sqrt(attempts))
+	
+def calc_score(correctness, similarity, attempts, time):
+	return (float)((40* correctness)+(30*similarity)+(15*attempts)+(15*time))
