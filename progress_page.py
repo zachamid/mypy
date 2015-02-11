@@ -44,7 +44,7 @@ print """\n
 					<td><b>Date Started</b></td>
 					<td><b>Date Modified</b></td>
 					<td><b>Date Completed</b></td>
-					<td><b>Points</b></td>
+					<td><b>Score</b></td>
 				</tr>"""
 for record in progress_records:
 	print '<tr><td>'+str(record['TaskID'])+'</td>'
@@ -56,9 +56,11 @@ for record in progress_records:
 		print '<td></td>'
 	if record['DateCompleted'] is not None:
 		print '<td>'+record['DateCompleted'].strftime("%Y-%m-%d %H:%M:%S")+'</td>'
+		score = (float)((40*record['Correctness_Points'])+(30*record['Similarity_Points'])+(15*record['Time_Score'])+(15+record['Attempts_Score']))
+		print '<td>'
 	else:
 		print '<td></td>'
-	print '<td>'+str(record['Points'])+'</td></td>'
+		print '<td>'+str(score)+'</td></td>'
 print """\n	</table>
 		</div></div>
 	</body>
