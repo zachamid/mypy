@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import cgi, cgitb, json, MySQLdb, db_connection, Cookie, common_components,os
-from task_correction.calc_score as calc_score
+from task_correction import calc_score as calc_score
 cgitb.enable()
 
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
