@@ -52,7 +52,7 @@ student_info = cursor.fetchall()
 
 print '<table><tr><th>Name</th>'
 for task in tasks:
-	print '<th>%s</th>' % (str(task))
+	print '<th>%s</th>' % (str(task['TaskID']))
 print '</tr>'
 for student in student_info:
 	print '<tr><td>%s</td>' % (student['FirstName']+' '+student['LastName'])
@@ -60,7 +60,7 @@ for student in student_info:
 		print '<td>'
 		sql = '''SELECT ProgressID, Correctness_Points, Similarity_Points,
 					Attempts_Points, Time_Points
-				FROM Progress WHERE StudentID=%d AND TaskID=%d''' % (student['StudentID'], task)
+				FROM Progress WHERE StudentID=%d AND TaskID=%d''' % (student['StudentID'], task['TaskID'])
 		cursor.execute(sql)
 		if cursor.rowcount != 0:
 			points = cursor.fetchone()
