@@ -46,7 +46,7 @@ sql = '''SELECT Student.StudentID, Student.FirstName, Student.LastName FROM Stud
 		ON Student.ClassID = TeacherClassRelationship.ClassID
 		INNER JOIN Teacher
 		ON Teacher.TeacherID = TeacherClassRelationship.ClassID
-		WHERE TeacherClassRelationship.TeacherID=%s''' % (str(cookies['type'].value ))
+		WHERE TeacherClassRelationship.TeacherID=%s''' % (str(cookies['id'].value ))
 cursor.execute(sql)
 student_info = cursor.fetchall()
 
