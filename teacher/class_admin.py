@@ -51,7 +51,7 @@ cursor.execute(sql_query)
 class_records = cursor.fetchall()
 for record in class_records:
 	print '<tr>'
-	print '<td>'+record['ClassID']+'</td>'
+	print '<td>'+str(record['ClassID'])+'</td>'
 	print '<td>'+record['ClassName']+'</td>'
 	print '<td>'+record['School']+'</td>'
 	print '<td>Remove</td>'

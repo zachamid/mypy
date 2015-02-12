@@ -37,7 +37,7 @@ print """\n
     		<div class="container col-sm-6 col-md-9">
     			<div class="panel panel-default translucent">
 """
-sql = '''SELECT TaskID from Tasks'''
+sql = '''SELECT TaskID from Task'''
 cursor.execute(sql)
 tasks = cursor.fetchall()
 
