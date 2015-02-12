@@ -64,7 +64,7 @@ for student in student_info:
 		cursor.execute(sql)
 		if cursor.rowcount != 0:
 			points = cursor.fetchone()
-			print calc_score(points['Correctness_Points'],points['Similarity_Points'],points['Attempts_Points'],points['Time_Points'])
+			print format(calc_score(points['Correctness_Points'],points['Similarity_Points'],points['Attempts_Points'],points['Time_Points']), '.1f')
 		print '</td>'
 	print '</tr>'
 print '''\n</table>
