@@ -53,7 +53,6 @@ for record in class_records:
 	print '<tr>'
 	print '<td>'+str(record['ClassID'])+'</td>'
 	print '<td>'+record['ClassName']+'</td>'
-	print '<td>'+record['School']+'</td>'
 	print '<td>Remove</td>'
 	print '</tr>'
 print """\n
