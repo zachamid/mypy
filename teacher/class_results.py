@@ -41,7 +41,7 @@ sql = '''SELECT TaskID from Task'''
 cursor.execute(sql)
 tasks = cursor.fetchall()
 
-sql = '''SELECT Student.StudentID Student.FirstName, Student.LastName FROM Student
+sql = '''SELECT Student.StudentID, Student.FirstName, Student.LastName FROM Student
 		INNER JOIN TeacherClassRelationship
 		ON Student.ClassID = TeacherClassRelationship.ClassID
 		INNER JOIN Teacher
