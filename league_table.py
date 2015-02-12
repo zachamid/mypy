@@ -63,6 +63,6 @@ print """\n
 				</tr>"""
 for id in league_order:
 	print '<tr>'
-	print '</td>%s</td></td>%s</td></td>%s</td></td>%s</td>' % (str(id), str(league_entry[id]['name']),str(league_entry[id]['no_tasks']),str(league_entry[id]['score']))
+	print '</td>%s</td><td>%s</td><td>%s</td><td>%s</td>' % (str(id), str(league_entry[id]['name']),str(league_entry[id]['no_tasks']),str(league_entry[id]['score']))
 	print '</tr>'
 print '</table></div></div></body></html>'
