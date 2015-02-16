@@ -38,7 +38,7 @@ print """Content-type: text/html\n\n
     				}
     				else{
     					$('#test_cases').show();
-    					if($('#test_cases').rows.length ==0){
+    					if($('table#test_cases').rows.length ==0){
     						add_row(0)
     					}
     				}
