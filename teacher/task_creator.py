@@ -26,7 +26,7 @@ print """Content-type: text/html\n\n
     	<link href="teacher_style.css" rel="stylesheet">
     	<script>
     		function add_row(counter){
-    			var new_row = $('#test_cases').insertRow(counter);
+    			var new_row = document.getElementById('test_cases').insertRow(counter);
     			new_row.insertCell(0).innerHTML='<input class="form-control testcase" type="text"></input>'
     			new_row.insertCell(1).innerHTML='<button class="form-control" id="remove_testcase">Remove</button>'
     		}
