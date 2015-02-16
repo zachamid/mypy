@@ -30,7 +30,7 @@ print """Content-type: text/html\n\n
     	<link href="../general_style.css" rel="stylesheet">
     	<link href="teacher_style.css" rel="stylesheet">
     	<script>
-    		function print_res(taskID,studentID){
+    		function print_res(studentID, taskID){
 	    		data = {taskID:taskID, studentID:studentID}
 	    		$.ajax({
       				data : data,
