@@ -62,16 +62,16 @@ print '''\n
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td style='width:25%'>
 			<b>Attempts</b>
 		</td>
-		<td>
+		<td style='width:25%'>
 			%d
 		</td>
-		<td>
+		<td style='width:25%'>
 			<b>Attempt Score</b>
 		</td>
-		<td>
+		<td style='width:25%'>
 			%u
 		</td>
 	</tr>
