@@ -12,7 +12,7 @@ import datetime
 
 cgitb.enable()
 
-path = '../tasks/'
+path = '/var/www/tasks/'
 
 def get_task_list():
 	cursor = db_connection.get_connection()
