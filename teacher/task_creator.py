@@ -45,6 +45,7 @@ print """Content-type: text/html\n\n
     			});
     			$('#remove_testcase').click(function(){
     				$(this).parent().parent().remove();
+    				console.log($(this));
     			});
     			$('#add_testcase').click(function(){
     				add_row(document.getElementById('test_cases').rows.length);
