@@ -6,8 +6,8 @@ import db_connection, task_correction, task_delivery
 
 cursor = db_connection.get_connection()
 attempt_info = cgi.FieldStorage()
-student_id = attempt_info['student_id'].value
-task_id = attempt_info['task_id'].value
+student_id = attempt_info['studentID'].value
+task_id = attempt_info['taskID'].value
 sql_query = 'SELECT * FROM Progress WHERE StudentID=%d AND TaskID=%d' % (student_id, task_id)
 cursor.execute(sql_query)
 progress_info = cursor.fetchone()
