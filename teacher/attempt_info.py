@@ -40,13 +40,13 @@ print '''\n
 	<tr>
 		<td><pre>
 		'''
-print task_correction.teachers_report(submitted_code, correct_code)
+task_correction.teachers_report(submitted_code, correct_code)
 print '''\n
 		</pre></td>
 		<td><pre>'''
-print task_correction.teachers_report(submitted_output, correct_output)	
+task_correction.teachers_report(submitted_output, correct_output)	
 print '''\n
-		</td>
+		</pre></td>
 	</tr>
 		<td colspan='2'>
 		<b>Correctness</b>
