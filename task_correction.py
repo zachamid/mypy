@@ -117,10 +117,10 @@ def printDiff(C, X, Y, i, j):
 	else:
 		if j > 0 and (i == 0 or C[i][j-1] >= C[i-1][j]):
 			printDiff(C, X, Y, i, j-1)
-			print "<span style='colour:#009900'>  " + Y[j-1]+"</span>"
+			print "<span style='color:#009900'>  " + Y[j-1]+"</span>"
 		elif i > 0 and (j == 0 or C[i][j-1] < C[i-1][j]):
 			printDiff(C, X, Y, i-1, j)
-			print "<span style='colour:#990000'>  " + X[i-1]+"</span>"
+			print "<span style='color:#990000'>  " + X[i-1]+"</span>"
 
 def compare_asts(desired_code, submitted_code):
 	dict1 = ast2dict(ast.parse(desired_code))
