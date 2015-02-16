@@ -76,7 +76,7 @@ for student in student_info:
 		cursor.execute(sql)
 		if cursor.rowcount != 0:
 			points = cursor.fetchone()
-			print '<a onclick=\'print_rest(%d,%d)\'>' % (student['StudentID'], task['TaskID'])
+			print '<a onclick=\'print_res(%d,%d)\'>' % (student['StudentID'], task['TaskID'])
 			print format(calc_score(points['Correctness_Points'],points['Similarity_Points'],points['Attempts_Points'],points['Time_Points']), '.1f')
 			print '</a>'
 		print '</td>'
