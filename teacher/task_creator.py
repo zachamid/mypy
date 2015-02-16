@@ -38,7 +38,7 @@ print """Content-type: text/html\n\n
     				}
     				else{
     					$('#test_cases').show();
-    					if($('table#test_cases').rows.length ==0){
+    					if(document.getElementById('test_cases').rows.length ==0){
     						add_row(0)
     					}
     				}
@@ -47,7 +47,7 @@ print """Content-type: text/html\n\n
     				$(this).parent().parent().remove();
     			});
     			$('#add_testcase').click(function(){
-    				add_row($('#test_cases').rows.length);
+    				add_row(document.getElementById('test_cases').rows.length);
     			});
     		});
     	</script>
