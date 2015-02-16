@@ -25,7 +25,31 @@ print """Content-type: text/html\n\n
     	<link href="../general_style.css" rel="stylesheet">
     	<link href="teacher_style.css" rel="stylesheet">
     	<script>
-    		
+    		function add_row(counter){
+    			var new_row = $('#test_cases').insertRow(counter);
+    			new_row.insertCell(0).innerHTML='<input class="form-control testcase" type="text"></input>'
+    			new_row.insertCell(1).innerHTML='<button class="form-control" id="remove_testcase">Remove</button>'
+    		}
+	    	
+    		$(document).ready(function(){
+    			$('#test_check').click(function(){
+    				if($('#test_check').checked){
+    					$('#test_cases').hide();
+    				}
+    				else{
+    					$('#test_cases').hide();
+    					if($('#test_cases').rows.length ==0){
+    						add_row(0)
+    					}
+    				}
+    			});
+    			$('#remove_testcase').click(function(){
+    				$(this).parent().parent().remove();
+    			});
+    			$('#add_testcase').click(function(){
+    				add_row($('#test_cases').rows.length);
+    			});
+    		});
     	</script>
     	
 	</head>
@@ -52,6 +76,14 @@ print """\n
              					</textarea>
           					</td>
     					</tr>
+    					<tr><td>Add TestCases</td>
+    						<td>
+             					<input class="form-control" id="test_check" type='checkbox'>
+             					</input></br>
+             					<table id='test_cases'></table>
+             					<button class="form-control" id='add_testcase'>
+          					</td>
+    					</t>
     				</table>
     			</div>
       		</div>
