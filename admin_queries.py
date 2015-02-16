@@ -39,6 +39,7 @@ elif(cmd == 'ClassTeacherList'):
 		WHERE TeacherClassRelationship.ClassID="""+classID
 elif(cmd == 'Admins'):
 	sql_query = 'SELECT TeacherID, FirstName, LastName FROM Teacher WHERE Administrator='+posted_data['AdminFlag'].value
+
 	
 
 cursor.execute(sql_query)

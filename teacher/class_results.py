@@ -29,6 +29,18 @@ print """Content-type: text/html\n\n
     	<link href="../bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     	<link href="../general_style.css" rel="stylesheet">
     	<link href="teacher_style.css" rel="stylesheet">
+    	<script>
+    		function print_res(taskID,studentID){
+	    		data = {taskID:taskID, studentID:studentID}
+	    		$.ajax({
+      				data : data,
+      				url : '/teacher/attempt_info.py',
+      				type : "POST",
+      				dataType : "html"}).done(function(result){
+      					document.getElementById('Attempt').innerHTML = result;
+      				});
+      			}
+    	</script>
 	</head>
 	<body>
 """
@@ -64,10 +76,18 @@ for student in student_info:
 		cursor.execute(sql)
 		if cursor.rowcount != 0:
 			points = cursor.fetchone()
+			print '<a onclick=\'print_rest(%d,%d)\'>' % (student['StudentID'], task['TaskID'])
 			print format(calc_score(points['Correctness_Points'],points['Similarity_Points'],points['Attempts_Points'],points['Time_Points']), '.1f')
+			print '</a>'
 		print '</td>'
 	print '</tr>'
 print '''\n</table>
-		</div></div>
+			</div>
+		</div>
+		</br>
+		<div class="container col-sm-6 col-md-9">
+    		<div id = 'Attempt' class="panel panel-default translucent">
+    		</div>
+    	</div>
 	</body>
 </html>'''
