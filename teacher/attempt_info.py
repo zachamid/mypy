@@ -91,4 +91,4 @@ print '''\n
 		</td>
 	</tr>
 </table>
-''' % (100*correctness_score, 100*similarity_score, attempts, 100*attempt_score,str(time_taken),100*time_score)
+''' % (100*correctness_score, 100*jaccard_score, attempts, 100*attempt_score,str(time_taken),100*time_score)
