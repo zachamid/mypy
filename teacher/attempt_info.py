@@ -28,6 +28,10 @@ time_taken=end_time - start_time
 correct_output = correctcode = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
 correct_code = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
 
+print """Content-type: text/html\n\n
+
+
+"""
 print '''\n
 <table>
 	<tr>
