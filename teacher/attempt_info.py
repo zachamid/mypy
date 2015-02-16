@@ -52,14 +52,14 @@ print '''\n
 		<b>Correctness</b>
 		</td>
 		<td colspan='2'>
-			%u %
+			%u
 		</td>
 	<tr>
 		<td colspan='2'>
 			<b>Similarity to Model Solution</b>
 		</td>
 		<td colspan='2'>
-			%u %
+			%u
 		</td>
 	</tr>
 	<tr>
