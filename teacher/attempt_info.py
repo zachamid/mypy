@@ -35,7 +35,7 @@ print """Content-type: text/html\n\n
 """
 
 print '''\n
-<table>
+<table style='width:100%'>
 	<tr>
 		<td colspan='2'><pre>
 		'''

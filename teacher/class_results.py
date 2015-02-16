@@ -68,7 +68,7 @@ sql = '''SELECT Student.StudentID, Student.FirstName, Student.LastName FROM Stud
 cursor.execute(sql)
 student_info = cursor.fetchall()
 
-print '<table><tr><th>Name</th>'
+print '<table style="width:100%"><tr><th>Name</th>'
 for task in tasks:
 	print '<th>%s</th>' % (str(task['TaskID']))
 print '</tr>'
