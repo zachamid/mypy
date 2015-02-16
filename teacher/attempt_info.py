@@ -9,8 +9,8 @@ attempt_info = cgi.FieldStorage()
 student_id = attempt_info['studentID'].value
 task_id = attempt_info['taskID'].value
 sql_query = 'SELECT * FROM Progress WHERE StudentID=%s AND TaskID=%s' % (student_id, task_id)
-print sql_query
-cursor.execute(sql_query)
+
+"""cursor.execute(sql_query)
 progress_info = cursor.fetchone()
 
 submitted_code = progress_info['Code']
@@ -28,10 +28,12 @@ time_taken=end_time - start_time
 
 correct_output = correctcode = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
 correct_code = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
-
+"""
 print """Content-type: text/html\n\n
 
 
+"""
+print sql_query
 """
 print '''\n
 <table>
@@ -89,4 +91,4 @@ print '''\n
 		</td>
 	</tr>
 </table>
-''' % (100*correctness_score, 100*similarity_score, attempts, 100*attempt_score,str(time_taken),100*time_score)
+''' % (100*correctness_score, 100*similarity_score, attempts, 100*attempt_score,str(time_taken),100*time_score)"""
