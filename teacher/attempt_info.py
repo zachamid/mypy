@@ -33,7 +33,6 @@ print """Content-type: text/html\n\n
 
 
 """
-print sql_query
 
 print '''\n
 <table>

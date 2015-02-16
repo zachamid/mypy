@@ -41,6 +41,12 @@ print """Content-type: text/html\n\n
       				});
       			}
     	</script>
+    	<style>
+    		td, th {
+  				border: 1px solid #999;
+  				padding: 0.5rem;
+			}
+    	</style>
 	</head>
 	<body>
 """
