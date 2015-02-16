@@ -37,12 +37,12 @@ print """Content-type: text/html\n\n
 print '''\n
 <table style='width:100%'>
 	<tr>
-		<td colspan='2'><pre>
+		<td colspan='2' style='width:50%'><pre>
 		'''
 task_correction.teachers_report(submitted_code, correct_code)
 print '''\n
 		</pre></td>
-		<td colspan='2'><pre>'''
+		<td colspan='2' style='width:50%'><pre>'''
 task_correction.teachers_report(submitted_output, correct_output)	
 print '''\n
 		</pre></td>
