@@ -83,8 +83,7 @@ print """\n
     						<td>
              					
              					<table id='test_cases'></table>
-             					<button class="form-control" id='add_testcase'>Add Testcase</button>
-             					<button class="form-control" id='remove_testcase'>Remove Testcase</button>
+             					<button class="form-control" id='add_testcase'>Add Testcase</button><button class="form-control" id='remove_testcase'>Remove Testcase</button>
           					</td>
     					</t>
     				</table>
