@@ -38,7 +38,6 @@ print """Content-type: text/html\n\n
     			function_cell = new_row.insertCell(0);
     			function_cell.colspan = '2';
     			function_cell.innerHTML='<input class="form-control" type="text" id="function" placeholder="Function to Run"></input>';
-    			new_row.insertCell(1).innerHTML='<button class="form-control" id="remove_testcase">Remove Testcase</button>';
 
     			new_row = document.getElementById('test_cases').insertRow(1);
     			new_row.insertCell(0).innerHTML='<button class="form-control" id="add_testcase">Add Testcase</button>';
