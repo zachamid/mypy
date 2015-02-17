@@ -32,7 +32,15 @@ print """Content-type: text/html\n\n
     		}
 	    	
     		$(document).ready(function(){
+    			$('#test_cases').hide();
+    			$('#function').hide();
     			new_row = document.getElementById('test_cases').insertRow(0);
+    			function_cell = new_row.insertCell(0);
+    			function_cell.colspan = '2';
+    			function.innerHTML='<input class="form-control" type="text" id="function" placeholder="Function to Run" style="width:50%"></input>';
+    			new_row.insertCell(1).innerHTML='<button class="form-control" id="remove_testcase">Remove Testcase</button>';
+
+    			new_row = document.getElementById('test_cases').insertRow(1);
     			new_row.insertCell(0).innerHTML='<button class="form-control" id="add_testcase">Add Testcase</button>';
     			new_row.insertCell(1).innerHTML='<button class="form-control" id="remove_testcase">Remove Testcase</button>';
     		
@@ -89,12 +97,16 @@ print """\n
              					</input>
              				</td>
     						<td>
-    							<input class="form-control" type="text" id="function" placeholder="Function to Run" style="width:50%"></input>
-             					<table id='test_cases'></table>
+    							<table id='test_cases'></table>
           					</td>
     					</tr>
     				</table>
     			</div>
       		</div>
+      		
+      		<div class="container col-sm-6 col-md-9">
+    			<div class="panel panel-default translucent">
+    			</div>
+    		</div>
     </body>
 </html>"""
