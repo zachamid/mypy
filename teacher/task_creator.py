@@ -117,7 +117,8 @@ print """\n
     				</table>
     			</div>
       		</div>
-      		<div class="panel panel-default translucent">
+      		<div class="col-xs-12 col-md-6 col-sm-12">
+			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
 				<div class='container' style="width:100%">
 					<div class="line-nums" id="line-nums"><span>1</span></div>
@@ -129,19 +130,19 @@ print """\n
 						Run
 					</button>
 			</div>
-      		<div class="container col-sm-6 col-md-9">
-    			<div class="panel panel-default translucent">
-					<div class="panel-heading">Output</div>
-					<div class='container' style="width:100%">
-						<textarea rows="5" id="output" readonly></textarea>
-					</div>
+		</div>
+		<div class="col-xs-12 col-md-6 col-sm-12">
+			<div class="panel panel-default translucent">
+				<div class="panel-heading">Output</div>
+				<div class='container' style="width:100%">
+					<textarea rows="5" id="output" readonly></textarea>
 				</div>
-				<div>
-					<div class="panel-heading">Error Console</div>
-					<div class='container' style="width:100%">
-						<textarea rows="5" id="error" readonly></textarea>
-					</div>
-    			</div>
-    		</div>
+				<div class="panel-heading">Error Console</div>
+				<div class='container' style="width:100%">
+					<textarea rows="5" id="error" readonly></textarea>
+				</div>
+				
+			</div>
+		</div>
     </body>
 </html>"""
