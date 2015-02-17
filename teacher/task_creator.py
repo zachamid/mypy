@@ -23,8 +23,8 @@ print """Content-type: text/html\n\n
     	<script src="../behave.js" type="text/javascript"></script>
 		<script src="../python_functions.js" type="text/javascript"></script>
 		<script src="../user_functions.js" type="text/javascript"></script>
-		<script src="skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
-		<script src="skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
+		<script src="../skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
+		<script src="../skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
     	<title>Welcome</title>
     	<link href="../bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     	<link href="../general_style.css" rel="stylesheet">
