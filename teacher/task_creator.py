@@ -33,7 +33,7 @@ print """Content-type: text/html\n\n
     		function test_code(){
     			code = document.getElementById("code").value;
     			if(document.getElementById('test_check').checked){
-    				code += "\r\r";
+    				code += "\\";
     				test_cases = document.getElementById('test_cases');
     				func = document.getElementById('function').value;
     				test_counter = 0;
