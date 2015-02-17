@@ -37,11 +37,13 @@ print """Content-type: text/html\n\n
     			new_row.insertCell(1).innerHTML='<button class="form-control" id="remove_testcase">Remove Testcase</button>';
     		
     			$('#test_check').click(function(){
-    				if(document.getElementById('test_check').checked){
+    				if(!document.getElementById('test_check').checked){
     					$('#test_cases').hide();
+    					$('#function').hide();
     				}
     				else{
     					$('#test_cases').show();
+    					$('#function').show();
     					if(document.getElementById('test_cases').rows.length ==1){
     						add_row(0)
     					}
@@ -87,7 +89,7 @@ print """\n
              					</input>
              				</td>
     						<td>
-    							<input class="form-control" type="text" id="Title" placeholder="Function to Run" style="width:50%"></input>
+    							<input class="form-control" type="text" id="function" placeholder="Function to Run" style="width:50%"></input>
              					<table id='test_cases'></table>
           					</td>
     					</tr>
