@@ -20,6 +20,9 @@ print """Content-type: text/html\n\n
 		<script src="../jquery-1.11.1.min.js"></script>
     	<script src='../user_functions.js'></script>
     	<script src='../task_admin_functions.js'></script>
+    	<script src="behave.js" type="text/javascript"></script>
+		<script src="python_functions.js" type="text/javascript"></script>
+		<script src="user_functions.js" type="text/javascript"></script>
     	<title>Welcome</title>
     	<link href="../bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     	<link href="../general_style.css" rel="stylesheet">
@@ -32,6 +35,18 @@ print """Content-type: text/html\n\n
     		}
 	    	
     		$(document).ready(function(){
+    			code_area_prep();
+				var editor = new Behave({
+					textarea: 		document.getElementById('code'),
+					replaceTab: 	true,
+				    softTabs: 		true,
+				    tabSize: 		2,
+			    	autoOpen: 		false,
+			    	overwrite: 		false,
+			    	autoStrip: 		false,
+			    	autoIndent: 	false
+				});
+    			
     			$('#test_cases').hide();
     			$('#function').hide();
     			new_row = document.getElementById('test_cases').insertRow(0);
@@ -65,7 +80,7 @@ print """Content-type: text/html\n\n
     				add_row(document.getElementById('test_cases').rows.length-1);
     			});
     		});
-    	</script>
+		</script>
     	
 	</head>
 	<body>"""
@@ -102,9 +117,30 @@ print """\n
     				</table>
     			</div>
       		</div>
-      		
+      		<div class="panel panel-default translucent">
+				<div class="panel-heading">Python Source Code</div>
+				<div class='container' style="width:100%">
+					<div class="line-nums" id="line-nums"><span>1</span></div>
+					<textarea class="lined" rows="10" id="code"></textarea>
+				</div>
+				<button class="form-control" 
+						onclick='run_code(document.getElementById("code").value,"output","error")'
+						 type="button">
+						Run
+					</button>
+			</div>
       		<div class="container col-sm-6 col-md-9">
     			<div class="panel panel-default translucent">
+					<div class="panel-heading">Output</div>
+					<div class='container' style="width:100%">
+						<textarea rows="5" id="output" readonly></textarea>
+					</div>
+				</div>
+				<div>
+					<div class="panel-heading">Error Console</div>
+					<div class='container' style="width:100%">
+						<textarea rows="5" id="error" readonly></textarea>
+					</div>
     			</div>
     		</div>
     </body>
