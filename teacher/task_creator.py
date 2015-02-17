@@ -43,6 +43,7 @@ print """Content-type: text/html\n\n
     					
     					code += 'print "Testcase '+desc+':'+func+'('+test+')"\\n';
     					code += func+'('+test+')\\n';
+    					test_counter++;
     				}
     			}
     			console.log(code);
