@@ -32,22 +32,28 @@ print """Content-type: text/html\n\n
     		}
 	    	
     		$(document).ready(function(){
+    			new_row = document.getElementById('test_cases').insertRow(0);
+    			new_row.insertCell(0).innerHTML='<button class="form-control" id="add_testcase" style="width:50%">Add Testcase</button>';
+    			new_row.insertCell(1).innerHTML='<button class="form-control" id="remove_testcase" style="width:50%">Remove Testcase</button>';
+    		
     			$('#test_check').click(function(){
     				if(document.getElementById('test_check').checked){
     					$('#test_cases').hide();
     				}
     				else{
     					$('#test_cases').show();
-    					if(document.getElementById('test_cases').rows.length ==0){
+    					if(document.getElementById('test_cases').rows.length ==1){
     						add_row(0)
     					}
     				}
     			});
     			$('#remove_testcase').click(function(){
-    				$('#test_cases tr:last-child').remove();
+    				if(document.getElementById('test_cases').rows.length >1){
+    					$('#test_cases tr:last-child').remove();
+    				}
     			});
     			$('#add_testcase').click(function(){
-    				add_row(document.getElementById('test_cases').rows.length);
+    				add_row(document.getElementById('test_cases').rows.length-1);
     			});
     		});
     	</script>
@@ -83,7 +89,7 @@ print """\n
     						<td>
              					
              					<table id='test_cases'></table>
-             					<button class="form-control" id='add_testcase' style='width:50%'>Add Testcase</button>
+             					
              					<button class="form-control" id='remove_testcase' style='width:50%'>Remove Testcase</button>
           					</td>
     					</t>
