@@ -7,7 +7,7 @@ import common_components
 cgitb.enable()
 
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
-if cookies.has_key('penis') and cookies.has_key('type'):
+if cookies.has_key('id') and cookies.has_key('type'):
 	print cookies
 	if cookies['type'].value == 'Student':
 		print 'Location:../index.py'
