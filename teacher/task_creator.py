@@ -57,7 +57,7 @@ common_components.print_navbar_teacher(cookies['id'].value,'task_admin')
 print """\n
     		<div class="container col-sm-6 col-md-9">
     			<div class="panel panel-default translucent">
-    				<table>
+    				<table style='width:100%'>
     					<tr><td>Title</td>
     						<td>
              					<input class="form-control" type="text" id="Title" placeholder="Title">
