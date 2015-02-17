@@ -88,7 +88,7 @@ print """Content-type: text/html\n\n
 	<body>"""
 common_components.print_navbar_teacher(cookies['id'].value,'task_admin')
 print """\n
-    		<div class="container col-sm-6 col-md-9">
+    		<div class="container col-sm-6 col-md-12">
     			<div class="panel panel-default translucent">
     				<table style='width:100%'>
     					<tr><td style='width:30%'>Title</td>
