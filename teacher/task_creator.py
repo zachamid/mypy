@@ -49,7 +49,7 @@ print """Content-type: text/html\n\n
     			});
     			$('#remove_testcase').click(function(){
     				if(document.getElementById('test_cases').rows.length >1){
-    					$('#test_cases tr:last-child').remove();
+    					$('#test_cases tr:last-child').prev('tr').remove();
     				}
     			});
     			$('#add_testcase').click(function(){
