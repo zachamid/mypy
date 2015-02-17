@@ -27,7 +27,8 @@ print """Content-type: text/html\n\n
     	<script>
     		function add_row(counter){
     			var new_row = document.getElementById('test_cases').insertRow(counter);
-    			new_row.insertCell(0).innerHTML='<input class="form-control testcase" type="text"></input>'
+    			new_row.insertCell(0).innerHTML='<input class="form-control" id="description'+counter+'" type="text" placeholder='Description'></input>'
+    			new_row.insertCell(0).innerHTML='<input class="form-control" id="testcase'+counter+'" type="text" placeholder='Testcase'></input>'
     		}
 	    	
     		$(document).ready(function(){
