@@ -37,7 +37,7 @@ print """Content-type: text/html\n\n
     				test_cases = document.getElementById('test_cases');
     				func = document.getElementById('function').value;
     				test_counter = 1;
-    				while(test_counter <(test_cases.rows.length-2)){
+    				while(test_counter <(test_cases.rows.length-1)){
     					desc = document.getElementById('description'+test_counter).value;
     					test = document.getElementById('testcase'+test_counter).value;
     					
