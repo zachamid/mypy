@@ -28,12 +28,11 @@ print """Content-type: text/html\n\n
     		function add_row(counter){
     			var new_row = document.getElementById('test_cases').insertRow(counter);
     			new_row.insertCell(0).innerHTML='<input class="form-control testcase" type="text"></input>'
-    			new_row.insertCell(1).innerHTML='<button class="form-control" id="remove_testcase">Remove</button>'
     		}
 	    	
     		$(document).ready(function(){
     			$('#test_check').click(function(){
-    				if($('#test_check').checked){
+    				if(document.getElementById('test_check').checked){
     					$('#test_cases').hide();
     				}
     				else{
@@ -81,7 +80,8 @@ print """\n
              					<input class="form-control" id="test_check" type='checkbox'>
              					</input></br>
              					<table id='test_cases'></table>
-             					<button class="form-control" id='add_testcase'>
+             					<button class="form-control" id='add_testcase'>Add Testcase</button>
+             					<button class="form-control" id='add_testcase'>Remove Testcase</button>
           					</td>
     					</t>
     				</table>
