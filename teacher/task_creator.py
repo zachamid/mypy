@@ -33,7 +33,7 @@ print """Content-type: text/html\n\n
     		function test_code(){
     			code = document.getElementById("code").value;
     			if(document.getElementById('test_check').checked){
-    				code += "\";
+    				code += "\\n";
     				test_cases = document.getElementById('test_cases');
     				func = document.getElementById('function').value;
     				test_counter = 0;
@@ -41,8 +41,8 @@ print """Content-type: text/html\n\n
     					desc = document.getElementById('description'+test_counter).value;
     					test = document.getElementById('testcase'+test_counter).value;
     					
-    					code += 'print "Testcase '+desc+':'+func+'('+test+')"\n';
-    					code += 'func+'('+test+')\n';
+    					code += 'print "Testcase '+desc+':'+func+'('+test+')"\\n';
+    					code += 'func+'('+test+')\\n';
     				}
     			}
     			run_code(code, 'output','error');
