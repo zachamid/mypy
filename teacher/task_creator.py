@@ -7,7 +7,7 @@ import common_components
 cgitb.enable()
 
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
-if cookies.has_key('id') and cookies.has_key('type'):
+if cookies.has_key('penis') and cookies.has_key('type'):
 	print cookies
 	if cookies['type'].value == 'Student':
 		print 'Location:../index.py'
@@ -23,6 +23,8 @@ print """Content-type: text/html\n\n
     	<script src="../behave.js" type="text/javascript"></script>
 		<script src="../python_functions.js" type="text/javascript"></script>
 		<script src="../user_functions.js" type="text/javascript"></script>
+		<script src="skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
+		<script src="skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
     	<title>Welcome</title>
     	<link href="../bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     	<link href="../general_style.css" rel="stylesheet">
