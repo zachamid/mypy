@@ -33,8 +33,8 @@ print """Content-type: text/html\n\n
 	    	
     		$(document).ready(function(){
     			new_row = document.getElementById('test_cases').insertRow(0);
-    			new_row.insertCell(0).innerHTML='<button class="form-control" id="add_testcase" style="width:50%">Add Testcase</button>';
-    			new_row.insertCell(1).innerHTML='<button class="form-control" id="remove_testcase" style="width:50%">Remove Testcase</button>';
+    			new_row.insertCell(0).innerHTML='<button class="form-control" id="add_testcase">Add Testcase</button>';
+    			new_row.insertCell(1).innerHTML='<button class="form-control" id="remove_testcase">Remove Testcase</button>';
     		
     			$('#test_check').click(function(){
     				if(document.getElementById('test_check').checked){
@@ -89,8 +89,6 @@ print """\n
     						<td>
              					
              					<table id='test_cases'></table>
-             					
-             					<button class="form-control" id='remove_testcase' style='width:50%'>Remove Testcase</button>
           					</td>
     					</t>
     				</table>
