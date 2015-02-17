@@ -75,10 +75,12 @@ print """\n
              					</textarea>
           					</td>
     					</tr>
-    					<tr><td>Add TestCases</td>
-    						<td>
-             					<input class="form-control" id="test_check" type='checkbox' name='Test Cases'>
+    					<tr><td>Add TestCases
+    							<input class="form-control" id="test_check" type='checkbox' name='Test Cases'>
              					</input>
+             				</td>
+    						<td>
+             					
              					<table id='test_cases'></table>
              					<button class="form-control" id='add_testcase'>Add Testcase</button>
              					<button class="form-control" id='remove_testcase'>Remove Testcase</button>
