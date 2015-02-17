@@ -59,7 +59,7 @@ print """\n
     		<div class="container col-sm-6 col-md-9">
     			<div class="panel panel-default translucent">
     				<table style='width:100%'>
-    					<tr><td>Title</td>
+    					<tr><td style='width:30%'>Title</td>
     						<td>
              					<input class="form-control" type="text" id="Title" placeholder="Title">
           					</td>
