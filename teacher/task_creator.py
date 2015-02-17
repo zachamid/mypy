@@ -87,10 +87,10 @@ print """\n
              					</input>
              				</td>
     						<td>
-             					
+    							<input class="form-control" type="text" id="Title" placeholder="Function to Run" style="width:50%"></input>
              					<table id='test_cases'></table>
           					</td>
-    					</t>
+    					</tr>
     				</table>
     			</div>
       		</div>
