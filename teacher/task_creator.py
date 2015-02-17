@@ -30,6 +30,24 @@ print """Content-type: text/html\n\n
     	<link href="../general_style.css" rel="stylesheet">
     	<link href="teacher_style.css" rel="stylesheet">
     	<script>
+    		function test_code(){
+    			code = document.getElementById("code").value;
+    			if(document.getElementById('test_check').checked){
+    				code += '\n\n'
+    				test_cases = document.getElementById('test_cases');
+    				func = document.getElementById('function').value;
+    				test_counter = 0;
+    				while(test_counter <(table.rows.length-2)){
+    					desc = document.getElementById('description'+test_counter).value;
+    					test = document.getElementById('testcase'+test_counter).value;
+    					
+    					code += 'print "Testcase '+desc+':'+func+'('+test+')"\n';
+    					code += 'func+'('+test+')\n';
+    				}
+    			}
+    			run_code(code, 'output','error');
+    		}
+    	
     		function add_row(counter){
     			var new_row = document.getElementById('test_cases').insertRow(counter);
     			new_row.insertCell(0).innerHTML='<input class="form-control" id="description'+counter+'" type="text" placeholder="Description"></input>'
@@ -137,7 +155,7 @@ print """\n
 					<textarea class="lined" rows="10" id="code"></textarea>
 				</div>
 				<button class="form-control" 
-						onclick='run_code(document.getElementById("code").value,"output","error")'
+						onclick='test_code()'
 						 type="button">
 						Run
 					</button>
