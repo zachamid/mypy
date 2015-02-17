@@ -46,7 +46,6 @@ print """Content-type: text/html\n\n
     					test_counter++;
     				}
     			}
-    			console.log(code);
     			run_code(code, 'output','error');
     		}
     	
@@ -143,7 +142,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Code Skeleton</div>
 				<div class='container' style="width:100%">
-					<div class="line-nums"><span>1</span></div>
+					<div class="line-nums" id="line-nums"><span>1</span></div>
 					<textarea class="lined" rows="10" id="skeleton_code"></textarea>
 				</div>
 			</div>
@@ -153,7 +152,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Model Code</div>
 				<div class='container' style="width:100%">
-					<div class="line-nums"><span>1</span></div>
+					<div class="line-nums" id="line-nums"><span>1</span></div>
 					<textarea class="lined" rows="10" id="code"></textarea>
 				</div>
 				<button class="form-control" 
