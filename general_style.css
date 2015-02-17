@@ -28,6 +28,7 @@ textarea{
 	margin:0 !important;
 	display:block !important;
 	outline:none !important;
+	resize:non !important;
 }
 textarea:focus{
 	border-color:#333;
