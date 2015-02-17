@@ -28,7 +28,7 @@ print """Content-type: text/html\n\n
     		function add_row(counter){
     			var new_row = document.getElementById('test_cases').insertRow(counter);
     			new_row.insertCell(0).innerHTML='<input class="form-control testcase" type="text"></input>'
-    			new_row.insertCell(1).innerHTML='<button class="form-control remove_testcase">Remove</button>'
+    			new_row.insertCell(1).innerHTML='<button class="form-control" id="remove_testcase">Remove</button>'
     		}
 	    	
     		$(document).ready(function(){
@@ -43,9 +43,8 @@ print """Content-type: text/html\n\n
     					}
     				}
     			});
-    			$('remove_testcase').click(function(){
-    				$(this).parent().parent().remove();
-    				console.log('this');
+    			$('#remove_testcase').click(function(){
+    				$('#test_cases tr:last-child').remove();
     			});
     			$('#add_testcase').click(function(){
     				add_row(document.getElementById('test_cases').rows.length);
