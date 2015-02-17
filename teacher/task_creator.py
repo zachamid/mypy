@@ -37,7 +37,7 @@ print """Content-type: text/html\n\n
     				test_cases = document.getElementById('test_cases');
     				func = document.getElementById('function').value;
     				test_counter = 0;
-    				while(test_counter <(table.rows.length-2)){
+    				while(test_counter <(test_cases.rows.length-2)){
     					desc = document.getElementById('description'+test_counter).value;
     					test = document.getElementById('testcase'+test_counter).value;
     					
@@ -141,7 +141,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Code Skeleton</div>
 				<div class='container' style="width:100%">
-					<div class="line-nums" id="line-nums"><span>1</span></div>
+					<div class="line-nums"><span>1</span></div>
 					<textarea class="lined" rows="10" id="skeleton_code"></textarea>
 				</div>
 			</div>
@@ -151,7 +151,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Model Code</div>
 				<div class='container' style="width:100%">
-					<div class="line-nums" id="line-nums"><span>1</span></div>
+					<div class="line-nums"><span>1</span></div>
 					<textarea class="lined" rows="10" id="code"></textarea>
 				</div>
 				<button class="form-control" 
