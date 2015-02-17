@@ -42,7 +42,7 @@ print """Content-type: text/html\n\n
     					test = document.getElementById('testcase'+test_counter).value;
     					
     					code += 'print "Testcase '+desc+':'+func+'('+test+')"\\n';
-    					code += 'func+'('+test+')\\n';
+    					code += func+'('+test+')\\n';
     				}
     			}
     			run_code(code, 'output','error');
