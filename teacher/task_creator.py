@@ -36,7 +36,7 @@ print """Content-type: text/html\n\n
     			$('#function').hide();
     			new_row = document.getElementById('test_cases').insertRow(0);
     			function_cell = new_row.insertCell(0);
-    			function_cell.colspan = '2';
+    			function_cell.colSpan = '2';
     			function_cell.innerHTML='<input class="form-control" type="text" id="function" placeholder="Function to Run"></input>';
 
     			new_row = document.getElementById('test_cases').insertRow(1);
