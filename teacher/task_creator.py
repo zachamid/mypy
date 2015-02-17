@@ -45,6 +45,7 @@ print """Content-type: text/html\n\n
     					code += func+'('+test+')\\n';
     				}
     			}
+    			console.log(code);
     			run_code(code, 'output','error');
     		}
     	
