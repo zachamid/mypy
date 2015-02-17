@@ -78,7 +78,7 @@ print """\n
     					<tr><td>Add TestCases</td>
     						<td>
              					<input class="form-control" id="test_check" type='checkbox'>
-             					</input></br>
+             					</input>
              					<table id='test_cases'></table>
              					<button class="form-control" id='add_testcase'>Add Testcase</button>
              					<button class="form-control" id='remove_testcase'>Remove Testcase</button>
