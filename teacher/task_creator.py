@@ -31,7 +31,7 @@ print """Content-type: text/html\n\n
     	<link href="teacher_style.css" rel="stylesheet">
     	<script>
     		function test_code(){
-    			code = document.getElementById("code").value;
+    			code = document.getElementById("model").value;
     			if(document.getElementById('test_check').checked){
     				code += "\\n";
     				test_cases = document.getElementById('test_cases');
@@ -97,7 +97,7 @@ print """Content-type: text/html\n\n
     		$(document).ready(function(){
     			code_area_prep();
 				var editor = new Behave({
-					textarea: 		document.getElementById('code'),
+					textarea: 		document.getElementById('model'),
 					replaceTab: 	true,
 				    softTabs: 		true,
 				    tabSize: 		2,
