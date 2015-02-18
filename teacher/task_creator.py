@@ -62,7 +62,7 @@ print """Content-type: text/html\n\n
     				title = document.getElementById('title').value;
     				task = {};
     				task["@description"] = document.getElementById('description').value;
-    				task["@instruction"] = document.getElementById('instruction').value;
+    				task["@instruction"] = document.getElementById('instructions').value;
     				
     				if(document.getElementById('test_check').checked){
     					task["method"] = document.getElementById('function').value;
