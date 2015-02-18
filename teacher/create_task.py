@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
-import Cookie, cgi, cgitb, os,sys,json, dicttoxml, db_connection
+import Cookie, cgi, cgitb, os,sys,json, dicttoxml
+sys.path.append(os.pardir)
+import common_components, db_connection
 
 post_data = cgi.FieldStorage()
 title = post_data['title'].value
