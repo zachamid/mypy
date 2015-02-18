@@ -48,11 +48,50 @@ print """Content-type: text/html\n\n
     			}
     			run_code(code, 'output','error');
     		}
+    		
+    		function create_task(){
+    			test_code();
+    			error = document.getElementById('error').value;
+    			if(error == ''){
+    				alert('Model Answer runs with Error')
+    			}
+    			else{
+    				complete = document.getElementById('model_code').value;
+    				skeleton = document.getElementById('skeleton_code').value;
+    				result = document.getElementById('output').value;
+    				title = document.getElementById('title').value;
+    				task = {};
+    				task["@description"] = document.getElementById('description').value;
+    				task["@instruction"] = document.getElementById('instruction').value;
+    				
+    				if(document.getElementById('test_check').checked){
+    					task["method"] = document.getElementById('function').value;
+    					task["testcase"] = [];
+	    				testcases = document.getElementByClassName('testcase');
+    					descs = document.getElementByClassName('testcase');
+    					for(var test_counter = 0; test_counter < testcases.length; test_counter++){
+    						testcase = {};
+    						testcase['arg'] = testcases[test_counter].value;
+    						testcase['@description'] = testcases[test_counter].value;
+    						task["testcase"].push(testcase);
+    					}
+    				}
+    				
+    				task_string = JSON.stringify(task);
+    				$.ajax({
+      				data : {title: title, complete: complete, skeleton: skeleton, result: result},
+      				url : '/teacher/create_task.py',
+      				type : "POST",
+      				dataType : "html"}).done(function(result){
+      					document.getElementById('debug').innerHTML = result;
+      				});
+      			}
+    		}
     	
     		function add_row(counter){
     			var new_row = document.getElementById('test_cases').insertRow(counter);
-    			new_row.insertCell(0).innerHTML='<input class="form-control" id="description'+counter+'" type="text" placeholder="Description"></input>'
-    			new_row.insertCell(1).innerHTML='<input class="form-control" id="testcase'+counter+'" type="text" placeholder="Testcase"></input>'
+    			new_row.insertCell(0).innerHTML='<input class="form-control description" type="text" placeholder="Description"></input>'
+    			new_row.insertCell(1).innerHTML='<input class="form-control testcase" type="text" placeholder="Testcase"></input>'
     		}
 	    	
     		$(document).ready(function(){
@@ -112,18 +151,18 @@ print """\n
     				<table style='width:100%'>
     					<tr><td style='width:30%'>Title</td>
     						<td>
-             					<input class="form-control" type="text" id="Title" placeholder="Title">
+             					<input class="form-control" type="text" id="title" placeholder="Title">
           					</td>
     					</tr>
     					<tr><td>Description</td>
     						<td>
-             					<textarea class="form-control" id="Description">
+             					<textarea class="form-control" id="description">
              					</textarea>
           					</td>
     					</tr>
     					<tr><td>Instructions</td>
     						<td>
-             					<textarea class="form-control" id="Instructions">
+             					<textarea class="form-control" id="instructions">
              					</textarea>
           					</td>
     					</tr>
@@ -152,7 +191,7 @@ print """\n
 				<div class="panel-heading">Model Code</div>
 				<div class='container' style="width:100%">
 					<div class="line-nums" id="line-nums"><span>1</span></div>
-					<textarea class="lined" rows="10" id="code"></textarea>
+					<textarea class="lined" rows="10" id="model_code"></textarea>
 				</div>
 				<button class="form-control" 
 						onclick='test_code()'
@@ -177,5 +216,7 @@ print """\n
 					</div>
 			</div>
 		</div>
+		<div id='debug'></div>
+		<button onclick='create_task()'>Create</button>
     </body>
 </html>"""
