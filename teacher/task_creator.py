@@ -79,7 +79,7 @@ print """Content-type: text/html\n\n
     				
     				task_string = JSON.stringify(task);
     				$.ajax({
-      				data : {title: title, complete: complete, skeleton: skeleton, result: result},
+      				data : {title: title, complete: complete, skeleton: skeleton, result: result, task_xml: task_xml},
       				url : '/teacher/create_task.py',
       				type : "POST",
       				dataType : "html"}).done(function(result){
