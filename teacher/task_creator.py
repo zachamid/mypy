@@ -52,7 +52,7 @@ print """Content-type: text/html\n\n
     		function create_task(){
     			test_code();
     			error = document.getElementById('error').value;
-    			if(error == ''){
+    			if(error){
     				alert('Model Answer runs with Error')
     			}
     			else{
