@@ -101,7 +101,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Instruction</div>
 				<div class='container' style="width:100%">
-				"""+task_xml['@instruction']+"""\n
+				"""+task_xml['instruction']+"""\n
 				</div>
 			</div>
 		</div>
@@ -135,7 +135,7 @@ if('testcase' in task_xml and 'method' in task_xml):
 	else:
 		for testcase in task_xml['testcase']:
 			print "			<tr>"
-			print "				<td>"+ testcase['@description']+"</td>"
+			print "				<td>"+ testcase['description']+"</td>"
 			print "				<td>"+ testcase['arg']+"</td>"
 			print "			</tr>"		
 	print """\n		</table>

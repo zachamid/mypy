@@ -35,6 +35,6 @@ result_txt.close()
 
 xml_file = open(path+'/info.xml','w')
 task_info = json.loads(task_json)
-task_xml = dicttoxml.dicttoxml(task_info,ids=True, custom_root='task')
+task_xml = dicttoxml.dicttoxml(task_info, custom_root='task')
 xml_file.write(task_xml)
 xml_file.close()
