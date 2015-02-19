@@ -3,6 +3,7 @@
 import Cookie, cgi, cgitb, os,sys,json, dicttoxml
 sys.path.append(os.pardir)
 import common_components, db_connection
+cgitb.enable()
 
 post_data = cgi.FieldStorage()
 title = post_data['title'].value
