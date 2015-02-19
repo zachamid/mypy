@@ -95,7 +95,7 @@ print """Content-type: text/html\n\n
 	<body>
 """		
 common_components.print_navbar(cookies['id'].value,'')
-task_xml = task_delivery.get_task_xml(task_id)['task']
+task_xml = task_delivery.get_task_xml(task_id)['root']
 print """\n
 		<div class="col-xs-12 col-md-12 col-sm-12">
 			<div class="panel panel-default translucent">
