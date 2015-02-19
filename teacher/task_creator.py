@@ -83,7 +83,6 @@ print """Content-type: text/html\n\n
       				url : '/teacher/create_task.py',
       				type : "POST",
       				dataType : "html"}).done(function(result){
-      					document.getElementById('debug').innerHTML = result;
       				});
       			}
     		}

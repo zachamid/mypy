@@ -13,7 +13,7 @@ result = post_data['result'].value
 cursor = db_connection.get_connection()
 
 sql_query = '''INSERT INTO Task (Title)
-				VALUES(%s)
+				VALUES('%s')
 			''' % (title)
 cursor.execute(sql_query)
 id = cursor.lastrowid
