@@ -95,13 +95,13 @@ print """Content-type: text/html\n\n
 	<body>
 """		
 common_components.print_navbar(cookies['id'].value,'')
-task_xml = task_delivery.get_task_xml(task_id)['root']
+task_xml = task_delivery.get_task_xml(task_id)['task']
 print """\n
 		<div class="col-xs-12 col-md-12 col-sm-12">
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Instruction</div>
 				<div class='container' style="width:100%">
-				"""+task_xml['instruction']+"""\n
+				"""+task_xml['@instruction']+"""\n
 				</div>
 			</div>
 		</div>
