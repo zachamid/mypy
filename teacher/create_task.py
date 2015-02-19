@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-import Cookie, cgi, cgitb, os,sys,json, dicttoxml
+import Cookie, cgi, os,sys,json, dicttoxml
 sys.path.append(os.pardir)
 import common_components, db_connection
-cgitb.enable()
 
+print "Content-type: text/html\n\n"
 post_data = cgi.FieldStorage()
 title = post_data['title'].value
 task_json = post_data['task_xml'].value
