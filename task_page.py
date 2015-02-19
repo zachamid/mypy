@@ -101,7 +101,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Instruction</div>
 				<div class='container' style="width:100%">
-				"""+task_xml['@instruction']+"""\n
+				"""+task_xml['instruction']+"""\n
 				</div>
 			</div>
 		</div>
