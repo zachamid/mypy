@@ -86,7 +86,7 @@ print """\n
     			<div class="container" style="width:100%">
       				<div class="panel panel-default translucent" style='max-height:60%;'>
       					<h3>Task List</h3></br>
-      					<div style="overflow:auto;">
+      					<div style="max-height:40%;overflow:auto;">
       					<table id="task_list" style="border-spacing:10px;">
       					</table>
       					</div>
