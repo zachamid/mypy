@@ -85,11 +85,11 @@ print """\n
     		<div class="container col-sm-6 col-md-9">
     			<div class="container" style="width:100%">
     				<div class="panel panel-default translucent">
-      					<h3>Task List</h3>
+      					
       				</div>
       				<div class="panel panel-default translucent" style="max-height:60px;overflow:auto;">
+      					<h3>Task List</h3></br>
       					<table id="task_list" style="border-spacing:10px;">
-      					
       					</table>
       				</div>
       				<div class="panel panel-default translucent" id="task_info">
