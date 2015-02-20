@@ -36,10 +36,11 @@ print """Content-type: text/html\n\n
     				code += "\\n";
     				test_cases = document.getElementById('test_cases');
     				func = document.getElementById('function').value;
-    				test_counter = 1;
-    				while(test_counter <(test_cases.rows.length-1)){
-    					desc = document.getElementById('description'+test_counter).value;
-    					test = document.getElementById('testcase'+test_counter).value;
+    				testcases = document.getElementByClassName('testcase');
+    				descs = document.getElementByClassName('testcase');
+    				for(var test_counter = 0; test_counter < testcases.length; test_counter++){
+    					desc = descs[test_counter].value;
+    					test = test_cases[test_counter].value;
     					
     					code += 'print "Testcase '+desc+':'+func+'('+test+')"\\n';
     					code += func+'('+test+')\\n';
