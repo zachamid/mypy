@@ -63,7 +63,7 @@ print """Content-type: text/html\n\n
     				task = {};
     				task["description"] = document.getElementById('description').value;
     				task["instruction"] = document.getElementById('instructions').value;
-    				
+    				task["difficulty"] = document.getElementById('difficulty').value;
     				if(document.getElementById('test_check').checked){
     					task["method"] = document.getElementById('function').value;
     					task["testcase"] = [];
@@ -163,6 +163,17 @@ print """\n
     						<td>
              					<textarea class="form-control" id="instructions">
              					</textarea>
+          					</td>
+    					</tr>
+    					<tr><td>Difficulty</td>
+    						<td>
+             					<select class="form-control" id="difficult">
+             						<option>Beginners</option>
+             						<option>Easy</option>
+             						<option>Intermediate</option>
+             						<option>Difficult</option>
+             						<option>Challenging</option>
+             					</select>
           					</td>
     					</tr>
     					<tr><td>Add TestCases
