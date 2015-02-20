@@ -35,8 +35,8 @@ function print_xml_object(obj) {
 			if(testcases['@type'] == 'list'){
 				testcases = testcases['item']
 				for(var index=0; index<testcases.length; index++){
-					ret_string+="args: ("+ testcases[index]["arg"]['#text'] + ")";
-					ret_string += ", outcome: "+ testcases[index]['out']['#text']+"</br>";
+					ret_string += "description"+ testcases[index]['description']['#text']+",";
+					ret_string+="args: ("+ testcases['testcase']["arg"]['#text'] + ")</br>";
 				}
 			}
 			else{
