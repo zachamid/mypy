@@ -16,8 +16,8 @@ function print_xml_object(obj) {
 	ret_string="";
 	if("task" in obj){
 		task = obj["task"];
-		ret_string="<b>Description</b>:"+task["@description"]+"</br>";
-		ret_string+="<b>Difficulty</b>:"+task["@difficulty"]+"</br>";
+		ret_string="<b>Description</b>:"+task["description"]['#text']+"</br>";
+		ret_string+="<b>Intructions</b>:"+task["instruction"]['#text']+"</br>";
 		if("tag" in task){
 			ret_string+="<b>Tags</b>:";
 			tags = task["tag"];
@@ -34,34 +34,15 @@ function print_xml_object(obj) {
 			testcases = task['testcase'];
 			if(Array.isArray(testcases)){
 				for(testcase in testcases){
-					if(Array.isArray(testcase['arg'])){
-						ret_string+="args: ("+ testcases[testcase]["arg"].join(", ")+")";
-						}
-					else{
-						ret_string+="args: ("+ testcases[testcase]["arg"] + ")";
-					}
-					ret_string += ", outcome: "+ testcases[testcase]['out']+"</br>";
+					ret_string+="args: ("+ testcases[testcase]["arg"]['#text'] + ")";
+					ret_string += ", outcome: "+ testcases[testcase]['out']['#text']+"</br>";
 				}
 			}
 			else{
-				if(Array.isArray(testcases['arg'])){
-					ret_string+="args: ("+ testcases["arg"].join(", ")+")";
-				}
-				else{
-					ret_string+="args: ("+ testcases["arg"] + ")";
-				}
-				ret_string += ", outcome: "+ testcases['out']+"</br>";
+				ret_string+="args: ("+ testcases[testcase]["arg"]['#text'] + ")";
+				ret_string += ", outcome: "+ testcases[testcase]['out']['#text']+"</br>";
 			}
 		}
 	}
-	else{
-		for (var key in obj) {
-    		if (typeof(obj[key]) == 'object') {
-      			ret_string+=print_object(obj[key])+"</br>";
-    		} else {
-    			ret_string+="<b>" + key + "</b>: " + obj[key]+"</br>";
-    		}
-    	}
-  	}
   	return ret_string;
 }
