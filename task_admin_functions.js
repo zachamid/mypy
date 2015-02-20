@@ -39,8 +39,9 @@ function print_xml_object(obj) {
 				}
 			}
 			else{
-				ret_string+="args: ("+ testcases[testcase]["arg"]['#text'] + ")";
-				ret_string += ", outcome: "+ testcases[testcase]['out']['#text']+"</br>";
+				
+				ret_string += "description"+ testcases['testcase']['description']['#text']+",";
+				ret_string+="args: ("+ testcases['testcase']["arg"]['#text'] + ")</br>";
 			}
 		}
 	}
