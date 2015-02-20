@@ -33,9 +33,9 @@ function print_xml_object(obj) {
 			ret_string+="<b>Testcases</b>:";
 			testcases = task['testcase'];
 			if(testcases['@type'] == 'list'){
-				for(testcase in testcases){
-					ret_string+="args: ("+ testcase["arg"]['#text'] + ")";
-					ret_string += ", outcome: "+ testcase['out']['#text']+"</br>";
+				for(index in range(len(testcases))){
+					ret_string+="args: ("+ testcase[index]["arg"]['#text'] + ")";
+					ret_string += ", outcome: "+ testcase[index]['out']['#text']+"</br>";
 				}
 			}
 			else{
