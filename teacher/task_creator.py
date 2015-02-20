@@ -155,14 +155,12 @@ print """\n
     					</tr>
     					<tr><td>Description</td>
     						<td>
-             					<textarea class="form-control" id="description">
-             					</textarea>
+             					<textarea class="form-control" id="description"></textarea>
           					</td>
     					</tr>
     					<tr><td>Instructions</td>
     						<td>
-             					<textarea class="form-control" id="instructions">
-             					</textarea>
+             					<textarea class="form-control" id="instructions"></textarea>
           					</td>
     					</tr>
     					<tr><td>Difficulty</td>
