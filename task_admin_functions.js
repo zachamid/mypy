@@ -36,7 +36,7 @@ function print_xml_object(obj) {
 				testcases = testcases['item']
 				for(var index=0; index<testcases.length; index++){
 					ret_string += "description"+ testcases[index]['description']['#text']+",";
-					ret_string+="args: ("+ testcases['testcase']["arg"]['#text'] + ")</br>";
+					ret_string+="args: ("+ testcases[index]["arg"]['#text'] + ")</br>";
 				}
 			}
 			else{
