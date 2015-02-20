@@ -33,7 +33,7 @@ function print_xml_object(obj) {
 			ret_string+="<b>Testcases</b>:";
 			testcases = task['testcase'];
 			if(testcases['@type'] == 'list'){
-				for(index in range(len(testcases))){
+				for(var index=0; index<testcases.length; index++){
 					ret_string+="args: ("+ testcase[index]["arg"]['#text'] + ")";
 					ret_string += ", outcome: "+ testcase[index]['out']['#text']+"</br>";
 				}
