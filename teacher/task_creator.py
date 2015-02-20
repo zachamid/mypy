@@ -36,8 +36,8 @@ print """Content-type: text/html\n\n
     				code += "\\n";
     				test_cases = document.getElementById('test_cases');
     				func = document.getElementById('function').value;
-    				testcases = document.getElementByClassName('testcase');
-    				descs = document.getElementByClassName('testcase');
+    				testcases = document.getElementsByClassName('testcase');
+    				descs = document.getElementsByClassName('testcase');
     				for(var test_counter = 0; test_counter < testcases.length; test_counter++){
     					desc = descs[test_counter].value;
     					test = test_cases[test_counter].value;
@@ -68,8 +68,8 @@ print """Content-type: text/html\n\n
     				if(document.getElementById('test_check').checked){
     					task["method"] = document.getElementById('function').value;
     					task["testcase"] = [];
-	    				testcases = document.getElementByClassName('testcase');
-    					descs = document.getElementByClassName('testcase');
+	    				testcases = document.getElementsByClassName('testcase');
+    					descs = document.getElementsByClassName('testcase');
     					for(var test_counter = 0; test_counter < testcases.length; test_counter++){
     						testcase = {};
     						testcase['arg'] = testcases[test_counter].value;
