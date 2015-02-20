@@ -84,10 +84,12 @@ common_components.print_navbar_teacher(cookies['id'].value,'task_admin')
 print """\n
     		<div class="container col-sm-6 col-md-9">
     			<div class="container" style="width:100%">
-      				<div class="panel panel-default translucent" style="max-height:60%;overflow:auto;">
+      				<div class="panel panel-default translucent" >
       					<h3>Task List</h3></br>
+      					<div style="max-height:60%;overflow:auto;">
       					<table id="task_list" style="border-spacing:10px;">
       					</table>
+      					</div>
       				</div>
       				<div class="panel panel-default translucent" id="task_info" style="max-height:40%;overflow:auto;">
       				</div>
