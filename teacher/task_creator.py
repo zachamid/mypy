@@ -40,7 +40,7 @@ print """Content-type: text/html\n\n
     				descs = document.getElementsByClassName('testcase');
     				for(var test_counter = 0; test_counter < testcases.length; test_counter++){
     					desc = descs[test_counter].value;
-    					test = test_cases[test_counter].value;
+    					test = testcases[test_counter].value;
     					
     					code += 'print "Testcase '+desc+':'+func+'('+test+')"\\n';
     					code += func+'('+test+')\\n';
