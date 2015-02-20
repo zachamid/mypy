@@ -165,7 +165,7 @@ print """\n
     					</tr>
     					<tr><td>Difficulty</td>
     						<td>
-             					<select class="form-control" id="difficult">
+             					<select class="form-control" id="difficulty">
              						<option>Beginners</option>
              						<option>Easy</option>
              						<option>Intermediate</option>
