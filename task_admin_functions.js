@@ -32,7 +32,7 @@ function print_xml_object(obj) {
 		if("testcase" in task){
 			ret_string+="<b>Testcases</b>:";
 			testcases = task['testcase'];
-			if(Array.isArray(testcases)){
+			if(testcases['@type'] == 'list'){
 				for(testcase in testcases){
 					ret_string+="args: ("+ testcases[testcase]["arg"]['#text'] + ")";
 					ret_string += ", outcome: "+ testcases[testcase]['out']['#text']+"</br>";
