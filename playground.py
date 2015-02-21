@@ -26,6 +26,13 @@ print """Content-type: text/html\n\n
     			lineNumbers: true,
     			mode: "python"
   			});
+  			
+  			$('#run').click(function(){
+  				editor.save();
+  				run_code("code","output","error");
+  			});
+  			
+  			
 		});
 		</script>
 		<link rel="stylesheet" type="text/css" href="general_style.css">
@@ -48,8 +55,7 @@ print """\n
 				<div class='container' style="width:100%">
 					<textarea class = 'CodeMirror cm-s-default' rows="10" id="code"></textarea>
 				</div>
-				<button class="form-control" 
-						onclick='run_code(document.getElementById("code").value,"output","error")'
+				<button class="form-control" id='run'
 						 type="button">
 						Run
 					</button>
