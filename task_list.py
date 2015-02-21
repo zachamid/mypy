@@ -58,13 +58,12 @@ for task in file_info:
 	and file_info[task]['info.xml'] == 1):
 		cursor.execute('SELECT * FROM Task WHERE TaskID='+str(task))
 		task_xml = task_delivery.get_task_xml(task)
-		print task_xml.keys()
 		task_info = cursor.fetchone()
 		print '''\n
 			<tr>
 				<td><a onclick='open_task_page(%s)'>%s</a></td>
 				<td><a onclick='open_task_page(%s)'>%s</a></td>
-				<td>%s</td>''' % (str(task),str(task),str(task),task_info['Title'],task_xml[u'difficulty']['#text'])
+				<td>%s</td>''' % (str(task),str(task),str(task),task_info['Title'],task_xml['task']['difficulty']['#text'])
 		cursor.execute('''SELECT DateStarted, DateModified, DateCompleted 
 						FROM Progress 
 						WHERE TaskID='''+str(task)+' AND StudentID='+str(cookies['id'].value))
