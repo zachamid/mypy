@@ -45,7 +45,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
 				<div class='container' style="width:100%">
-					<textarea rows="10" id="code"></textarea>
+					<textarea class = 'CodeMirror cm-s-default' rows="10" id="code"></textarea>
 				</div>
 				<button class="form-control" 
 						onclick='run_code(document.getElementById("code").value,"output","error")'
