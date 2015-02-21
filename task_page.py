@@ -81,7 +81,7 @@ print """Content-type: text/html\n\n
   			
   			$('#run').click(function(){
   				editor.save();
-  				code = document.getElementById(code).value;"""
+  				code = document.getElementById('code').value;"""
 if ('testcase' in task_xml and 'method' in task_xml):
 	print 'compile_code(code, %s,\'output\',\'error\');' % (str(task_id))
 else:
@@ -92,7 +92,7 @@ print """
   			$('#save').click(function(){
   				console.log('Entered');
   				editor.save();
-  				code = document.getElementById(code).value;
+  				code = document.getElementById('code').value;
   				save_code(code,%s,%s);
   			});
 		});
