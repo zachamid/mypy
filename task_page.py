@@ -141,7 +141,6 @@ print """\n				</textarea>
 				</div>
 """
 if('testcase' in task_xml and 'method' in task_xml):
-	print (task_xml)
 	print """\n	<div class="panel panel-default translucent" style="width:100%">
 					<table>"""
 	if 'arg' in task_xml['testcase'] and 'description' in task_xml['testcase']:
