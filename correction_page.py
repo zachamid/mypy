@@ -52,8 +52,8 @@ if('code' in task_info):
 	task_time = (progress_record['DateCompleted']-progress_record['DateStarted']).seconds
 	time_score = task_correction.judge_time(min_time, task_time)
 	
-	sql = 'UPDATE Progress SET Correctness_Points='+correctness_score+',Similarity_Points='+jaccard_score
-	sql +=', Time_Points='+time_score+', Attempts_Points='+attempt_score+', Output='+submitted_output+', Code='+submitted_code+', Attempts='+(progress_record['Attempts']+1)
+	sql = 'UPDATE Progress SET Correctness_Points='+str(correctness_score)+',Similarity_Points='+str(jaccard_score)
+	sql +=', Time_Points='+str(time_score)+', Attempts_Points='+str(attempt_score)+', Output='+submitted_output+', Code='+submitted_code+', Attempts='+str(progress_record['Attempts']+1)
 	sql +=' WHERE StudentID='+str(student_id)+' AND TaskID='+str(task_id)
 	cursor.execute(sql)
 
