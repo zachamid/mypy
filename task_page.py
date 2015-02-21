@@ -148,7 +148,7 @@ if('testcase' in task_xml and 'method' in task_xml):
 		print '<tr><td>'+ task_xml['testcase']['description']['#text']+"</td>"
 		print '<td>'+ task_xml['testcase']['arg']['#text']+"</td></tr>"
 	else:
-		for testcase in task_xml['testcase']:
+		for testcase in task_xml['testcase']['item']:
 			print "			<tr>"
 			print "				<td>"+ testcase['description']+"</td>"
 			print "				<td>"+ testcase['arg']+"</td>"
