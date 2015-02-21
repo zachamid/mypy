@@ -63,7 +63,7 @@ for task in file_info:
 			<tr>
 				<td><a onclick='open_task_page(%s)'>%s</a></td>
 				<td><a onclick='open_task_page(%s)'>%s</a></td>
-				<td>%s</td>''' % (str(task),str(task),str(task),task_info['Title'],task_xml['Difficulty']['#text'])
+				<td>%s</td>''' % (str(task),str(task),str(task),task_info['Title'],task_xml['difficulty']['#text'])
 		cursor.execute('''SELECT DateStarted, DateModified, DateCompleted 
 						FROM Progress 
 						WHERE TaskID='''+str(task)+' AND StudentID='+str(cookies['id'].value))
