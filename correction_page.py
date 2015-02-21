@@ -38,7 +38,7 @@ if('code' in task_info):
 	progress_record = cursor.fetchone()
 	
 	sql = '''SELECT DateStarted, DateCompleted FROM Progress WHERE TaskID=%s
-			''' % (,str(task_id))
+			''' % (str(task_id))
 	cursor.execute(sql)
 	times = cursor.fetchall()
 	
