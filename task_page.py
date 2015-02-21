@@ -95,7 +95,7 @@ print """
   				save_code(code,%s,%s);
   			});
   			
-  			$('#save').click(function(){
+  			$('#correct').click(function(){
   				correct(%s);
   			});
 		});
