@@ -143,14 +143,14 @@ print """\n				</textarea>
 if('testcase' in task_xml and 'method' in task_xml):
 	print """\n	<div class="panel panel-default translucent" style="width:100%">
 					<table>"""
-	if 'arg' in task_xml['testcase'] and 'task' in task_xml['testcase']:
+	if 'arg' in task_xml['testcase'] and 'description' in task_xml['testcase']:
 		print '<tr><td>'+ task_xml['testcase']['description']['#text']+"</td>"
 		print '<td>'+ task_xml['testcase']['arg']['#text']+"</td></tr>"
 	else:
 		for testcase in task_xml['testcase']:
 			print "			<tr>"
-			print "				<td>"+ testcase['description']['#text']+"</td>"
-			print "				<td>"+ testcase['arg']['#text']+"</td>"
+			print "				<td>"+ testcase['description']+"</td>"
+			print "				<td>"+ testcase['arg']+"</td>"
 			print "			</tr>"		
 	print """\n		</table>
 			</div>"""
