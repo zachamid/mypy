@@ -19,6 +19,9 @@ student_id = cookies['id'].value
 task_id = task_info['task_id'].value
 currtime = datetime.datetime.now()
 if('code' in task_info):
+	sql = '''UPDATE Progress SET DateCompleted='%s'
+			 WHERE StudentID=%s AND TaskID=%s''' % (str(currtime),str(student_id),str(task_id))
+
 	correct_output = correctcode = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
 	correct_code = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
 	
@@ -50,10 +53,10 @@ if('code' in task_info):
 	time_score = task_correction.judge_time(min_time, task_time)
 	
 	sql = '''UPDATE Progress
-			SET DateCompleted='%s', Correctness_Points=%f, Similarity_Points=%f,
+			SET Correctness_Points=%f, Similarity_Points=%f,
 			Time_Points=%f, Attempts_Points=%f, Output='%s', Code='%s', Attempts=%d
 			WHERE StudentID=%s AND TaskID=%s
-			''' % (str(currtime), correctness_score, jaccard_score, time_score, attempt_score, submitted_output, submitted_code, progress_record['Attempts']+1, str(student_id),str(task_id))
+			''' % (correctness_score, jaccard_score, time_score, attempt_score, submitted_output, submitted_code, progress_record['Attempts']+1, str(student_id),str(task_id))
 	cursor.execute(sql)
 
 else:
