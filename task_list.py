@@ -58,7 +58,7 @@ for task in file_info:
 	and file_info[task]['info.xml'] == 1):
 		cursor.execute('SELECT * FROM Task WHERE TaskID='+str(task))
 		task_xml = task_delivery.get_task_xml(task)
-		print task_xml
+		print task_xml.keys()
 		task_info = cursor.fetchone()
 		print '''\n
 			<tr>
