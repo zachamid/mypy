@@ -90,6 +90,7 @@ print """
   			});
   			
   			$('#save').click(function(){
+  				console.log('Entered');
   				editor.save();
   				code = document.getElementById(code).value;
   				save_code(code,%s,%s);
