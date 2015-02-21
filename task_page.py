@@ -90,10 +90,13 @@ print """
   			});
   			
   			$('#save').click(function(){
-  				console.log('Entered');
   				editor.save();
   				code = document.getElementById('code').value;
   				save_code(code,%s,%s);
+  			});
+  			
+  			$('#save').click(function(){
+  				correct(%s);
   			});
 		});
 		</script>
@@ -106,7 +109,7 @@ print """
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
 	<body>
-"""	% (str(task_id), str(student_id))
+"""	% (str(task_id), str(student_id), str(task_id))
 common_components.print_navbar(cookies['id'].value,'')
 print """\n
 		<div class="col-xs-12 col-md-12 col-sm-12">
@@ -153,7 +156,7 @@ if('testcase' in task_xml and 'method' in task_xml):
 			</div>"""
 print """\n
 			<table><tr><td><button class="form-control" id='run' type="button">Run</button></td>
-			<td><button class="form-control" onclick='correct(%s)' type="button">Correct
+			<td><button class="form-control" id='correct' type="button">Correct
 			</button></td>"""
 			
 print "<td><button class=\"form-control\" id=\"save\" type=\"button\" >Save</button></td></tr></table></div>"
