@@ -22,7 +22,8 @@ print """Content-type: text/html\n\n
 		$(function() {
 			//code_area_prep();
 			var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
-    			lineNumbers: true
+    			lineNumbers: true,
+    			mode: "python"
   			});
 		});
 		</script>
