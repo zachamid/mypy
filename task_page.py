@@ -129,7 +129,7 @@ if new_flag == 0:
 	print cursor.fetchone()['Code'].replace('</br>','\n')
 else:
 	code = task_delivery.get_python_code_from_file(task_id, 'task_skeleton.py')['task_skeleton.py']
-	print ("""INSERT INTO Progress (StudentID, TaskID, DateStarted, Code)
+	cursor.execute("""INSERT INTO Progress (StudentID, TaskID, DateStarted, Code)
 						Values('%s', '%s', '%s', '%s')""" % (str(student_id),str(task_id),str(curr_date),code.replace('\'','\\\'')))
 	print code
 
