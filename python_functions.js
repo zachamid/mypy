@@ -1,5 +1,4 @@
 function run_code(code,output,err) {
-	code = document.getElementById(code).value;
    	var mypre = document.getElementById(output);
    	var error_area = document.getElementById(err);
    	mypre.value = '';
@@ -47,28 +46,4 @@ function auto_generate(struct, text_area){
 			break;
 	}
 	text_area_DOM.value = text_before+code+text_after;
-}
-
-function code_area_prep(){
-	BehaveHooks.add(['keydown'], function(data){
-				var numLines = data.lines.total,
-					house = document.getElementsByClassName('line-nums')[0],
-					html = '',
-					i;
-				for(i=0; i<numLines; i++){
-					html += '<div>'+(i+1)+'</div>';
-				}
-				house.innerHTML = html;
-			});
-	BehaveHooks.add(['keydown'], function(data){
-				var numLines = data.lines.total,
-					fontSize = parseInt( getComputedStyle(data.editor.element)['font-size'] ),
-					padding = parseInt( getComputedStyle(data.editor.element)['padding'] );
-					if(10 < numLines) {
-						data.editor.element.style.height = (((numLines*fontSize)+padding))+'px';
-					}
-					else{
-						data.editor.element.style.height = (((10*fontSize)+padding))+'px';
-					}
-		});
 }

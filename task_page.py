@@ -18,7 +18,8 @@ task_id = task_info['task_id'].value
 student_id = cookies['id'].value
 cursor = db_connection.get_connection()
 new_flag = 0
-curr_date = datetime.datetime.now()	
+curr_date = datetime.datetime.now()
+task_xml = task_delivery.get_task_xml(task_id)['task']	
 try:
 	cursor.execute("""SELECT Attempts, ProgressID FROM Progress WHERE
 					StudentID=%s AND TaskID=%s""" % (str(student_id),str(task_id)))
@@ -39,12 +40,15 @@ print """Content-type: text/html\n\n
 		<script src="skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
 		<script src="skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
 		<script src="jquery-1.11.1.min.js" type="text/javascript"></script> 
-		<script src="behave.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="/codemirror-5.0/lib/codemirror.css">
+		<script src="/codemirror-5.0/lib/codemirror.js"></script>
+		<script src="/codemirror-5.0/mode/python/python.js"></script>
 		<script src="python_functions.js" type="text/javascript"></script>
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script src="task_admin_functions.js" type="text/javascript"></script>
 		<script>
 		function correct(taskID){
+			editor.save();
 			var mapForm = document.createElement("form");
     		mapForm.method = "POST";
   		  	mapForm.action = "/correction_page.py";
@@ -70,18 +74,26 @@ print """Content-type: text/html\n\n
     		mapForm.submit();
 		}
 		$(function() {
-			code_area_prep();
-			var editor = new Behave({
-			
-				textarea: 		document.getElementById('code'),
-				replaceTab: 	true,
-			    softTabs: 		true,
-			    tabSize: 		2,
-			    autoOpen: 		false,
-			    overwrite: 		false,
-			    autoStrip: 		false,
-			    autoIndent: 	false
-			});
+			var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+    			lineNumbers: true,
+    			mode: "python"
+  			});
+  			
+  			$('#run').click(function(){
+  				editor.save();
+  				code = document.getElementById(code).value;"""
+if ('testcase' in task_xml and 'method' in task_xml):
+	print 'compile_code(code, %s,\'output\',\'error\');' % (str(task_id))
+else:
+	print 'run_code(code,\'output\',\'error\');'
+print """
+  			});
+  			
+  			$('#save').click(function(){
+  				editor.save();
+  				code = document.getElementById(code).value;
+  				save_code(code,%s,%s);
+  			});
 		});
 		</script>
 		<style>
@@ -93,9 +105,8 @@ print """Content-type: text/html\n\n
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
 	<body>
-"""		
+"""	% (str(task_id), str(student_id))
 common_components.print_navbar(cookies['id'].value,'')
-task_xml = task_delivery.get_task_xml(task_id)['task']
 print """\n
 		<div class="col-xs-12 col-md-12 col-sm-12">
 			<div class="panel panel-default translucent">
@@ -111,8 +122,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
 				<div class='container' style="width:100%">
-					<div class="line-nums"><span>1</span></div>
-					<textarea class="lined" rows="10" id="code">"""
+					<textarea class="CodeMirror cm-s-default" rows="10" id="code">"""
 if new_flag == 0:
 	sql = 'SELECT Code FROM Progress WHERE StudentID=%s AND TaskID=%s' % (str(student_id),str(task_id))
 	cursor.execute(sql)
@@ -139,22 +149,11 @@ if('testcase' in task_xml and 'method' in task_xml):
 			print "				<td>"+ testcase['arg']['#text']+"</td>"
 			print "			</tr>"		
 	print """\n		</table>
-			</div>
-			<table><tr><td>
-			<button class="form-control" 
-	onclick='compile_code(document.getElementById("code").value,%s,"output","error")'
-     type="button">Run</button></td><td>
-     <button class="form-control" 
-	onclick='correct( %s )' type="button">Correct</button></td>""" % (str(task_id),str(task_id))
-     
-else:
-	print """\n
-			<table><tr><td><button class="form-control"
-		onclick='run_code(document.getElementById("code").value,"output","error")' type="button">
-						Run
-			</button></td><td>
-			<button class="form-control" onclick='correct(%s)' type="button">Correct
-			</button></td>""" % (str(task_id))
+			</div>"""
+print """\n
+			<table><tr><td><button class="form-control" id='run' type="button">Run</button></td>
+			<td><button class="form-control" onclick='correct(%s)' type="button">Correct
+			</button></td>"""
 			
 print "<td><button class=\"form-control\" onclick='save_code(document.getElementById(\"code\").value,"+task_id+","+student_id+")' type=\"button\" >Save</button></td></tr></table></div>"
 print		"""\n	</div>
