@@ -113,7 +113,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Instruction</div>
 				<div class='container' style="width:100%">
-				"""+task_xml['instruction']['#text']+"""\n
+				"""+task_xml['instruction']['#text'].replace('\n','</br>')+"""\n
 				</div>
 			</div>
 		</div>
