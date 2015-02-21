@@ -155,7 +155,7 @@ print """\n
 			<td><button class="form-control" onclick='correct(%s)' type="button">Correct
 			</button></td>"""
 			
-print "<td><button class=\"form-control\" onclick='save_code(document.getElementById(\"code\").value,"+task_id+","+student_id+")' type=\"button\" >Save</button></td></tr></table></div>"
+print "<td><button class=\"form-control\" id=\"save\" type=\"button\" >Save</button></td></tr></table></div>"
 print		"""\n	</div>
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
