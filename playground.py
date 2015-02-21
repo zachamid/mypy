@@ -14,23 +14,16 @@ print """Content-type: text/html\n\n
 		<script src="skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
 		<script src="skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
 		<script src="jquery-1.11.1.min.js" type="text/javascript"></script> 
-		<script src="behave.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="/codemirror-5.0/lib/codemirror.css">
+		<script src="/codemirror-5.0/lib/codemirror.js"></script>
 		<script src="python_functions.js" type="text/javascript"></script>
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script>
 		$(function() {
-			code_area_prep();
-			var editor = new Behave({
-			
-				textarea: 		document.getElementById('code'),
-				replaceTab: 	true,
-			    softTabs: 		true,
-			    tabSize: 		2,
-			    autoOpen: 		false,
-			    overwrite: 		false,
-			    autoStrip: 		false,
-			    autoIndent: 	false
-			});
+			//code_area_prep();
+			var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+    			lineNumbers: true
+  			});
 		});
 		</script>
     	<link rel="stylesheet" type="text/css" href="general_style.css">
