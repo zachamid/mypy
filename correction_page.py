@@ -54,7 +54,7 @@ if('code' in task_info):
 	
 	sql = 'UPDATE Progress SET Correctness_Points='+correctness_score+',Similarity_Points='+jaccard_score
 	sql +=', Time_Points='+time_score+', Attempts_Points='+attempt_score+', Output='+submitted_output+', Code='+submitted_code+', Attempts='+(progress_record['Attempts']+1)
-	sql +=' WHERE StudentID='+str(student_id)+' AND TaskID='+str(task_id))
+	sql +=' WHERE StudentID='+str(student_id)+' AND TaskID='+str(task_id)
 	cursor.execute(sql)
 
 else:
