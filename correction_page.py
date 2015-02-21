@@ -21,7 +21,7 @@ currtime = datetime.datetime.now()
 if('code' in task_info):
 	sql = '''UPDATE Progress SET DateCompleted='%s'
 			 WHERE StudentID=%s AND TaskID=%s''' % (str(currtime),str(student_id),str(task_id))
-
+	cursor.execute(sql)
 	correct_output = correctcode = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
 	correct_code = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
 	
