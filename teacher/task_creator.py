@@ -72,7 +72,7 @@ print """Content-type: text/html\n\n
     					for(var test_counter = 0; test_counter < testcases.length; test_counter++){
     						testcase = {};
     						testcase['arg'] = testcases[test_counter].value;
-    						testcase['description'] = testcases[test_counter].value;
+    						testcase['description'] = descs[test_counter].value;
     						task["testcase"].push(testcase);
     					}
     				}

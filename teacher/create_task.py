@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import Cookie, cgi, os,sys,json, dicttoxml
+from xml.dom.minidom import parseString
 sys.path.append(os.pardir)
 import common_components, db_connection
 
@@ -36,5 +37,5 @@ result_txt.close()
 xml_file = open(path+'/info.xml','w')
 task_info = json.loads(task_json)
 task_xml = dicttoxml.dicttoxml(task_info, custom_root='task')
-xml_file.write(task_xml)
+xml_file.write(parseString(task_xml).toprettyxml())
 xml_file.close()
