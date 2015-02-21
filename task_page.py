@@ -150,8 +150,8 @@ if('testcase' in task_xml and 'method' in task_xml):
 	else:
 		for testcase in task_xml['testcase']['item']:
 			print "			<tr>"
-			print "				<td>"+ testcase['description']+"</td>"
-			print "				<td>"+ testcase['arg']+"</td>"
+			print "				<td>"+ testcase['description']['#text']+"</td>"
+			print "				<td>"+ testcase['arg']['#text']+"</td>"
 			print "			</tr>"		
 	print """\n		</table>
 			</div>"""
