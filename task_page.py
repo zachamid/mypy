@@ -48,7 +48,6 @@ print """Content-type: text/html\n\n
 		<script src="task_admin_functions.js" type="text/javascript"></script>
 		<script>
 		function correct(taskID){
-			editor.save();
 			var mapForm = document.createElement("form");
     		mapForm.method = "POST";
   		  	mapForm.action = "/correction_page.py";
@@ -96,6 +95,7 @@ print """
   			});
   			
   			$('#correct').click(function(){
+  				editor.save();
   				correct(%s);
   			});
 		});
