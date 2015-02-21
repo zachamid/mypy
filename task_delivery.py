@@ -93,8 +93,7 @@ def get_compile_code(task_id, given_code):
 			compile_code += xml_data['method']+"("+str(xml_data['testcase']['arg'])+")\n"
 		else:
 			for testcase in xml_data['testcase']['item']:
-				compile_code = compile_code
-				#compile_code += "print \"TestCase " + testcase['description']['#text']+": "+xml_data['method']['#text']+"("+str(testcase['arg']['#text'])+")\"\n"
+				compile_code += "print \"TestCase " + testcase['description']['#text']+": "+xml_data['method']['#text']+"("+str(testcase['arg']['#text'])+")\"\n"
 				#compile_code += xml_data['method']+"("+str(testcase['arg']['#text'])+")\n"
 		ret_dict['code'] = compile_code
 	return ret_dict
