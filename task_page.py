@@ -98,7 +98,7 @@ print """
 		</script>
 		<style>
 			table{
-				width: 100%;
+				width: 100%%;
 			}
 		</style>
     	<link rel="stylesheet" type="text/css" href="general_style.css">
