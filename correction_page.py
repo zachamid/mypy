@@ -52,11 +52,9 @@ if('code' in task_info):
 	task_time = (progress_record['DateCompleted']-progress_record['DateStarted']).seconds
 	time_score = task_correction.judge_time(min_time, task_time)
 	
-	sql = '''UPDATE Progress
-			SET Correctness_Points=%f, Similarity_Points=%f,
-			Time_Points=%f, Attempts_Points=%f, Output='%s', Code='%s', Attempts=%d
-			WHERE StudentID=%s AND TaskID=%s
-			''' % (correctness_score, jaccard_score, time_score, attempt_score, submitted_output, submitted_code, progress_record['Attempts']+1, str(student_id),str(task_id))
+	sql = 'UPDATE Progress SET Correctness_Points='+correctness_score+',Similarity_Points='+jaccard_score
+	sql +=', Time_Points='+time_score+', Attempts_Points='+attempt_score+', Output='+submitted_output+', Code='+submitted_code+', Attempts='+(progress_record['Attempts']+1)
+	sql +=' WHERE StudentID='str+(student_id)+' AND TaskID='+str(task_id))
 	cursor.execute(sql)
 
 else:
