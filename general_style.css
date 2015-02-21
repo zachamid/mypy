@@ -18,7 +18,7 @@ table,td, tr{
 	background-color:#0000;
 	background-color:rgba(255,255,255,.9);
 }
-textarea{
+textarea:not(.CodeMirror){
 	font-family: "Courier New", Courier, monospace !important;
 	width: 100%;
 	position: relative !important;
@@ -44,17 +44,4 @@ textarea:focus{
 }
 .panel{
 	padding: 20px;
-}
-.line-nums{
-	font-size:13px !important;
-	overflow : hidden !important;
-	line-height:13px !important;
-	padding:10px 4px !important;
-	font-family: monospace !important;
-	background: #EEE !important;
-	position: absolute !important;
-	width: 20px !important;
-	bottom: 0 !important;
-	top: 0 !important;
-	text-align:right !important;
 }
