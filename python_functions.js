@@ -1,5 +1,5 @@
 function run_code(code,output,err) {
-	code = document.getElementById(output).value;
+	code = document.getElementById(code).value;
    	var mypre = document.getElementById(output);
    	var error_area = document.getElementById(err);
    	mypre.value = '';
