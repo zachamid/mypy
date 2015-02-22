@@ -198,8 +198,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Model Code</div>
 				<div class='container' style="width:100%">
-					<div class="line-nums" id="line-nums"><span>1</span></div>
-					<textarea class="lined" rows="10" id="model_code"></textarea>
+					<textarea class="CodeMirror cm-s-default" rows="10" id="model_code"></textarea>
 				</div>
 				<button class="form-control" id='test_code'
 						 type="button">
