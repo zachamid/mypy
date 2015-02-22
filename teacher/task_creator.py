@@ -94,17 +94,10 @@ print """Content-type: text/html\n\n
     		}
 	    	
     		$(document).ready(function(){
-    			code_area_prep();
-				var editor = new Behave({
-					textarea: 		document.getElementById('model_code'),
-					replaceTab: 	true,
-				    softTabs: 		true,
-				    tabSize: 		2,
-			    	autoOpen: 		false,
-			    	overwrite: 		false,
-			    	autoStrip: 		false,
-			    	autoIndent: 	false
-				});
+    			var editor = CodeMirror.fromTextArea(document.getElementById('model_code'), {
+    				lineNumbers: true,
+    				mode: "python"
+  				});
     			
     			$('#test_cases').hide();
     			$('#function').hide();
@@ -137,6 +130,11 @@ print """Content-type: text/html\n\n
     			});
     			$('#add_testcase').click(function(){
     				add_row(document.getElementById('test_cases').rows.length-1);
+    			});
+    			
+    			$('#test_code').click(function(){
+    				editor.save();
+    				test_code();
     			});
     		});
 		</script>
@@ -201,8 +199,7 @@ print """\n
 					<div class="line-nums" id="line-nums"><span>1</span></div>
 					<textarea class="lined" rows="10" id="model_code"></textarea>
 				</div>
-				<button class="form-control" 
-						onclick='test_code()'
+				<button class="form-control" id='test_code'
 						 type="button">
 						Run
 					</button>

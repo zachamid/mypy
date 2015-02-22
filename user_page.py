@@ -98,26 +98,7 @@ print """\n
       			</div>
     		</div>
 """
-print """\n    		
-    		<div class="container" style="width:100%">
-      			<div class="panel panel-default translucent"><h3>Tasks</h3></div>
-      			<div class="panel panel-default translucent">
-        			<table id="task_list" width="100%" style="border-spacing:10px">
-          				<tr><th>ID</th>
-           					<th>Task</th>
-           					<th>Date Started</th>
-           					<th>Last Opened</th>
-           					<th>Date Completed</th></tr>
-"""
-sql_query = 'SELECT * FROM Progress INNER JOIN Task ON Progress.TaskID=Task.TaskID WHERE Progress.StudentID='+str(person_record['StudentID']);
-cursor.execute(sql_query)
-progress_records = cursor.fetchall()
-for record in progress_records:
-  	print """\n<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>
-  		""" % record['TaskID'],record['TaskName'],record['DateStarted'],record['DateModified'],record['DateCompleted']
-print """\n</table>
-      			</div>
-    		</div>
+rint """\n
     	</div>
   	</body>
 </html>"""
