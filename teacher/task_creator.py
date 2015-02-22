@@ -96,7 +96,11 @@ print """Content-type: text/html\n\n
     		}
 	    	
     		$(document).ready(function(){
-    			var editor = CodeMirror.fromTextArea(document.getElementById('model_code'), {
+    			var model_editor = CodeMirror.fromTextArea(document.getElementById('model_code'), {
+    				lineNumbers: true,
+    				mode: "python"
+  				});
+    			var skeleton_editor = CodeMirror.fromTextArea(document.getElementById('skeleton_code'), {
     				lineNumbers: true,
     				mode: "python"
   				});
@@ -140,7 +144,8 @@ print """Content-type: text/html\n\n
     			});
     			
     			$('#create_task').click(function(){
-    				editor.save();
+    				model_editor.save();
+    				skeleton_editor.save();
     				create_task();
     			});
     		});
@@ -192,9 +197,9 @@ print """\n
       		</div>
       	<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
-				<div class="panel-heading">Code Skeleton</div>
+				<div class="panel-heading" id='skeleton_code'>Code Skeleton</div>
 				<div class='container' style="width:100%">
-					<textarea rows="10" id="skeleton_code"></textarea>
+					<textarea rows="10" id="skeleton_code" class="CodeMirror cm-s-default"></textarea>
 				</div>
 			</div>
 		</div>
