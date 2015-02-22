@@ -29,7 +29,7 @@ print """Content-type: text/html\n\n
   			
   			$('#run').click(function(){
   				editor.save();
-  				code = document.getElementById(code).value;
+  				code = document.getElementById('code').value;
   				run_code(code,"output","error");
   			});
   			
