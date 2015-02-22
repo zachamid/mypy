@@ -197,7 +197,7 @@ print """\n
       		</div>
       	<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
-				<div class="panel-heading" id='skeleton_code'>Code Skeleton</div>
+				<div class="panel-heading" id='skeleton'>Code Skeleton</div>
 				<div class='container' style="width:100%">
 					<textarea class="CodeMirror cm-s-default" rows="10" id="skeleton_code"></textarea>
 				</div>
