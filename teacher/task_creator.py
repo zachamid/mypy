@@ -20,7 +20,9 @@ print """Content-type: text/html\n\n
 		<script src="../jquery-1.11.1.min.js"></script>
     	<script src='../user_functions.js'></script>
     	<script src='../task_admin_functions.js'></script>
-    	<script src="../behave.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="/codemirror-5.0/lib/codemirror.css">
+		<script src="/codemirror-5.0/lib/codemirror.js"></script>
+		<script src="/codemirror-5.0/mode/python/python.js"></script>
 		<script src="../python_functions.js" type="text/javascript"></script>
 		<script src="../user_functions.js" type="text/javascript"></script>
 		<script src="../skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
