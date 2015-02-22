@@ -138,6 +138,11 @@ print """Content-type: text/html\n\n
     				editor.save();
     				test_code();
     			});
+    			
+    			$('#create_task').click(function(){
+    				editor.save();
+    				create_task();
+    			});
     		});
 		</script>
     	
@@ -155,12 +160,12 @@ print """\n
     					</tr>
     					<tr><td>Description</td>
     						<td>
-             					<textarea class="form-control" id="description"></textarea>
+             					<textarea class="form-control" id="description" rows='5'></textarea>
           					</td>
     					</tr>
     					<tr><td>Instructions</td>
     						<td>
-             					<textarea class="form-control" id="instructions"></textarea>
+             					<textarea class="form-control" id="instructions" rows='5'></textarea>
           					</td>
     					</tr>
     					<tr><td>Difficulty</td>
@@ -223,6 +228,6 @@ print """\n
 			</div>
 		</div>
 		<div id='debug'></div>
-		<button onclick='create_task()'>Create</button>
+		<button id='create_task'>Create</button>
     </body>
 </html>"""
