@@ -89,7 +89,7 @@ print """\n
                					<div id="class_place">"""+person_record['ClassName']+"""\n</div>
             				</td>
             				<td>
-            					<button class="form-control" onclick='update_user("Student", """+str(person_record['StudentID'])+""")' type="button">
+            					<button class="form-control" onclick='update_user("Student", """+str(cookies['id'].value)+""")' type="button">
 									Update
 								</button>
             				</td>
