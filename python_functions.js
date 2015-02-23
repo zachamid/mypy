@@ -1,13 +1,17 @@
-function run_code(code,mypre,error_area) {
+function run_code(code,output,err) {
+   	var mypre = document.getElementById(output);
+   	var error_area = document.getElementById(err);
+   	mypre.value = '';
+   	error_area.value = '';
    	var outf = function(text){
-   		document.getElementById(mypre).value=text;
-   		console.log(text);
+   		var mypre = document.getElementById(output);
+   		mypre.value = mypre.value + text;
    	};
    	Sk.configure({output:outf});
    	try {
     	eval(Sk.importMainWithBody("<stdin>",false,code));
    	} catch (e) {
-   		document.getElementById(error_area).value=e;
+   		error_area.value = e;
    	}
 }
 
