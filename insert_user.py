@@ -10,7 +10,9 @@ password = hashlib.sha256(posted_data['Password'].value).hexdigest()
 email = posted_data['Email'].value
 fName = posted_data['FirstName'].value
 lName = posted_data['LastName'].value
-sql_query = '''INSERT INTO %s (FirstName, LastName, Email, Password) VALUES (%s,%s,%s,%s)''' % (table,fName,lName,email,password)
+sql_query = '''INSERT INTO %s (FirstName, LastName, Email, Password) 
+				VALUES (%s,%s,%s,%s)''' % (table,fName,lName,email,password)
+print sql_query
 cursor.execute(sql_query)
 id = cursor.lastrowid
 
