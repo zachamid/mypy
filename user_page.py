@@ -46,7 +46,7 @@ print """\n
           				<tr>
             				<td style="width:50%">
               					First Name: <input class="form-control" type="text" id="FirstName" value="""
-print person_record['FirstName']
+print str(person_record['FirstName'])
 print """>
             				</td>
             				<td>
@@ -56,7 +56,7 @@ print """>
           				<tr>
             				<td style="width:50%">
               					Last Name: <input class="form-control" type="text" id="LastName" value="""
-print person_record['LastName']
+print str(person_record['LastName'])
 print """>
             				</td>
             				<td>
@@ -66,7 +66,7 @@ print """>
           				<tr>
             				<td style="width:50%">
               					Email: <input class="form-control" type="text" id="Email" value="""
-print person_record['Email']
+print str(person_record['Email'])
 print """ readonly>
             				</td>
             				<td>
@@ -100,7 +100,7 @@ print """ readonly>
           				<tr>
             				<td style="width:50%">
                					<div id="class_place">"""
-print person_record['ClassName']
+print str(person_record['ClassName'])
 print """\n</div>
             				</td>
             				<td>
