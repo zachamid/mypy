@@ -52,7 +52,7 @@ print """\n
     	<link rel="stylesheet" type="text/css" href="general_style.css">
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     	<style>
-    		td,tr {
+    		td {
  				padding:15px;
  				vertical-align: top;
 			}
