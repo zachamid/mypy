@@ -15,7 +15,8 @@ sql_query = '''INSERT INTO %s (FirstName, LastName, Email, Password)
 #cursor.execute(sql_query)
 #id = cursor.lastrowid
 
-print """content-type:text/html
+print """Content-type: text/html\n\n
+
 
 """
 #print id
