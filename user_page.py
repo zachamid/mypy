@@ -93,7 +93,9 @@ print """\n
           				</tr>
           				<tr>
             				<td style="width:50%">
-               					<div id="class_place">"""+person_record['ClassName']+"""\n</div>
+               					<div id="class_place">"""
+print person_record['ClassName']
+print """\n</div>
             				</td>
             				<td>
             					<button class="form-control" id='update' type="button">
