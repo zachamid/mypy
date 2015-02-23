@@ -102,7 +102,6 @@ cursor = db_connection.get_connection()
 cursor.execute(sql)
 classes = cursor.fetchall()
 for single in classes:
-	print single
 	print '<option value=\'%s\'>%s</option>' % (str(single['ClassID']),str(single['ClassName']))
 
 print """/n

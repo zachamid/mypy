@@ -99,6 +99,7 @@ function insert_user(table, person){
                		type : "POST",
                		dataType : "json"}).done(function(result){
                			set_cookies(table,result['id']);
+               			window.location.reload()
                	});
         	}
 	});

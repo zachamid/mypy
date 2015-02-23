@@ -29,9 +29,7 @@ print """Content-type: text/html\n\n
   	<body>"""
 common_components.print_navbar(cookies['id'].value, 'user_page')
 cursor = db_connection.get_connection()
-sql = '''SELECT * FROM Student 
-		INNER JOIN Class 
-		ON Student.ClassID=Class.ClassID
+sql = '''SELECT FirstName, LastName, Email, ClassID FROM Student 
 		WHERE StudentID='''+cookies['id'].value
 cursor.execute(sql)
 person_record = cursor.fetchone()
@@ -101,7 +99,13 @@ print """ readonly>
           				<tr>
             				<td style="width:50%">
                					<div id="class_place">"""
-print str(person_record['ClassName'])
+if person_record['ClassID'] == -1:
+	print 'No Class Assigned'
+else:
+	sql = 'SELECT ClassName FROM Class WHERE ClassID='+person_record['ClassID']
+	cursor.execute(sql)
+	className = cursor.fetchone()
+	print className['ClassName']
 print """\n</div>
             				</td>
             				<td>
