@@ -59,8 +59,9 @@ else:
 		common_components.print_navbar_teacher(cookies['id'].value,'playground')
 
 print """\n
-		<div class="col-xs-12 col-md-12 col-sm-12"><div class="panel panel-default translucent">
-			<table style='padding:0px;width:100%'>
+		<div class="col-xs-12 col-md-12 col-sm-12">
+		<div class="panel panel-default translucent" style='padding:0px'>
+			<table style='padding:10px;width:100%'>
 				<tr>
 					<td style='padding:10px;width:80%'>
 						<select class="form-control" id='tutorials'>
