@@ -51,12 +51,12 @@ print """\n
 		<script src="task_admin_functions.js" type="text/javascript"></script>
     	<link rel="stylesheet" type="text/css" href="general_style.css">
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
-    	<script>
-    		table,td, tr{
+    	<style>
+    		table,td, tr {
  				padding:15px;
  				vertical-align: top;
 			}
-    	</script>
+    	</style>
     </head>
     <body>
     """
