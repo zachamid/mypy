@@ -4,11 +4,12 @@ import cgi, cgitb, json, MySQLdb, db_connection, Cookie, common_components,os
 cgitb.enable()
 	    
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
-print "Content-type: text/html"
 if cookies.has_key('id') and cookies.has_key('type'):
 	print cookies
 	print 'Location: user_page.py'
 print """\n
+
+print "Content-type: text/html"
 
 <html>
 	<head>
