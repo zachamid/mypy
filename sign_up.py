@@ -96,14 +96,14 @@ print """\n    	</div></div>
       		<h4>Class Details</h4></br>
       		<table width="100%">
         		<tr><td style="width:50%">
-          			<select class="form-control" id="classes" onfocus="getClasses()">"""
+          			<select class="form-control" id="classes">"""
 sql = '''SELECT ClassID, ClassName FROM Class'''
 cursor = db_connection.get_connection()
 cursor.execute(sql)
 classes = cursor.fetchall()
 for single in classes:
 	print single
-	print '<option value=\'%s\'>%s</option' % (str(single['ClassID']),str(single['ClassName']))
+	print '<option value=\'%s\'>%s</option>' % (str(single['ClassID']),str(single['ClassName']))
 
 print """/n
 		</select>
