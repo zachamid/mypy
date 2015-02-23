@@ -1,13 +1,12 @@
 function run_code(code,mypre,error_area) {
-	console.log('In');
    	var outf = function(text){
-   		mypre.setValue = text;
+   		mypre.setValue(text);
    	};
    	Sk.configure({output:outf});
    	try {
     	eval(Sk.importMainWithBody("<stdin>",false,code));
    	} catch (e) {
-   		error_area.setValue = e;
+   		error_area.setValue(e);
    	}
 }
 
