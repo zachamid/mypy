@@ -60,7 +60,7 @@ else:
 
 print """\n
 		<div class="col-xs-12 col-md-12 col-sm-12"><div class="panel panel-default translucent">
-			<table style='padding:5px;width:100%'>
+			<table style='padding:2px;width:100%'>
 				<tr>
 					<td style='padding:5px;width:80%'>
 						<select class="form-control" id='tutorials'>
