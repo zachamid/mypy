@@ -51,6 +51,11 @@ print """\n
 		<script src="task_admin_functions.js" type="text/javascript"></script>
     	<link rel="stylesheet" type="text/css" href="general_style.css">
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    	<script>
+    		td{
+    			padding:15px;
+    		}
+    	</script>
     </head>
     <body>
     """
@@ -66,7 +71,7 @@ print """\n
 					<td><b>Score</b></td>
 				</tr>"""
 for id in league_order:
-	print '<tr style=\'padding:15px\'>'
+	print '<tr>'
 	if id['student'] == cookies['id'].value:
 		print '<td><b>%s</b></td><td><b>%s</b></td><td><b>%s</b></td><td><b>%s</b></td>' % (str(id['student']), str(id['name']),str(id['no_tasks']),str(id['score']))
 	else:
