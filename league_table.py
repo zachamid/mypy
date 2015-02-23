@@ -32,7 +32,7 @@ for student in class_list:
 		new_entry['score'] += score
 	new_entry['no_tasks'] = len(progress_records)
 	new_entry['name']= student['FirstName']+' '+student['LastName']
-	league_entry.push(new_entry)
+	league_entry.append(new_entry)
 		
 league_order=sorted(league_entry, key=attrgetter('score'))
 
