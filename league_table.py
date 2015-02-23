@@ -26,7 +26,7 @@ for student in class_list:
 	for record in progress_records:
 		score = calc_score(record['Correctness_Points'],record['Similarity_Points'],record['Attempts_Points'],record['Time_Points'])
 		league_entry[record['StudentID']]['score'] += score
-	league_entry[student['StudentID']]['no_tasks']+= progress_records.length
+	league_entry[student['StudentID']]['no_tasks'] = progress_records.length
 	league_entry[student['StudentID']]['name']= student['FirstName']+' '+student['LastName']
 		
 #league_order=sorted(league_entry, key=lambda league_rec: league_rec['score'])
