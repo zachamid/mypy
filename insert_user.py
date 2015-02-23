@@ -12,11 +12,11 @@ fName = posted_data['FirstName'].value
 lName = posted_data['LastName'].value
 sql_query = '''INSERT INTO %s (FirstName, LastName, Email, Password) 
 				VALUES (%s,%s,%s,%s)''' % (table,fName,lName,email,password)
-print sql_query
-cursor.execute(sql_query)
-id = cursor.lastrowid
+#cursor.execute(sql_query)
+#id = cursor.lastrowid
 
 print """content-type:text/html
 
 """
-print id
+#print id
+print sql_query
