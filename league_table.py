@@ -15,22 +15,23 @@ else:
 cursor = db_connection.get_connection()
 cursor.execute('''SELECT FirstName, LastName, ClassID FROM Student WHERE StudentID=%s''' % (cookies['id'].value))
 student_record = cursor.fetchone()
-cursor.execute('''SELECT * FROM Progress
-					INNER JOIN Student
-					ON Progress.StudentID = Student.StudentID
-					WHERE Student.ClassID=%s''' % (student_record['ClassID']))
-progress_records = cursor.fetchall()
+cursor.execute('''SELECT FirstName, LastName FROM Student
+					WHERE ClassID=%s''' % (student_record['ClassID']))
+class_list = cursor.fetchall()
 league_entry = {}
-for record in progress_records:
-	score = calc_score(record['Correctness_Points'],record['Similarity_Points'],record['Attempts_Points'],record['Time_Points'])
-	if record['StudentID'] in league_entry:
+for student in class_list:
+	league_entry[student['StudentID']] = {}
+	cursor_execute('''SELECT * Correctness_Points,
+								Similarity_Points, 
+								Attempts_Points,
+								Time_Points
+						FROM Progress WHERE StudentID='''+str(student['StudentID']))
+	progress_records = cursor.fetchall()
+	for record in progress_records:
+		score = calc_score(record['Correctness_Points'],record['Similarity_Points'],record['Attempts_Points'],record['Time_Points'])
 		league_entry[record['StudentID']]['score'] += score
-		league_entry[record['StudentID']]['no_tasks']+= 1
-	else:
-		league_entry[record['StudentID']] = {}
-		league_entry[record['StudentID']]['score'] = score
-		league_entry[record['StudentID']]['no_tasks']=1
-		league_entry[record['StudentID']]['name']= record['FirstName']+' '+record['LastName']
+	league_entry[record['StudentID']]['no_tasks']+= progress_records.length
+	league_entry[record['StudentID']]['name']= record['FirstName']+' '+record['LastName']
 		
 #league_order=sorted(league_entry, key=lambda league_rec: league_rec['score'])
 league_order = league_entry.keys()
