@@ -33,6 +33,7 @@ for student in class_list:
 		league_entry[student['StudentID']]['score'] += score
 	league_entry[counter]['no_tasks'] = len(progress_records)
 	league_entry[counter]['name']= student['FirstName']+' '+student['LastName']
+	counter ++
 		
 league_order=sorted(league_entry, key=attrgetter('score'))
 
