@@ -31,7 +31,7 @@ for student in class_list:
 	league_entry[student['StudentID']]['no_tasks'] = len(progress_records)
 	league_entry[student['StudentID']]['name']= student['FirstName']+' '+student['LastName']
 		
-league_order=sorted(league_entry, key=lambda league_rec: league_rec['score'])
+league_order=sorted(league_entry, key=attrgetter('score'))
 
 print """Content-type: text/html\n\n
 
