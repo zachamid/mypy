@@ -18,6 +18,13 @@ print """Content-type: text/html\n\n
     	<title>Welcome</title>
     	<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     	<link href="general_style.css" rel="stylesheet">
+    	<script>
+    		$( document ).ready(function() {
+    			$('#update').click(function(){
+    				update_user('Student', """+cookies['id'].value+""")
+    			});
+			});
+    	</script>
     </head>
   	<body>"""
 common_components.print_navbar(cookies['id'].value, 'user_page')
@@ -89,7 +96,7 @@ print """\n
                					<div id="class_place">"""+person_record['ClassName']+"""\n</div>
             				</td>
             				<td>
-            					<button class="form-control" onclick='update_user("Student", """+str(cookies['id'].value)+""")' type="button">
+            					<button class="form-control" id='update' type="button">
 									Update
 								</button>
             				</td>
