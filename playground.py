@@ -62,7 +62,7 @@ print """\n
 		<div class="col-xs-12 col-md-12 col-sm-12"><div class="panel panel-default translucent">
 			<table style='width:100%'>
 				<tr>
-					<td style='width:80%'>
+					<td style='padding:4px;width:80%'>
 						<select class="form-control" id='tutorials'>
 """
 sql = 'SELECT TutorialID, TutorialName FROM Tutorial'
@@ -75,7 +75,7 @@ for tutorial in tutorials:
 print """\n
 						</select>
 					</td>
-					<td style='width:20%'>
+					<td style='padding:4px;width:20%'>
 						<button class="form-control" id="load_tutorial">Load</button>
 					</td>
 				</tr>
