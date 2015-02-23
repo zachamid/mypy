@@ -66,7 +66,7 @@ print """\n
 					<td><b>Score</b></td>
 				</tr>"""
 for id in league_order:
-	print '<tr>'
+	print '<tr style=\'padding:15px\'>'
 	if id['student'] == cookies['id'].value:
 		print '<td><b>%s</b></td><td><b>%s</b></td><td><b>%s</b></td><td><b>%s</b></td>' % (str(id['student']), str(id['name']),str(id['no_tasks']),str(id['score']))
 	else:
