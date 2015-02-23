@@ -119,7 +119,7 @@ cursor = db_connection.get_connection()
 cursor.execute(sql)
 classes = cursor.fetchall()
 for single_class in classes:
-	print '<option value=\'%s\'>%s</option' % (str(single_class['ClassID']),str(str(single_class['ClassID']))
+	print '<option value=\'%s\'>%s</option' % (str(single_class['ClassID']),str(str(single_class['ClassID'])))
 
 print """/n
 		</select>
