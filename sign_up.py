@@ -41,30 +41,13 @@ print """\n
 					insert_user('Student',student);
     			}
   			}
-  			
-  			function getClasses(){
-    			var school_select = document.getElementById('schools');
-    			var school = school_select.options[school_select.selectedIndex].text;
-    			var data = {cmd: "Classes"};
-    			$.ajax({
-      				data : data,
-      				url : 'admin_queries.py',
-      				type : "POST",
-      				dataType : "json"}).done(function(result){
-      					var class_select = document.getElementById('classes');
-      					for(counter=0;counter<result.length; counter++){
-        					var new_option = new Option(result[counter]['ClassName'],result[counter]['ClassID']);
-        					class_select.options[counter] = new_option;
-      					}
-    				});
- 			}
   		</script>
   	</head>
   	<body>"""
 common_components.print_header()
     
 print """\n
-    	<div class="container"><div class="panel panel-default translucent"><h3>Student Sign Up</h3></div><div class="panel panel-default translucent">
+    	<div class="container"><div class="panel panel-default translucent"><h3>Student Sign Up</h3><\br></br>
     		<h4>Student Details</h4>"""
 print """\n <table width="100%" style="border-spacing:10px">
         		<tr>
@@ -111,7 +94,7 @@ print """\n <table width="100%" style="border-spacing:10px">
 print """\n    	</div></div>
     	<div class="container"><div class="panel panel-default translucent">
       		<h4>Class Details</h4></br>
-      		<table width="100%" style="border-spacing:10px">
+      		<table width="100%">
         		<tr><td style="width:50%">
           			<select class="form-control" id="classes" onfocus="getClasses()">"""
 sql = '''SELECT ClassID, ClassName FROM Class'''
@@ -119,7 +102,7 @@ cursor = db_connection.get_connection()
 cursor.execute(sql)
 classes = cursor.fetchall()
 for single_class in classes:
-	print '<option value=\'%s\'>%s</option' % (str(single_class['ClassID']),str(str(single_class['ClassID'])))
+	print '<option value=\'%s\'>%s</option' % (str(single_class['ClassID']),str(str(single_class['ClassName'])))
 
 print """/n
 		</select>
