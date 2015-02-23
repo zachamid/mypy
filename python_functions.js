@@ -1,8 +1,4 @@
-function run_code(code,output,err) {
-   	var mypre = CodeMirror.fromTextArea(document.getElementById(output));
-   	var error_area = CodeMirror.fromTextArea(document.getElementById(err));
-   	mypre.value = '';
-   	error_area.value = '';
+function run_code(code,mypre,error_area) {
    	var outf = function(text){
    		mypre.setValue = mypre.value + text;
    	};

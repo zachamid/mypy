@@ -26,11 +26,11 @@ print """Content-type: text/html\n\n
     			lineNumbers: true,
     			mode: "python"
   			});
-  			var editor = CodeMirror.fromTextArea(document.getElementById('output'), {
+  			var out = CodeMirror.fromTextArea(document.getElementById('output'), {
     			lineNumbers: true,
     			mode: "python"
   			});
-  			var editor = CodeMirror.fromTextArea(document.getElementById('error'), {
+  			var err = CodeMirror.fromTextArea(document.getElementById('error'), {
     			lineNumbers: true,
     			mode: "python"
   			});
@@ -38,7 +38,7 @@ print """Content-type: text/html\n\n
   			$('#run').click(function(){
   				editor.save();
   				code = document.getElementById('code').value;
-  				run_code(code,"output","error");
+  				run_code(code,out,err);
   			});
   			$('#load_tutorial').click(function(){
   				tutorial_id = document.getElementById('tutorials').value;
