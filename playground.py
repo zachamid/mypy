@@ -75,8 +75,6 @@ for tutorial in tutorials:
 print """\n
 						</select>
 					</td>
-					<td>
-					</td>
 				</tr>
 			</table>
 		</div>
