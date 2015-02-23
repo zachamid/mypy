@@ -1,6 +1,7 @@
 function run_code(code,mypre,error_area) {
    	var outf = function(text){
    		mypre.setValue(text);
+   		console.log(text);
    	};
    	Sk.configure({output:outf});
    	try {
