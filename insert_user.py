@@ -16,7 +16,5 @@ cursor.execute(sql_query)
 id = cursor.lastrowid
 
 print """Content-type: text/html\n\n
-
-
 """
 print id
