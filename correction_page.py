@@ -24,6 +24,8 @@ if('code' in task_info):
 	cursor.execute(sql)
 	correct_output = correctcode = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
 	correct_code = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
+	correct_code = correct_code.replace('</br>','\n')
+	correct_code = correct_code.replace('</br>','\n')
 	
 	submitted_code = task_info['code'].value
 	submitted_code = submitted_code.replace('</br>','\n')
