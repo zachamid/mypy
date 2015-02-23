@@ -98,11 +98,11 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
 				<div class='container' style="width:100%">
-					<textarea rows="5" class ='CodeMirror cm-s-default' id="output" readonly></textarea>
+					<textarea rows="5" class ='' id="output" readonly></textarea>
 				</div>
 				<div class="panel-heading">Error Console</div>
 				<div class='container' style="width:100%">
-					<textarea id="error" class ='CodeMirror cm-s-default' rows=5 readonly></textarea>
+					<textarea id="error" class ='' rows=5 readonly></textarea>
 				</div>
 			</div>
 		</div>
