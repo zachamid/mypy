@@ -19,7 +19,7 @@ student_record = cursor.fetchone()
 cursor.execute('''SELECT StudentID, FirstName, LastName FROM Student
 					WHERE ClassID=%s''' % (student_record['ClassID']))
 class_list = cursor.fetchall()
-league_entry = ()
+league_entry = []
 for student in class_list:
 	new_entry = {}
 	new_entry['student'] = str(student['StudentID'])
