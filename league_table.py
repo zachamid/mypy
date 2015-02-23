@@ -22,7 +22,7 @@ class_list = cursor.fetchall()
 league_entry = ()
 for student in class_list:
 	new_entry = {}
-	lnew_entry['student'] = str(student['StudentID'])
+	new_entry['student'] = str(student['StudentID'])
 	new_entry[counter]['score'] = 0
 	cursor.execute('''SELECT Correctness_Points,Similarity_Points, Attempts_Points, Time_Points 
 						FROM Progress WHERE StudentID='''+str(student['StudentID']))
