@@ -69,7 +69,7 @@ sql = 'SELECT TutorialID, TutorialName FROM Tutorial'
 cursor.execute(sql)
 tutorials = cursor.fetchall()
 for tutorial in tutorials:
-	print '<option value=\''+tutorial['TutorialID']+'\'>'
+	print '<option value=\''+str(tutorial['TutorialID'])+'\'>'
 	print tutorial['TutorialName']
 	print '</option>'
 print """\n
