@@ -15,7 +15,7 @@ else:
 cursor = db_connection.get_connection()
 cursor.execute('''SELECT FirstName, LastName, ClassID FROM Student WHERE StudentID=%s''' % (cookies['id'].value))
 student_record = cursor.fetchone()
-cursor.execute('''SELECT FirstName, LastName FROM Student
+cursor.execute('''SELECT StudentID, FirstName, LastName FROM Student
 					WHERE ClassID=%s''' % (student_record['ClassID']))
 class_list = cursor.fetchall()
 league_entry = {}
