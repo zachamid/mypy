@@ -4,7 +4,6 @@ function run_code(code,output,err) {
    	mypre.value = '';
    	error_area.value = '';
    	var outf = function(text){
-   		var mypre = document.getElementById(output);
    		mypre.setValue = mypre.value + text;
    	};
    	Sk.configure({output:outf});

@@ -25,7 +25,7 @@ if('code' in task_info):
 	correct_output = correctcode = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
 	correct_code = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
 	correct_code = correct_code.replace('</br>','\n')
-	correct_code = correct_code.replace('</br>','\n')
+	correct_code = correct_code.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t').rstrip()
 	
 	submitted_code = task_info['code'].value
 	submitted_code = submitted_code.replace('</br>','\n')
