@@ -26,19 +26,11 @@ print """Content-type: text/html\n\n
     			lineNumbers: true,
     			mode: "python"
   			});
-  			var out = CodeMirror.fromTextArea(document.getElementById('output'), {
-    			lineNumbers: true,
-    			mode: "python"
-  			});
-  			var err = CodeMirror.fromTextArea(document.getElementById('error'), {
-    			lineNumbers: true,
-    			mode: "python"
-  			});
   			
   			$('#run').click(function(){
   				editor.save();
   				code = document.getElementById('code').value;
-  				run_code(code,out,err);
+  				run_code(code,'output','error');
   			});
   			$('#load_tutorial').click(function(){
   				tutorial_id = document.getElementById('tutorials').value;
@@ -94,7 +86,7 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
 				<div class='container' style="width:100%">
-					<textarea class = 'CodeMirror cm-s-default' rows="10" id="code"></textarea>
+					<textarea class='CodeMirror cm-s-default' rows="10" id="code"></textarea>
 				</div>
 				<button class="form-control" id='run'
 						 type="button">
@@ -106,11 +98,11 @@ print """\n
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
 				<div class='container' style="width:100%">
-					<textarea rows="5" class = 'CodeMirror cm-s-default' id="output" readonly></textarea>
+					<textarea rows="5" class ='CodeMirror cm-s-default' id="output" readonly></textarea>
 				</div>
 				<div class="panel-heading">Error Console</div>
 				<div class='container' style="width:100%">
-					<textarea id="error" class = 'CodeMirror cm-s-default' style="" readonly></textarea>
+					<textarea id="error" class ='CodeMirror cm-s-default' rows=5 readonly></textarea>
 				</div>
 			</div>
 		</div>
