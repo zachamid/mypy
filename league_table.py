@@ -68,9 +68,9 @@ print """\n
 for id in league_order:
 	print '<tr>'
 	if id['student'] == cookies['id'].value:
-		print '<td><b>%s</b></td><td><b>%s</b></td><td><b>%s</b></td><td><b>%s</b></td>' % (str(id), str(league_entry[id]['name']),str(league_entry[id]['no_tasks']),str(league_entry[id]['score']))
+		print '<td><b>%s</b></td><td><b>%s</b></td><td><b>%s</b></td><td><b>%s</b></td>' % (str(id['student']), str(id['name']),str(id['no_tasks']),str(id['score']))
 	else:
-		print '<td>%s</td><td>%s</td><td>%s</td><td>%s</td>' % (str(id[student]), str(id['name']),str(id['no_tasks']),str(id['score']))
+		print '<td>%s</td><td>%s</td><td>%s</td><td>%s</td>' % (str(id['student']), str(id['name']),str(id['no_tasks']),str(id['score']))
 
 	print '</tr>'
 print '</table></div></div></body></html>'
