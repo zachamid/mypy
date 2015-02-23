@@ -7,9 +7,10 @@ cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
 	print cookies
 	print 'Location: user_page.py'
+print "Content-type: text/html"
+
 print """\n
 
-print "Content-type: text/html"
 
 <html>
 	<head>
