@@ -21,8 +21,6 @@ class_list = cursor.fetchall()
 league_entry = {}
 for student in class_list:
 	league_entry[student['StudentID']] = {}
-	print '''SELECT * Correctness_Points,Similarity_Points, Attempts_Points, Time_Points 
-						FROM Progress WHERE StudentID='''+str(student['StudentID'])
 	#progress_records = cursor.fetchall()
 	progress_records={}
 	for record in progress_records:
@@ -36,6 +34,11 @@ league_order = league_entry.keys()
 
 print """Content-type: text/html\n\n
 
+
+"""
+print '''SELECT * Correctness_Points,Similarity_Points, Attempts_Points, Time_Points 
+						FROM Progress WHERE StudentID='''+str(student['StudentID'])
+print """\n
 <html>
 	<head>
 		<script src="skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
