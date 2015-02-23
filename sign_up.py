@@ -112,7 +112,12 @@ print """\n    	</div></div>
       		<table width="100%" style="border-spacing:10px">
         		<tr><td style="width:50%">
           			<select class="form-control" id="classes" onfocus="getClasses()">"""
-          			"""/n</select>
+sql = '''SELECT ClassID, ClassName FROM Class'''
+cursor = db_connection.get_connection()
+classes = cursor.fetchall()
+for single_class in classes:
+	print '<option value=\'%s\'>%s</option' % (str(single_class['ClassID']),str(str(single_class['ClassID']))
+print """/n</select>
         		</td><td>&nbsp</td></tr>
         		<td>&nbsp</td></tr>
       		</table>
