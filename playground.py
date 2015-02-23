@@ -32,7 +32,7 @@ print """Content-type: text/html\n\n
   				code = document.getElementById('code').value;
   				run_code(code,"output","error");
   			});
-  			$('#tutorials').change(function(){
+  			$('#load_tutorial').click(function(){
   				tutorial_id = document.getElementById('tutorials').selectedValue;
   				$.ajax({
     			data : {cmd:'Get_Tutorial', tutorial_id: tutorial_id},
@@ -59,11 +59,11 @@ else:
 		common_components.print_navbar_teacher(cookies['id'].value,'playground')
 
 print """\n
-		<div class="col-xs-12 col-md-6 col-sm-12">
+		<div class="col-xs-12 col-md-12 col-sm-12">
 			<table>
 				<tr>
 					<td>
-						<select id='tutorials'>
+						<select class="form-control" id='tutorials'>
 """
 sql = 'SELECT TutorialID, TutorialName FROM Tutorial'
 cursor.execute(sql)
@@ -74,6 +74,9 @@ for tutorial in tutorials:
 	print '</option>'
 print """\n
 						</select>
+					</td>
+					<td>
+						<button class="form-control" id="load_tutorial">Load</button>
 					</td>
 				</tr>
 			</table>
