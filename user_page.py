@@ -33,6 +33,7 @@ sql = '''SELECT * FROM Student
 		INNER JOIN Class 
 		ON Student.ClassID=Class.ClassID
 		WHERE StudentID='''+cookies['id'].value
+print sql
 cursor.execute(sql)
 person_record = cursor.fetchone()
 print person_record
