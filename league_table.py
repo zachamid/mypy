@@ -19,18 +19,20 @@ student_record = cursor.fetchone()
 cursor.execute('''SELECT StudentID, FirstName, LastName FROM Student
 					WHERE ClassID=%s''' % (student_record['ClassID']))
 class_list = cursor.fetchall()
-league_entry = {}
+league_entry = ()
+counter = 0
 for student in class_list:
-	league_entry[student['StudentID']] = {}
-	league_entry[student['StudentID']]['score'] = 0
+	league_entry[counter] = {}
+	league_entry[counter]['student'] = str(student['StudentID'])
+	league_entry[counter]['score'] = 0
 	cursor.execute('''SELECT Correctness_Points,Similarity_Points, Attempts_Points, Time_Points 
 						FROM Progress WHERE StudentID='''+str(student['StudentID']))
 	progress_records = cursor.fetchall()
 	for record in progress_records:
 		score = calc_score(record['Correctness_Points'],record['Similarity_Points'],record['Attempts_Points'],record['Time_Points'])
 		league_entry[student['StudentID']]['score'] += score
-	league_entry[student['StudentID']]['no_tasks'] = len(progress_records)
-	league_entry[student['StudentID']]['name']= student['FirstName']+' '+student['LastName']
+	league_entry[counter]['no_tasks'] = len(progress_records)
+	league_entry[counter]['name']= student['FirstName']+' '+student['LastName']
 		
 league_order=sorted(league_entry, key=attrgetter('score'))
 
@@ -65,7 +67,7 @@ print """\n
 				</tr>"""
 for id in league_order:
 	print '<tr>'
-	if id == cookies['id'].value:
+	if id['student'] == cookies['id'].value:
 		print '<td><b>%s</b></td><td><b>%s</b></td><td><b>%s</b></td><td><b>%s</b></td>' % (str(id), str(league_entry[id]['name']),str(league_entry[id]['no_tasks']),str(league_entry[id]['score']))
 	else:
 		print '<td>%s</td><td>%s</td><td>%s</td><td>%s</td>' % (str(id), str(league_entry[id]['name']),str(league_entry[id]['no_tasks']),str(league_entry[id]['score']))
