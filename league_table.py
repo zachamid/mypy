@@ -22,8 +22,9 @@ league_entry = {}
 for student in class_list:
 	league_entry[student['StudentID']] = {}
 	league_entry[student['StudentID']]['score'] = 0
-	#progress_records = cursor.fetchall()
-	progress_records={}
+	cursor.execute('''SELECT Correctness_Points,Similarity_Points, Attempts_Points, Time_Points 
+						FROM Progress WHERE StudentID='''+str(student['StudentID']))
+	progress_records = cursor.fetchall()
 	for record in progress_records:
 		score = calc_score(record['Correctness_Points'],record['Similarity_Points'],record['Attempts_Points'],record['Time_Points'])
 		league_entry[student['StudentID']]['score'] += score
@@ -37,8 +38,6 @@ print """Content-type: text/html\n\n
 
 
 """
-print '''SELECT * Correctness_Points,Similarity_Points, Attempts_Points, Time_Points 
-						FROM Progress WHERE StudentID='''+str(student['StudentID'])
 print """\n
 <html>
 	<head>
