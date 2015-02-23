@@ -21,7 +21,7 @@ class_list = cursor.fetchall()
 league_entry = {}
 for student in class_list:
 	league_entry[student['StudentID']] = {}
-	cursor_execute('''SELECT * Correctness_Points,
+	cursor.execute('''SELECT * Correctness_Points,
 								Similarity_Points, 
 								Attempts_Points,
 								Time_Points
