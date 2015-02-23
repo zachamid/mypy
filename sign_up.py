@@ -121,7 +121,8 @@ classes = cursor.fetchall()
 for single_class in classes:
 	print '<option value=\'%s\'>%s</option' % (str(single_class['ClassID']),str(str(single_class['ClassID']))
 
-print """/n</select>
+print """/n
+		</select>
         		</td><td>&nbsp</td></tr>
         		<td>&nbsp</td></tr>
       		</table>
