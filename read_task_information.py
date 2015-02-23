@@ -45,3 +45,6 @@ elif str(cmd) == "Save_Code":
 	given_code = posted_data['code'].value
 	student_id = posted_data['student_id'].value
 	task_delivery.save_code(given_code, task_id, student_id)
+elif str(cmd) == 'Get_Tutorial':
+	tutorial_id = posted_data['tutorial_id'].value
+	print task_delivery.get_tutorial(tutorial_id)

@@ -98,15 +98,16 @@ def get_compile_code(task_id, given_code):
 		ret_dict['code'] = compile_code
 	return ret_dict
 
-def get_python_output(file_path):
-	result = subprocess.Popen(['python', file_path],
-	stdout=subprocess.PIPE, 
-	stderr=subprocess.STDOUT)
-	return result.communicate()[0]
-
 def save_code(code, task_id, student_id):
 	cursor = db_connection.get_connection()
 	curr_date = datetime.datetime.now()	
 	sql="UPDATE Progress SET Code='%s', DateModified='%s' WHERE TaskID=%s AND StudentID=%s" % (code.replace("'","''"),str(curr_date),str(task_id), str(student_id))
 	cursor.execute(sql)
+
+def get_tutorial(tutorial_id):
+	cursor = db_connection.get_connection()
+	sql = 'SELECT TutorialText FROM Tutorial WHERE TutorialID='+str(tutorial_id)
+	cursor.execute(sql)
+	tutorial = cursor.fetchone()
+	return tutorial['TutorialText']
 	

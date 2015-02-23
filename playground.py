@@ -6,7 +6,8 @@ cgitb.enable()
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
 	print cookies
-	
+cursor = db_connection.get_connection()
+
 print """Content-type: text/html\n\n
 
 <html>
@@ -21,7 +22,6 @@ print """Content-type: text/html\n\n
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script>
 		$(function() {
-			//code_area_prep();
 			var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
     			lineNumbers: true,
     			mode: "python"
@@ -32,7 +32,16 @@ print """Content-type: text/html\n\n
   				code = document.getElementById('code').value;
   				run_code(code,"output","error");
   			});
-  			
+  			$('#tutorials').change(function(){
+  				tutorial_id = document.getElementById('tutorials').selectedValue;
+  				$.ajax({
+    			data : {cmd:'Get_Tutorial', tutorial_id: tutorial_id},
+		    	url : '/read_task_information.py',
+    			type : "POST",
+    			dataType : "text"}).done(function(result){
+    				editor.setValue(result);
+		    	});
+  			});
   			
 		});
 		</script>
@@ -50,6 +59,27 @@ else:
 		common_components.print_navbar_teacher(cookies['id'].value,'playground')
 
 print """\n
+		<div class="col-xs-12 col-md-6 col-sm-12">
+			<table>
+				<tr>
+					<td>
+						<select id='tutorials'>
+"""
+sql = 'SELECT TutorialID, TutorialName FROM Tutorial'
+cursor.execute(sql)
+tutorials = cursor.fetchall()
+for tutorial in tutorials:
+	print '<option value=\''+tutorial['TutorialID']+'\'>'
+	print tutorial['TutorialName']
+	print '</option>'
+print """\n
+						</select>
+					</td>
+					<td>
+					</td>
+				</tr>
+			</table>
+		</div>
 		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Python Source Code</div>
