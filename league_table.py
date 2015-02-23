@@ -21,12 +21,13 @@ class_list = cursor.fetchall()
 league_entry = {}
 for student in class_list:
 	league_entry[student['StudentID']] = {}
+	league_entry[record['StudentID']]['score'] = 0
 	#progress_records = cursor.fetchall()
 	progress_records={}
 	for record in progress_records:
 		score = calc_score(record['Correctness_Points'],record['Similarity_Points'],record['Attempts_Points'],record['Time_Points'])
 		league_entry[record['StudentID']]['score'] += score
-	league_entry[student['StudentID']]['no_tasks'] = progress_records.length
+	league_entry[student['StudentID']]['no_tasks'] = lenprogress_records)
 	league_entry[student['StudentID']]['name']= student['FirstName']+' '+student['LastName']
 		
 #league_order=sorted(league_entry, key=lambda league_rec: league_rec['score'])
