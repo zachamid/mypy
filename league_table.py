@@ -34,7 +34,7 @@ for student in class_list:
 	new_entry['name']= student['FirstName']+' '+student['LastName']
 	league_entry.append(new_entry)
 		
-league_order=sorted(league_entry, key=attrgetter('score'))
+league_order=sorted(league_entry, key=lambda e: e['score'])
 
 print """Content-type: text/html\n\n
 
