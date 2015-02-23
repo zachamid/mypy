@@ -38,6 +38,7 @@ print """Content-type: text/html\n\n
   			$('#run').click(function(){
   				editor.save();
   				code = document.getElementById('code').value;
+  				console.log(code);
   				run_code(code,out,err);
   			});
   			$('#load_tutorial').click(function(){
