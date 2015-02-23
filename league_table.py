@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import cgi, cgitb, json, MySQLdb, db_connection, Cookie, common_components,os
+from operator import itemgetter, attrgetter
 from  task_correction import calc_score as calc_score
 cgitb.enable()
 
