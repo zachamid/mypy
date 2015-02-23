@@ -98,7 +98,7 @@ print """\n
       			</div>
     		</div>
 """
-rint """\n
+print """\n
     	</div>
   	</body>
 </html>"""
