@@ -35,6 +35,7 @@ sql = '''SELECT * FROM Student
 		WHERE StudentID='''+cookies['id'].value
 cursor.execute(sql)
 person_record = cursor.fetchone()
+print person_record
 print """\n
     	<div class="container col-sm-6 col-md-9">
     		<div class="container" style="width:100%">
