@@ -96,8 +96,9 @@ function insert_user(table, person){
              	$.ajax({
                		data : user_detail,
                		url : '/insert_user.py',
-               		type : "POST"}).done(function(id){
-               			set_cookies(table,id);
+               		type : "POST",
+               		dataType : "json"}).done(function(result){
+               			set_cookies(table,result['id']);
                	});
         	}
 	});

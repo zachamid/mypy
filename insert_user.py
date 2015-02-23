@@ -17,4 +17,4 @@ id = cursor.lastrowid
 
 print """Content-type: text/html\n\n
 """
-print id
+print json.dumps({id:id})
