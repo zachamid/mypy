@@ -33,7 +33,7 @@ print """Content-type: text/html\n\n
   				run_code(code,"output","error");
   			});
   			$('#load_tutorial').click(function(){
-  				tutorial_id = document.getElementById('tutorials').selectedValue;
+  				tutorial_id = document.getElementById('tutorials').value;
   				$.ajax({
     			data : {cmd:'Get_Tutorial', tutorial_id: tutorial_id},
 		    	url : '/read_task_information.py',
