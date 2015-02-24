@@ -148,7 +148,7 @@ print """\n\n
 			 			
  			function getClassList(class_sel){
  				class_select = document.getElementById(class_sel);
- 				class_ID = class_select.options[class_select.selectedIndex].value;
+ 				class_ID = class_select.value;
  				var data = {ClassID:''+class_ID};
  				var table = document.getElementById('classList');
  				row_no = table.rows.length;
