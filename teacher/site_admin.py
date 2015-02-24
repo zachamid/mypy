@@ -296,7 +296,7 @@ print """\n
 				<h4>Edit Class Lists</h4>
 				</br>
 				<select class="form-control" id="classes" 
-				onchange="getClassList()"
+				onchange="getClassList('classes')"
 				onfocus="getClasses('classes')"></select>
 				</br>
 				<div>
