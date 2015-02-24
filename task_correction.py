@@ -138,6 +138,14 @@ def quickest_time(times):
 			min_time = delta
 	return min_time
 
+def remark_time(min_time, times):
+	for time in times:
+		if(time['DateCompleted'] is None):
+			delta = float('inf')
+		else:
+			delta = (time['DateCompleted'] - time['DateStarted']).seconds
+	
+
 def judge_time(min_time, time):
 	return float(min_time/time)
 

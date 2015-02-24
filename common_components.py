@@ -66,19 +66,11 @@ def print_navbar(id, curr_page):
 	</div><div id="navbar" class="navbar-collapse collapse">
 	<ul class="nav navbar-nav">
 	"""
-	if(curr_page == 'user_page'):
-		print '<li class="active"><a href="#">Details</a></li>'
-	else:
-		print '<li><a href="user_page.py">Details</a></li>'
-	if(curr_page == 'task_list'):
-		print '<li class="active"><a href="#">Task List</a></li>'
-	else:
-		print '<li><a href="task_list.py">Task List</a></li>'
-	if(curr_page == 'playground'):
-		print '<li class="active"><a href="#">Playground</a></li>'
-	else:
-		print '<li><a href="playground.py">Playground</a></li>'
-	
+	print '<li><a href="user_page.py">Details</a></li>'
+	print '<li><a href="progress_page.py">Progress</a></li>'
+	print '<li><a href="task_list.py">Task List</a></li>'
+	print '<li><a href="playground.py">Playground</a></li>'
+	print '<li><a href="league_table.py">League Table</a></li>'
 	print """\n
 	</ul><ul class="nav navbar-nav navbar-right">
 	<li><a onclick="clear_cookies()"><span class="glyphicon glyphicon-log-out"></span>&nbsp
@@ -103,23 +95,13 @@ def print_navbar_teacher(id, curr_page):
 	</div><div id="navbar" class="navbar-collapse collapse">
 	<ul class="nav navbar-nav">
 	"""
-	if(curr_page == 'user_page'):
-		print '<li class="active">Details</a></li>'
-	else:
-		print '<li><a href="user_page.py">Details</a></li>'
-	if(curr_page == 'class_admin'):
-		print '<li class="active">Class Administration</a></li>'
-	else:
-		print '<li><a href="class_admin.py">Class Administration</a></li>'
-	if(curr_page == 'task_admin'):
-		print '<li class="active">Task Administration</a></li>'
-	else:
-		print '<li><a href="task_admin.py">Task Administration</a></li>'
+	print '<li><a href="/teacher/user_page.py">Details</a></li>'
+	print '<li><a href="/teacher/class_results.py">Class Administration</a></li>'
+	print '<li><a href="/teacher/task_admin.py">Task Administration</a></li>'
+	print '<li><a href="/teacher/task_creator.py">Task Creator</a></li>'
+	print '<li><a href="/playground.py">Playground</a></li>'
 	if(record['Administrator']==1):
-		if(curr_page == 'admin'):
-			print '<li class="active">Site Administration</a></li>'
-		else:
-			print '<li><a href="site_admin.py">Site Administration</a></li>'
+		print '<li><a href="/teacher/site_admin.py">Site Administration</a></li>'
 	print """\n
 	</ul><ul class="nav navbar-nav navbar-right">
 	<li><a onclick="clear_cookies()"><span class="glyphicon glyphicon-log-out"></span>&nbsp

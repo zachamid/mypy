@@ -36,7 +36,7 @@ print """\n
     </div>
     <div class="col-xs-12 col-md-6 col-sm-12">
     	<div class="panel panel-default translucent"><div class="panel-body">
-    		<h3><a href="/teacher/index.php">TEACHERS: Sign Up for MyPy</a></h3>
+    		<h3><a href="/teacher/index.py">TEACHERS: Sign Up for MyPy</a></h3>
     		<h4>Keep a track of how well your students are doing by signing in or signing up as a teacher</h4>
     	</div></div>
     </div>
