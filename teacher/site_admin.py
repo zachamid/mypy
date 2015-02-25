@@ -244,7 +244,7 @@ print """\n\n
  			}
  					
  			function assignStudentToClass(studentID,classID){
- 				delete_after = delete_after || -1;
+ 				delete_after = classID || -1;
  				data = {id: studentID,
  						type: 'Student',
  						ClassID: classID};
