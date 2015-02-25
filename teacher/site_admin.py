@@ -304,12 +304,14 @@ print """\n
 					</table>
 				</div>
 			</div>
-			<div class="panel panel-default translucent">
-				<h4>Assign Unassigned Students</h4>
-				</br>
-				<div>
-					<table id='unassignedList'>
-					</table>
+			<div class="container col-sm-12 col-md-8">
+				<div class="panel panel-default translucent">
+					<h4>Assign Unassigned Students</h4>
+					</br>
+					<div>
+						<table id='unassignedList'>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div></div>
