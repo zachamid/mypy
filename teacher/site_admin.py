@@ -314,8 +314,9 @@ print """\n
 				</div>
 			</div>
 		</div>
-		<div class="panel panel-default col-sm-11 col-md-11 translucent">
-			<div class="container col-sm-12 col-md-6 ">
+		<div class="container col-sm-11 col-md-11 translucent">
+			<div class="panel panel-default translucent">
+			<div class="panel panel-default col-sm-12 col-md-6 ">
 				<h4>Teacher Class Assignments </h4></br>
 				<select onclick='getTeacherList(this.value)' class="form-control" id='class_select'></select>
 				<table id='teacherList'></table>
@@ -332,7 +333,7 @@ print """\n
 				<td><select class="form-control" id='admin_select'></select></td>
 				<td><button class="form-control" onclick='getClasses("class_select")'onchange='toggleAdmin(document.getElementById("admin_select").value, 1)'>Make Admin</button></td>
 				</table>
-			</div>
+			</div></div>
 		</div>
 	</body>
 </html>
