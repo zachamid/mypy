@@ -279,7 +279,7 @@ print """\n\n
 common_components.print_navbar_teacher(cookies['id'].value, 'site_admin')
 print """\n
 		<div class="container col-sm-12 col-md-12">
-				<div class="container col-sm-12 col-md-6 transluscent">
+				<div class="container col-sm-12 col-md-6 translucent">
 					<h4>Add Class</h4></br>
 					<table>
 						<tr>
@@ -301,7 +301,7 @@ print """\n
 					</br>
 					<table id='classList'>
 					</table>
-				<div>
+				</div>
 		</div>
 		<div class="container col-sm-12 col-md-12">
 			<div class="panel panel-default translucent">
