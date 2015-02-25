@@ -279,8 +279,8 @@ print """\n\n
 common_components.print_navbar_teacher(cookies['id'].value, 'site_admin')
 print """\n
 		<div class="container col-sm-12 col-md-12">
-			<div class="panel panel-default translucent" style='width:45%;display: inline-block'>
-				<div class="container col-sm-12 col-md-6 translucent" style='width:95%'>
+			<div class="panel panel-default translucent" style='width:100%;display: inline-block'>
+				<div class="panel col-sm-12 col-md-6 translucent" style=''>
 					<h4>Add Class</h4></br>
 					<table>
 						<tr>
@@ -293,7 +293,7 @@ print """\n
 						</tr>
 					</table>
 				</div>
-				<div class="container col-sm-12 col-md-6 translucent" style='width:45%'>
+				<div class="container col-sm-12 col-md-6 translucent" style=''>
 					<h4>Edit Class Lists</h4>
 					</br>
 					<select class="form-control" id="classes" 
@@ -318,7 +318,7 @@ print """\n
 		</div>
 		<div class="container col-sm-12 col-md-12 ">
 			<div class="panel panel-default translucent" style='width:100%;display: inline-block'>
-			<div class="container col-sm-12 col-md-6 translucent" style='width:45%'>
+			<div class="panel panel-default col-sm-12 col-md-6 translucent" style=''>
 				<h4>Teacher Class Assignments </h4></br>
 				<select onclick='getTeacherList(this.value)' class="form-control" id='class_select'></select>
 				<table id='teacherList'></table>
@@ -328,7 +328,7 @@ print """\n
 				<td><button class="form-control" onclick='assignTeacherToClass()'>Assign</button></td>
 				</table>
 			</div>
-			<div class="container col-sm-12 col-md-6 translucent" style='width:45%'>
+			<div class="panel panel-default col-sm-12 col-md-6 translucent" style=''>
 				<h4>Administrators</h4></br>
 				<table id='admin_table'></table>
 				</br>
