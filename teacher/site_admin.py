@@ -291,7 +291,9 @@ print """\n
           				</td>
 					</tr>
 				</table>
-			</div><br>
+			</div>
+		</div>
+		<div class="container col-sm-12 col-md-6">
 			<div class="panel panel-default translucent">
 				<h4>Edit Class Lists</h4>
 				</br>
