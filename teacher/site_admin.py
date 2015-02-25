@@ -316,7 +316,7 @@ print """\n
 		</div>
 		<div class="container col-sm-11 col-md-11 ">
 			<div class="panel panel-default translucent" style='width:100%;display: inline-block'>
-			<div class="container col-sm-12 col-md-6 ">
+			<div class="container col-sm-12 col-md-6 translucent">
 				<h4>Teacher Class Assignments </h4></br>
 				<select onclick='getTeacherList(this.value)' class="form-control" id='class_select'></select>
 				<table id='teacherList'></table>
