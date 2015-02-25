@@ -331,6 +331,7 @@ print """\n
 				</div>
 			</div>
 			<div class="panel panel-default col-sm-12 col-md-6 translucent" style='padding:10px'>
+				<div class="panel-body translucent">
 				<h4>Administrators</h4></br>
 				<table id='admin_table'></table>
 				</br>
@@ -340,7 +341,7 @@ print """\n
 				</table>
 				</div>
 			</div>
-		</div>
+		</div></div>
 	</body>
 </html>
 """
