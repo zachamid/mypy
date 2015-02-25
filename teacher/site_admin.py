@@ -318,7 +318,7 @@ print """\n
 		</div>
 		<div class="container col-sm-12 col-md-12 ">
 			<div class="panel panel-default translucent" style='width:100%;display: inline-block'>
-			<div class="panel panel-default col-sm-12 col-md-6">
+			<div class="panel panel-default col-sm-12 col-md-6 translucent" style='padding:5px'>
 				<div class="panel-body translucent">
 				<h4>Teacher Class Assignments </h4></br>
 				<select onclick='getTeacherList(this.value)' class="form-control" id='class_select'></select>
@@ -330,8 +330,7 @@ print """\n
 				</table>
 				</div>
 			</div>
-			<div class="panel panel-default col-sm-12 col-md-6">
-				<div class="panel-body translucent">
+			<div class="panel panel-default col-sm-12 col-md-6 translucent" style='padding:5px'>
 				<h4>Administrators</h4></br>
 				<table id='admin_table'></table>
 				</br>
@@ -340,7 +339,7 @@ print """\n
 				<td><button class="form-control" onclick='getClasses("class_select")'onchange='toggleAdmin(document.getElementById("admin_select").value, 1)'>Make Admin</button></td>
 				</table>
 				</div>
-			</div></div>
+			</div>
 		</div>
 	</body>
 </html>
