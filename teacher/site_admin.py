@@ -328,6 +328,7 @@ print """\n
 				<td><button class="form-control" onclick='assignTeacherToClass()'>Assign</button></td>
 				</table>
 			</div>
+			&nbsp
 			<div class="panel panel-default col-sm-12 col-md-6 translucent" style='outline-width:5px'>
 				<h4>Administrators</h4></br>
 				<table id='admin_table'></table>
