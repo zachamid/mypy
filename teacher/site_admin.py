@@ -278,7 +278,7 @@ print """\n\n
 	<body>"""
 common_components.print_navbar_teacher(cookies['id'].value, 'site_admin')
 print """\n
-		<div class="container col-sm-12 col-md-12 panel panel-default">
+		<div class="container col-sm-11 col-md-11">
 			<div class="panel panel-default translucent">
 				<div class="container col-sm-12 col-md-6">
 					<h4>Add Class</h4></br>
