@@ -278,9 +278,9 @@ print """\n\n
 	<body>"""
 common_components.print_navbar_teacher(cookies['id'].value, 'site_admin')
 print """\n
-		<div class="container col-sm-11 col-md-11">
+		<div class="container col-sm-12 col-md-12">
 			<div class="panel panel-default translucent">
-				<table style='width:100%'><tr><td style='width:50%'>
+				<div class="container col-sm-12 col-md-6">
 					<h4>Add Class</h4></br>
 					<table>
 						<tr>
@@ -292,8 +292,8 @@ print """\n
           					</td>
 						</tr>
 					</table>
-				</td>
-				<td style='width:50%'>
+				</div>
+				<div class="container col-sm-12 col-md-12">
 					<h4>Edit Class Lists</h4>
 					</br>
 					<select class="form-control" id="classes" 
@@ -302,10 +302,10 @@ print """\n
 					</br>
 					<table id='classList'>
 					</table>
-				</td></tr></table>
+				<div>
 			</div>
 		</div>
-		<div class="container col-sm-12 col-md-8">
+		<div class="container col-sm-12 col-md-12">
 			<div class="panel panel-default translucent">
 				<h4>Assign Unassigned Students</h4>
 				</br>
@@ -315,27 +315,26 @@ print """\n
 				</div>
 			</div>
 		</div>
-		<div class="container col-sm-12 col-md-6">
+		<div class="container col-sm-12 col-md-12">
 			<div class="panel panel-default translucent">
-				<h4>Teacher Class Assignments </h4></br>
-				<td><select onclick='getTeacherList(this.value)' class="form-control" id='class_select'></select></td>
-				<table id='teacherList'></table>
-				Assign Teacher</br>
-				<table><tr><td>
-				<select class="form-control" id='teacher_select'></select></td>
-				<td><button class="form-control" onclick='assignTeacherToClass()'>Assign</button></td>
-				</table>
-			</div>
-		</div>
-		<div class="container col-sm-12 col-md-6">
-			<div class="panel panel-default translucent">
-				<h4>Administrators</h4></br>
-				<table id='admin_table'></table>
-				</br>
-				<table><tr>
-				<td><select class="form-control" id='admin_select'></select></td>
-				<td><button class="form-control" onclick='getClasses("class_select")'onchange='toggleAdmin(document.getElementById("admin_select").value, 1)'>Make Admin</button></td>
-				</table>
+				<table style='width:100%'><tr><td style='width:50%'>
+					<h4>Teacher Class Assignments </h4></br>
+					<select onclick='getTeacherList(this.value)' class="form-control" id='class_select'></select>
+					<table id='teacherList'></table>
+					Assign Teacher</br>
+					<table><tr><td>
+					<select class="form-control" id='teacher_select'></select></td>
+					<td><button class="form-control" onclick='assignTeacherToClass()'>Assign</button></td>
+					</table>
+				</td><td>
+					<h4>Administrators</h4></br>
+					<table id='admin_table'></table>
+					</br>
+					<table><tr>
+					<td><select class="form-control" id='admin_select'></select></td>
+					<td><button class="form-control" onclick='getClasses("class_select")'onchange='toggleAdmin(document.getElementById("admin_select").value, 1)'>Make Admin</button></td>
+					</table>
+				<table>
 			</div>
 		</div>
 	</body>
