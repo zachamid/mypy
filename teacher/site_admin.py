@@ -314,8 +314,8 @@ print """\n
 				</div>
 			</div>
 		</div>
-		<div class="panel panel-default col-sm-11 col-md-11 ">
-			<div class="panel panel-default translucent">
+		<div class="container col-sm-11 col-md-11 ">
+			<div class="panel panel-default translucent" style='height:100%'>
 			<div class="container col-sm-12 col-md-6 ">
 				<h4>Teacher Class Assignments </h4></br>
 				<select onclick='getTeacherList(this.value)' class="form-control" id='class_select'></select>
