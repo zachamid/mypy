@@ -280,7 +280,7 @@ common_components.print_navbar_teacher(cookies['id'].value, 'site_admin')
 print """\n
 		<div class="container col-sm-11 col-md-11">
 			<div class="panel panel-default translucent">
-				<div class="container col-sm-12 col-md-6">
+				<table style='width:100%'><tr><td style='width:50%'>
 					<h4>Add Class</h4></br>
 					<table>
 						<tr>
@@ -292,8 +292,8 @@ print """\n
           					</td>
 						</tr>
 					</table>
-				</div>
-				<div class="container col-sm-12 col-md-6">
+				</td>
+				<td style='width:50%'>
 					<h4>Edit Class Lists</h4>
 					</br>
 					<select class="form-control" id="classes" 
@@ -302,7 +302,7 @@ print """\n
 					</br>
 					<table id='classList'>
 					</table>
-				</div>
+				</td></tr></table>
 			</div>
 		</div>
 		<div class="container col-sm-12 col-md-8">
