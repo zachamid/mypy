@@ -39,6 +39,7 @@ student_info = cursor.fetchall()
 students = []
 for student in student_info:
 	student_stats={}
+	student_stats['id'] = student['StudentID']
 	student_stats['name'] = student['FirstName']+' '+student['LastName']
 	sql = '''SELECT ProgressID, Correctness_Points, Similarity_Points,
 					Attempts_Points, Time_Points
