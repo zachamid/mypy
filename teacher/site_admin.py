@@ -250,7 +250,6 @@ print """\n\n
  				if(class_sel != NULL){
  					classID = class_sel.val;
  				}
- 				delete_after = ;
  				data = {id: studentID,
  						type: 'Student',
  						ClassID: classID};
