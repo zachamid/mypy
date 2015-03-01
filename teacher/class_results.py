@@ -56,4 +56,4 @@ for student in student_info:
 	students.append(student_stats)
 
 mytemplate = Template(filename='class_results_template.html')
-print mytemplate.render({html_header:html_header, name:name, Students:students})
+print mytemplate.render({html_header:html_header, name:name, students:students})
