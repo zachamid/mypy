@@ -55,5 +55,5 @@ for student in student_info:
 		student_stats['avg_score'] = (float)(running_total)/student_stats['no_tasks']
 	students.append(student_stats)
 
-mytemplate = Template(filename='class_results_template.txt')
+mytemplate = Template(open('class_results_template.txt').read())
 print mytemplate.render(name=name)
