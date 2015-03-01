@@ -195,7 +195,7 @@ print """\n\n
     						row.insertCell(2).innerHTML = result[student]['Email'];
     						var classID = document.getElementById('classSelect'+result[student]['StudentID']).value;
     						row.insertCell(3).innerHTML = "<select class='form-control' id='classSelect"+result[student]['StudentID']+"'></select>";
-    						row.insertCell(3).innerHTML += "<button class='form-control' onclick='AssignStudentToClass("+result[student]['StudentID']+","+classID+">Assign</button>"
+    						row.insertCell(3).innerHTML += "<button class='form-control' onclick='AssignStudentToClass("+result[student]['StudentID']+")>Assign</button>"
     						row.insertCell(4).innerHTML = "<button  class='form-control' onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
     						getClasses('classSelect'+result[student]['StudentID']);
     						counter++;
@@ -244,8 +244,13 @@ print """\n\n
       				});
  			}
  					
- 			function assignStudentToClass(studentID,classID){
- 				delete_after = classID || -1;
+ 			function assignStudentToClass(studentID){
+ 				classID = -1;
+ 				class_sel = document.getElementById('assign'+studentID);
+ 				if(class_sel != NULL){
+ 					classID = class_sel.val;
+ 				}
+ 				delete_after = ;
  				data = {id: studentID,
  						type: 'Student',
  						ClassID: classID};
