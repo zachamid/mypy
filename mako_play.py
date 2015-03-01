@@ -1,2 +1,2 @@
 from mako.template import Template
-print(Template("hello ${data}!").render(data="world"))
+print(Template("Content-type: text/html\n\nhello ${data}!").render(data="world"))
