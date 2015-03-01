@@ -4,57 +4,26 @@ import Cookie, cgi, cgitb, os,sys
 sys.path.append(os.pardir)
 import common_components, db_connection
 from task_correction import calc_score as calc_score
+from mako.template import Template
 
 cgitb.enable()
 
+html_header = ''
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
-	print cookies
+	html_header += cookies
 	if cookies['type'].value == 'Student':
-		print 'Location:../index.py'
+		html_header += 'Location:../index.py'
 else:
-	print 'Location: index.py'
+	html_header +=  'Location: index.py'
 
 cursor = db_connection.get_connection()
+sql = '''SELECT FirstName, LastName FROM Teacher WHERE TeacherID='''+str(cookies['id'].value
+cursor.execute(sql)
+teacher_info = cursor.fetchone()
+name = teacher_info['FirstName']+' '+teacher_info['LastName']
 
-print """Content-type: text/html\n\n
 
-
-
-<html>
-	<head>
-		<script src="../jquery-1.11.1.min.js"></script>
-    	<script src='../user_functions.js'></script>
-    	<title>Class Administration</title>
-    	<link href="../bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
-    	<link href="../general_style.css" rel="stylesheet">
-    	<link href="teacher_style.css" rel="stylesheet">
-    	<script>
-    		function print_res(studentID, taskID){
-	    		data = {taskID:taskID, studentID:studentID}
-	    		$.ajax({
-      				data : data,
-      				url : '/teacher/attempt_info.py',
-      				type : "POST",
-      				dataType : "html"}).done(function(result){
-      					document.getElementById('Attempt').innerHTML = result;
-      				});
-      			}
-    	</script>
-    	<style>
-    		td, th {
-  				border: 1px solid #999;
-  				padding: 0.5rem;
-			}
-    	</style>
-	</head>
-	<body>
-"""
-common_components.print_navbar_teacher(cookies['id'].value, 'site_admin')
-print """\n
-    		<div class="container col-sm-6 col-md-9">
-    			<div class="panel panel-default translucent">
-"""
 sql = '''SELECT TaskID from Task'''
 cursor.execute(sql)
 tasks = cursor.fetchall()
@@ -67,33 +36,25 @@ sql = '''SELECT Student.StudentID, Student.FirstName, Student.LastName FROM Stud
 		WHERE TeacherClassRelationship.TeacherID=%s''' % (str(cookies['id'].value ))
 cursor.execute(sql)
 student_info = cursor.fetchall()
-
-print '<table style="width:100%"><tr><th>Name</th>'
-for task in tasks:
-	print '<th>%s</th>' % (str(task['TaskID']))
-print '</tr>'
+students = ()
+counter = 0
 for student in student_info:
-	print '<tr><td>%s</td>' % (student['FirstName']+' '+student['LastName'])
-	for task in tasks:
-		print '<td>'
-		sql = '''SELECT ProgressID, Correctness_Points, Similarity_Points,
+	students[counter]={}
+	students[counter]['name'] = student['FirstName']+' '+student['LastName'])
+	sql = '''SELECT ProgressID, Correctness_Points, Similarity_Points,
 					Attempts_Points, Time_Points
-				FROM Progress WHERE StudentID=%d AND TaskID=%d''' % (student['StudentID'], task['TaskID'])
-		cursor.execute(sql)
-		if cursor.rowcount != 0:
-			points = cursor.fetchone()
-			print '<a onclick=\'print_res(%d,%d)\'>' % (student['StudentID'], task['TaskID'])
-			print format(calc_score(points['Correctness_Points'],points['Similarity_Points'],points['Attempts_Points'],points['Time_Points']), '.1f')
-			print '</a>'
-		print '</td>'
-	print '</tr>'
-print '''\n</table>
-			</div>
-		</div>
-		</br>
-		<div class="container col-sm-6 col-md-9">
-    		<div id = 'Attempt' class="panel panel-default translucent">
-    		</div>
-    	</div>
-	</body>
-</html>'''
+				FROM Progress WHERE StudentID=%d ''' % (student['StudentID'])
+	cursor.execute(sql)
+	progress_info = cursor.fetchall()
+	students[counter]['no_tasks'] = cursor.rowcount;
+	running_total = 0
+	for progress in progress_info:
+		running_total += calc_score(progress['Correctness_Points'],progress['Similarity_Points'],progress['Attempts_Points'],progress['Time_Points'])
+	if(students[counter]['no_tasks'] == 0):
+		students[counter]['avg_score'] = 0
+	else:
+		students[counter]['avg_score'] = (float)(running_total)/students[counter]['no_tasks']
+	counter++
+
+mytemplate = Template(filename='class_results_template.html')
+print(mytemplate.render(html_header=html_header, name=name, Students=students))

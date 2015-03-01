@@ -167,7 +167,6 @@ print """\n\n
     						row.insertCell(0).innerHTML = result[student]['StudentID'];
     						row.insertCell(1).innerHTML = result[student]['FirstName']+' '+result[student]['LastName'];
     						row.insertCell(2).innerHTML = '<button class="form-control" onclick="assignStudentToClass('+result[student]['StudentID']+',-1)">Remove</button>';
-    						row.insertCell(2).innerHTML += "<button class='form-control' onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
     						counter++;
     					}
     				});
@@ -221,7 +220,6 @@ print """\n\n
 	      				url : '/delete.py',
 	      				type : "POST",
 	      				dataType : "text"}).done(function(result){
-	      					getClassList();
 	      					getUnassignedList();
 	      				});
 	 			}

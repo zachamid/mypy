@@ -106,3 +106,35 @@ def print_navbar_teacher(id, curr_page):
 	</ul><ul class="nav navbar-nav navbar-right">
 	<li><a onclick="clear_cookies()"><span class="glyphicon glyphicon-log-out"></span>&nbsp
 	Log out</a></li></ul></div></div></nav>"""
+	
+def return_navbar_teacher(id, curr_page):
+	sql_query = 'SELECT * FROM Teacher WHERE TeacherID='+id
+	cursor = db_connection.get_connection()
+	cursor.execute(sql_query)
+	record = cursor.fetchone()
+	name = record['FirstName']+' '+record['LastName']
+	return_string = """\n
+	<nav class="navbar navbar-default" role="navigation"><div class="container-fluid">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span>
+	<span class="icon-bar"></span><span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="#">"""
+	return_string = return_string+name
+	return_string = return_string+ """\n</a>
+	</div><div id="navbar" class="navbar-collapse collapse">
+	<ul class="nav navbar-nav">
+	"""
+	return_string = return_string+ '<li><a href="/teacher/user_page.py">Details</a></li>'
+	return_string = return_string+ '<li><a href="/teacher/class_results.py">Class Administration</a></li>'
+	return_string = return_string+ '<li><a href="/teacher/task_admin.py">Task Administration</a></li>'
+	return_string = return_string+ '<li><a href="/teacher/task_creator.py">Task Creator</a></li>'
+	return_string = return_string+ '<li><a href="/playground.py">Playground</a></li>'
+	if(record['Administrator']==1):
+		return_string = return_string+ '<li><a href="/teacher/site_admin.py">Site Administration</a></li>'
+	return_string = return_string+ """\n
+	</ul><ul class="nav navbar-nav navbar-right">
+	<li><a onclick="clear_cookies()"><span class="glyphicon glyphicon-log-out"></span>&nbsp
+	Log out</a></li></ul></div></div></nav>"""
+	return return_string
