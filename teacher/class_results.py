@@ -18,7 +18,7 @@ else:
 	html_header +=  'Location: index.py'
 
 cursor = db_connection.get_connection()
-sql = '''SELECT FirstName, LastName FROM Teacher WHERE TeacherID='''+str(cookies['id'].value
+sql = '''SELECT FirstName, LastName FROM Teacher WHERE TeacherID='''+str(cookies['id'].value)
 cursor.execute(sql)
 teacher_info = cursor.fetchone()
 name = teacher_info['FirstName']+' '+teacher_info['LastName']
