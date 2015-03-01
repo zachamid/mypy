@@ -57,4 +57,4 @@ for student in student_info:
 
 f = open('class_results_template.html')
 mytemplate = Template(f.read())
-print mytemplate.render(name=name, html_header=html_header)
+print mytemplate.render(name=name, html_header=html_header, students=students)

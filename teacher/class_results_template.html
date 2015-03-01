@@ -32,6 +32,7 @@ Content-type: text/html
       			dataType : "html"}).done(function(result){
       				document.getElementById('Attempt').innerHTML = result;
       			});
+      		}
     	</script>
     </head>
     <body>
@@ -77,7 +78,6 @@ Content-type: text/html
 							Average Score
 						</td>
 					</th>
-					<%doc>
 					% for Student in page.students:
 						<tr>
 						<td>${Student['id']}</td>
@@ -86,7 +86,6 @@ Content-type: text/html
 						<td>${Student['avg_score']}</td>
 						<tr>
 					% endfor
-					</%doc>
 				</table>
 			</div>
 		</div>
