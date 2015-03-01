@@ -39,21 +39,22 @@ student_info = cursor.fetchall()
 students = ()
 counter = 0
 for student in student_info:
-	students[counter]={}
-	students[counter]['name'] = student['FirstName']+' '+student['LastName']
+	student_stats={}
+	student_stats['name'] = student['FirstName']+' '+student['LastName']
 	sql = '''SELECT ProgressID, Correctness_Points, Similarity_Points,
 					Attempts_Points, Time_Points
 				FROM Progress WHERE StudentID=%d ''' % (student['StudentID'])
 	cursor.execute(sql)
 	progress_info = cursor.fetchall()
-	students[counter]['no_tasks'] = cursor.rowcount;
+	student_stats['no_tasks'] = cursor.rowcount;
 	running_total = 0
 	for progress in progress_info:
 		running_total += calc_score(progress['Correctness_Points'],progress['Similarity_Points'],progress['Attempts_Points'],progress['Time_Points'])
-	if(students[counter]['no_tasks'] == 0):
-		students[counter]['avg_score'] = 0
+	if(student_stats['no_tasks'] == 0):
+		student_stats['avg_score'] = 0
 	else:
-		students[counter]['avg_score'] = (float)(running_total)/students[counter]['no_tasks']
+		student_stats['avg_score'] = (float)(running_total)/student_stats['no_tasks']
+	students[counter] = student_stats
 	counter=counter+1
 
 mytemplate = Template(filename='class_results_template.html')
