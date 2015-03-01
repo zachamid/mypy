@@ -40,7 +40,7 @@ students = ()
 counter = 0
 for student in student_info:
 	students[counter]={}
-	students[counter]['name'] = student['FirstName']+' '+student['LastName'])
+	students[counter]['name'] = student['FirstName']+' '+student['LastName']
 	sql = '''SELECT ProgressID, Correctness_Points, Similarity_Points,
 					Attempts_Points, Time_Points
 				FROM Progress WHERE StudentID=%d ''' % (student['StudentID'])
