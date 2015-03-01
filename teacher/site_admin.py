@@ -193,7 +193,7 @@ print """\n\n
     						row.insertCell(0).innerHTML = result[student]['StudentID'];
     						row.insertCell(1).innerHTML = result[student]['FirstName']+' '+result[student]['LastName'];
     						row.insertCell(2).innerHTML = result[student]['Email'];
-    						row.insertCell(3).innerHTML = "<select class='form-control' id='classSelect"+result[student]['StudentID']+"'></select><button class='form-control' onclick='AssignStudentToClass("+result[student]['StudentID']+")'>Assign</button>";
+    						row.insertCell(3).innerHTML = "<select class='form-control' id='classSelect"+result[student]['StudentID']+"'></select><button class='form-control' onclick='assignStudentToClass("+result[student]['StudentID']+")'>Assign</button>";
     						row.insertCell(4).innerHTML = "<button  class='form-control' onclick='deleteStudent("+result[student]['StudentID']+")'>Delete</button>";
     						getClasses('classSelect'+result[student]['StudentID']);
     						counter++;
