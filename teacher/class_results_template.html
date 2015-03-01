@@ -64,27 +64,27 @@ Content-type: text/html
     	<div class="container col-sm-12 col-md-12">
 			<div class="panel panel-default translucent">
 				<table>
-					<th>
-						<td>
+					<tr>
+						<th>
 							ID
-						</td>
-						<td>
+						</th>
+						<th>
 							Name
-						</td>
-						<td>
+						</th>
+						<th>
 							Tasks Completed
-						</td>
-						<td>
+						</th>
+						<th>
 							Average Score
-						</td>
-					</th>
+						</th>
+					</tr>
 					% for Student in students:
 						<tr>
 						<td>${Student['id']}</td>
 						<td>${Student['name']}</td>
 						<td>${Student['no_tasks']}</td>
 						<td>${Student['avg_score']}</td>
-						<tr>
+						</tr>
 					% endfor
 				</table>
 			</div>
