@@ -36,8 +36,7 @@ sql = '''SELECT Student.StudentID, Student.FirstName, Student.LastName FROM Stud
 		WHERE TeacherClassRelationship.TeacherID=%s''' % (str(cookies['id'].value ))
 cursor.execute(sql)
 student_info = cursor.fetchall()
-students = ()
-counter = 0
+students = []
 for student in student_info:
 	student_stats={}
 	student_stats['name'] = student['FirstName']+' '+student['LastName']
@@ -55,7 +54,6 @@ for student in student_info:
 	else:
 		student_stats['avg_score'] = (float)(running_total)/student_stats['no_tasks']
 	students.append(student_stats)
-	counter=counter+1
 
 mytemplate = Template(filename='class_results_template.html')
 print(mytemplate.render(html_header=html_header, name=name, Students=students))
