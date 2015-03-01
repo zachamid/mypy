@@ -246,7 +246,7 @@ print """\n\n
  				classID = -1;
  				class_sel = document.getElementById('classSelect'+studentID);
  				if(class_sel != null){
- 					classID = class_sel.val;
+ 					classID = class_sel.value;
  				}
  				data = {id: studentID,
  						type: 'Student',
