@@ -54,7 +54,7 @@ for student in student_info:
 		student_stats['avg_score'] = 0
 	else:
 		student_stats['avg_score'] = (float)(running_total)/student_stats['no_tasks']
-	students[counter] = student_stats
+	students[counter].append(student_stats)
 	counter=counter+1
 
 mytemplate = Template(filename='class_results_template.html')
