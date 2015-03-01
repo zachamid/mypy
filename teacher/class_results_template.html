@@ -1,4 +1,4 @@
-##${page.html_header}
+${page.html_header}
 Content-type: text/html
 
 <html>
@@ -77,6 +77,16 @@ Content-type: text/html
 							Average Score
 						</td>
 					</th>
+					<%doc>
+					% for Student in page.students:
+						<tr>
+						<td>${Student['id']}</td>
+						<td>${Student['name']}</td>
+						<td>${Student['no_tasks']}</td>
+						<td>${Student['avg_score']}</td>
+						<tr>
+					% endfor
+					</%doc>
 				</table>
 			</div>
 		</div>
