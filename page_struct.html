@@ -1,0 +1,33 @@
+${page_header}
+Content-type: text/html
+
+<html>
+	<head>
+		<script src="skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
+		<script src="skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
+		<script src="jquery-1.11.1.min.js" type="text/javascript"></script> 
+		<script src="behave.js" type="text/javascript"></script>
+		<script src="python_functions.js" type="text/javascript"></script>
+		<script src="user_functions.js" type="text/javascript"></script>
+		<script src="task_admin_functions.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="general_style.css">
+    	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    	<style>
+    		${external_style}
+    	</style>
+    	<script>
+    		${external_javascript}
+    	</script>
+    </head>
+    <body>
+    	${html_header}
+    	% for container in containers:
+	    	<div class="${container['className']}">
+	    		<div class="panel panel-default translucent">
+	    		${container['div_content']}
+	    		</div>
+	    	</div>
+	    % endfor
+    </body>
+</body>
+    	
