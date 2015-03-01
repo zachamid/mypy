@@ -245,7 +245,7 @@ print """\n\n
  			function assignStudentToClass(studentID){
  				classID = -1;
  				class_sel = document.getElementById('classSelect'+studentID);
- 				if(class_sel != NULL){
+ 				if(class_sel != null){
  					classID = class_sel.val;
  				}
  				data = {id: studentID,
