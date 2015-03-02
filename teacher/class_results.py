@@ -69,4 +69,4 @@ else:
 	
 f = open('class_results_template.html')
 mytemplate = Template(f.read())
-print mytemplate.render(type=type,name=name, html_header=html_header, students=students, type=type)
+print mytemplate.render(type=type,name=name, html_header=html_header, students=students)
