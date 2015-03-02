@@ -67,6 +67,6 @@ else:
 	name = ''
 	students = {}
 	
-f = open('class_results_template.html')
-mytemplate = Template(f.read())
-print mytemplate.render(type=type,name=name, html_header=html_header, students=students)
+template_file = open('class_results_template.html')
+page_template = Template(template_file.read())
+print page_template.render(html_header=html_header, type=type)
