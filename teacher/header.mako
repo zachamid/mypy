@@ -9,7 +9,7 @@
     		<input type="password" name="pword" class="form-control" id="pword_field" placeholder="Password"></br>
     		<button type="button" class="btn btn-default btn-sm" onclick="validate_login('Student')">
   				<span class="glyphicon glyphicon-log-in"></span> Login
-			</button>&nbsp&nbsp
+			</button>
 			<button type="button" class="btn btn-default btn-sm" onclick="location.href='sign_up.py'">
   				<span class="glyphicon glyphicon-user"></span> Sign Up
 			</button>
