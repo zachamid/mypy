@@ -11,7 +11,7 @@ cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 html_header = ''
 type = 'Teacher'
 if cookies.has_key('id') and cookies.has_key('type'):
-	html_header += cookies
+	html_header += str(cookies)
 	if cookies['type'].value == 'Teacher':
 		html_header += '\nLocation:../index.py'
 		cursor.execute('SELECT * FROM Teacher WHERE TeacherID='+cookies['id'].value)

@@ -12,7 +12,7 @@ cursor = db_connection.get_connection()
 html_header = ''
 name = ''
 if cookies.has_key('id') and cookies.has_key('type'):
-	html_header += cookies
+	html_header += str(cookies)
 	if cookies['type'].value == 'Teacher':
 		cursor.execute('SELECT * FROM Teacher WHERE TeacherID='+cookies['id'].value)
 		record = cursor.fetchone()
