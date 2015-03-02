@@ -24,7 +24,8 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		html_header += '\nLocation:../index.py'
 else:
 	html_header += '\nLocation:../index.py'
-	
+
+include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('site_admin_template.html')
 page_template = Template(template_file.read())
 print page_template.render(type='Administrator',html_header=html_header, name=name)

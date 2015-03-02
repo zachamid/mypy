@@ -67,6 +67,7 @@ else:
 	name = ''
 	students = {}
 
+include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('class_results_template.html','r')
 template = template_file.read()
 page_template = Template(template)
