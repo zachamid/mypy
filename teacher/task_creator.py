@@ -10,7 +10,10 @@ cgitb.enable()
 
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 html_header = ''
+name = ''
 type = 'Teacher'
+cursor = db_connection.get_cursor()
+
 if cookies.has_key('id') and cookies.has_key('type'):
 	html_header += str(cookies)
 	if cookies['type'].value == 'Teacher':
@@ -19,7 +22,6 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		record = cursor.fetchone()
 		if record['Administrator'] == 0:
 			type = 'Administrator'
-		else:
 		name = record['FirstName'] + ' ' + record['LastName']
 else:
 	html_header += '\nLocation: index.py'
