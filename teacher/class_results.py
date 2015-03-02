@@ -5,6 +5,7 @@ sys.path.append(os.pardir)
 import common_components, db_connection
 from task_correction import calc_score as calc_score
 from mako.template import Template
+from mako.lookup import TemplateLookup
 
 cgitb.enable()
 type = ''
