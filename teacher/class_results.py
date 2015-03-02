@@ -71,5 +71,5 @@ else:
 include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('class_results_template.html','r')
 template = template_file.read()
-page_template = Template(template)
+page_template = Template(template, lookup=include_lookup)
 print page_template.render(html_header=html_header, type=type, name='', students=students)
