@@ -17,45 +17,56 @@ if cookies.has_key('id') and cookies.has_key('type'):
 else:
 	html_header +=  'Location: index.py'
 
-cursor = db_connection.get_connection()
-sql = '''SELECT FirstName, LastName FROM Teacher WHERE TeacherID='''+str(cookies['id'].value)
-cursor.execute(sql)
-teacher_info = cursor.fetchone()
-name = teacher_info['FirstName']+' '+teacher_info['LastName']
+if 'id' in cookies:
+	cursor = db_connection.get_connection()
+	sql = '''SELECT FirstName, LastName, Administrator
+			FROM Teacher 
+			WHERE TeacherID='''+str(cookies['id'].value)
+	cursor.execute(sql)
+	teacher_info = cursor.fetchone()
+	name = teacher_info['FirstName']+' '+teacher_info['LastName']
+	
+	if teacher_info['Administrator']:
+		type = 'Administrator'
+	else:
+		type = 'Teacher'
 
 
-sql = '''SELECT TaskID from Task'''
-cursor.execute(sql)
-tasks = cursor.fetchall()
+	sql = '''SELECT TaskID from Task'''
+	cursor.execute(sql)
+	tasks = cursor.fetchall()
 
-sql = '''SELECT Student.StudentID, Student.FirstName, Student.LastName FROM Student
+	sql = '''SELECT Student.StudentID, Student.FirstName, Student.LastName FROM Student
 		INNER JOIN TeacherClassRelationship
 		ON Student.ClassID = TeacherClassRelationship.ClassID
 		INNER JOIN Teacher
 		ON Teacher.TeacherID = TeacherClassRelationship.ClassID
 		WHERE TeacherClassRelationship.TeacherID=%s''' % (str(cookies['id'].value ))
-cursor.execute(sql)
-student_info = cursor.fetchall()
-students = []
-for student in student_info:
-	student_stats={}
-	student_stats['id'] = student['StudentID']
-	student_stats['name'] = student['FirstName']+' '+student['LastName']
-	sql = '''SELECT ProgressID, Correctness_Points, Similarity_Points,
-					Attempts_Points, Time_Points
-				FROM Progress WHERE StudentID=%d ''' % (student['StudentID'])
 	cursor.execute(sql)
-	progress_info = cursor.fetchall()
-	student_stats['no_tasks'] = cursor.rowcount;
-	running_total = 0
-	for progress in progress_info:
-		running_total += calc_score(progress['Correctness_Points'],progress['Similarity_Points'],progress['Attempts_Points'],progress['Time_Points'])
-	if(student_stats['no_tasks'] == 0):
-		student_stats['avg_score'] = 0
-	else:
-		student_stats['avg_score'] = (float)(running_total)/student_stats['no_tasks']
-	students.append(student_stats)
-
+	student_info = cursor.fetchall()
+	students = []
+	for student in student_info:
+		student_stats={}
+		student_stats['id'] = student['StudentID']
+		student_stats['name'] = student['FirstName']+' '+student['LastName']
+		sql = '''SELECT ProgressID, Correctness_Points, Similarity_Points,
+						Attempts_Points, Time_Points
+					FROM Progress WHERE StudentID=%d ''' % (student['StudentID'])
+		cursor.execute(sql)
+		progress_info = cursor.fetchall()
+		student_stats['no_tasks'] = cursor.rowcount;
+		running_total = 0
+		for progress in progress_info:
+			running_total += calc_score(progress['Correctness_Points'],progress['Similarity_Points'],progress['Attempts_Points'],progress['Time_Points'])
+		if(student_stats['no_tasks'] == 0):
+			student_stats['avg_score'] = 0
+		else:
+			student_stats['avg_score'] = (float)(running_total)/student_stats['no_tasks']
+		students.append(student_stats)
+else:
+	name = ''
+	students = {}
+	
 f = open('class_results_template.html')
 mytemplate = Template(f.read())
-print mytemplate.render(name=name, html_header=html_header, students=students)
+print mytemplate.render(type=type,name=name, html_header=html_header, students=students, type=type)
