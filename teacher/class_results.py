@@ -70,4 +70,4 @@ else:
 template_file = open('class_results_template.html','r')
 template = template_file.read()
 page_template = Template(template)
-print page_template.render(html_header=html_header, type=type)
+print page_template.render(html_header=html_header, type=type, name='')
