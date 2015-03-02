@@ -68,5 +68,6 @@ else:
 	students = {}
 
 template_file = open('class_results_template.html','r')
-page_template = Template(template_file.read())
-print page_template.render(html_header=html_header, type=type)
+print template_file.read()
+#page_template = Template(template_file.read())
+#print page_template.render(html_header=html_header, type=type)
