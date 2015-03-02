@@ -10,6 +10,8 @@ from mako.lookup import TemplateLookup
 cgitb.enable()
 type = ''
 html_header = ''
+name = ''
+students = {}
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
 	html_header += str(cookies)
@@ -64,12 +66,10 @@ if 'id' in cookies:
 		else:
 			student_stats['avg_score'] = (float)(running_total)/student_stats['no_tasks']
 		students.append(student_stats)
-else:
-	name = ''
-	students = {}
+
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('class_results_template.html','r')
 template = template_file.read()
 page_template = Template(template, lookup=include_lookup)
-print page_template.render(html_header=html_header, type=type, name='', students=students)
+print page_template.render(html_header=html_header, type=type, name=name, students=students)
