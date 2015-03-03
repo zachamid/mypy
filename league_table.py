@@ -34,7 +34,7 @@ for student in class_list:
 	new_entry['name']= student['FirstName']+' '+student['LastName']
 	league_entry.append(new_entry)
 		
-league_order=sorted(league_entry, key=lambda e: e['score'], reverse=True)
+league_order=sorted(league_entry, key=lambda e: e['total_score'], reverse=True)
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('league_table_template.html','r')
