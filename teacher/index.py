@@ -2,32 +2,27 @@
 
 import Cookie, cgi, cgitb, os,sys
 sys.path.append(os.pardir)
-import common_components
+import common_components, db_connection
 
 cgitb.enable()
 
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
+cursor = db_connection.get_connection()
+html_header = ''
+name = ''
+type = ''
 if cookies.has_key('id') and cookies.has_key('type'):
-	print cookies
-	if cookies['type'].value == 'Student':
-		print 'Location:../index.py'
-print """Content-type: text/html\n\n
+	html_header += str(cookies)
+	if cookies['type'].value == 'Teacher':
+		cursor.execute('SELECT FirstName, LastName FROM Teacher WHERE ' + cookies['id'].value)
+		record = cursor.fetchone()
+		name = record['FirstName']+' '+record['LastName']
+		type = 'Teacher'	
+	elif cookies['type'].value == 'Student':
+		html_header += 'Location:../index.py'
 
-<html><head>
-<script src="/jquery-1.11.1.min.js"></script>
-<link href="/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
-<script src='/user_functions.js'></script>
-<link rel="stylesheet" type="text/css" href="/general_style.css">
-<link href="teacher_style.css" rel="stylesheet">
-</head>
-	<body>"""
-if cookies.has_key('id') and cookies.has_key('type'):
-	common_components.print_navbar_teacher(cookies['id'].value,'')
-else:
-	common_components.print_header_teacher()
-
-print """\n
- 
-  	</body>
-</html>
-"""
+include_lookup = TemplateLookup(directories=[os.getcwd()])
+template_file = open('index.html','r')
+template = template_file.read()
+page_template = Template(template, lookup=include_lookup)
+print page_template.render(html_header=html_header, type=type, name=name)

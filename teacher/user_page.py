@@ -15,7 +15,7 @@ type = 'Teacher'
 if cookies.has_key('id') and cookies.has_key('type'):
 	html_header += str(cookies)
 	if cookies['type'].value == 'Student':
-		html_header += '\nLocation:../index.py'
+		html_header += 'Location:../index.py'
 	else:
 		sql_query = 'SELECT * FROM Teacher WHERE TeacherID='+cookies['id'].value
 		cursor.execute(sql_query)
@@ -24,7 +24,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		if record['Administrator'] == 1:
 			type='Administrator'
 else:
-	html_header += '\nLocation: index.py'
+	html_header += 'Location: index.py'
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('uses_page_template.html')

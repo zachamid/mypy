@@ -22,9 +22,9 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		else:
 			name = record['FirstName'] + ' ' + record['LastName']
 	else:
-		html_header += '\nLocation:../index.py'
+		html_header += 'Location:../index.py'
 else:
-	html_header += '\nLocation:../index.py'
+	html_header += 'Location:../index.py'
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('site_admin_template.html')
