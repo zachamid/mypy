@@ -3,6 +3,8 @@
 import cgi, cgitb, json, MySQLdb, db_connection,Cookie, common_components,os,datetime,re
 import task_delivery, task_correction
 cgitb.enable()
+from mako.template import Template
+from mako.lookup import TemplateLookup
 
 name = ''
 html_header = ''
