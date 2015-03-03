@@ -23,60 +23,22 @@ league_entry = []
 for student in class_list:
 	new_entry = {}
 	new_entry['student'] = str(student['StudentID'])
-	new_entry['score'] = 0
+	new_entry['total_score'] = 0
 	cursor.execute('''SELECT Correctness_Points,Similarity_Points, Attempts_Points, Time_Points 
 						FROM Progress WHERE StudentID='''+str(student['StudentID']))
 	progress_records = cursor.fetchall()
 	for record in progress_records:
 		score = calc_score(record['Correctness_Points'],record['Similarity_Points'],record['Attempts_Points'],record['Time_Points'])
-		new_entry['score'] += score
+		new_entry['total_score'] += score
 	new_entry['no_tasks'] = len(progress_records)
 	new_entry['name']= student['FirstName']+' '+student['LastName']
 	league_entry.append(new_entry)
 		
 league_order=sorted(league_entry, key=lambda e: e['score'], reverse=True)
 
-print """Content-type: text/html\n\n
+include_lookup = TemplateLookup(directories=[os.getcwd()])
+template_file = open('league_table_template.html','r')
 
-
-"""
-print """\n
-<html>
-	<head>
-		<script src="skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
-		<script src="skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
-		<script src="jquery-1.11.1.min.js" type="text/javascript"></script> 
-		<script src="python_functions.js" type="text/javascript"></script>
-		<script src="user_functions.js" type="text/javascript"></script>
-		<script src="task_admin_functions.js" type="text/javascript"></script>
-    	<link rel="stylesheet" type="text/css" href="general_style.css">
-    	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
-    	<style>
-    		td {
- 				padding:10px;
- 				vertical-align: top;
-			}
-    	</style>
-    </head>
-    <body>
-    """
-common_components.print_navbar(cookies['id'].value,'')
-print """\n
-		<div class="container col-sm-6 col-md-9">
-			<div class="panel  panel-default translucent">
-				<table width="100%">
-				<tr>
-					<td><b>ID</b></td>
-					<td><b>Name</b></td>
-					<td><b>Tasks Attempted</b></td>
-					<td><b>Score</b></td>
-				</tr>"""
-for id in league_order:
-	print '<tr>'
-	if id['student'] == cookies['id'].value:
-		print '<td><b>%s</b></td><td><b>%s</b></td><td><b>%s</b></td><td><b>%s</b></td>' % (str(id['student']), str(id['name']),str(id['no_tasks']),str(id['score']))
-	else:
-		print '<td>%s</td><td>%s</td><td>%s</td><td>%s</td>' % (str(id['student']), str(id['name']),str(id['no_tasks']),str(id['score']))
-
-	print '</tr>'
-print '</table></div></div></body></html>'
+template = template_file.read()
+page_template = Template(template, lookup=include_lookup)
+print page_template.render(html_header=html_header, name=name, league_entry=league_entry, league_order=league_order)

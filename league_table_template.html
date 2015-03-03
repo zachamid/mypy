@@ -1,0 +1,44 @@
+${html_header}
+Content-type: text/html\n\n
+
+
+<html>
+	<head>
+		<script src="skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
+		<script src="skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
+		<script src="jquery-1.11.1.min.js" type="text/javascript"></script> 
+		<script src="python_functions.js" type="text/javascript"></script>
+		<script src="user_functions.js" type="text/javascript"></script>
+		<script src="task_admin_functions.js" type="text/javascript"></script>
+    	<link rel="stylesheet" type="text/css" href="general_style.css">
+    	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    	<style>
+    		td {
+ 				padding:10px;
+ 				vertical-align: top;
+			}
+    	</style>
+    </head>
+    <body>
+		<div class="container col-sm-6 col-md-9">
+			<div class="panel  panel-default translucent">
+				<table width="100%">
+				<tr>
+					<td><b>ID</b></td>
+					<td><b>Name</b></td>
+					<td><b>Tasks Attempted</b></td>
+					<td><b>Score</b></td>
+				</tr>
+				% for entry in league_order:
+					<tr>
+						<td><b>${league_entry['StudentID']}</b></td>
+						<td><b>${league_entry['Name']}</b></td>
+						<td><b>${league_entry['no_tasks']}</b></td>
+						<td><b>${league_entry['total_score']}</b></td>
+					</tr>
+				% endfor
+				</table>
+			</div>
+		</div>
+	</body>
+</html>'
