@@ -49,4 +49,4 @@ template_file = open('league_table_template.html','r')
 
 template = template_file.read()
 page_template = Template(template, lookup=include_lookup)
-print page_template.render(html_header=html_header, name=name, league_entry=league_entry, league_order=league_order)
+print page_template.render(html_header=html_header, name=name, league_order=league_order)
