@@ -29,7 +29,7 @@ jaccard_score = 0
 attempt_score = 0
 time_score = 0
 
-if cookies['type'] == 'Student':
+if cookies['type'].value == 'Student':
 	task_info = cgi.FieldStorage()
 	student_id = cookies['id'].value
 	task_id = task_info['task_id'].value
