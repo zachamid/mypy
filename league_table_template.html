@@ -31,10 +31,10 @@ Content-type: text/html\n\n
 				</tr>
 				% for entry in league_order:
 					<tr>
-						<td><b>${league_entry['StudentID']}</b></td>
-						<td><b>${league_entry['Name']}</b></td>
-						<td><b>${league_entry['no_tasks']}</b></td>
-						<td><b>${league_entry['total_score']}</b></td>
+						<td><b>${league_entry[entry]['StudentID']}</b></td>
+						<td><b>${league_entry[entry]['Name']}</b></td>
+						<td><b>${league_entry[entry]['no_tasks']}</b></td>
+						<td><b>${league_entry[entry]['total_score']}</b></td>
 					</tr>
 				% endfor
 				</table>
