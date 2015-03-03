@@ -10,7 +10,7 @@ cgitb.enable()
 html_header = ''
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
-	html_header += cookies
+	html_header += str(cookies)
 	if cookies['type'].value == 'Teacher':
 		html_header += 'Location: index.py'
 else:
