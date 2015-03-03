@@ -89,7 +89,7 @@ if cookies['type'] == 'Student':
 	
 total_score = task_correction.calc_score(correctness_score, jaccard_score, time_score, attempt_score)
 
-scores={'correctness': correctness_score, 'similarity': jaccard_score, 'time': times_score, 'attempts': attempt_score, 'total_score':total_score}
+scores={'correctness': correctness_score, 'similarity': jaccard_score, 'time': time_score, 'attempts': attempt_score, 'total_score':total_score}
 submission={'code': submitted_code, 'output': submitted_output}
 include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('correction_page_template.html','r')
