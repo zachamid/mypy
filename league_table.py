@@ -3,15 +3,18 @@
 import cgi, cgitb, json, MySQLdb, db_connection, Cookie, common_components,os
 from operator import itemgetter, attrgetter
 from  task_correction import calc_score as calc_score
+from mako.template import Template
+from mako.lookup import TemplateLookup
 cgitb.enable()
 
+html_header = ''
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
-	print cookies
+	html_headers += cookies
 	if cookies['type'].value == 'Teacher':
-		print 'Location: index.py'
+		html_header += 'Location: index.py'
 else:
-	print 'Location: index.py'
+	html_header += 'Location: index.py'
 
 cursor = db_connection.get_connection()
 cursor.execute('''SELECT FirstName, LastName, ClassID FROM Student WHERE StudentID=%s''' % (cookies['id'].value))
