@@ -32,10 +32,16 @@ Content-type: text/html
 				</tr>
 				% for entry in league_order:
 					<tr>
-						<td><b>${entry['student']}</b></td>
-						<td><b>${entry['name']}</b></td>
-						<td><b>${entry['no_tasks']}</b></td>
-						<td><b>${entry['total_score']}</b></td>
+						% if entry['name'] == name:
+							<td><b>${entry['student']}</b></td>
+							<td><b>${entry['name']}</b></td>
+							<td><b>${entry['no_tasks']}</b></td>
+							<td><b>${entry['total_score']}</b></td>
+						% else:
+							<td>${entry['student']}</td>
+							<td>${entry['name']}</td>
+							<td>${entry['no_tasks']}</td>
+							<td>${entry['total_score']}</td>
 					</tr>
 				% endfor
 				</table>
