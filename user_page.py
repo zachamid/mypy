@@ -20,7 +20,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 	cursor.execute(sql)
 	name = person_record['FirstName']+' '+person_record['FirstName']
 	person_record = cursor.fetchone()
-	if person_record['ClassName']= None:
+	if person_record['ClassName']==None:
 		person_record['ClassName'] = 'Unassigned'
 else:
 	html_header +=  'Location:index.py'
