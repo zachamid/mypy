@@ -18,8 +18,8 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		 ON Class.ClassID = Student.ClassID
 		 WHERE StudentID='''+cookies['id'].value
 	cursor.execute(sql)
-	name = person_record['FirstName']+' '+person_record['FirstName']
 	person_record = cursor.fetchone()
+	name = person_record['FirstName']+' '+person_record['LastName']
 	if person_record['ClassName']==None:
 		person_record['ClassName'] = 'Unassigned'
 else:
