@@ -1,124 +1,31 @@
 #!/usr/bin/python
 
 import cgi, cgitb, json, MySQLdb, db_connection,Cookie, common_components,os
+from mako.template import Template
+from mako.lookup import TemplateLookup
+
 cgitb.enable()
 
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
-
+html_header = ''
+name = ''
 if cookies.has_key('id') and cookies.has_key('type'):
-	print cookies
-else:
-	print 'Location:index.py'
-print """Content-type: text/html\n\n
-
-<html>
-  	<head>
-    	<script src="jquery-1.11.1.min.js"></script>
-    	<script src="user_functions.js"></script>
-    	<title>Welcome</title>
-    	<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
-    	<link href="general_style.css" rel="stylesheet">
-    	<script>
-    		$( document ).ready(function() {
-    			$('#update').click(function(){
-    				update_user('Student', """+cookies['id'].value+""")
-    			});
-			});
-    	</script>
-    </head>
-  	<body>"""
-common_components.print_navbar(cookies['id'].value, 'user_page')
-cursor = db_connection.get_connection()
-sql = '''SELECT FirstName, LastName, Email, ClassID FROM Student 
-		WHERE StudentID='''+cookies['id'].value
-cursor.execute(sql)
-person_record = cursor.fetchone()
-print person_record
-print """\n
-    	<div class="container col-sm-6 col-md-9">
-    		<div class="container" style="width:100%">
-    			
-      			<div class="panel panel-default translucent">
-      			<h3>Personal Details</h3></div>
-      			<div class="panel panel-default translucent">
-        			<table width="100%" style="border-spacing:10px">
-          				<tr>
-            				<td style="width:50%">
-              					First Name: <input class="form-control" type="text" id="FirstName" value="""
-print str(person_record['FirstName'])
-print """>
-            				</td>
-            				<td>
-              					<div id="FirstName_alert"></div>
-            				</td>
-          				</tr>
-          				<tr>
-            				<td style="width:50%">
-              					Last Name: <input class="form-control" type="text" id="LastName" value="""
-print str(person_record['LastName'])
-print """>
-            				</td>
-            				<td>
-              					<div id="LastName_alert"></div>
-            				</td>
-          				</tr>
-          				<tr>
-            				<td style="width:50%">
-              					Email: <input class="form-control" type="text" id="Email" value="""
-print str(person_record['Email'])
-print """ readonly>
-            				</td>
-            				<td>
-              					<div id="Email_alert"></div>
-            				</td>
-          				</tr>
-          				<tr>
-            				<td style="width:50%">
-              					<input class="form-control" type="password" id="Password" placeholder="Old Password">
-            				</td>
-            				<td>
-               					<div id="Password_alert"></div>
-            				</td>
-          				</tr>
-          				<tr>
-            				<td style="width:50%">
-              					<input class="form-control" type="password" id="new_Password" placeholder="New Password">
-            				</td>
-            				<td>
-               					<div id="new_Password_alert"></div>
-            				</td>
-          				</tr>
-          				<tr>
-            				<td style="width:50%">
-              					<input class="form-control" type="password" id="confirm_New_Password" placeholder="Confirm New Password">
-            				</td>
-            				<td>
-               					<div id="confirm_New_Password_alert"></div>
-            				</td>
-          				</tr>
-          				<tr>
-            				<td style="width:50%">
-               					<div id="class_place">"""
-if person_record['ClassID'] == -1:
-	print 'No Class Assigned'
-else:
-	sql = 'SELECT ClassName FROM Class WHERE ClassID='+person_record['ClassID']
+	html_header += str(cookies)
+	cursor = db_connection.get_connection()
+	sql = '''SELECT StudentID, FirstName, LastName, Email, Class.ClassName
+		 FROM Student
+		 LEFT JOIN Class
+		 ON Class.ClassID = Student.ClassID
+		 WHERE StudentID='''+cookies['id'].value
 	cursor.execute(sql)
-	className = cursor.fetchone()
-	print className['ClassName']
-print """\n</div>
-            				</td>
-            				<td>
-            					<button class="form-control" id='update' type="button">
-									Update
-								</button>
-            				</td>
-          				</tr>
-        			</table>
-      			</div>
-    		</div>
-"""
-print """\n
-    	</div>
-  	</body>
-</html>"""
+	name = person_record['FirstName']+' '+person_record['FirstName']
+	person_record = cursor.fetchone()
+	if !person_record['ClassName']:
+		person_record['ClassName'] = 'Unassigned'
+else:
+	html_header +=  'Location:index.py'
+	
+include_lookup = TemplateLookup(directories=[os.getcwd()])
+template_file = open('uses_page_template.html')
+page_template = Template(template_file.read(), lookup=include_lookup)
+print page_template.render(html_header=html_header, name=name, person_record=person_record)

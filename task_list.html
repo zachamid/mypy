@@ -1,0 +1,73 @@
+${html_header}
+Content-type: text/html
+
+
+<html>
+	<head>
+    		<script src="jquery-1.11.1.min.js"></script>
+    		<script src="user_functions.js"></script>
+    		<script src="task_admin_functions.js"></script>
+    		<title>Welcome</title>
+    		<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    		<link href="general_style.css" rel="stylesheet">
+    		<script>
+    			function open_task_page(taskID){
+    				var mapForm = document.createElement("form");
+    				mapForm.method = "POST";
+    				mapForm.action = "/task_page.py";
+					var mapInput = document.createElement("input");
+    				mapInput.type = "text";
+    				mapInput.name = "task_id";
+    				mapInput.value = taskID;
+    				mapForm.appendChild(mapInput);
+    				document.body.appendChild(mapForm);
+    				mapForm.submit();
+    			}
+    		</script>
+	</head>
+	<body>
+		<%include file='navbar.html'/>
+		<div class="col-xs-12 col-md-12 col-sm-12">
+			<div class="panel panel-default translucent">
+      			<h3>List of Tasks</h3>
+      		</div>
+      		<div class="panel panel-default translucent">
+      			<table id=task_list width="100%" style="border-spacing:10px">
+      				<tr><th><b>ID</b></th>
+      					<th><b>Title</b></th>
+      					<th><b>Difficulty</b></th>
+      					<th><b>Date Started</b></th>
+      					<th><b>Date Modified</b></th>
+      					<th><b>Date Completed</b></th>
+      				</tr>
+					<tr>
+						% for task in tasks:
+							<td>
+								<a onclick='open_task_page(${task['TaskID']})'>
+									${task['TaskID']}
+								</a>
+							</td>
+							<td>
+								<a onclick='open_task_page(${task['TaskID']})'>
+									${task['TaskName']}
+								</a>
+							</td>
+							<td>
+								${task['Difficulty']}
+							</td>
+							<td>
+								${task['Dates']['DateStarted']}
+							</td>
+							<td>
+								${task['Dates']['DateModified']}
+							</td>
+							<td>
+								${task['Dates']['DateCompleted']}
+							</td>
+						% endfor 
+					</tr>
+      			</table>
+      		</div>
+      	</div>
+	</body>
+</html>

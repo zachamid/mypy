@@ -1,0 +1,92 @@
+${html_header}
+Content-type: text/html\n\n
+
+
+
+<html>
+  	<head>
+    	<script src="jquery-1.11.1.min.js"></script>
+    	<script src="user_functions.js"></script>
+    	<title>Welcome</title>
+    	<link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    	<link href="general_style.css" rel="stylesheet">
+    	<script>
+    		$( document ).ready(function() {
+    			$('#update').click(function(){
+    				update_user('Student', ${person_record['StudentID']})
+    			});
+			});
+    	</script>
+    </head>
+  	<body>
+  		<div class="container col-sm-6 col-md-9">
+    		<div class="container" style="width:100%">		
+      			<div class="panel panel-default translucent">
+      				<h3>Personal Details</h3>
+      			</div>
+      			<div class="panel panel-default translucent">
+        			<table width="100%" style="border-spacing:10px">
+          				<tr>
+            				<td style="width:50%">
+              					First Name: <input class="form-control" type="text" id="FirstName" value='${person_record['FirstName']}'>
+            				</td>
+            				<td>
+              					<div id="FirstName_alert"></div>
+            				</td>
+          				</tr>
+          				<tr>
+            				<td style="width:50%">
+              					Last Name: <input class="form-control" type="text" id="LastName" value='${person_record['LastName']}'>
+            				</td>
+            				<td>
+              					<div id="LastName_alert"></div>
+            				</td>
+          				</tr>
+          				<tr>
+            				<td style="width:50%">
+              					Email: <input class="form-control" type="text" id="Email" value='${person_record['Email']}' readonly>
+            				</td>
+            				<td>
+              					<div id="Email_alert"></div>
+            				</td>
+          				</tr>
+          				<tr>
+            				<td style="width:50%">
+              					<input class="form-control" type="password" id="Password" placeholder="Old Password">
+            				</td>
+            				<td>
+               					<div id="Password_alert"></div>
+            				</td>
+          				</tr>
+          				<tr>
+            				<td style="width:50%">
+              					<input class="form-control" type="password" id="new_Password" placeholder="New Password">
+            				</td>
+            				<td>
+               					<div id="new_Password_alert"></div>
+            				</td>
+          				</tr>
+          				<tr>
+            				<td style="width:50%">
+              					<input class="form-control" type="password" id="confirm_New_Password" placeholder="Confirm New Password">
+            				</td>
+            				<td>
+               					<div id="confirm_New_Password_alert"></div>
+            				</td>
+          				</tr>
+          				<tr>
+            				<td style="width:50%">
+               					<div id="class_place">${person_record['ClassName']}</div>
+            				</td>
+            				<td>
+            					<button class="form-control" id='update' type="button">
+									Update
+								</button>
+            				</td>
+          				</tr>
+        			</table>
+      			</div>
+    		</div>
+    	</div>
+  	</body>
+</html>

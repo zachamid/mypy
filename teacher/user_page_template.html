@@ -22,7 +22,7 @@ Content-type: text/html
         		<table width="100%" style="border-spacing:10px">
           			<tr>
             			<td style="width:50%">
-              				First Name: <input class="form-control" type="text" id="FirstName" value="${FirstName}">
+              				First Name: <input class="form-control" type="text" id="FirstName" value="${person['FirstName']}">
             			</td>
             			<td>
               				<div id="FirstName_alert"></div>
@@ -30,7 +30,7 @@ Content-type: text/html
           			</tr>
           			<tr>
             			<td style="width:50%">
-              				Last Name: <input class="form-control" type="text" id="LastName" value="${LastName}">
+              				Last Name: <input class="form-control" type="text" id="LastName" value="${person['LastName']}">
             			</td>
             			<td>
               				<div id="LastName_alert"></div>
@@ -38,7 +38,7 @@ Content-type: text/html
           			</tr>
           			<tr>
             			<td style="width:50%">
-              				Email: <input class="form-control" type="text" id="Email" value="${Email}" readonly>
+              				Email: <input class="form-control" type="text" id="Email" value="${person['Email']}" readonly>
             			</td>
             			<td>
               				<div id="Email_alert"></div>
