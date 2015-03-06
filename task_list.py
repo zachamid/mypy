@@ -23,16 +23,18 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		and file_info[task]['task_complete.py'] == 1
 		and file_info[task]['task_skeleton.py'] == 1 
 		and file_info[task]['info.xml'] == 1):
-			tasks[counter]= {}
+			new_task= {}
 			cursor.execute('SELECT * FROM Task WHERE TaskID='+str(task))
 			task_xml = task_delivery.get_task_xml(task)
-			tasks[counter] = cursor.fetchone()
+			new_task = cursor.fetchone()
 			cursor.execute('''SELECT DateStarted, DateModified, DateCompleted 
 							FROM Progress 
 							WHERE TaskID='''+str(task)+' AND StudentID='+str(cookies['id'].value))
 			counter=counter+1
 			progress_info = cursor.fetchone()
-			tasks[counter]['Dates'] = progress_info
+			new_task['Dates'] = progress_info
+			
+			tasks.append(new_task)
 else:
 	header_html += 'Location:index.py'			
 
