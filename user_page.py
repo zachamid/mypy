@@ -26,6 +26,6 @@ else:
 	html_header +=  'Location:index.py'
 	
 include_lookup = TemplateLookup(directories=[os.getcwd()])
-template_file = open('uses_page_template.html')
+template_file = open('user_page_template.html')
 page_template = Template(template_file.read(), lookup=include_lookup)
 print page_template.render(html_header=html_header, name=name, person_record=person_record)
