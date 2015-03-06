@@ -56,7 +56,7 @@ else:
 
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])
-template_file = open('task_page.html','r')
+template_file = open('task_page_template.html','r')
 template = template_file.read()
 page_template = Template(template, lookup=include_lookup)
 print page_template.render(html_header=html_header, name=name, task_xml=task_xml, code=code, task_id = task_id, student_id=student_id)

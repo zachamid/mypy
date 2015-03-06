@@ -40,7 +40,7 @@ else:
 
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])
-template_file = open('playground_template.html','r')
+template_file = open('task_list_template.html','r')
 template = template_file.read()
 page_template = Template(template, lookup=include_lookup)
 print page_template.render(html_header=html_header, name=name, tasks=tasks, type=type)

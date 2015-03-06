@@ -18,7 +18,7 @@ cursor.execute(sql)
 classes = cursor.fetchall()
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])
-template_file = open('task_page.html','r')
+template_file = open('sign_up_template.html','r')
 template = template_file.read()
 page_template = Template(template, lookup=include_lookup)
 print page_template.render(html_header=html_header, classes=classes)
