@@ -95,7 +95,7 @@ Content-type: text/html
 				</div>
 				<div class="panel panel-default translucent" style="width:100%">
 					<table>
-					% for testcase in task_xml['task_xml']['testcase']:
+					% for testcase in task_xml['testcase']['item']:
 						<tr>
 							<td>${testcase['description']['#text']}</td>
 							<td>${testcase['arg']['#text']}</td>
