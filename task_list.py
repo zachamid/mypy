@@ -27,7 +27,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 			cursor.execute('SELECT * FROM Task WHERE TaskID='+str(task))
 			task_xml = task_delivery.get_task_xml(task)
 			new_task = cursor.fetchone()
-			new_task.update(task_xml)
+			new_task.update(task_xml['task_xml'])
 			cursor.execute('''SELECT DateStarted, DateModified, DateCompleted 
 							FROM Progress 
 							WHERE TaskID='''+str(task)+' AND StudentID='+str(cookies['id'].value))
