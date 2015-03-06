@@ -30,7 +30,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 			cursor.execute('''SELECT DateStarted, DateModified, DateCompleted 
 							FROM Progress 
 							WHERE TaskID='''+str(task)+' AND StudentID='+str(cookies['id'].value))
-			counter++
+			counter=counter+1
 			progress_info = cursor.fetchone()
 			tasks[counter]['Dates'] = progress_info
 else:
