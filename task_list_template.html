@@ -40,9 +40,8 @@ Content-type: text/html
       					<th><b>Date Modified</b></th>
       					<th><b>Date Completed</b></th>
       				</tr>
-					<tr>
 						% for task in tasks:
-							<td>
+							<tr><td>
 								<a onclick='open_task_page(${task['TaskID']})'>
 									${task['TaskID']}
 								</a>
@@ -63,9 +62,8 @@ Content-type: text/html
 							</td>
 							<td>
 								${task['Dates']['DateCompleted']}
-							</td>
+							</td></tr>
 						% endfor 
-					</tr>
       			</table>
       		</div>
       	</div>
