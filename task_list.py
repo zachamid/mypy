@@ -18,12 +18,12 @@ if cookies.has_key('id') and cookies.has_key('type'):
 	name = record['FirstName']+' '+record['LastName']
 	file_info = task_delivery.get_file_info()
 	counter = 0
-	tasks[counter]= {}
 	for task in file_info:
 		if(file_info[task]['directory'] == 1 
 		and file_info[task]['task_complete.py'] == 1
 		and file_info[task]['task_skeleton.py'] == 1 
 		and file_info[task]['info.xml'] == 1):
+			tasks[counter]= {}
 			cursor.execute('SELECT * FROM Task WHERE TaskID='+str(task))
 			task_xml = task_delivery.get_task_xml(task)
 			tasks[counter] = cursor.fetchone()
