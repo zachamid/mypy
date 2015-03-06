@@ -20,7 +20,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		record=cursor.fetchone()
 		name = record['FirstName']+' '+record['LastName']
 else:
-	html_header = 'Location: index.py'
+	html_header += 'Location: index.py'
 
 submitted_code = ''
 submitted_output = ''
