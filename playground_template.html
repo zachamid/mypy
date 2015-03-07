@@ -42,10 +42,11 @@ Content-type: text/html
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
-		% if type == 'Student':
-			<%include file='navbar.html'>
-		% elif type == 'Teacher':
-			<%include 
+		% if type == 'Student' or type == 'Teacher':
+			<%include file='navbar.html'/>
+		% else:
+			<%include file='header.html'/>
+		% endif
 		<div class="col-xs-12 col-md-12 col-sm-12">
 		<div class="panel panel-default translucent" style='padding:0px'>
 			<table style='padding:10px;width:100%'>
