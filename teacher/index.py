@@ -1,4 +1,5 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+
 
 import Cookie, cgi, cgitb, os,sys
 from mako.template import Template
