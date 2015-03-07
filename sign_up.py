@@ -11,6 +11,8 @@ cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
 	html_header += cookies
 	html_header += 'Location: user_page.py'
+else:
+	Content-type: text/html
 
 sql = '''SELECT ClassID, ClassName FROM Class'''
 cursor = db_connection.get_connection()
