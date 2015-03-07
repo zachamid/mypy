@@ -4,7 +4,7 @@ import Cookie, cgi, cgitb, os,sys
 from mako.template import Template
 from mako.lookup import TemplateLookup
 sys.path.append(os.pardir)
-import common_components, db_connection
+import db_connection
 
 cgitb.enable()
 
