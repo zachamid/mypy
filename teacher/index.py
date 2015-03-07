@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 import Cookie, cgi, cgitb, os,sys
 sys.path.append(os.pardir)
