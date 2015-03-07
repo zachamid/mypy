@@ -1,0 +1,95 @@
+${html_header}
+Content-type: text/html
+
+
+
+<html>
+	<head>
+		<script src="skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
+		<script src="skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
+		<script src="jquery-1.11.1.min.js" type="text/javascript"></script> 
+		<link rel="stylesheet" href="/codemirror-5.0/lib/codemirror.css">
+		<script src="/codemirror-5.0/lib/codemirror.js"></script>
+		<script src="/codemirror-5.0/mode/python/python.js"></script>
+		<script src="python_functions.js" type="text/javascript"></script>
+		<script src="user_functions.js" type="text/javascript"></script>
+		<script>
+		$(function() {
+			var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+    			lineNumbers: true,
+    			mode: "python"
+  			});
+  			
+  			$('#run').click(function(){
+  				editor.save();
+  				code = document.getElementById('code').value;
+  				run_code(code,'output','error');
+  			});
+  			$('#load_tutorial').click(function(){
+  				tutorial_id = document.getElementById('tutorials').value;
+  				$.ajax({
+    			data : {cmd:'Get_Tutorial', tutorial_id: tutorial_id},
+		    	url : '/read_task_information.py',
+    			type : "POST",
+    			dataType : "text"}).done(function(result){
+    				editor.setValue(result);
+		    	});
+  			});
+  			
+		});
+		</script>
+		<link rel="stylesheet" type="text/css" href="general_style.css">
+    	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		% if type == 'Student' or type == 'Teacher':
+			<%include file='navbar.html'/>
+		% else:
+			<%include file='header.html'/>
+		% endif
+		<div class="col-xs-12 col-md-12 col-sm-12">
+		<div class="panel panel-default translucent" style='padding:0px'>
+			<table style='padding:10px;width:100%'>
+				<tr>
+					<td style='padding:10px;width:80%'>
+						<select class="form-control" id='tutorials'>
+						% for tutorial in tutorials:
+							<option value='${tutorial['TutorialID']}'>
+								${tutorial['TutorialName']}
+							</option>
+						% endfor
+						</select>
+					</td>
+					<td style='padding:10px;width:20%'>
+						<button class="form-control" id="load_tutorial">Load</button>
+					</td>
+				</tr>
+			</table>
+		</div></div>
+		<div class="col-xs-12 col-md-6 col-sm-12">
+			<div class="panel panel-default translucent">
+				<div class="panel-heading">Python Source Code</div>
+				<div class='container' style="width:100%">
+					<textarea class='CodeMirror cm-s-default' rows="10" id="code"></textarea>
+				</div>
+				<button class="form-control" id='run'
+						 type="button">
+						Run
+					</button>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-6 col-sm-12">
+			<div class="panel panel-default translucent">
+				<div class="panel-heading">Output</div>
+				<div class='container' style="width:100%">
+					<textarea rows="5" class ='' id="output" readonly></textarea>
+				</div>
+				<div class="panel-heading">Error Console</div>
+				<div class='container' style="width:100%">
+					<textarea id="error" class ='' rows=5 readonly></textarea>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+"""
