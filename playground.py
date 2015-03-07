@@ -22,8 +22,6 @@ cursor.execute('SELECT TutorialID, TutorialName FROM Tutorial')
 tutorials = cursor.fetchall()
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])
-if type == 'Teacher':
-	include_lookup = TemplateLookup(directories=[os.getcwd()+'/teacher'])
 	
 template_file = open('playground_template.html','r')
 
