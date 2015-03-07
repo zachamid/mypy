@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import cgi, cgitb, json, MySQLdb, os,Cookie
+import cgi, cgitb, json, MySQLdb, os,Cookie, sys
 sys.path.append(os.pardir)
 import db_connection, common_components
 from mako.template import Template
