@@ -47,24 +47,29 @@ Content-type: text/html
 					<td><b>Date Completed</b></td>
 					<td><b>Score</b></td>
 				</tr>
-					for record in progress_records:
+					% for record in progress_records:
 						<tr onclick='open_correction('${record['TaskID']}')'>
 						<td>${record['TaskID']}</td>'
-						<td>${record['Title']}</td>
-						<td>${record['DateStarted'].strftime("%Y-%m-%d %H:%M:%S")}</td>
-						<td>
-						if record['DateModified'] is not None:
+						<td>${record['Title']}</td><td>
+						% if record['DateStarted'] is not None:
+							${record['DateStarted'].strftime("%Y-%m-%d %H:%M:%S")}
+						% endif
+						</td><td>
+						% if record['DateModified'] is not None:
 							${record['DateModified'].strftime("%Y-%m-%d %H:%M:%S")}
+						% endif
 						</td>
-						if record['DateCompleted'] is not None:
+						% if record['DateCompleted'] is not None:
 							<td>
-								${record['DateCompleted'].strftime("%Y-%m-%d %H:%M:%S")}
+							${record['DateCompleted'].strftime("%Y-%m-%d %H:%M:%S")}
 							</td>
 							<td>${score[record['TaskID']]}</td>
-						else:
+						% else:
 							<td></td>
 							<td></td>
+						% endif
 						</tr>
+					% endfor
 				</table>
 			</div>
 		</div>
