@@ -15,7 +15,7 @@ name = ''
 if cookies.has_key('id') and cookies.has_key('type'):
 	html_header += str(cookies)
 	if cookies['type'].value == 'Student':
-		html_header += 'Location:../index.py'
+		html_header += '\nLocation:../index.py'
 	else:
 		cursor.execute('SELECT * FROM Teacher WHERE TeacherID='+cookies['id'].value)
 		record = cursor.fetchone()
