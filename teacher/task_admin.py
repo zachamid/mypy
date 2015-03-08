@@ -12,7 +12,7 @@ cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 html_header = ''
 name = ''
 type = ''
-cursor = db_connection.get_cursor()
+cursor = db_connection.get_connection()
 
 
 if cookies.has_key('id') and cookies.has_key('type'):

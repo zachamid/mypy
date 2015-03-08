@@ -2,7 +2,7 @@
 
 import Cookie, cgi, cgitb, os,sys
 sys.path.append(os.pardir)
-import common_components
+import common_components,db_connection
 from mako.template import Template
 from mako.lookup import TemplateLookup
 
@@ -12,7 +12,7 @@ cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 html_header = ''
 name = ''
 type = 'Teacher'
-cursor = db_connection.get_cursor()
+cursor = db_connection.get_connection()
 
 if cookies.has_key('id') and cookies.has_key('type'):
 	html_header += str(cookies)
