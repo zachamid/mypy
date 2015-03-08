@@ -2,6 +2,8 @@
 
 import cgi, cgitb, json, MySQLdb, db_connection, Cookie, common_components,os
 from task_correction import calc_score as calc_score
+from mako.template import Template
+from mako.lookup import TemplateLookup
 cgitb.enable()
 
 html_header = ''
