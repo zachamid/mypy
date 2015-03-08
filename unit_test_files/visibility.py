@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from splinter import Browser
+import time
 
 browser = Browser('zope.testbrowser')
 url = 'http://webvm.cs.man.ac.uk/'
@@ -30,4 +31,5 @@ browser.cookies.add({'id': '3'})
 
 for site in sites:
 	browser.visit(url+site)
+	time.sleep(1000)
 	print browser.url
