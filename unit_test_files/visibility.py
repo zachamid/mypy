@@ -24,7 +24,7 @@ sites = [
 for site in sites:
 	browser.visit(url+site)
 	browser.reload()
-	print site+ ':'+browser.title
+	print site+ '\t:\t'+browser.title
 	
 print '\n\nWith Student Credentials:'
 browser.cookies.add({'type': 'Student'})
@@ -34,7 +34,7 @@ print browser.cookies.all()
 for site in sites:
 	browser.visit(url+site)
 	browser.reload()
-	print site+ ':'+browser.title
+	print site+ '\t:\t'+browser.title
 
 print '\n\nWith Teacher Credentials:'
 browser.cookies.add({'type': 'Teacher'})
@@ -44,7 +44,7 @@ print browser.cookies.all()
 for site in sites:
 	browser.visit(url+site)
 	browser.reload()
-	print site+ ':'+browser.title
+	print site+ '\t:\t'+browser.title
 	
 print '\n\nWith Administrator Credentials:'
 browser.cookies.add({'type': 'Teacher'})
@@ -54,4 +54,4 @@ print browser.cookies.all()
 for site in sites:
 	browser.visit(url+site)
 	browser.reload()
-	print site+ ':'+browser.title
+	print site+ '\t:\t'+browser.title
