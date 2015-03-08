@@ -13,9 +13,9 @@ html_header = ''
 if cookies.has_key('id') and cookies.has_key('type'):
 	html_header += str(cookies)
 	if cookies['type'].value == 'Student':
-		html_header += 'Location:../index.py'
+		html_header += '\nLocation:../index.py\n'
 	else:
-		html_header += 'Location:index.py'
+		html_header += '\nLocation:index.py\n'
 html_header += 'Content-type: text/html'
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])
