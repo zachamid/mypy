@@ -16,15 +16,16 @@ cursor = db_connection.get_connection()
 
 if cookies.has_key('id') and cookies.has_key('type'):
 	html_header += str(cookies)
-	if cookies['type'].value == 'Teacher':
+	if cookies['type'].value == 'Student':
+		html_header += 'Location: index.py'
+	else:
 		html_header += 'Location:../index.py'
 		cursor.execute('SELECT * FROM Teacher WHERE TeacherID='+cookies['id'].value)
 		record = cursor.fetchone()
 		if record['Administrator'] == 0:
 			type = 'Administrator'
 		name = record['FirstName'] + ' ' + record['LastName']
-	else:
-		html_header += 'Location: index.py'
+		
 else:
 	html_header += 'Location: index.py'
 
