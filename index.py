@@ -13,6 +13,7 @@ print """Content-type: text/html\n\n
 <script src="/jquery-1.11.1.min.js"></script>
 <link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
 <script src='user_functions.js'></script>
+<title>Welcome to MyPy</title>
 <link rel="stylesheet" type="text/css" href="general_style.css">
 </head><body>"""
 if not (cookies.has_key('id') and cookies.has_key('type')):
