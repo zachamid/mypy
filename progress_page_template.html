@@ -60,7 +60,7 @@ Content-type: text/html
 							<td>
 								${record['DateCompleted'].strftime("%Y-%m-%d %H:%M:%S")}
 							</td>
-							<td>${record['score']}</td>
+							<td>${score[record['TaskID']]}</td>
 						else:
 							<td></td>
 							<td></td>

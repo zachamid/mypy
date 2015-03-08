@@ -9,6 +9,7 @@ cgitb.enable()
 html_header = ''
 name = ''
 progress_records = ()
+scores = {}
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
 	html_header += str(cookies)
@@ -22,7 +23,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 					WHERE Progress.StudentID=%s'''%(cookies['id'].value))
 	progress_records = cursor.fetchall()
 	for record in progress_records:
-		record['score'] = calc_score(record['Correctness_Points'],record['Similarity_Points'],record['Attempts_Points'],record['Time_Points'])
+		score[record['TaskID']] = calc_score(record['Correctness_Points'],record['Similarity_Points'],record['Attempts_Points'],record['Time_Points'])
 	
 	if cookies['type'].value == 'Teacher':
 		html_header += 'Location: index.py'
@@ -33,4 +34,4 @@ include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('progress_page_template.html','r')
 template = template_file.read()
 page_template = Template(template, lookup=include_lookup)
-print page_template.render(html_header=html_header, name=name, progress_records=progress_records)
+print page_template.render(html_header=html_header, name=name, progress_records=progress_records, score=score)
