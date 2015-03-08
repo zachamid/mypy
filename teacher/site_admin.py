@@ -15,17 +15,17 @@ name = ''
 if cookies.has_key('id') and cookies.has_key('type'):
 	html_header += str(cookies)
 	if cookies['type'].value == 'Student':
-		html_header += '\nLocation:../index.py'
+		html_header += '\nLocation:../index.py\n'
 	else:
 		cursor.execute('SELECT * FROM Teacher WHERE TeacherID='+cookies['id'].value)
 		record = cursor.fetchone()
 		if record['Administrator'] == 0:
-			html_header += 'Location:index.py'
+			html_header += '\nLocation:index.py\n'
 		else:
 			name = record['FirstName'] + ' ' + record['LastName']
 		
 else:
-	html_header += 'Location:../index.py'
+	html_header += 'Location:../index.py\n'
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('site_admin_template.html')
