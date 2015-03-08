@@ -11,6 +11,7 @@ html_header = ''
 student_id = 0
 task_id = 0
 code = ''
+task_xml = {}
 name = ''
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 
