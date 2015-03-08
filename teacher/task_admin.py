@@ -25,6 +25,8 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		if record['Administrator'] == 0:
 			type = 'Administrator'
 		name = record['FirstName'] + ' ' + record['LastName']
+	else:
+		html_header += 'Location: ../index.py'
 else:
 	html_header += 'Location: ../index.py'
 
