@@ -18,5 +18,5 @@ cursor.execute('''SELECT * FROM Progress
 attempts = cursor.fetchall()
 
 template_file = open('student_progress_template.html')
-page_template = Template(template_file.read(), lookup=include_lookup)
+page_template = Template(template_file.read())
 print page_template.render(attempts=attempts)
