@@ -16,7 +16,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		html_header += 'Location:../index.py'
 	else:
 		html_header += 'Location:index.py'
-'Content-type: text/html'
+html_header += 'Content-type: text/html'
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('sign_up_template.html')
