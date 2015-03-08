@@ -1,0 +1,73 @@
+${html_header}
+Content-type: text/html
+
+
+
+<html>
+	<head>
+		<script src="skulpt-latest/skulpt.min.js" type="text/javascript"></script> 
+		<script src="skulpt-latest/skulpt-stdlib.js" type="text/javascript"></script> 
+		<script src="jquery-1.11.1.min.js" type="text/javascript"></script> 
+		<script src="python_functions.js" type="text/javascript"></script>
+		<script src="user_functions.js" type="text/javascript"></script>
+		<script src="task_admin_functions.js" type="text/javascript"></script>
+    	<link rel="stylesheet" type="text/css" href="general_style.css">
+    	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+		<script>
+			function open_correction(taskID){
+				var mapForm = document.createElement("form");
+	    		mapForm.method = "POST";
+	  		  	mapForm.action = "/correction_page.py";
+				var taskid = document.createElement("input");
+			    taskid.type = "text";
+			    taskid.name = "task_id";
+				taskid.value = taskID;
+			    mapForm.appendChild(taskid);
+    			document.getElementById('postform').appendChild(mapForm);
+    			mapForm.submit();
+			}
+		</script>
+		<style>
+			table,td,th, tr {
+    			border: 0.5px solid black;
+    			padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="container col-sm-6 col-md-9">
+			<div class="panel  panel-default translucent">
+				<table width="100%">
+				<tr>
+					<td><b>ID</b></td>
+					<td><b>Task Name</b></td>
+					<td><b>Date Started</b></td>
+					<td><b>Date Modified</b></td>
+					<td><b>Date Completed</b></td>
+					<td><b>Score</b></td>
+				</tr>
+					for record in progress_records:
+						<tr onclick='open_correction('${record['TaskID']}')'>
+						<td>${record['TaskID']}</td>'
+						<td>${record['Title']}</td>
+						<td>${record['DateStarted'].strftime("%Y-%m-%d %H:%M:%S")}</td>
+						<td>
+						if record['DateModified'] is not None:
+							${record['DateModified'].strftime("%Y-%m-%d %H:%M:%S")}
+						</td>
+						if record['DateCompleted'] is not None:
+							<td>
+								${record['DateCompleted'].strftime("%Y-%m-%d %H:%M:%S")}
+							</td>
+							<td>${record['score']}</td>
+						else:
+							<td></td>
+							<td></td>
+						</tr>
+				</table>
+			</div>
+		</div>
+		<div id="postform" style="display: none;"></div>
+	</body>
+</html>
