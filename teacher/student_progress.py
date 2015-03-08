@@ -16,7 +16,8 @@ cursor.execute('''SELECT * FROM Progress
 				ON Task.TaskID = Progress.TaskID
 				WHERE Progress.StudentID ='''+str(student_id))
 attempts = cursor.fetchall()
-
+for attempt in attempts:
+	attempt['Score'] = calc_score(attempt['Correctness_Points'],attempt['Similarity_Points'],attempt['Time_Points'],attempt['Attempts_Points'])
 template_file = open('student_progress_template.html')
 page_template = Template(template_file.read())
 print page_template.render(attempts=attempts)
