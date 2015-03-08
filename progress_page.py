@@ -8,7 +8,7 @@ cgitb.enable()
 
 html_header = ''
 name = ''
-progress_records = {}
+progress_records = ()
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
 	html_header += str(cookies)
