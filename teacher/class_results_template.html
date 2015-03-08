@@ -23,6 +23,9 @@ Content-type: text/html
   				border: 1px solid #999;
   				padding: 0.5rem;
 			}
+			.clickable:hover {
+				background-color: #999;
+			}
     	</style>
     	<script>
     		function print_student_results(Student_ID){
@@ -59,7 +62,7 @@ Content-type: text/html
 						</th>
 					</tr>
 					% for Student in students:
-						<tr>
+						<tr class='clickable' onclick='print_student_results(${Student['id']})'>
 						<td>${Student['id']}</td>
 						<td>${Student['name']}</td>
 						<td>${Student['no_tasks']}</td>
