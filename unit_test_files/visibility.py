@@ -26,7 +26,7 @@ for site in sites:
 	
 print '\n\nWith Student Credentials:'
 browser.cookies.add({'type': 'Student'})
-browser.cookies.add({'id': 3})
+browser.cookies.add({'id': '3'})
 
 for site in sites:
 	browser.visit(url+site)
