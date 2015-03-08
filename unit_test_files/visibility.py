@@ -31,5 +31,5 @@ browser.cookies.add({'id': '3'})
 
 for site in sites:
 	browser.visit(url+site)
-	time.sleep(1000)
+	time.sleep(1)
 	print browser.url
