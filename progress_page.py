@@ -21,8 +21,8 @@ if cookies.has_key('id') and cookies.has_key('type'):
 					ON Progress.TaskID = Task.TaskID
 					WHERE Progress.StudentID=%s'''%(cookies['id'].value))
 	progress_records = cursor.fetchall()
-	for progress in progress_records:
-		progress['score'] = calc_score(progress['Correctness_Points'],progress['Similarity_Points'],progress['Attempts_Points'],progress['Time_Points'])
+	for record in progress_records:
+		record['score'] = calc_score(record['Correctness_Points'],record['Similarity_Points'],record['Attempts_Points'],record['Time_Points'])
 	
 	if cookies['type'].value == 'Teacher':
 		html_header += 'Location: index.py'
