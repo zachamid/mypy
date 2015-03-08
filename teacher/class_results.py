@@ -14,9 +14,9 @@ name = ''
 students = {}
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
-	html_header += str(cookies)+'\n'
+	html_header += str(cookies)
 	if cookies['type'].value == 'Student':
-		html_header += 'Location:../index.py'
+		html_header += '\nLocation:../index.py\n'
 	else:
 		if 'id' in cookies:
 			cursor = db_connection.get_connection()
@@ -65,7 +65,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 					student_stats['avg_score'] = (float)(running_total)/student_stats['no_tasks']
 				students.append(student_stats)
 else:
-	html_header +=  'Location: index.py'
+	html_header +=  'Location: index.py\n'
 
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])
