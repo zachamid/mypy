@@ -34,3 +34,21 @@ for site in sites:
 	browser.visit(url+site)
 	browser.reload()
 	print browser.url
+
+print '\n\nWith Teacher Credentials:'
+browser.cookies.add({'type': 'Teacher'})
+browser.cookies.add({'id': '2'})
+
+for site in sites:
+	browser.visit(url+site)
+	browser.reload()
+	print browser.url
+	
+print '\n\nWith Administrator Credentials:'
+browser.cookies.add({'type': 'Teacher'})
+browser.cookies.add({'id': '3'})
+
+for site in sites:
+	browser.visit(url+site)
+	browser.reload()
+	print browser.url
