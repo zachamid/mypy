@@ -11,13 +11,15 @@ html_header = ''
 cursor = db_connection.get_connection()
 
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
+task_info = cgi.FieldStorage()
+
 submitted_code = ''
 submitted_output = ''
 correctness_score = 0
 jaccard_score = 0
 attempt_score = 0
 time_score = 0
-if cookies.has_key('id') and cookies.has_key('type'):
+if cookies.has_key('id') and cookies.has_key('type') and task_info.has_key('task_id'):
 	if cookies['type'] == 'Teacher':
 		html_header += 'Location: index.py'
 	else:
@@ -26,7 +28,6 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		record=cursor.fetchone()
 		name = record['FirstName']+' '+record['LastName']
 		if cookies['type'].value == 'Student':
-			task_info = cgi.FieldStorage()
 			student_id = cookies['id'].value
 			task_id = task_info['task_id'].value
 			currtime = datetime.datetime.now()
