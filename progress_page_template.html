@@ -48,7 +48,7 @@ Content-type: text/html
 					<td><b>Score</b></td>
 				</tr>
 					% for record in progress_records:
-						<tr onclick='open_correction('${record['TaskID']}')'>
+						<tr onclick='open_correction(${record['TaskID']})'>
 						<td>${record['TaskID']}</td>'
 						<td>${record['Title']}</td><td>
 						% if record['DateStarted'] is not None:
