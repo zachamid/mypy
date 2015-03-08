@@ -215,7 +215,7 @@ Content-type: text/html
       				url : '/insert.py',
       				type : "POST",
       				dataType : "text"}).done(function(result){
-      					getTeacherList();
+      					getTeacherList(document.getElementById('class_select').value);
       				});
  			}
  					
