@@ -22,7 +22,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		name = record['FirstName']+' '+record['LastName']
 		type = 'Teacher'	
 	elif cookies['type'].value == 'Student':
-		html_header += 'Location:../index.py'
+		html_header += '\nLocation:../index.py'
 html_header = 'Content-type: text/html'
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])

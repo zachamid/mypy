@@ -14,8 +14,7 @@ name = ''
 students = {}
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
-	html_header += str(cookies)
-	
+	html_header += str(cookies)+'\n'
 	if cookies['type'].value == 'Student':
 		html_header += 'Location:../index.py'
 	else:
