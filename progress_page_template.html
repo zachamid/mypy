@@ -49,7 +49,7 @@ Content-type: text/html
 				</tr>
 					% for record in progress_records:
 						<tr onclick='open_correction(${record['TaskID']})'>
-						<td>${record['TaskID']}</td>'
+						<td>${record['TaskID']}</td>
 						<td>${record['Title']}</td><td>
 						% if record['DateStarted'] is not None:
 							${record['DateStarted'].strftime("%Y-%m-%d %H:%M:%S")}
