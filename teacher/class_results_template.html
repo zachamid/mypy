@@ -25,16 +25,18 @@ Content-type: text/html
 			}
     	</style>
     	<script>
-    		function print_res(studentID, taskID){
-				data = {taskID:taskID, studentID:studentID}
+    		function print_student_results(Student_ID){
+				data = {studentID:studentID}
 				$.ajax({
     			data : data,
-      			url : '/teacher/attempt_info.py',
+      			url : '/teacher/student_progress.py',
       			type : "POST",
       			dataType : "html"}).done(function(result){
-      				document.getElementById('Attempt').innerHTML = result;
+      				document.getElementById('student_results').innerHTML = result;
       			});
       		}
+      		
+      		
     	</script>
     </head>
     <body>
@@ -65,6 +67,12 @@ Content-type: text/html
 						</tr>
 					% endfor
 				</table>
+			</div>
+		</div>
+		<div class="container col-sm-6 col-md-6">
+			<div class="panel panel-default translucent">
+				<div id='students_results'>
+				</div>
 			</div>
 		</div>
     </body>

@@ -1,0 +1,17 @@
+Content-type: text/html
+
+<table>
+	% for attempt in attempts:
+		<tr>
+			<td>
+				${attempt['TaskID']}
+			</td>
+			<td>
+				${attempt['TaskName']}
+			</td>
+			<td>
+				${attempt['Score']}
+			</td>
+		</tr>
+	% endfor
+</table>
