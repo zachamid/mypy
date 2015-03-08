@@ -32,5 +32,5 @@ print browser.cookies.all()
 
 for site in sites:
 	browser.visit(url+site)
-	time.sleep(10)
+	browser.reload()
 	print browser.url
