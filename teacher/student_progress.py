@@ -9,7 +9,7 @@ from mako.lookup import TemplateLookup
 cgitb.enable()
 
 cursor = db_connection.get_connection()
-student_id = cgi.FieldStorage()['StudentID'].value
+student_id = cgi.FieldStorage()['studentID'].value
 
 cursor.execute('''SELECT * FROM Progress
 				LEFT JOIN Task
