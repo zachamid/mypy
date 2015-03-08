@@ -244,7 +244,7 @@ Content-type: text/html
   				getTeachers();
   				getAdminList();
   				getNonAdminSelect();
-  				getClassList('class_select');
+  				getClasses('class_select');
   			});
  		</script>
 		<style>
@@ -317,7 +317,7 @@ Content-type: text/html
 				</br>
 				<table><tr>
 				<td><select class="form-control" id='admin_select'></select></td>
-				<td><button class="form-control" onclick='getClasses("class_select")'onchange='toggleAdmin(document.getElementById("admin_select").value, 1)'>Make Admin</button></td>
+				<td><button class="form-control" onclick='getClasses("class_select")' onchange='toggleAdmin(document.getElementById("admin_select").value, 1)'>Make Admin</button></td>
 				</table>
 				</div>
 			</div>
