@@ -16,7 +16,7 @@ name = ''
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 task_info = cgi.FieldStorage()
 
-if cookies.has_key('id') and cookies.has_key('type') and task_info.has_key('task_id'):
+if task_info.has_key('task_id') and cookies.has_key('id') and cookies.has_key('type') :
 	if cookies['type'] == 'Teacher':
 		html_header += 'Location: index.py'
 	else:
