@@ -9,10 +9,12 @@ cgitb.enable()
 html_header = ''  
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 if cookies.has_key('id') and cookies.has_key('type'):
-	html_header += cookies
-	html_header += 'Location: user_page.py'
-else:
-	print 'Content-type: text/html'
+	html_header += str(cookies)
+	if cookies['type'] == 'Teacher':
+		html_header += '\nLocation: teacher/user_page.py\n'
+	else:
+		html_header += '\nLocation: user_page.py\n'
+print 'Content-type: text/html'
 
 sql = '''SELECT ClassID, ClassName FROM Class'''
 cursor = db_connection.get_connection()
