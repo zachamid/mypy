@@ -17,7 +17,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 	record = cursor.fetchone()
 	name = record['FirstName']+' '+record['LastName']
 	type = cookies['type'].value
-html_header += 'Content-type: text/html'
+html_header += '\nContent-type: text/html\n\n'
 
 cursor.execute('SELECT TutorialID, TutorialName FROM Tutorial')
 tutorials = cursor.fetchall()
