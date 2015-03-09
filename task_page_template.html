@@ -36,6 +36,15 @@ Content-type: text/html
     		document.getElementById('postform').appendChild(mapForm);
     		//mapForm.submit();
 		}
+		
+		function run_attempt(code){
+			% if ('testcase' in task_xml and 'method' in task_xml):
+	 			compile_code(code, ${task_id},'output','error');
+			% else:
+				run_code(code,'output','error');
+			% endif
+		}
+		
 		$(function() {
 			var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
     			lineNumbers: true,
@@ -45,26 +54,24 @@ Content-type: text/html
   			$('#run').click(function(){
   				editor.save();
   				code = document.getElementById('code').value;
-				% if ('testcase' in task_xml and 'method' in task_xml):
-	 				compile_code(code, ${task_id},'output','error');
-				% else:
-					run_code(code,'output','error');
-				% endif
+				run_attempt(code);
   			});
   			
   			$('#save').click(function(){
+  				editor.save();
+	  			code = document.getElementById('code').value;
+	  			run_attempt(code);
   				if(document.getElementById('error').value != ''){
-	  				editor.save();
-	  				code = document.getElementById('code').value;
 	  				save_code(code,${task_id},${student_id});
 	  			}
   			});
   			
   			$('#correct').click(function(){
+  				editor.save();
+  				code = document.getElementById('code').value;
+  				run_attempt(code);
   				if(document.getElementById('error').value != ''){
-	  				editor.save();
-	  				code = document.getElementById('code').value;
-  					correct(${task_id});
+	  				correct(${task_id});
   				}
   			});
 		});
