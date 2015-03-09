@@ -38,7 +38,7 @@ if cookies.has_key('id') and cookies.has_key('type') and 'task_id' in attempt_in
 		submitted_output = progress_info['Output']
 		print html_header
 		print 'Content-type: text/html\n\n\n'
-		print submitted_code.replace('\n','.').replace('</br>','&&')
+		print submitted_code.replace('\r','.').replace('</br>','&&')
 
 		correct_output = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
 		correct_code = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
