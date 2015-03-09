@@ -14,7 +14,7 @@ cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 task_info = cgi.FieldStorage()
 task_id = task_info['task_id']
 
-correct_output = correctcode = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
+correct_output = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
 correct_code = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
 correct_code = correct_code.replace('</br>','\n')
 correct_code = correct_code.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t').rstrip()
