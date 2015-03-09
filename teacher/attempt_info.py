@@ -34,8 +34,8 @@ if cookies.has_key('id') and cookies.has_key('type') and 'task_id' in attempt_in
 		cursor.execute(sql_query)
 		progress_info = cursor.fetchone()
 	
-		submitted_code = progress_info['Code']
-		submitted_output = progress_info['Output']
+		submitted_code = progress_info['Code'].replace('\n','</br>')
+		submitted_output = progress_info['Output'].replace('\n','</br>')
 
 		correct_output = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
 		correct_code = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
