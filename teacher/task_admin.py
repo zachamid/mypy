@@ -23,7 +23,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		cursor.execute('SELECT * FROM Teacher WHERE TeacherID='+cookies['id'].value)
 		record = cursor.fetchone()
 		type = 'Teacher'
-		if record['Administrator'] == 0:
+		if record['Administrator'] == 1:
 			type = 'Administrator'
 		name = record['FirstName'] + ' ' + record['LastName']
 		

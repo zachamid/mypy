@@ -42,8 +42,10 @@ ${html_header}
     	<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
-		% if type == 'Student' or type == 'Teacher':
+		% if type == 'Student':
 			<%include file='navbar.html'/>
+		% elif type == 'Teacher':
+			<%include file='teacher_navbar.html'/>
 		% else:
 			<%include file='header.html'/>
 		% endif
