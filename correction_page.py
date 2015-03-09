@@ -60,7 +60,7 @@ if cookies.has_key('id') and cookies.has_key('type') and task_info.has_key('task
 		
 				jaccard_score = task_correction.compare_asts(correct_code, submitted_code)
 			
-				attempt_score = task_correction.judge_attempts(progress_record['Attempts']+1)
+				attempt_score = task_correction.judge_attempts(progress_record['Attempts'])
 	
 				min_time = task_correction.quickest_time(times)
 				task_time = (progress_record['DateCompleted']-progress_record['DateStarted']).seconds
