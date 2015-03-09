@@ -21,7 +21,6 @@ if cookies.has_key('id') and cookies.has_key('type'):
 	if cookies['type'].value == 'Student':
 		html_header += '\nLocation:../index.py\n'
 	else:
-		print 'Content-type: text/html\n\n'
 		cursor = db_connection.get_connection()
 		cursor.execute('''SELECT FirstName, LastName, Administrator FROM Teacher WHERE 
 							TeacherID='''+str(cookies['id'].value))
