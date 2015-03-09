@@ -55,13 +55,19 @@ Content-type: text/html
 								${task['difficulty']['#text']}
 							</td>
 							<td>
-								${task['Dates']['DateStarted']}
+								%if 'DateStarted' in task['Dates']:
+									${task['Dates']['DateStarted']}
+								%endif
 							</td>
 							<td>
-								${task['Dates']['DateModified']}
+								%if 'DateModified' in task['Dates']:
+									${task['Dates']['DateModified']}
+								%endif
 							</td>
 							<td>
-								${task['Dates']['DateCompleted']}
+								%if 'DateCompleted' in task['Dates']:
+									${task['Dates']['DateCompleted']}
+								%endif
 							</td></tr>
 						% endfor 
       			</table>
