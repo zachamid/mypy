@@ -13,10 +13,16 @@ name = ''
 type = ''
 if cookies.has_key('id') and cookies.has_key('type'):
 	html_header += str(cookies)
-	cursor.execute('SELECT FirstName, LastName FROM %s WHERE %sID=%s' % (cookies['type'].value,cookies['type'].value,str(cookies['id'].value)))
+	if cookies['type'].value == 'Student':
+		cursor.execute('SELECT FirstName, LastName FROM Student WHERE StudentID=%s' % (str(cookies['id'].value)))
+		type = 'Student'
+	else:
+		cursor.execute('SELECT FirstName, LastName, Administrator FROM Teacher WHERE TeacherID=%s' % (str(cookies['id'].value)))
+		type = 'Teacher'
 	record = cursor.fetchone()
+	if 'Administrator' in record and record['Administrator'] == 1:
+		type = 'Administrator'
 	name = record['FirstName']+' '+record['LastName']
-	type = cookies['type'].value
 html_header += '\nContent-type: text/html\n\n'
 
 cursor.execute('SELECT TutorialID, TutorialName FROM Tutorial')
