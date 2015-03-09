@@ -61,7 +61,7 @@ Content-type: text/html
   				editor.save();
 	  			code = document.getElementById('code').value;
 	  			run_attempt(code);
-  				if(document.getElementById('error').value != ''){
+  				if(document.getElementById('error').value == ''){
 	  				save_code(code,${task_id},${student_id});
 	  			}
   			});
@@ -70,7 +70,7 @@ Content-type: text/html
   				editor.save();
   				code = document.getElementById('code').value;
   				run_attempt(code);
-  				if(document.getElementById('error').value != ''){
+  				if(document.getElementById('error').value == ''){
 	  				correct(${task_id});
   				}
   			});
