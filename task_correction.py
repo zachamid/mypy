@@ -146,7 +146,7 @@ def remark_time(min_time, times):
 	for time in times:
 		if(time['DateCompleted'] is not None):
 			delta = (time['DateCompleted'] - time['DateStarted']).seconds
-			new_score = min_time/(float)delta
+			new_score = (float)(min_time)/delta
 			cursor.execute('''UPDATE Progress SET Time_Points=%s WHERE ProgressID=%s
 							''' % (str(new_score), time['ProgressID']))
 		
