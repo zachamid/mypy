@@ -29,14 +29,15 @@ Content-type: text/html
 		    code.type = "textarea";
     		code.name = "code";
     		code.value = document.getElementById('code').value
+    		console.log(code.value);
     		var output = document.createElement("input");
     		output.type = "textarea";
     		output.name = "output";
-    		output.value = document.getElementById('output');
+    		output.value = document.getElementById('output').value;
     		mapForm.appendChild(output);
     		mapForm.appendChild(code);
     		document.getElementById('postform').appendChild(mapForm);
-    		mapForm.submit();
+    		//mapForm.submit();
 		}
 		$(function() {
 			var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
