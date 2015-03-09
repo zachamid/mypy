@@ -3,6 +3,8 @@
 import cgi, cgitb, os,sys, Cookie
 sys.path.append(os.pardir)
 import db_connection, task_correction, task_delivery
+from mako.template import Template
+from mako.lookup import TemplateLookup
 
 attempt_info = cgi.FieldStorage()
 student_id = attempt_info['student_id'].value	
