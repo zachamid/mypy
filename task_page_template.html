@@ -16,7 +16,7 @@ Content-type: text/html
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script src="task_admin_functions.js" type="text/javascript"></script>
 		<script>
-		function correct(taskID,submitted_code){
+		function correct(taskID){
 			var mapForm = document.createElement("form");
     		mapForm.method = "POST";
   		  	mapForm.action = "/correction_page.py";
@@ -53,15 +53,19 @@ Content-type: text/html
   			});
   			
   			$('#save').click(function(){
-  				editor.save();
-  				code = document.getElementById('code').value;
-  				save_code(code,${task_id},${student_id});
+  				if(document.getElementById('error').value != ''){
+	  				editor.save();
+	  				code = document.getElementById('code').value;
+	  				save_code(code,${task_id},${student_id});
+	  			}
   			});
   			
   			$('#correct').click(function(){
-  				editor.save();
-  				code = document.getElementById('code').value;
-  				correct(${task_id}, code);
+  				if(document.getElementById('error').value != ''){
+	  				editor.save();
+	  				code = document.getElementById('code').value;
+  					correct(${task_id});
+  				}
   			});
 		});
 		</script>
