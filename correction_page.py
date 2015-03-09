@@ -13,6 +13,11 @@ cursor = db_connection.get_connection()
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 task_info = cgi.FieldStorage()
 
+
+correct_output = correctcode = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
+correct_code = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
+correct_code = correct_code.replace('</br>','\n')
+correct_code = correct_code.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t').rstrip()
 submitted_code = ''
 submitted_output = ''
 correctness_score = 0
@@ -36,10 +41,6 @@ if cookies.has_key('id') and cookies.has_key('type') and task_info.has_key('task
 						WHERE StudentID=%s 
 			 			AND TaskID=%s''' % (str(currtime),str(student_id),str(task_id))
 				cursor.execute(sql)
-				correct_output = correctcode = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
-				correct_code = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
-				correct_code = correct_code.replace('</br>','\n')
-				correct_code = correct_code.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t').rstrip()
 		
 				submitted_code = task_info['code'].value
 				submitted_code = submitted_code.replace('</br>','\n')
@@ -89,6 +90,8 @@ else:
 	
 	
 total_score = task_correction.calc_score(correctness_score, jaccard_score, time_score, attempt_score)
+submitted_code=task_correction.teacher_report(submitted_code, correct_code)
+submitted_output=task_correction.teacher_report(submitted_code, correct_code)
 
 scores={'correctness': correctness_score, 'similarity': jaccard_score, 'time': time_score, 'attempts': attempt_score, 'total_score':total_score}
 submission={'code': submitted_code, 'output': submitted_output}
