@@ -25,16 +25,12 @@ Content-type: text/html
 		    taskid.name = "task_id";
 			taskid.value = taskID;
 		    mapForm.appendChild(taskid);
-		    var code = document.createElement("input");
-		    code.type = "text";
-    		code.name = "code";
-    		code.value = submitted_code
-    		console.log(submitted_code);
-    		var output = document.createElement("input");
-    		output.type = "text";
+		    var code = document.getElementById("code");
+		    code.name = "code";
+    		var output = document.getElementById("input");
     		output.name = "output";
-    		output.value = document.getElementById('output').value;
     		console.log(output.value);
+    		console.log(code.value);
     		mapForm.appendChild(output);
     		mapForm.appendChild(code);
     		document.getElementById('postform').appendChild(mapForm);
