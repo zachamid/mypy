@@ -17,24 +17,24 @@ Content-type: text/html
 		<script src="task_admin_functions.js" type="text/javascript"></script>
 		<script>
 		function correct(taskID){
-			var mapForm = document.createElement("form");
-    		mapForm.method = "POST";
-  		  	mapForm.action = "/correction_page.py";
+			var attemptForm = document.createElement("form");
+    		attemptForm.method = "POST";
+  		  	attemptForm.action = "/correction_page.py";
 			var taskid = document.createElement("input");
 		    taskid.type = "text";
 		    taskid.name = "task_id";
 			taskid.value = taskID;
-		    mapForm.appendChild(taskid);
+		    attemptForm.appendChild(taskid);
 		    var code = document.getElementById("code");
 		    code.name = "code";
     		var output = document.getElementById("output");
     		output.name = "output";
     		console.log(output.value);
     		console.log(code.value);
-    		mapForm.appendChild(output);
-    		mapForm.appendChild(code);
-    		document.getElementById('postform').appendChild(mapForm);
-    		//mapForm.submit();
+    		attemptForm.appendChild(output);
+    		attemptForm.appendChild(code);
+    		document.getElementById('postform').appendChild(attemptForm);
+    		attemptForm.submit();
 		}
 		
 		function run_attempt(code){
