@@ -41,8 +41,7 @@ if cookies.has_key('id') and cookies.has_key('type') and task_info.has_key('task
 			 			AND TaskID=%s''' % (str(currtime),str(student_id),str(task_id))
 				cursor.execute(sql)
 		
-				submitted_code = task_info['code'].value
-				submitted_code = submitted_code
+				submitted_code = task_info['code'].value.replace('\r\n','\n')
 				submitted_code = submitted_code.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t').rstrip()
 		
 				submitted_output = task_info["output"].value.replace('\r\n','\n')
