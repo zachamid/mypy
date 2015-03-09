@@ -63,6 +63,7 @@ if cookies.has_key('id') and cookies.has_key('type') and task_info.has_key('task
 				attempt_score = task_correction.judge_attempts(progress_record['Attempts'])
 	
 				min_time = task_correction.quickest_time(times)
+				task_correction.remark_times(min_time, times)
 				task_time = (progress_record['DateCompleted']-progress_record['DateStarted']).seconds
 				time_score = task_correction.judge_time(min_time, task_time)
 			

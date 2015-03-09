@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import cgi, cgitb, os, ast, json, xml, pylev, math, datetime
+import db_connection
 
 def str_node(node):
     if isinstance(node, ast.AST):
@@ -141,11 +142,14 @@ def quickest_time(times):
 	return min_time
 
 def remark_time(min_time, times):
+	cursor = db_connection.get_connection()
 	for time in times:
-		if(time['DateCompleted'] is None):
-			delta = float('inf')
-		else:
+		if(time['DateCompleted'] is not None):
 			delta = (time['DateCompleted'] - time['DateStarted']).seconds
+			new_score = min_time/(float)delta
+			cursor.execute('''UPDATE Progress SET Time_Points=%s WHERE ProgressID=%s
+							''' % (str(new_score), time['ProgressID']))
+		
 	
 
 def judge_time(min_time, time):
