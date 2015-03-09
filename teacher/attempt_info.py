@@ -5,8 +5,8 @@ sys.path.append(os.pardir)
 import db_connection, task_correction, task_delivery
 
 attempt_info = cgi.FieldStorage()
-student_id = attempt_info['studentID'].value	
-task_id = attempt_info['taskID'].value
+student_id = attempt_info['student_id'].value	
+task_id = attempt_info['task_id'].value
 name = ''
 type = ''
 progress_info = {}
