@@ -22,7 +22,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		print 'Content-type: text/html\n\n'
 		cursor = db_connection.get_connection()
 		cursor.execute('''SELECT FirstName, LastName, Administrator FROM Teacher WHERE 
-							TeacherID='''+str(student_id))
+							TeacherID='''+str(cookies['id'].value))
 		teacher_record = cursor.fetchone()
 		name = teacher_record['FirstName'] + ' ' + teacher_record['LastName']
 		type='teacher'
