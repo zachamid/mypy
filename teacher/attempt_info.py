@@ -9,6 +9,7 @@ student_id = attempt_info['student_id'].value
 task_id = attempt_info['task_id'].value
 name = ''
 type = ''
+html_header = ''
 progress_info = {}
 code_report = ''
 output_report = ''
