@@ -4,7 +4,7 @@ Content-type: text/html
 
 <table>
 	% for attempt in attempts:
-		<tr class='clickable' onclick='open_info_page(${attempt['TaskID']},${student_id})'>
+		<tr class='clickable' onclick='open_info_page(${student_id},${attempt['TaskID']})'>
 			<td>
 				${attempt['TaskID']}
 			</td>
