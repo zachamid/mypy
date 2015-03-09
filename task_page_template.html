@@ -48,7 +48,6 @@ Content-type: text/html
   			$('#run').click(function(){
   				editor.save();
   				code = document.getElementById('code').value;
-  				console.log(code);
 				% if ('testcase' in task_xml and 'method' in task_xml):
 	 				compile_code(code, ${task_id},'output','error');
 				% else:
@@ -64,6 +63,8 @@ Content-type: text/html
   			
   			$('#correct').click(function(){
   				editor.save();
+  				code = document.getElementById('code').value;
+  				console.log(code);
   				correct(${task_id});
   			});
 		});
