@@ -51,7 +51,7 @@ if cookies.has_key('id') and cookies.has_key('type') and task_info.has_key('task
 				cursor.execute(sql)
 				progress_record = cursor.fetchone()
 		
-				sql = '''SELECT DateStarted, DateCompleted FROM Progress WHERE TaskID=%s
+				sql = '''SELECT ProgressID, DateStarted, DateCompleted FROM Progress WHERE TaskID=%s
 						''' % (str(task_id))
 				cursor.execute(sql)
 				times = cursor.fetchall()
