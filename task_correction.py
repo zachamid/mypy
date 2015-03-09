@@ -96,7 +96,7 @@ def teachers_report(code1,code2):
 	code1 = code1.split('\n')
 	code2 = code2.split('\n')
 	C = longest_common_subsequence(code1, code2)
-	printDiff(C, code1, code2, len(code1), len(code2))
+	return printDiff(C, code1, code2, len(code1), len(code2))
 
 def longest_common_subsequence(code1, code2):
 	len1 = len(code1)
@@ -111,16 +111,18 @@ def longest_common_subsequence(code1, code2):
 	return C
 
 def printDiff(C, X, Y, i, j):
+	ret = ''
 	if i > 0 and j > 0 and X[i-1] == Y[j-1]:
-		printDiff(C, X, Y, i-1, j-1)
-		print "  " + X[i-1]
+		ret += printDiff(C, X, Y, i-1, j-1) + '\n'
+		ret += "  " + X[i-1] + '\n'
 	else:
 		if j > 0 and (i == 0 or C[i][j-1] >= C[i-1][j]):
-			printDiff(C, X, Y, i, j-1)
-			print "<span style='color:#009900'>  " + Y[j-1]+"</span>"
+			ret += printDiff(C, X, Y, i, j-1) + '\n'
+			ret += "<span style='color:#009900'>  " + Y[j-1]+"</span>\n"
 		elif i > 0 and (j == 0 or C[i][j-1] < C[i-1][j]):
-			printDiff(C, X, Y, i-1, j)
-			print "<span style='color:#990000'>  " + X[i-1]+"</span>"
+			ret += printDiff(C, X, Y, i-1, j) + '\n'
+			ret += "<span style='color:#990000'>  " + X[i-1]+"</span>\n"
+	return ret
 
 def compare_asts(desired_code, submitted_code):
 	dict1 = ast2dict(ast.parse(desired_code))

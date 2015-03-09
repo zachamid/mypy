@@ -40,7 +40,23 @@ Content-type: text/html
       			});
       		}
       		
-      		
+      		function open_info_page(Student_ID, Task_ID){
+      			var attempt_info = document.createElement("form");
+    			attempt_info.method = "POST";
+    			attempt_info.action = "/teacher/attempt_info.py";
+				var task = document.createElement("input");
+    			task.type = "text";
+    			task.name = "task_id";
+    			task.value = Task_ID;
+    			attempt_info.appendChild(task);
+    			var student = document.createElement("input");
+    			student.type = "text";
+    			student.name = "student_id";
+    			student.value = Student_ID;
+    			attempt_info.appendChild(student);
+    			document.body.appendChild(attempt_info);
+    			attempt_info.submit();
+      		}
     	</script>
     </head>
     <body>
