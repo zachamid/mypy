@@ -30,8 +30,6 @@ if cookies.has_key('id') and cookies.has_key('type'):
 			type = 'Administrator'
 		
 		sql_query = 'SELECT * FROM Progress WHERE StudentID=%s AND TaskID=%s' % (student_id, task_id)
-		print sql_query
-		"""
 		cursor.execute(sql_query)
 		progress_info = cursor.fetchone()
 	
@@ -48,4 +46,4 @@ include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('attempt_info_template.html','r')
 template = template_file.read()
 page_template = Template(template, lookup=include_lookup)
-print page_template.render(html_header=html_header, type=type, name=name, scores=progress_info, code_report=code_report, output_report=output_report)"""
+print page_template.render(html_header=html_header, type=type, name=name, scores=progress_info, code_report=code_report, output_report=output_report)
