@@ -67,7 +67,7 @@ if cookies.has_key('id') and cookies.has_key('type') and task_info.has_key('task
 				time_score = task_correction.judge_time(min_time, task_time)
 			
 				sql = 'UPDATE Progress SET Correctness_Points='+str(correctness_score)+',Similarity_Points='+str(jaccard_score)
-				sql +=', Time_Points='+str(time_score)+', Output=\''+submitted_output.replace('\'','\\\'')+'\', Code=\''+submitted_code.replace('\'','\\\'')+'\', Attempts='+str(progress_record['Attempts']+1)
+				sql +=', Time_Points='+str(time_score)+', Output=\''+submitted_output.replace('\'','\\\'')+'\', Code=\''+submitted_code.replace('\'','\\\'')+'\', Attempts='+str(progress_record['Attempts'])
 				sql +=' WHERE StudentID='+str(student_id)+' AND TaskID='+str(task_id)
 				cursor.execute(sql)
 			else:
