@@ -90,8 +90,8 @@ else:
 	
 	
 total_score = task_correction.calc_score(correctness_score, jaccard_score, time_score, attempt_score)
-submitted_code=task_correction.teacher_report(submitted_code, correct_code)
-submitted_output=task_correction.teacher_report(submitted_code, correct_code)
+submitted_code=task_correction.teachers_report(submitted_code, correct_code)
+submitted_output=task_correction.teachers_report(submitted_output, correct_output)
 
 scores={'correctness': correctness_score, 'similarity': jaccard_score, 'time': time_score, 'attempts': attempt_score, 'total_score':total_score}
 submission={'code': submitted_code, 'output': submitted_output}
