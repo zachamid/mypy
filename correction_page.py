@@ -16,8 +16,7 @@ task_id = task_info['task_id'].value
 
 correct_output = task_delivery.get_python_code_from_file(task_id, 'result.txt')['result.txt']
 correct_code = task_delivery.get_python_code_from_file(task_id, 'task_complete.py')['task_complete.py']
-correct_code = correct_code.replace('</br>','\n')
-correct_code = correct_code.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t').rstrip()
+
 submitted_code = ''
 submitted_output = ''
 correctness_score = 0
@@ -43,7 +42,7 @@ if cookies.has_key('id') and cookies.has_key('type') and task_info.has_key('task
 				cursor.execute(sql)
 		
 				submitted_code = task_info['code'].value
-				submitted_code = submitted_code.replace('</br>','\n')
+				submitted_code = submitted_code.replace('\r\n','\n')
 				submitted_code = submitted_code.replace('&nbsp;&nbsp;&nbsp;&nbsp;','\t').rstrip()
 		
 				submitted_output = task_info["output"].value
