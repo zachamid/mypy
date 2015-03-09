@@ -50,15 +50,15 @@ Content-type: text/html
     			}
     			if(document.getElementById('model_code').value == ''){
     				flag = false;
-    				document.getElementById('model_error').innerHTML='</br>*Model Code cannot be blank';
+    				document.getElementById('model_error').innerHTML='*Model Code cannot be blank';
     			}
     			if(document.getElementById('output').value == ''){
     				flag = false;
-    				document.getElementById('output_error').innerHTML='</br>*Output cannot be blank';
+    				document.getElementById('output_error').innerHTML='*Output cannot be blank';
     			}
     			if(document.getElementById('error').value != ''){
     				flag = false;
-    				document.getElementById('error_error').innerHTML='</br>*Code cannot have compile time error';
+    				document.getElementById('error_error').innerHTML='*Code cannot have interpretation errors';
     			}
     			return flag;
     		}
