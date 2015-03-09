@@ -55,17 +55,17 @@ Content-type: text/html
 								${task['difficulty']['#text']}
 							</td>
 							<td>
-								%if 'DateStarted' in task['Dates']:
+								%if task['Dates'] != None:
 									${task['Dates']['DateStarted']}
 								%endif
 							</td>
 							<td>
-								%if 'DateModified' in task['Dates']:
+								%if task['Dates'] != None and 'DateModified' in task['Dates']:
 									${task['Dates']['DateModified']}
 								%endif
 							</td>
 							<td>
-								%if 'DateCompleted' in task['Dates']:
+								%if task['Dates'] != None:
 									${task['Dates']['DateCompleted']}
 								%endif
 							</td></tr>
