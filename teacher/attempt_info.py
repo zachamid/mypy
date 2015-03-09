@@ -16,7 +16,7 @@ progress_info = {}
 code_report = ''
 output_report = ''
 cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
-if cookies.has_key('id') and cookies.has_key('type'):
+if cookies.has_key('id') and cookies.has_key('type') and 'task_id' in attempt_info:
 	html_header += str(cookies)
 	if cookies['type'].value == 'Student':
 		html_header += '\nLocation:../index.py\n'
@@ -42,6 +42,8 @@ if cookies.has_key('id') and cookies.has_key('type'):
 		
 		code_report = task_correction.teachers_report(submitted_code, correct_code)
 		output_report = task_correction.teachers_report(submitted_output, correct_output)
+else:
+	html_header += '\nLocation:index.py\n'
 		
 include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('attempt_info_template.html','r')

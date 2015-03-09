@@ -113,7 +113,7 @@ def longest_common_subsequence(code1, code2):
 def printDiff(C, X, Y, i, j):
 	ret = ''
 	if i > 0 and j > 0 and X[i-1] == Y[j-1]:
-		ret += printDiff(C, X, Y, i-1, j-1) + '\n'
+		ret += printDiff(C, X, Y, i-1, j-1)
 		ret += "  " + X[i-1] + '\n'
 	else:
 		if j > 0 and (i == 0 or C[i][j-1] >= C[i-1][j]):

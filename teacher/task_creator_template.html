@@ -19,6 +19,50 @@ Content-type: text/html
     	<link href="../general_style.css" rel="stylesheet">
     	<link href="teacher_style.css" rel="stylesheet">
     	<script>
+    		function form_isValid(){
+    			flag = true;
+    			if(document.getElementById('title').value == ''){
+    				flag = false;
+    				document.getElementById('title_error').innerHTML='</br>*Title cannot be blank';
+    			}
+    			if(document.getElementById('instruction').value == ''){
+    				flag = false;
+    				document.getElementById('inst_error').innerHTML='</br>*Instructions cannot be blank';
+    			}
+    			if(document.getElementById('description').value == ''){
+    				flag = false;
+    				document.getElementById('desc_error').innerHTML='</br>*Description cannot be blank';
+    			}
+    			if(document.getElementById('skeleton_code').value == ''){
+    				flag = false;
+    				document.getElementById('skeleton_error').innerHTML='</br>*Skeleton Code cannot be blank';
+    			}
+    			if(document.getElementById('test_check').checked){
+    				err_msg_span = document.getElementById('testcase_error');
+    				test = document.getElementsByClassName('testcase');
+    				descs = document.getElementsByClassName('description');
+    				for(var count = 0; count < testcases.length; count++){
+    					if(test[count].value == '' || desc[count].value == ''){
+    						flag = false;
+    						err_msg_span.innerHTML = '*Descriptions or Testcases cannot be blank';
+    					}
+    				}
+    			}
+    			if(document.getElementById('model_code').value == ''){
+    				flag = false;
+    				document.getElementById('model_error').innerHTML='</br>*Model Code cannot be blank';
+    			}
+    			if(document.getElementById('output').value == ''){
+    				flag = false;
+    				document.getElementById('output_error').innerHTML='</br>*Output cannot be blank';
+    			}
+    			if(document.getElementById('error').value != ''){
+    				flag = false;
+    				document.getElementById('error_error').innerHTML='</br>*Code cannot have compile time error';
+    			}
+    			return flag;
+    		}
+    		
     		function test_code(){
     			code = document.getElementById("model_code").value;
     			if(document.getElementById('test_check').checked){
@@ -40,11 +84,7 @@ Content-type: text/html
     		
     		function create_task(){
     			test_code();
-    			error = document.getElementById('error').value;
-    			if(error){
-    				alert('Model Answer runs with Error')
-    			}
-    			else{
+    			if(!form_isValid()){
     				complete = document.getElementById('model_code').value;
     				skeleton = document.getElementById('skeleton_code').value;
     				result = document.getElementById('output').value;
@@ -57,7 +97,7 @@ Content-type: text/html
     					task["method"] = document.getElementById('function').value;
     					task["testcase"] = [];
 	    				testcases = document.getElementsByClassName('testcase');
-    					descs = document.getElementsByClassName('testcase');
+    					descs = document.getElementsByClassName('description');
     					for(var test_counter = 0; test_counter < testcases.length; test_counter++){
     						testcase = {};
     						testcase['arg'] = testcases[test_counter].value;
@@ -146,16 +186,19 @@ Content-type: text/html
     				<tr><td style='width:30%'>Title</td>
     					<td>
              				<input class="form-control" type="text" id="title" placeholder="Title">
+             				<span id='title_error' style='color:#990000'></span>
           				</td>
     				</tr>
     				<tr><td>Description</td>
     					<td>
          					<textarea class="form-control" id="description" rows='5'></textarea>
+         					<span id='desc_error' style='color:#990000'></span>
       					</td>
    					</tr>
     				<tr><td>Instructions</td>
     					<td>
          					<textarea class="form-control" id="instructions" rows='5'></textarea>
+         					<span id='inst_error' style='color:#990000'></span>
       					</td>
 					</tr>
     				<tr><td>Difficulty</td>
@@ -174,6 +217,7 @@ Content-type: text/html
          					</input>
          				</td>
 						<td>
+							<span id='testcase_error' style='color:#990000'></span>
     						<table id='test_cases'></table>
           				</td>
     				</tr>
@@ -185,6 +229,7 @@ Content-type: text/html
 				<div class="panel-heading" id='skeleton'>Code Skeleton</div>
 				<div class='container' style="width:100%">
 					<textarea class="CodeMirror cm-s-default" rows="10" id="skeleton_code"></textarea>
+					<span id='skel_error' style='color:#990000'></span>
 				</div>
 			</div>
 		</div>
@@ -194,6 +239,7 @@ Content-type: text/html
 				<div class="panel-heading">Model Code</div>
 				<div class='container' style="width:100%">
 					<textarea class="CodeMirror cm-s-default" rows="10" id="model_code"></textarea>
+					<span id='model_error' style='color:#990000'></span>
 				</div>
 				<button class="form-control" id='test_code'
 						 type="button">
@@ -206,6 +252,7 @@ Content-type: text/html
 				<div class="panel-heading">Output</div>
 				<div class='container' style="width:100%">
 					<textarea rows="5" id="output" readonly></textarea>
+					<span id='output_error' style='color:#990000'></span>
 				</div>
 			</div>
 		</div>
@@ -214,11 +261,11 @@ Content-type: text/html
 				<div class="panel-heading">Error Console</div>
 					<div class='container' style="width:100%">
 						<textarea rows="5" id="error" readonly></textarea>
+						<span id='error_error' style='color:#990000'></span>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id='debug'></div>
 		<button id='create_task'>Create</button>
     </body>
 </html>
