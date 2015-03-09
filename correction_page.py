@@ -62,7 +62,7 @@ if cookies.has_key('id') and cookies.has_key('type') and task_info.has_key('task
 		
 				jaccard_score = task_correction.compare_asts(correct_code, submitted_code)
 			
-				if progress_record['Attempts'] is None:
+				if progress_record is None:
 					attempt_score = task_correction.judge_attempts(1)
 				else:
 					attempt_score = task_correction.judge_attempts(progress_record['Attempts']+1)
