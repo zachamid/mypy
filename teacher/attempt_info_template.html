@@ -21,6 +21,7 @@ Content-type: text/html
     	<link href="teacher_style.css" rel="stylesheet">
 	</head>
 	<body>
+		<%include file='header.html'/>
 		<div class="container col-sm-6 col-md-6">
 			<div class="panel panel-default translucent">
 				<table>
@@ -40,15 +41,15 @@ Content-type: text/html
 					</tr>
 					<tr>
 						<td>Correctness</td>
-						<td>${scores['Correctness_Points']*100} %</td>
+						<td>${scores['Correctness_Points']*100}</td>
 					</tr>
 					<tr>
 						<td>Similarity to Model Answer</td>
-						<td>${scores['Similarity_Points']*100} %</td>
+						<td>${scores['Similarity_Points']*100}</td>
 					</tr>
 					<tr>
 						<td>Time Score</td>
-						<td>${scores['Time_Points']*100} %</td>
+						<td>${scores['Time_Points']*100}</td>
 					</tr>
 					<tr>
 						<td><i>Date Started</i></td>
@@ -60,7 +61,7 @@ Content-type: text/html
 					</tr>
 					<tr>
 						<td>Attempt Score</td>
-						<td>${scores['Attempts_Points']*100} %</td>
+						<td>${scores['Attempts_Points']*100}</td>
 					</tr>
 					<tr>
 						<td><i>Attempts</i></td>
@@ -68,7 +69,7 @@ Content-type: text/html
 					</tr>
 					<tr>
 						<td><b>Total Score</b></td>
-						<td><b>${scores['total_score']*100%}</b></td>
+						<td><b>${scores['total_score']*100}</b></td>
 					</tr>
 				</table>
 			</div>
