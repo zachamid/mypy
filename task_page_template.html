@@ -16,7 +16,7 @@ Content-type: text/html
 		<script src="user_functions.js" type="text/javascript"></script>
 		<script src="task_admin_functions.js" type="text/javascript"></script>
 		<script>
-		function correct(taskID){
+		function correct(taskID,submitted_code){
 			var mapForm = document.createElement("form");
     		mapForm.method = "POST";
   		  	mapForm.action = "/correction_page.py";
@@ -28,12 +28,13 @@ Content-type: text/html
 		    var code = document.createElement("input");
 		    code.type = "textarea";
     		code.name = "code";
-    		code.value = document.getElementById('code').value
+    		code.value = submitted_code
     		console.log(code.value);
     		var output = document.createElement("input");
     		output.type = "textarea";
     		output.name = "output";
     		output.value = document.getElementById('output').value;
+    		console.log(output.value);
     		mapForm.appendChild(output);
     		mapForm.appendChild(code);
     		document.getElementById('postform').appendChild(mapForm);
@@ -64,8 +65,7 @@ Content-type: text/html
   			$('#correct').click(function(){
   				editor.save();
   				code = document.getElementById('code').value;
-  				console.log(code);
-  				correct(${task_id});
+  				correct(${task_id}, code);
   			});
 		});
 		</script>
