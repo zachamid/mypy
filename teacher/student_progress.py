@@ -14,7 +14,7 @@ student_id = cgi.FieldStorage()['studentID'].value
 cursor.execute('''SELECT * FROM Progress
 				LEFT JOIN Task
 				ON Task.TaskID = Progress.TaskID
-				WHERE Progress.StudentID ='''+str(student_id))
+				WHERE Progress.DateCompleted IS NOT NULL AND Progress.StudentID ='''+str(student_id))
 attempts = cursor.fetchall()
 for attempt in attempts:
 	attempt['Score'] = task_correction.calc_score(attempt['Correctness_Points'],attempt['Similarity_Points'],attempt['Time_Points'],attempt['Attempts_Points'])
