@@ -42,6 +42,8 @@ if cookies.has_key('id') and cookies.has_key('type') and 'task_id' in attempt_in
 		
 		code_report = task_correction.teachers_report(submitted_code, correct_code)
 		output_report = task_correction.teachers_report(submitted_output, correct_output)
+		
+		progress_info['total_score'] = task_correction.calc_score(progress_info['Correctness_Points'],progress_info['Similarity_Points'],progress_info['Attempts_Points'],progress_info['Time_Points'])
 else:
 	html_header += '\nLocation:index.py\n'
 		
