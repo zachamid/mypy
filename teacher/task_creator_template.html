@@ -176,6 +176,11 @@ Content-type: text/html
     				skeleton_editor.save();
     				create_task();
     			});
+    			
+    			$('#copy').click(function(){
+    				model_editor.save();
+    				skeleton_editor.setValue(document.getElementById('model_code').value);
+    			});
     		});
 		</script>
 	</head>
@@ -234,10 +239,12 @@ Content-type: text/html
 				</div>
 			</div>
 		</div>
-		
-      	<div class="col-xs-12 col-md-6 col-sm-12">
+		<div class="col-xs-12 col-md-6 col-sm-12">
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Model Code</div>
+				<button class='form-control' id='copy'>
+					Copy Model
+				</button>
 				<div class='container' style="width:100%">
 					<textarea class="CodeMirror cm-s-default" rows="10" id="model_code"></textarea>
 					<span id='model_error' style='color:#990000'></span>
