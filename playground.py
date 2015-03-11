@@ -12,7 +12,7 @@ cookies = Cookie.SimpleCookie(os.environ.get("HTTP_COOKIE",""))
 name = ''
 type = ''
 if cookies.has_key('id') and cookies.has_key('type'):
-	html_header += str(cookies)
+	html_header += str(cookies)+'\n'
 	if cookies['type'].value == 'Student':
 		cursor.execute('SELECT FirstName, LastName FROM Student WHERE StudentID=%s' % (str(cookies['id'].value)))
 		type = 'Student'
@@ -23,7 +23,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 	if 'Administrator' in record and record['Administrator'] == 1:
 		type = 'Administrator'
 	name = record['FirstName']+' '+record['LastName']
-html_header += '\nContent-type: text/html\n\n'
+html_header += 'Content-type: text/html\n\n'
 
 cursor.execute('SELECT TutorialID, TutorialName FROM Tutorial')
 tutorials = cursor.fetchall()
