@@ -62,7 +62,7 @@ Content-type: text/html
     					tutorial = document.getElementById('tutorial_code').value;
     					table = 'Tutorial';
     					columns = 'TutorialName, TutorialText';
-    					values = '\''+title+'\',\''+tutorial.replace("'",'\\\'')+'\'';
+    					values = '\''+title+'\',\''+tutorial.replace(/\'/g,'\\\'')+'\'';
     					data = {table:table, columns:columns, values:values};
     					$.ajax({
 							data:data,
