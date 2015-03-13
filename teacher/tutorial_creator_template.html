@@ -18,21 +18,112 @@ Content-type: text/html
     	<link href="../bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     	<link href="../general_style.css" rel="stylesheet">
     	<link href="teacher_style.css" rel="stylesheet">
+    	<script>
+    		function isValid(){
+    			flag = true;
+    			if(document.getElementById('title').value == ''){
+    				document.getElementById('title_error').value = '*Title must not be blank';
+    				flag = false;
+    			}
+    			if(document.getElementById('tutorial_code').value == ''){
+    				document.getElementById('tutorial_error').value = '*Tutorial Code must not be empty';
+    				flag = false;
+    			}
+    			if(document.getElementById('output').value == ''){
+    				document.getElementById('output_error').value = '*Tutorial Code must produce output';
+    				flag = false;
+    			}
+    			if(document.getElementById('error').value != ''){
+    				document.getElementById('error_error').value = '*Code must not produce interpretation errors';
+    				flag = false;
+    			}
+    		}
+    		
+    		$(document).ready(function(){
+    			var tutorial_editor = CodeMirror.fromTextArea(document.getElementById('tutorial_code'), {
+    				lineNumbers: true,
+    				mode: "python"
+  				});
+  				
+  				$('#run').click(function(){
+    				tutorial_editor.save();
+    				code = document.getElementById('tutorial_code').value;
+    				run_code(code, 'output','error');
+    			});
+    			
+    			$('#save').click(function(){
+    				tutorial_editor.save();
+    				code = document.getElementById('tutorial_code').value;
+    				run_code(code, 'output','error');
+    				
+    				if(isValid()){
+    					title = document.getElementById('title').value;
+    					tutorial = document.getElementById('tutorial_code').value;
+    					table = 'Tutorial'
+    					columns = 'TutorialName, TutorialText'
+    					values = title+','+tutorial
+    					data = {table:table, columns:columns, values:values};
+    					$.ajax({
+							data:data,
+							url: '/insert.py',
+							type: 'POST'}).done(function(insert_result){
+      							window.open('/playground.py','_self');
+						});
+    				}
+    			});
+    		}
+    	</script>
     </head>
     <body>
-    	<%include file='teacher_navbar.html'/>
-		<div class="container col-sm-6 col-md-12">
+    	<!--<%include file='teacher_navbar.html'/> -->
+		<div class="container col-sm-12 col-md-12">
     		<div class="panel panel-default translucent">
     			<table style='width:100%'>
     				<tr>
-    					<td>Title
-    					</td>
+    					<td>Title</td>
     					<td>
-    						
+    						<input type='text' id='title' placeholder='Tutorial Title'>
+    						</input>
+    						<span id='title_error' style='color:#990000'></span>
     					</td>
     				</tr>
     			</table>
     		</div>
     	</div>
+    	<div class="container col-sm-6 col-md-12">
+    		<div class="panel panel-default translucent">
+    			<div class="panel-heading">Tutorial Code</div>
+    				<div class='container' style="width:100%">
+						<textarea class="CodeMirror cm-s-default" rows="10" id="tutorial_code">
+						</textarea>
+						<span id='tutorial_error' style='color:#990000'></span>
+					</div>
+					<button id='run'>
+						Run
+					</button>
+					<button id='save'>
+						Save Tutorial
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="container col-sm-6 col-md-12">
+    		<div class="panel panel-default translucent">
+    			<div class="panel-heading">Output</div>
+    				<div class='container' style="width:100%">
+						<textarea rows="10" id="output" readonly>
+						</textarea>
+						<span id='output_error' style='color:#990000'></span>
+					</div>
+				</div>
+				<div class="panel-heading">Error Console</div>
+    				<div class='container' style="width:100%">
+						<textarea rows="10" id="error" readonly>
+						</textarea>
+						<span id='error_error' style='color:#990000'></span>
+					</div>
+				</div>
+			</div>
+		</div>
     </body>
 </html>
