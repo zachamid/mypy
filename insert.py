@@ -16,7 +16,7 @@ if table == 'TeacherClassRelationship':
 	if cursor.rowcount != 0:
 		id = 0
 if(id):
-	sql_query = "INSERT INTO "+table+"("+columns+") VALUES("+values+")"
+	sql_query = '''INSERT INTO %s(%s) VALUES(%s)''' % (table, columns, values)
 	cursor.execute(sql_query)
 	id = cursor.lastrowid
 
