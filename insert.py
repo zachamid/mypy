@@ -8,6 +8,7 @@ table = posted_data['table'].value
 columns = posted_data['columns'].value
 values = posted_data['values'].value
 cursor = db_connection.get_connection()
+sql_query =''
 if table == 'TeacherClassRelationship':
 	classID, teacherID = values.split(',');
 	sql_query = '''SELECT * FROM TeacherClassRelationship
@@ -23,4 +24,5 @@ if(id):
 print """content-type:text/html
 
 """
+print sql_query
 print id
