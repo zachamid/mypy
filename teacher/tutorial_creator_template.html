@@ -22,19 +22,19 @@ Content-type: text/html
     		function isValid(){
     			flag = true;
     			if(document.getElementById('title').value == ''){
-    				document.getElementById('title_error').value = '*Title must not be blank';
+    				document.getElementById('title_error').innerHTML = '*Title must not be blank';
     				flag = false;
     			}
     			if(document.getElementById('tutorial_code').value == ''){
-    				document.getElementById('tutorial_error').value = '*Tutorial Code must not be empty';
+    				document.getElementById('tutorial_error').innerHTML = '*Tutorial Code must not be empty';
     				flag = false;
     			}
     			if(document.getElementById('output').value == ''){
-    				document.getElementById('output_error').value = '*Tutorial Code must produce output';
+    				document.getElementById('output_error').innerHTML = '*Tutorial Code must produce output';
     				flag = false;
     			}
     			if(document.getElementById('error').value != ''){
-    				document.getElementById('error_error').value = '*Code must not produce interpretation errors';
+    				document.getElementById('error_error').innerHTML = '*Code must not produce interpretation errors';
     				flag = false;
     			}
     			return flag;
@@ -68,7 +68,7 @@ Content-type: text/html
 							data:data,
 							url: '/insert.py',
 							type: 'POST'}).done(function(insert_result){
-      							//window.open('/playground.py','_self');
+      							window.open('/playground.py','_self');
 						});
     				}
     			});
@@ -76,7 +76,7 @@ Content-type: text/html
     	</script>
     </head>
     <body>
-    	<!--<%include file='teacher_navbar.html'/> -->
+    	<%include file='teacher_navbar.html'/>
 		<div class="container col-sm-12 col-md-12">
     		<div class="panel panel-default translucent">
     			<table style='width:100%'>
