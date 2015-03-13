@@ -37,6 +37,7 @@ Content-type: text/html
     				document.getElementById('error_error').value = '*Code must not produce interpretation errors';
     				flag = false;
     			}
+    			return flag;
     		}
     		
     		$(document).ready(function(){
@@ -59,9 +60,9 @@ Content-type: text/html
     				if(isValid()){
     					title = document.getElementById('title').value;
     					tutorial = document.getElementById('tutorial_code').value;
-    					table = 'Tutorial'
-    					columns = 'TutorialName, TutorialText'
-    					values = title+','+tutorial
+    					table = 'Tutorial';
+    					columns = 'TutorialName, TutorialText';
+    					values = title+','+tutorial;
     					data = {table:table, columns:columns, values:values};
     					$.ajax({
 							data:data,
@@ -71,6 +72,7 @@ Content-type: text/html
 						});
     				}
     			});
+    		}
     	</script>
     </head>
     <body>
