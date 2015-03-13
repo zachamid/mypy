@@ -68,7 +68,7 @@ Content-type: text/html
 							data:data,
 							url: '/insert.py',
 							type: 'POST'}).done(function(insert_result){
-      							window.open('/playground.py','_self');
+      							//window.open('/playground.py','_self');
 						});
     				}
     			});
@@ -83,7 +83,7 @@ Content-type: text/html
     				<tr>
     					<td>Title</td>
     					<td>
-    						<input type='text' id='title' placeholder='Tutorial Title'>
+    						<input class='form-control' type='text' id='title' placeholder='Tutorial Title'>
     						</input>
     						<span id='title_error' style='color:#990000'></span>
     					</td>
@@ -95,14 +95,13 @@ Content-type: text/html
     		<div class="panel panel-default translucent">
     			<div class="panel-heading">Tutorial Code</div>
     				<div class='container' style="width:100%">
-						<textarea class="CodeMirror cm-s-default" rows="10" id="tutorial_code">
-						</textarea>
+						<textarea class="CodeMirror cm-s-default" rows="10" id="tutorial_code"></textarea>
 						<span id='tutorial_error' style='color:#990000'></span>
 					</div>
-					<button id='run'>
+					<button class='form-control' id='run'>
 						Run
 					</button>
-					<button id='save'>
+					<button class='form-control' id='save'>
 						Save Tutorial
 					</button>
 				</div>
@@ -111,8 +110,7 @@ Content-type: text/html
 		<div class="container col-sm-6 col-md-12">
     		<div class="panel panel-default translucent">
     			<div class="panel-heading">Output</div>
-    			<textarea rows="10" id="output" readonly>
-				</textarea>
+    			<textarea rows="10" id="output" readonly></textarea>
 				<span id='output_error' style='color:#990000'></span>
 				<div class="panel-heading">Error Console</div>
     			<textarea rows="10" id="error" readonly>
