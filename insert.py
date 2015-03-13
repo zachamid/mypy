@@ -18,8 +18,8 @@ if table == 'TeacherClassRelationship':
 		id = 0
 if(id):
 	sql_query = '''INSERT INTO %s(%s) VALUES(%s)''' % (table, columns, values)
-	cursor.execute(sql_query)
-	id = cursor.lastrowid
+	#cursor.execute(sql_query)
+	#id = cursor.lastrowid
 
 print """content-type:text/html
 
