@@ -118,10 +118,10 @@ def printDiff(C, X, Y, i, j):
 		ret += "  " + X[i-1] + '\n'
 	else:
 		if j > 0 and (i == 0 or C[i][j-1] >= C[i-1][j]):
-			ret += printDiff(C, X, Y, i, j-1) + '\n'
+			ret += printDiff(C, X, Y, i, j-1)
 			ret += "<span style='color:#009900'>  " + Y[j-1]+"</span>\n"
 		elif i > 0 and (j == 0 or C[i][j-1] < C[i-1][j]):
-			ret += printDiff(C, X, Y, i-1, j) + '\n'
+			ret += printDiff(C, X, Y, i-1, j)
 			ret += "<span style='color:#990000'>  " + X[i-1]+"</span>\n"
 	return ret
 
