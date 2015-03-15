@@ -85,7 +85,7 @@ Content-type: text/html
     		
     		function create_task(){
     			test_code();
-    			if(!form_isValid()){
+    			if(form_isValid()){
     				complete = document.getElementById('model_code').value;
     				skeleton = document.getElementById('skeleton_code').value;
     				result = document.getElementById('output').value;
