@@ -78,7 +78,6 @@ Content-type: text/html
     					code += 'print "Testcase '+desc+':'+func+'('+test+')"\n';
     					code += func+'('+test+')\n';
     				}
-    				console.log(code)
     			}
     			run_code(code, 'output','error');
     		}
@@ -113,7 +112,7 @@ Content-type: text/html
       				url : '/teacher/create_task.py',
       				type : "POST",
       				dataType : "html"}).done(function(result){
-      					//window.open('/teacher/task_admin.py','_self');
+      					window.open('/teacher/task_admin.py','_self');
       				});
       			}
     		}
