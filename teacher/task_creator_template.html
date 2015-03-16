@@ -181,10 +181,6 @@ Content-type: text/html
     				model_editor.save();
     				skeleton_editor.setValue(document.getElementById('model_code').value);
     			});
-    			$('#savetime').click(function(){
-    				model_editor.save();
-    				alert(document.getElementById('model_code').value);
-    			});
     		});
 		</script>
 	</head>
@@ -249,9 +245,6 @@ Content-type: text/html
 				<button class='form-control' id='copy'>
 					Copy Model
 				</button>
-				<button class='form-control' id='savetime'>
-					savetime
-				</button>
 				<div class='container' style="width:100%">
 					<textarea class="CodeMirror cm-s-default" rows="10" id="model_code"></textarea>
 					<span id='model_error' style='color:#990000'></span>
@@ -266,7 +259,7 @@ Content-type: text/html
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Output</div>
 				<div class='container' style="width:100%">
-					<textarea rows="5" id="output" readonly></textarea>
+					<textarea class='output' rows="5" id="output" readonly></textarea>
 					<span id='output_error' style='color:#990000'></span>
 				</div>
 			</div>
@@ -275,7 +268,7 @@ Content-type: text/html
 			<div class="panel panel-default translucent">
 				<div class="panel-heading">Error Console</div>
 					<div class='container' style="width:100%">
-						<textarea rows="5" id="error" readonly></textarea>
+						<textarea class='output' rows="5" id="error" readonly></textarea>
 						<span id='error_error' style='color:#990000'></span>
 					</div>
 				</div>
