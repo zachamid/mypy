@@ -85,7 +85,7 @@ def jaccard(dict1, dict2):
 		for field in dict1:
 			if field in dict2:
 				diff = similarity_index_per_item(dict1[field], dict2[field])
-				intersection += 1-(0.4 * diff)
+				intersection += 1-(0.75 * diff)
 			
 	union = len(dict1)+len(dict2)-intersection
 	return (float)(intersection/union)
