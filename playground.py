@@ -25,7 +25,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 	name = record['FirstName']+' '+record['LastName']
 html_header += 'Content-type: text/html\n\n'
 
-cursor.execute('SELECT TutorialID, TutorialName FROM Tutorial')
+cursor.execute('SELECT TutorialID, TutorialName FROM Tutorial ORDER BY TutorialID')
 tutorials = cursor.fetchall()
 
 include_lookup = TemplateLookup(directories=[os.getcwd()])
