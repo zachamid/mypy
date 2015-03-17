@@ -85,7 +85,7 @@ def jaccard(dict1, dict2):
 		for field in dict1:
 			if field in dict2:
 				diff = similarity_index_per_item(dict1[field], dict2[field])
-				intersection += 1-(0.75 * diff)
+				intersection += 1-(0.5 * diff)
 			
 	union = len(dict1)+len(dict2)-intersection
 	return (float)(intersection/union)
@@ -96,6 +96,10 @@ def judge_correctness(desired_output, submitted_output):
 def teachers_report(code1,code2):
 	code1 = code1.split('\n')
 	code2 = code2.split('\n')
+	for line in range(code1):
+		code1[line] = "".join(code1[line].split())
+	for line in range(code2):
+		code2[line] = "".join(code2[line].split())
 	C = longest_common_subsequence(code1, code2)
 	return printDiff(C, code1, code2, len(code1), len(code2))
 
