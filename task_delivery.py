@@ -91,6 +91,7 @@ def get_compile_code(task_id, given_code):
 		if 'arg' in xml_data['testcase'] and 'task' in xml_data['testcase']:
 			compile_code += "print \"TestCase " + xml_data['testcase']['description']+": "+xml_data['method']+"("+str(xml_data['testcase']['arg'])+")\"\n"
 			compile_code += xml_data['method']+"("+str(xml_data['testcase']['arg'])+")\n"
+			
 		else:
 			for testcase in xml_data['testcase']['item']:
 				compile_code += "print \"TestCase " + testcase['description']['#text']+": "+xml_data['method']['#text']+"("+str(testcase['arg']['#text'])+")\"\n"
