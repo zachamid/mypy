@@ -96,6 +96,7 @@ def judge_correctness(desired_output, submitted_output):
 def teachers_report(code1,code2):
 	code1 = code1.split('\n')
 	code2 = code2.split('\n')
+	C = longest_common_subsequence(code1, code2)
 	return printDiff(C, code1, code2, len(code1), len(code2))
 
 def longest_common_subsequence(code1, code2):
