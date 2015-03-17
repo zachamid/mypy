@@ -96,9 +96,9 @@ def judge_correctness(desired_output, submitted_output):
 def teachers_report(code1,code2):
 	code1 = code1.split('\n')
 	code2 = code2.split('\n')
-	for line in range(code1):
+	for line in range(len(code1)):
 		code1[line] = "".join(code1[line].split())
-	for line in range(code2):
+	for line in range(len(code2)):
 		code2[line] = "".join(code2[line].split())
 	C = longest_common_subsequence(code1, code2)
 	return printDiff(C, code1, code2, len(code1), len(code2))
