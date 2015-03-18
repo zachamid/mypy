@@ -153,7 +153,7 @@ def remark_time(min_time, times):
 	
 
 def judge_time(min_time, time):
-	return float(min_time/time)
+	return float(min_time)/time
 
 def judge_attempts(attempts):
 	return float(1/math.sqrt(attempts))
