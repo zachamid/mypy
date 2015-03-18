@@ -45,7 +45,7 @@ if cookies.has_key('id') and cookies.has_key('type') and 'task_id' in attempt_in
 		
 		progress_info['total_score'] = task_correction.calc_score(progress_info['Correctness_Points'],progress_info['Similarity_Points'],progress_info['Attempts_Points'],progress_info['Time_Points'])
 else:
-	html_header += 'Location:index.py\n'
+	html_header += 'Location:index.py'
 		
 include_lookup = TemplateLookup(directories=[os.getcwd()])
 template_file = open('attempt_info_template.html','r')
