@@ -41,6 +41,7 @@ Content-type: text/html
 							<pre>${output_report}</pre>
 						</td>
 					</tr>
+					% if 'Correctness_Points' in scores:
 					<tr>
 						<td>Correctness</td>
 						<td>${scores['Correctness_Points']*100}</td>
@@ -73,6 +74,7 @@ Content-type: text/html
 						<td><b>Total Score</b></td>
 						<td><b>${scores['total_score']}</b></td>
 					</tr>
+					%endif
 				</table>
 			</div>
 		</div>
