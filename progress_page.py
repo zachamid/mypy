@@ -18,7 +18,7 @@ if cookies.has_key('id') and cookies.has_key('type'):
 	names = cursor.fetchone()
 	name = names['FirstName']+' '+names['LastName']
 	cursor.execute('''SELECT * FROM Progress
-					INNER JOIN Task
+					LEFT JOIN Task
 					ON Progress.TaskID = Task.TaskID
 					WHERE Progress.StudentID=%s'''%(cookies['id'].value))
 	progress_records = cursor.fetchall()
