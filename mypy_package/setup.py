@@ -4,6 +4,7 @@ import sys, getopt
 import MySQLdb, MySQLdb.cursors
 import getpass
 import importlib
+import distutils
 from mako.template import Template
 from mako.lookup import TemplateLookup
 
@@ -12,14 +13,17 @@ required_mods = ['cgi','cgitb','json','MySQLdb','Cookie','os','datetime','re','m
 	'hashlib','operator','xml','xmltodict','pylev','math','ast','sys']
 
 for mod in required_mods:
-	importlib.import_module(mod)
+	try:
+		importlib.import_module(mod)
+	except ImportError:
+		distutils.core.setup(mod)
+			
 
 # retrieve database information
-opts, args = getopt.getopt(sys.argv[:.],"o:v:",["host=","username=","table=","tasks_dir="]);
+opts, args = getopt.getopt(sys.argv[:1],"o:v:",["host=","username=","table=","tasks_dir="]);
 
 host = ''
 user = ''
-password = ''
 db = ''
 tasks_path = ''
 
@@ -30,9 +34,10 @@ for opt, arg in options:
         username = arg
     elif opt in ('-t','--table'):
         db = arg
-    elif opt in ('-d','--task_dir'
+    elif opt in ('-d','--task_dir'):
+    	tasks_path = arg
 
-password = getpass.getpass('Enter the password for %s@%s:'%(username,host))
+password = getpass.getpass('Enter the password for '+username+'@%'+host)
 
 # connect to database
 try:
@@ -43,9 +48,9 @@ try:
 		cursor.execute(query)
 except MySQLdb.Error, e:
 	try:
-        print "MySQL Error [%d]: %s" % (e.args[0], e.args[1])
-    except IndexError:
-        print "MySQL Error: %s" % str(e)
+		print "MySQL Error [%d]: %s" % (e.args[0], e.args[1])
+	except IndexError, e:
+		print "MySQL Error: %s" % str(e)
 
 
 # rewrite db_connection file

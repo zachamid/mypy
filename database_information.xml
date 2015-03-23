@@ -1,0 +1,1095 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.0.10.6
+- http://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Mar 22, 2015 at 11:11 PM
+- Server version: 5.1.73
+- PHP Version: 5.3.3
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="test" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="Class">
+                CREATE TABLE `Class` (
+                  `ClassID` int(11) NOT NULL AUTO_INCREMENT,
+                  `ClassName` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                  UNIQUE KEY `ClassID` (`ClassID`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Progress">
+                CREATE TABLE `Progress` (
+                  `ProgressID` int(11) NOT NULL AUTO_INCREMENT,
+                  `TaskID` int(11) NOT NULL,
+                  `StudentID` int(11) NOT NULL,
+                  `DateStarted` timestamp NULL DEFAULT NULL,
+                  `DateModified` timestamp NULL DEFAULT NULL,
+                  `DateCompleted` timestamp NULL DEFAULT NULL,
+                  `Output` text NOT NULL,
+                  `Code` text,
+                  `Correctness_Points` decimal(5,4) NOT NULL DEFAULT '0.0000',
+                  `Similarity_Points` decimal(5,4) NOT NULL,
+                  `Attempts` int(11) NOT NULL DEFAULT '1',
+                  `Attempts_Points` decimal(5,4) NOT NULL,
+                  `Time_Points` decimal(5,4) NOT NULL,
+                  UNIQUE KEY `ProgressID` (`ProgressID`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Student">
+                CREATE TABLE `Student` (
+                  `StudentID` int(11) NOT NULL AUTO_INCREMENT,
+                  `FirstName` varchar(11) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                  `LastName` varchar(11) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                  `ClassID` int(11) NOT NULL,
+                  `Email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                  `Password` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                  UNIQUE KEY `StudentID` (`StudentID`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Task">
+                CREATE TABLE `Task` (
+                  `TaskID` int(11) NOT NULL AUTO_INCREMENT,
+                  `Title` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                  UNIQUE KEY `TaskID` (`TaskID`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Teacher">
+                CREATE TABLE `Teacher` (
+                  `TeacherID` int(11) NOT NULL AUTO_INCREMENT,
+                  `FirstName` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                  `LastName` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                  `Email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                  `Password` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+                  `Administrator` int(11) NOT NULL DEFAULT '0',
+                  UNIQUE KEY `TeacherID` (`TeacherID`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="TeacherClassRelationship">
+                CREATE TABLE `TeacherClassRelationship` (
+                  `TeacherClassRelationshipID` int(11) NOT NULL AUTO_INCREMENT,
+                  `ClassID` int(11) NOT NULL,
+                  `TeacherID` int(11) NOT NULL,
+                  UNIQUE KEY `TeacherClassRelID` (`TeacherClassRelationshipID`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="Tutorial">
+                CREATE TABLE `Tutorial` (
+                  `TutorialID` int(11) NOT NULL AUTO_INCREMENT,
+                  `TutorialName` varchar(70) NOT NULL,
+                  `TutorialText` text NOT NULL,
+                  UNIQUE KEY `TutorialID` (`TutorialID`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'test'
+    -->
+    <database name="test">
+        <!-- Table Class -->
+        <table name="Class">
+            <column name="ClassID">1</column>
+            <column name="ClassName">Class 1</column>
+        </table>
+        <table name="Class">
+            <column name="ClassID">2</column>
+            <column name="ClassName">Class 2</column>
+        </table>
+        <table name="Class">
+            <column name="ClassID">3</column>
+            <column name="ClassName">Class 3</column>
+        </table>
+        <table name="Class">
+            <column name="ClassID">4</column>
+            <column name="ClassName">Class 4</column>
+        </table>
+        <table name="Class">
+            <column name="ClassID">5</column>
+            <column name="ClassName">Class 5</column>
+        </table>
+        <!-- Table Progress -->
+        <table name="Progress">
+            <column name="ProgressID">36</column>
+            <column name="TaskID">1</column>
+            <column name="StudentID">5</column>
+            <column name="DateStarted">2015-03-18 09:15:34</column>
+            <column name="DateModified">2015-03-18 14:25:41</column>
+            <column name="DateCompleted">2015-03-18 14:25:47</column>
+            <column name="Output">integer: 5
+real: 4.6
+flag: True
+sentence: Starting Python
+</column>
+            <column name="Code">#Fill out Task 1 here
+integer = 5
+#Fill out Task 2 here
+real = 4.6
+#Fill out Task 3 here
+flag = True
+#Fill out Task 4 here
+sentence = 'Starting Python'
+
+###This will print out the results for you
+print 'integer: %s' % (str(integer))
+print 'real: %s' % (str(real))
+print 'flag: %s' % (str(flag))
+print 'sentence: %s' % (sentence)</column>
+            <column name="Correctness_Points">0.9828</column>
+            <column name="Similarity_Points">1.0000</column>
+            <column name="Attempts">2</column>
+            <column name="Attempts_Points">0.7071</column>
+            <column name="Time_Points">0.0016</column>
+        </table>
+        <table name="Progress">
+            <column name="ProgressID">37</column>
+            <column name="TaskID">3</column>
+            <column name="StudentID">5</column>
+            <column name="DateStarted">2015-03-18 09:22:51</column>
+            <column name="DateModified">NULL</column>
+            <column name="DateCompleted">2015-03-18 09:23:36</column>
+            <column name="Output">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</column>
+            <column name="Code">#Write the program below
+print 1
+print 2
+print 3
+print 4
+print 5
+print 6
+print 7
+print 8
+print 9
+print 10</column>
+            <column name="Correctness_Points">1.0000</column>
+            <column name="Similarity_Points">0.0000</column>
+            <column name="Attempts">1</column>
+            <column name="Attempts_Points">1.0000</column>
+            <column name="Time_Points">0.2000</column>
+        </table>
+        <table name="Progress">
+            <column name="ProgressID">38</column>
+            <column name="TaskID">3</column>
+            <column name="StudentID">1</column>
+            <column name="DateStarted">2015-03-18 09:24:48</column>
+            <column name="DateModified">NULL</column>
+            <column name="DateCompleted">2015-03-18 09:24:57</column>
+            <column name="Output">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</column>
+            <column name="Code">#Write the program below
+for count in range(1,11):
+    print count</column>
+            <column name="Correctness_Points">1.0000</column>
+            <column name="Similarity_Points">1.0000</column>
+            <column name="Attempts">1</column>
+            <column name="Attempts_Points">1.0000</column>
+            <column name="Time_Points">1.0000</column>
+        </table>
+        <table name="Progress">
+            <column name="ProgressID">40</column>
+            <column name="TaskID">5</column>
+            <column name="StudentID">1</column>
+            <column name="DateStarted">2015-03-18 09:49:23</column>
+            <column name="DateModified">NULL</column>
+            <column name="DateCompleted">2015-03-18 09:52:08</column>
+            <column name="Output">string : Strings in Python
+length : 17
+language : Python
+</column>
+            <column name="Code">#Task 1
+string = 'Strings in Python'
+#Task 2
+length = len('Strings in Python')
+#Task 3
+language = 'Python'
+
+##Printing to Console
+print 'string : %s' % (string)
+print 'length : %d' % (length)
+print 'language : %s' % (language)</column>
+            <column name="Correctness_Points">1.0000</column>
+            <column name="Similarity_Points">0.7143</column>
+            <column name="Attempts">1</column>
+            <column name="Attempts_Points">1.0000</column>
+            <column name="Time_Points">1.0000</column>
+        </table>
+        <table name="Progress">
+            <column name="ProgressID">41</column>
+            <column name="TaskID">5</column>
+            <column name="StudentID">5</column>
+            <column name="DateStarted">2015-03-18 09:53:03</column>
+            <column name="DateModified">2015-03-18 12:37:20</column>
+            <column name="DateCompleted">2015-03-18 14:12:55</column>
+            <column name="Output">string : Strings in Python
+length : 17
+language : Strings in 
+</column>
+            <column name="Code">#Task 1
+string = 'Strings in Python'
+#Task 2
+length = len(string)
+#Task 3
+language = string[:-6]
+
+##Printing to Console
+print 'string : %s' % (string)
+print 'length : %d' % (length)
+print 'language : %s' % (language)</column>
+            <column name="Correctness_Points">0.8387</column>
+            <column name="Similarity_Points">1.0000</column>
+            <column name="Attempts">2</column>
+            <column name="Attempts_Points">0.7071</column>
+            <column name="Time_Points">0.0106</column>
+        </table>
+        <table name="Progress">
+            <column name="ProgressID">42</column>
+            <column name="TaskID">1</column>
+            <column name="StudentID">3</column>
+            <column name="DateStarted">2015-03-18 11:00:09</column>
+            <column name="DateModified">NULL</column>
+            <column name="DateCompleted">2015-03-18 11:00:38</column>
+            <column name="Output">integer: 5
+real: 4.5
+flag: True
+sentence: Starting Python
+</column>
+            <column name="Code">#Fill out Task 1 here
+integer = 5
+#Fill out Task 2 here
+real = 4.5
+#Fill out Task 3 here
+flag = True
+#Fill out Task 4 here
+sentence = 'Starting Python'
+
+###This will print out the results for you
+print 'integer: %s' % (str(integer))
+print 'real: %s' % (str(real))
+print 'flag: %s' % (str(flag))
+print 'sentence: %s' % (sentence)</column>
+            <column name="Correctness_Points">1.0000</column>
+            <column name="Similarity_Points">1.0000</column>
+            <column name="Attempts">1</column>
+            <column name="Attempts_Points">1.0000</column>
+            <column name="Time_Points">1.0000</column>
+        </table>
+        <table name="Progress">
+            <column name="ProgressID">43</column>
+            <column name="TaskID">6</column>
+            <column name="StudentID">3</column>
+            <column name="DateStarted">2015-03-18 11:01:46</column>
+            <column name="DateModified">2015-03-18 14:57:47</column>
+            <column name="DateCompleted">2015-03-18 15:19:36</column>
+            <column name="Output">TestCase Base Case 1: print fibonacci(0)
+1
+TestCase Base Case 2: print fibonacci(1)
+1
+TestCase Extreme Case: print fibonacci(2)
+2
+TestCase Normal Use: print fibonacci(7)
+21
+TestCase Normal Use: print fibonacci(20)
+10946
+</column>
+            <column name="Code">def fibonacci(n):
+  # Define Base Case 1
+  # Define Base Case 2
+  if n == 0 or n ==1:
+    return 1
+  # Define Recursive Step
+  else:
+    return fibonacci(n-1) + fibonacci(n-2)</column>
+            <column name="Correctness_Points">1.0000</column>
+            <column name="Similarity_Points">0.7714</column>
+            <column name="Attempts">2</column>
+            <column name="Attempts_Points">0.7071</column>
+            <column name="Time_Points">0.0099</column>
+        </table>
+        <table name="Progress">
+            <column name="ProgressID">34</column>
+            <column name="TaskID">6</column>
+            <column name="StudentID">5</column>
+            <column name="DateStarted">2015-03-17 17:39:50</column>
+            <column name="DateModified">2015-03-18 09:16:36</column>
+            <column name="DateCompleted">2015-03-18 09:19:16</column>
+            <column name="Output">TestCase Base Case 1: print fibonacci(0)
+0
+TestCase Base Case 2: print fibonacci(1)
+1
+TestCase Test Case 1 (Extreme): print fibonacci(2)
+1
+TestCase Test Case 2: print fibonacci(7)
+13
+TestCase Test Case 3: print fibonacci(15)
+610
+</column>
+            <column name="Code">'''
+Use the fibonacci function to complete the task
+'''
+def fibonacci(n):
+  #Base Case 1
+  if n==0:
+    return 0
+  #Base Case 2
+  if n==1:
+    return 1
+  #Recursive Step
+  if n != 1 or n != 0:
+    return fibonacci(n-1)+fibonacci(n-2)</column>
+            <column name="Correctness_Points">0.9782</column>
+            <column name="Similarity_Points">0.8788</column>
+            <column name="Attempts">4</column>
+            <column name="Attempts_Points">0.7071</column>
+            <column name="Time_Points">0.0027</column>
+        </table>
+        <table name="Progress">
+            <column name="ProgressID">39</column>
+            <column name="TaskID">6</column>
+            <column name="StudentID">1</column>
+            <column name="DateStarted">2015-03-18 09:40:12</column>
+            <column name="DateModified">NULL</column>
+            <column name="DateCompleted">2015-03-18 09:42:45</column>
+            <column name="Output"></column>
+            <column name="Code">def fibonacci(n):
+  # Define Base Case 1
+  
+  # Define Base Case 2
+  
+  # Define Recursive Step
+  
+  </column>
+            <column name="Correctness_Points">0.0000</column>
+            <column name="Similarity_Points">0.0000</column>
+            <column name="Attempts">1</column>
+            <column name="Attempts_Points">0.0000</column>
+            <column name="Time_Points">1.0000</column>
+        </table>
+        <!-- Table Student -->
+        <table name="Student">
+            <column name="StudentID">1</column>
+            <column name="FirstName">Zac</column>
+            <column name="LastName">Hamid</column>
+            <column name="ClassID">1</column>
+            <column name="Email">zachamid@whomail.com</column>
+            <column name="Password">5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</column>
+        </table>
+        <table name="Student">
+            <column name="StudentID">3</column>
+            <column name="FirstName">Example</column>
+            <column name="LastName">Student</column>
+            <column name="ClassID">1</column>
+            <column name="Email">lilypotter@mugglenet.com</column>
+            <column name="Password">5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</column>
+        </table>
+        <table name="Student">
+            <column name="StudentID">4</column>
+            <column name="FirstName">Lewis</column>
+            <column name="LastName">Brinicombe</column>
+            <column name="ClassID">1</column>
+            <column name="Email">lewis@gmail.com</column>
+            <column name="Password">5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</column>
+        </table>
+        <table name="Student">
+            <column name="StudentID">5</column>
+            <column name="FirstName">Example</column>
+            <column name="LastName">Student2</column>
+            <column name="ClassID">1</column>
+            <column name="Email">examplestudent@imaginary.com</column>
+            <column name="Password">5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</column>
+        </table>
+        <table name="Student">
+            <column name="StudentID">11</column>
+            <column name="FirstName">Jonathan</column>
+            <column name="LastName">Shaw</column>
+            <column name="ClassID">0</column>
+            <column name="Email">09shawj@studio.knutsfordacademy.org.uk</column>
+            <column name="Password">9512b3509479d4bca772ce1e6348329eca3a28c71c41f93bfffea56ac5256679</column>
+        </table>
+        <table name="Student">
+            <column name="StudentID">12</column>
+            <column name="FirstName">Matthew</column>
+            <column name="LastName">Greenwood</column>
+            <column name="ClassID">0</column>
+            <column name="Email">mattgreenwood@live.com</column>
+            <column name="Password">5600f4e0f6825cb7975eb73f8daec7d26775b2572a0a4bed71705b1988062bf9</column>
+        </table>
+        <table name="Student">
+            <column name="StudentID">10</column>
+            <column name="FirstName">Alex</column>
+            <column name="LastName">A</column>
+            <column name="ClassID">1</column>
+            <column name="Email">alexa@mail.com</column>
+            <column name="Password">5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</column>
+        </table>
+        <!-- Table Task -->
+        <table name="Task">
+            <column name="TaskID">1</column>
+            <column name="Title">Variables</column>
+        </table>
+        <table name="Task">
+            <column name="TaskID">2</column>
+            <column name="Title">Selection</column>
+        </table>
+        <table name="Task">
+            <column name="TaskID">3</column>
+            <column name="Title">Iteration - For Loop</column>
+        </table>
+        <table name="Task">
+            <column name="TaskID">4</column>
+            <column name="Title">Data Structures</column>
+        </table>
+        <table name="Task">
+            <column name="TaskID">5</column>
+            <column name="Title">Strings</column>
+        </table>
+        <table name="Task">
+            <column name="TaskID">7</column>
+            <column name="Title">Sorting: BubbleSort</column>
+        </table>
+        <table name="Task">
+            <column name="TaskID">12</column>
+            <column name="Title">Data Structures: Array</column>
+        </table>
+        <table name="Task">
+            <column name="TaskID">9</column>
+            <column name="Title">Classes</column>
+        </table>
+        <table name="Task">
+            <column name="TaskID">6</column>
+            <column name="Title">Recursion</column>
+        </table>
+        <!-- Table Teacher -->
+        <table name="Teacher">
+            <column name="TeacherID">1</column>
+            <column name="FirstName">teacher1</column>
+            <column name="LastName">teacher1</column>
+            <column name="Email">example@example.com</column>
+            <column name="Password">5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</column>
+            <column name="Administrator">1</column>
+        </table>
+        <table name="Teacher">
+            <column name="TeacherID">2</column>
+            <column name="FirstName">Example</column>
+            <column name="LastName">Teacher</column>
+            <column name="Email">exampleteacher@imaginary.com</column>
+            <column name="Password">5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</column>
+            <column name="Administrator">0</column>
+        </table>
+        <table name="Teacher">
+            <column name="TeacherID">3</column>
+            <column name="FirstName">Example</column>
+            <column name="LastName">Administrator</column>
+            <column name="Email">exampleadministrator@imaginary.com</column>
+            <column name="Password">5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8</column>
+            <column name="Administrator">1</column>
+        </table>
+        <!-- Table TeacherClassRelationship -->
+        <table name="TeacherClassRelationship">
+            <column name="TeacherClassRelationshipID">1</column>
+            <column name="ClassID">1</column>
+            <column name="TeacherID">1</column>
+        </table>
+        <table name="TeacherClassRelationship">
+            <column name="TeacherClassRelationshipID">2</column>
+            <column name="ClassID">2</column>
+            <column name="TeacherID">1</column>
+        </table>
+        <table name="TeacherClassRelationship">
+            <column name="TeacherClassRelationshipID">3</column>
+            <column name="ClassID">3</column>
+            <column name="TeacherID">1</column>
+        </table>
+        <table name="TeacherClassRelationship">
+            <column name="TeacherClassRelationshipID">4</column>
+            <column name="ClassID">4</column>
+            <column name="TeacherID">1</column>
+        </table>
+        <table name="TeacherClassRelationship">
+            <column name="TeacherClassRelationshipID">13</column>
+            <column name="ClassID">1</column>
+            <column name="TeacherID">2</column>
+        </table>
+        <table name="TeacherClassRelationship">
+            <column name="TeacherClassRelationshipID">6</column>
+            <column name="ClassID">1</column>
+            <column name="TeacherID">3</column>
+        </table>
+        <table name="TeacherClassRelationship">
+            <column name="TeacherClassRelationshipID">7</column>
+            <column name="ClassID">2</column>
+            <column name="TeacherID">3</column>
+        </table>
+        <table name="TeacherClassRelationship">
+            <column name="TeacherClassRelationshipID">8</column>
+            <column name="ClassID">2</column>
+            <column name="TeacherID">2</column>
+        </table>
+        <table name="TeacherClassRelationship">
+            <column name="TeacherClassRelationshipID">9</column>
+            <column name="ClassID">5</column>
+            <column name="TeacherID">1</column>
+        </table>
+        <table name="TeacherClassRelationship">
+            <column name="TeacherClassRelationshipID">10</column>
+            <column name="ClassID">3</column>
+            <column name="TeacherID">2</column>
+        </table>
+        <!-- Table Tutorial -->
+        <table name="Tutorial">
+            <column name="TutorialID">1</column>
+            <column name="TutorialName">Variables &amp; Standard Python Operations</column>
+            <column name="TutorialText">&quot;&quot;&quot;
+Variables &amp; Standard Python Operations
+======================================
+Variables store values, that can be looked at or changed
+at any time.
+They can be of many different types: integers, reals,
+strings, boolean etc.
+
+Integers and Reals are subject to the standard arithmetic
+operations
+&quot;&quot;&quot;
+n1 = 1.5
+n2 = 2.5
+print 'n1 = %d, n2 = %d' % (n1,n2)
+print 'Addition of n1 and n2 : %d' % (n1+n2)
+print 'Subtration of n1 and n2 : %d' % (n1-n2)
+print 'Product of n1 and n2 : %d' % (n1*n2)
+print 'Division of n1 and n2 : %d' % (n1/n2)
+
+
+print '==='
+&quot;&quot;&quot;
+Strings are a collection of characters, and have there own
+set of functions provided by Python, including:
+-len: returns the length of a string
+-index: returns the index of a given character, or string
+ within the string
+&quot;&quot;&quot;
+s1 = 'Example String'
+print 's1 = \'%s\'' % (s1)
+print 'len(s1) = %d' % (len(s1))
+sub_s1 = 'am'
+print 'index(s1,%s) = %d' % (sub_s1,s1.index(sub_s1))</column>
+        </table>
+        <table name="Tutorial">
+            <column name="TutorialID">2</column>
+            <column name="TutorialName">If Statements and Boolean Expressions</column>
+            <column name="TutorialText">&quot;&quot;&quot;
+Selection: If Statements
+========================
+Boolean Statements
+------------------
+A boolean statement is an expression that
+can either read True or False, such as:
+- 3 &gt; 2
+- 4 &lt; 2
+- True
+- 1 == 1
+- 3 != 3
+Let us see how these are represented in Python
+&quot;&quot;&quot;
+n1 = (3 &lt; 2)
+n2 = (2 &gt; 1)
+print 'n1 = %s, n2 = %s' % (n1, n2)
+print 'n1 AND n2 : %s' % (n1 and n2)
+print 'n1 OR n2 : %s' % (n1 or n2)
+print 'NOT n1: %s' % (not n1)
+print 'NOT n2: %s' % (not n2)
+print '==='
+
+&quot;&quot;&quot;
+This boolean expressions are used in if-statements
+that have the structure:
+  if &lt;boolean expression&gt;:
+    do this
+&quot;&quot;&quot;
+expression1 = 3 &gt; 2
+if expression1:
+  print 'expression1 is True'
+
+print '==='
+
+&quot;&quot;&quot;
+The If-Else Statement has the form:
+  if &lt;boolean expression&gt;:
+    do this
+  else:
+    do this
+&quot;&quot;&quot;
+expression2 = 3 == 2
+if expression2:
+  print 'expression2 is True'
+else:
+  print 'expression2 is False'
+
+print '==='
+
+&quot;&quot;&quot;
+The If-Elif-Else Statement takes the form:
+  if &lt;boolean expression&gt;:
+    do this
+  elif &lt;boolean expression&gt;:
+    do this
+  else:
+    do this
+&quot;&quot;&quot;
+expression3 = 4 &gt;= 2
+expression4 = 1 &lt; 0
+if expression3:
+  print 'expression3 is True'
+elif expression4:
+  print 'expression4 is True'
+  print 'BUT expression3 is False'
+else:
+  print 'Both expressions are False'
+</column>
+        </table>
+        <table name="Tutorial">
+            <column name="TutorialID">4</column>
+            <column name="TutorialName">Iterations: For and While Loops</column>
+            <column name="TutorialText">'''
+Iteration
+---------
+Iterations are used when a block of code must be run
+multiple times. There are two main types of iteration
+structures: the For Loop and the While Loop.
+
+The For Loop is used if the number of iterations is 
+known. It is usually of the form:
+for &lt;condition and update process&gt;:
+	&lt;do this&gt;
+
+In the example below, We will find all the multiples
+of 9 less than 100. Here, the condition is while n is
+less that 100, and the update process is incrementing
+n on every iteration.
+'''
+
+print 'For Loop Implementation'
+print '-----------------------'
+for n in range(1,100):
+  if n % 9 == 0:
+    print n,
+
+'''
+The While Loop is used if the block of code is needed
+to be run for as many times as it needs to until a 
+certain condition is met. It is of the form:
+while &lt;condition&gt;:
+	&lt;do this&gt;
+We will now rewrite the same program using the while
+loop instead
+'''
+
+print '''
+
+While Loop Implementation
+-------------------------'''
+n=1
+while n &lt;= 100:
+  if n % 9 == 0:
+    print n,
+  n=n+1
+
+'''
+Since loops terminate only when a condition is met,
+there is a chance they can run forever. There is a
+measure in Python called an early exit, putting 
+'break' in the middle of a loop will force the program
+to exit the current loop it is iterating on. We are
+going to use this concept in our program now. Note: if
+we didn't have this exit point, the loop will run
+infinitely
+'''
+print '''
+
+While Loop Implementation with Exits
+------------------------------------'''
+n=1
+while True:
+  if n &gt; 100:
+    break
+  if n % 9 == 0:
+    print n,
+  n = n+1</column>
+        </table>
+        <table name="Tutorial">
+            <column name="TutorialID">5</column>
+            <column name="TutorialName">Functions &amp; Subroutines</column>
+            <column name="TutorialText">'''
+Functions and Subroutines
+-------------------------
+A Function is an element of a program that can be
+used multiple times. If we didn't establish functions,
+we would have to copy and paste the same bit of code
+in every part we wanted to use it.
+
+A function or subroutine has the structure:
+def &lt;function signature&gt;:
+	&lt;function content&gt;
+
+The following function will simply print out the 
+phrase 'Hello World', and the loop will print it out
+multiple times
+'''
+print '''Simple Function Definition
+--------------------------'''
+def sayHello():
+  print 'Hello World'
+
+for i in range (0,3):
+  sayHello()
+
+'''
+Parameters: If we want our function to take arguments,
+we have to define parameters for it. These are found 
+in the function signature:
+def FunctionName(parameter1, parameter2,...):
+
+It is important to maintain order when dealing with 
+parameters. The following function will take a name
+and age. It will say hello, and then say if they are
+over 18
+'''
+print '''
+Functions with Parameters
+-------------------------'''
+
+def sayHelloAndCheckAge(name, age):
+  print 'Hello %s-' % (name),
+  if age &gt; 18:
+    print 'Older than 18'
+  else:
+    print 'Younger than 18'
+
+sayHelloAndCheckAge('John', 19)
+sayHelloAndCheckAge('Jenny', 17)
+
+'''
+Return Statements: Usually, we may need to use the 
+result of a function later on in the program. Hence,
+we may need the function to return a value. This is
+done via the 'return' reserved word:
+def &lt;function signature&gt;:
+	&lt;function content
+    ...&gt;
+    return &lt;return_value&gt;
+The following function will convert a given 
+temperature from Celsius to Fahrenheit
+'''
+print '''
+Functions with Return Statement
+-------------------------------'''
+
+def CelsiusToFahrenheit(temp_celsius):
+  return (temp_celsius*((float)(9) / 5))+32
+
+print CelsiusToFahrenheit(0)
+print CelsiusToFahrenheit(100)</column>
+        </table>
+        <table name="Tutorial">
+            <column name="TutorialID">7</column>
+            <column name="TutorialName">Sorting: Bubble Sort</column>
+            <column name="TutorialText">'''
+We define the Sorting Problem as:
+Given: an array of elements with a natural order
+Return: the same array with the elements in that
+		natural order.
+        
+The simplest and easiest way of doing this is 
+BubbleSort.
+The Algorithm follows:
+for each element i in the array:
+	for each other element j in the array:
+    	if i &gt; j:
+        	swap i
+'''
+def BubbleSort(array):
+  for i in range(len(array)):
+    for j in range(len(array)):
+      if array[i] &lt; array[j]:
+        temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
+  return array
+
+print BubbleSort([3,5,2,1,6,8,3,2])
+print BubbleSort(['Chris','Becky','Andy','Charlotte'])</column>
+        </table>
+        <table name="Tutorial">
+            <column name="TutorialID">8</column>
+            <column name="TutorialName">Sorting: MergeSort</column>
+            <column name="TutorialText">'''
+MergeSort
+---------
+MergeSort is a different type of Sorting Algorithm,
+compared to BubbleSort, as it uses recursion and uses
+a property called Divide-and-Conquer. 
+
+Divide-and-Conquer algorithms use recursion to divide
+the problem posed into subproblems.
+'''
+
+'''
+The Divide function splits a given array into two
+smaller arrays. This means the main function can 
+reduce the problem into two smaller versions of the
+same problem
+'''
+def divide(array):
+  midpoint = len(array)/2
+  left = array[: midpoint]
+  right = array[midpoint : ]
+  return (left,right)
+
+'''
+The Merge function is the counteraction to the
+Divide functions. Given two sorted arrays, it will
+produce and return a single sorted array consisting of
+the elements of its two arguments
+'''
+
+def merge(array1,array2):
+  sorted_array = []
+  
+  sorted_index = 0
+  index1 = 0
+  index2 = 0
+  while index1 &lt; len(array1) and index2 &lt; len(array2):
+    if(array1[index1] &lt; array2[index2]):
+      sorted_array.append(array1[index1])
+      index1 += 1
+    else:
+      sorted_array.append(array2[index2])
+      index2 += 1
+  
+  while index1 &lt; len(array1):
+    sorted_array.append(array1[index1])
+    index1 += 1
+  
+  while index2 &lt; len(array2):
+    sorted_array.append(array2[index2])
+    index2 += 1
+  
+  return sorted_array
+
+'''
+The Merge_Sort function is the main function, which
+will divide the array and recursively sort each part,
+merging the two results at the end.
+
+[Note: all lines using the level or indent variables
+are purely for printing statements. You can remove 
+all print statements, and indent references, and the
+algorithm should work the same]
+'''
+def merge_sort(array, level=0):
+  indent = level*'  '
+  if len(array) &gt; 1:
+    left,right = divide(array)
+    print indent,'Array to Split: ',str(array)
+    left = merge_sort(left, level+1)
+    print indent,'Left Array Sorted: ', str(left)
+   	
+    right = merge_sort(right, level+1)
+    print indent,'Right Array Sorted: ', str(right) 
+    
+    sorted_array = merge(left,right)
+    print indent,'Array Sorted: ', str(sorted_array)
+    return sorted_array
+  else:
+    return array
+
+  
+'''
+You can test the MergeSort function here
+'''
+print merge_sort([3,1,4,7,10,8])</column>
+        </table>
+        <table name="Tutorial">
+            <column name="TutorialID">6</column>
+            <column name="TutorialName">Recursion</column>
+            <column name="TutorialText">'''
+Recursion
+---------
+Recursion is concept of reducing a problem to a 
+smaller version of the same problem. It is often
+thought of as an alternative to iteration (using 
+loops).
+
+A recursive algorithm is made of two parts:
+1. Base Case. This is the terminating condition of
+   the algorithm. This is important as it prevents
+   the infinite recursion
+2. Recursive Step. This part allows the algorithm to
+   converge. This step will consist of a call to 
+   itself, with a value closer to the base case.
+
+The example we will use is the mathematical function,
+factorial. The factorial operation is defined as:
+	1! = 1
+    2! = 2 x 1 = 2 x 1!
+    3! = 3 x 2 x 1 = 3 x 2!
+  We can abstract it to say:
+  	n! = n * (n-1)!
+
+We will now implement it in code. Print Statements
+and references to indent and level variablesin the
+command are simply to show instances of factorial
+being called
+'''
+
+def factorial(n, level=0):
+  indent = level*'  '
+  print indent,'Evaluating factorial of',n
+  #Base Case
+  if n == 1:
+    print indent,'BaseCase: 1'
+    return 1
+  #Recursive Step
+  else:
+    lower_case = factorial(n-1, level+1)
+    print indent,'Evaluated lower case:',n-1
+    return n * lower_case
+
+'''
+Testing the Factorial Function:
+'''
+print factorial(5)</column>
+        </table>
+        <table name="Tutorial">
+            <column name="TutorialID">11</column>
+            <column name="TutorialName">Classes and Object Definition</column>
+            <column name="TutorialText">'''
+Classes and Object Creation
+---------------------------
+We define a class as a 'user-defined prototype for
+an object'. It is used to abstract real life in code,
+so that an object in real life corresponds to a class
+in code.
+
+We are going to create a Person Class.
+The signature is as follows:
+class &lt;className&gt;
+'''
+class Person:
+  'The is a Person Class'
+  # If a string is provided under the signature, it
+  # becomes the class documentation string
+  
+  # this is a class variable - one that is the same,
+  # throughout all instances of the class
+  person_count = 0
+  
+  # the __init__() method is the contructor, it is 
+  # what is called when the program creates an
+  # instance of the class
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+    Person.person_count += 1
+  # Other reserved methods include:
+  #  -__del__ : operation when 'del &lt;object&gt;'
+  #  -__str__ : defines string representation
+  #  -__cmp__ : defines natural order for use with
+  #             cmp function
+  
+  #The following functions can be called
+  def print_details(self):
+    print 'Name: %s, Age: %d' % (self.name, self.age)
+  
+  def print_count():
+    print 'Count: %d' % Person.person_count
+
+zac = Person('Zac', 18)
+zac.print_details()
+Person.print_count()
+jane = Person('Jane',49)
+jane.print_details()
+Person.print_count()</column>
+        </table>
+        <table name="Tutorial">
+            <column name="TutorialID">12</column>
+            <column name="TutorialName">Data Structures - Arrays</column>
+            <column name="TutorialText">'''
+Arrays
+------
+Arrays are structures made of elements, each element
+mapped to an index.
+
+Arrays can be defined with square brackets [], and the
+elements on the inside joined by commas. There is no
+type obligation with arrays, so you can put elements
+of different types in a single array
+'''
+an_array = [4, 'ball', True, [5.7, 'catch'],4]
+
+'''
+Iterating through elements
+--------------------------
+An array can be iterated through using loops.
+The easiest way is a for-in loop, which is of the form
+
+for &lt;var&gt; in &lt;array&gt;:
+	do command with &lt;var&gt;
+
+The following example will print all of the elements
+each on a new line
+'''
+
+for element in an_array:
+  print element
+
+'''
+it can also be done through iterating through the 
+indices
+'''
+print '----------'
+for index in range(0,len(an_array)):
+  print an_array[index]
+
+'''
+Splitting an array:
+We can use the indices to split take a smaller part
+of the array
+'''
+print '----------'
+
+first_part = an_array[:3]
+print first_part
+
+'''
+Other functions
+- array.count(x): counts the number of instances of
+				  x in array
+'''
+print '---------'
+print an_array.count(4)</column>
+        </table>
+    </database>
+</pma_xml_export>
