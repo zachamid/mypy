@@ -21,6 +21,7 @@ for mod in required_mods:
 
 # retrieve database information
 options = getopt.getopt(sys.argv[:1],"h:u:t:d:",["host=","username=","table=","tasks_dir="]);
+print options
 
 host = ''
 user = ''
