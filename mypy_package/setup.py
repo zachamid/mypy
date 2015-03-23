@@ -20,7 +20,7 @@ for mod in required_mods:
 			
 
 # retrieve database information
-options = getopt.getopt(sys.argv[:1],"o:v:",["host=","username=","table=","tasks_dir="]);
+options = getopt.getopt(sys.argv[:1],"h:u:t:d:",["host=","username=","table=","tasks_dir="]);
 
 host = ''
 user = ''
