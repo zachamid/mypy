@@ -1,46 +1,58 @@
 #!/usr/bin/python
 
 import sys, getopt
-import MySQLdb, MySQLdb.cursors
 import getpass
 import importlib
 import distutils
-from mako.template import Template
-from mako.lookup import TemplateLookup
 
 # Importing all relevant python modules
-required_mods = ['cgi','cgitb','json','MySQLdb','Cookie','os','datetime','re','mako',
+required_mods = ['cgi','cgitb','json','MySQLdb','os','datetime','re','mako',
 	'hashlib','operator','xml','xmltodict','pylev','math','ast','sys']
 
+flag = 0
 for mod in required_mods:
 	try:
 		importlib.import_module(mod)
-	except ImportError:
-		distutils.core.setup(mod)
-			
+	except ImportError,e:
+		flag = 1
+		print 'Please install ',mod,' to ensure system runs properly'
+
+if flag == 1:
+	print 'Script halting'			
 
 # retrieve database information
-options = getopt.getopt(sys.argv[:1],"h:u:t:d:",["host=","username=","table=","tasks_dir="]);
-print options
-
-host = ''
-user = ''
-db = ''
-tasks_path = ''
-
-for opt, arg in options:
-    if opt in ('-h', '--host'):
+# Store input and output file names
+host=''
+username=''
+table=''
+tasks_path = '../../'
+ 
+# Read command line args
+myopts, args = getopt.getopt(sys.argv[1:],"h:u:t:p:",['host=','username=','table=','tasks_path='])
+ 
+###############################
+# o == option
+# a == argument passed to the o
+###############################
+for opt, arg in myopts:
+    if opt in ('-h','--host'):
         host = arg
-    elif opt in ('-u', '--username'):
+    elif opt in ('-u','--username'):
         username = arg
     elif opt in ('-t','--table'):
-        db = arg
-    elif opt in ('-d','--task_dir'):
-    	tasks_path = arg
+    	table = arg
+    elif opt in ('-p', '--tasks_path'):
+    	tasks_path = ''
+    else:
+        print("Usage: %s -h host -u username -t table" % sys.argv[0])
 
-password = getpass.getpass('Enter the password for '+username+'@%'+host)
+password = getpass.getpass('Enter the password for '+username+'@'+host)
 
 # connect to database
+importlib.import_module('MySQLdb')
+importlib.import_module('MySQLdb.cursors')
+importlib.import_module('mako.template')
+importlib.import_module('mako.lookup')
 try:
 	connection = MySQLdb.connect(host,user,password,table, cursorclass=MySQLdb.cursors.DictCursor)
 	cursor = connection.cursor()
@@ -55,6 +67,7 @@ except MySQLdb.Error, e:
 
 
 # rewrite db_connection file
+
 connection_file = open('db_connection.py','w+')
 content = '''
 #!/usr/bin/python
